@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(./secrets/**)",
+      "Read(./node_modules/**)",
+      "Read(./.next/**)",
+      "Read(./coverage/**)",
+      "Read(./package-lock.json)",
+      "Bash(cat .env*)",
+      "Bash(git push --force*)"
+    ]
+  }
+}

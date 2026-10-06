@@ -1,0 +1,9 @@
+npx lint-staged
+npm test
+
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --redact -v
+else
+  echo "[WARNING] gitleaks is not installed. Secrets scanning was skipped."
+  echo "Please install gitleaks (e.g. winget install gitleaks or brew install gitleaks)."
+fi
