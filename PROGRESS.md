@@ -1,20 +1,20 @@
 # Project Progress
 
 ## Done
-
 - Initialized Git repository and set up `chore/setup` branch.
-- Created `AGENTS.md` and `CLAUDE.md` guidelines.
-- Configured project rules, security boundaries, and tool permissions.
+- Created `AGENTS.md` (< 150 lines) and `CLAUDE.md`.
+- Created `.gitignore`, `.env.example`, and `.claude/settings.json`.
+- Configured Next.js 14, TypeScript (`tsconfig.json`), and Tailwind CSS (`tailwind.config.ts`) with Bastet brand tokens.
+- Set up Vitest test framework (`vitest.config.ts`, `tests/sample.test.ts`).
+- Configured Prettier, ESLint, lint-staged, Husky pre-commit hooks, and GitHub Actions CI workflow (`.github/workflows/ci.yml`).
+- Executed `npm run check` (Lint + Typecheck + Vitest) successfully with 0 errors.
+- Created initial commit: `chore: setup rules, tests, lint, hooks, CI`.
 
 ## In Progress
-
-- Setting up baseline toolchain, config files, testing framework (Vitest), linters, formatting, and CI workflows.
+- Ready for Phase 1 (Foundation).
 
 ## Next
-
-- Execute `npm run check` to verify linting, typechecking, and tests.
-- Commit setup files.
-- Ready for Phase 1 (Foundation).
+- Execute Phase 1: Base layout, navigation, typography, design tokens, and core components.
 
 ## Decisions
 
