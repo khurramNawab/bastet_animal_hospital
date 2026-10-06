@@ -1,0 +1,34 @@
+[
+  {
+    "id": "dog",
+    "name": "Canine (Dogs)",
+    "slug": "dog",
+    "icon": "dog",
+    "comingSoon": false,
+    "tagline": "Specialized multi-speciality veterinary care for all dog breeds."
+  },
+  {
+    "id": "cat",
+    "name": "Feline (Cats)",
+    "slug": "cat",
+    "icon": "cat",
+    "comingSoon": true,
+    "tagline": "Gentle, fear-free dedicated cat sanctuary and clinic coming soon."
+  },
+  {
+    "id": "bird",
+    "name": "Avian (Birds)",
+    "slug": "bird",
+    "icon": "bird",
+    "comingSoon": true,
+    "tagline": "Specialist avian medicine and surgical suite coming soon."
+  },
+  {
+    "id": "cattle",
+    "name": "Livestock & Cattle",
+    "slug": "cattle",
+    "icon": "cow",
+    "comingSoon": true,
+    "tagline": "Large animal veterinary outreach and consultation services coming soon."
+  }
+]

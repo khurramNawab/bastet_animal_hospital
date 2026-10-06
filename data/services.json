@@ -1,0 +1,51 @@
+[
+  {
+    "id": "vaccination",
+    "title": "Preventive Care & Vaccination",
+    "description": "Comprehensive immunization schedules, core vaccines, and seasonal health screenings to protect your pets.",
+    "icon": "ShieldCheck",
+    "animals": ["dog"]
+  },
+  {
+    "id": "surgery",
+    "title": "Advanced Veterinary Surgery",
+    "description": "State-of-the-art sterile surgical suites with dedicated anesthesia monitoring and gentle recovery protocols.",
+    "icon": "Activity",
+    "animals": ["dog"]
+  },
+  {
+    "id": "dental-care",
+    "title": "Dental Prophylaxis & Care",
+    "description": "Ultrasonic scaling, tooth polishing, and specialized oral treatments for fresh breath and healthy gums.",
+    "icon": "Sparkles",
+    "animals": ["dog"]
+  },
+  {
+    "id": "grooming",
+    "title": "Therapeutic & Spa Grooming",
+    "description": "Medicated baths, breed-specific styling, de-shedding, and hygienic clipping by certified pet stylists.",
+    "icon": "Scissors",
+    "animals": ["dog"]
+  },
+  {
+    "id": "emergency",
+    "title": "24x7 Critical & Emergency Care",
+    "description": "Round-the-clock emergency triage, trauma care, oxygen support, and intensive monitoring.",
+    "icon": "HeartPulse",
+    "animals": ["dog"]
+  },
+  {
+    "id": "diagnostics",
+    "title": "Digital Diagnostics & Lab",
+    "description": "High-definition digital X-rays, ultrasonography, and instant in-house blood biochemistry testing.",
+    "icon": "Microscope",
+    "animals": ["dog"]
+  },
+  {
+    "id": "pet-boarding",
+    "title": "Luxury Pet Boarding & Daycare",
+    "description": "Climate-controlled luxury suites, regular exercise sessions, and 24/7 veterinary supervision.",
+    "icon": "Home",
+    "animals": ["dog"]
+  }
+]

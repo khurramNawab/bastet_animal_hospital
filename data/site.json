@@ -1,0 +1,62 @@
+{
+  "name": "Bastet Small Animal Hospital",
+  "tagline": "Where Every Paw Gets Royal Care",
+  "city": "Kolkata",
+  "address": "24/B, Park Street Area, Kolkata 700016",
+  "phone": "+91 90000 00000",
+  "whatsapp": "919000000000",
+  "email": "hello@bastetsmallanimalhospital.com",
+  "timings": {
+    "weekdays": "Mon - Sat: 9:00 AM - 9:00 PM",
+    "sunday": "Sun: 10:00 AM - 2:00 PM",
+    "emergency": "24x7 Emergency Care Available"
+  },
+  "stats": [
+    {
+      "value": 5000,
+      "suffix": "+",
+      "label": "Happy Pets"
+    },
+    {
+      "value": 15,
+      "suffix": "+",
+      "label": "Years of Care"
+    },
+    {
+      "value": 24,
+      "suffix": "x7",
+      "label": "Emergency Support"
+    },
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "Expert Doctors"
+    }
+  ],
+  "navLinks": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "Doctors",
+      "href": "/doctors"
+    },
+    {
+      "label": "Book",
+      "href": "/book"
+    },
+    {
+      "label": "Tips",
+      "href": "/tips"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9A24B" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0B3C3F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" rx="32" fill="#0A1A1C"/>
+  <circle cx="400" cy="300" r="250" fill="url(#goldGlow)"/>
+  <circle cx="400" cy="300" r="180" stroke="#C9A24B" stroke-width="1.5" stroke-dasharray="8 8"/>
+  <path d="M350 320C350 290 370 260 400 260C430 260 450 290 450 320C450 350 400 380 400 380C400 380 350 350 350 320Z" stroke="#C9A24B" stroke-width="2" fill="#C9A24B" fill-opacity="0.1"/>
+  <path d="M380 230L370 200L400 215L430 200L420 230" stroke="#C9A24B" stroke-width="2" stroke-linejoin="round"/>
+  <text x="400" y="440" text-anchor="middle" fill="#FAF5E9" font-family="serif" font-size="20" letter-spacing="4">BASTET SMALL ANIMAL HOSPITAL</text>
+  <text x="400" y="470" text-anchor="middle" fill="#C9A24B" font-family="sans-serif" font-size="12" letter-spacing="3">KOLKATA • 24X7 EMERGENCY</text>
+</svg>

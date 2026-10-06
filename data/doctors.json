@@ -1,0 +1,29 @@
+[
+  {
+    "id": "dr-ananya-sen",
+    "name": "Dr. Ananya Sen",
+    "role": "Head Veterinarian & Surgeon",
+    "yearsOfExperience": 12,
+    "bio": "Specialized in complex soft tissue surgery and critical care with over a decade of clinical excellence in Kolkata.\nDedicated to gentle handling and personalized surgical recovery programs.",
+    "image": "/images/doctor-placeholder.svg",
+    "animals": ["dog"]
+  },
+  {
+    "id": "dr-rohit-banerjee",
+    "name": "Dr. Rohit Banerjee",
+    "role": "Dog Dermatology & Nutrition Specialist",
+    "yearsOfExperience": 8,
+    "bio": "Expert in canine allergies, chronic skin conditions, and clinical dietary formulations for all canine life stages.\nFocused on preventive wellness and holistic skin restoration therapies.",
+    "image": "/images/doctor-placeholder.svg",
+    "animals": ["dog"]
+  },
+  {
+    "id": "dr-meera-das",
+    "name": "Dr. Meera Das",
+    "role": "Dental & Diagnostic Imaging Consultant",
+    "yearsOfExperience": 6,
+    "bio": "Pioneering non-invasive dental procedures, digital ultrasonography, and precision radiology for companion animals.\nPassionate about pain-free oral care and early disease detection.",
+    "image": "/images/doctor-placeholder.svg",
+    "animals": ["dog"]
+  }
+]
