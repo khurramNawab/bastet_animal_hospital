@@ -15,6 +15,14 @@ export interface NavLink {
   href: string;
 }
 
+export interface ModelCredit {
+  title: string;
+  author: string;
+  license: string;
+  source: string;
+  url: string;
+}
+
 export interface SiteConfig {
   name: string;
   tagline: string;
@@ -26,6 +34,9 @@ export interface SiteConfig {
   timings: SiteTiming;
   stats: SiteStat[];
   navLinks: NavLink[];
+  credits?: {
+    model3D?: ModelCredit;
+  };
 }
 
 export interface Doctor {

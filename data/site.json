@@ -58,5 +58,14 @@
       "label": "Contact",
       "href": "/contact"
     }
-  ]
+  ],
+  "credits": {
+    "model3D": {
+      "title": "Dog Puppy",
+      "author": "kenchoo",
+      "license": "CC-BY-4.0",
+      "source": "Sketchfab",
+      "url": "https://skfb.ly/oRKH6"
+    }
+  }
 }

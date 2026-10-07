@@ -136,9 +136,23 @@ export function Footer({ siteConfig }: FooterProps) {
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <p className="text-center sm:text-right">
-            <span>
-              3D Model Credits: Egyptian feline & canine digital sculpts (Phase 2 integration).
-            </span>
+            {siteConfig.credits?.model3D ? (
+              <span>
+                3D model:{' '}
+                <a
+                  href={siteConfig.credits.model3D.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gold/90 hover:underline"
+                >
+                  {siteConfig.credits.model3D.title}
+                </a>{' '}
+                by {siteConfig.credits.model3D.author} ({siteConfig.credits.model3D.license}),{' '}
+                {siteConfig.credits.model3D.source}
+              </span>
+            ) : (
+              <span>3D Model Credits: Licensed via Sketchfab</span>
+            )}
           </p>
         </div>
       </div>
