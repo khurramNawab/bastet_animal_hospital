@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import * as THREE from 'three';
+import { SkeletonUtils } from 'three-stdlib';
 
 interface DogModelProps {
   reducedMotion?: boolean;
@@ -15,11 +16,18 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
 
   // Load GLTF Model & Animations
   const { scene, animations } = useGLTF('/models/dog.glb');
-  const { actions, names } = useAnimations(animations, groupRef);
 
-  // Clone scene so multiple instances or hot-reloads remain pure
+  // Clone skinned mesh properly with SkeletonUtils to retain bone bindings
   const clonedScene = useMemo(() => {
-    const clone = scene.clone(true);
+    const clone = SkeletonUtils.clone(scene) as THREE.Group;
+
+    // Enable shadows and proper material shading
+    clone.traverse((child) => {
+      if ((child as THREE.Mesh).isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
 
     // Compute bounding box to normalize scale and ground to y = 0
     const box = new THREE.Box3().setFromObject(clone);
@@ -28,12 +36,11 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     const center = new THREE.Vector3();
     box.getCenter(center);
 
-    // Normalize height to approx ~1.5 units
-    const maxDim = Math.max(size.x, size.y, size.z);
-    const scaleFactor = 1.4 / maxDim;
+    // Scale puppy to a clear, majestic size (~1.6 units height)
+    const scaleFactor = 1.6 / (size.y || 0.31);
     clone.scale.setScalar(scaleFactor);
 
-    // Recompute box after scaling to place on ground
+    // Recompute box after scaling to center on X/Z and ground on Y=0
     box.setFromObject(clone);
     box.getCenter(center);
     clone.position.x = -center.x;
@@ -43,7 +50,10 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     return clone;
   }, [scene]);
 
-  // Find head or neck joint from the rig
+  // Pass clonedScene to useAnimations
+  const { actions, names } = useAnimations(animations, groupRef);
+
+  // Find head or neck joint from the rig for mouse tracking
   useEffect(() => {
     if (clonedScene) {
       clonedScene.traverse((child) => {
@@ -60,10 +70,12 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     }
   }, [clonedScene]);
 
-  // Play idle animation clip
+  // Play idle animation clip smoothly
   useEffect(() => {
     if (reducedMotion) {
-      actions[names[0]]?.stop();
+      if (names.length > 0 && actions[names[0]]) {
+        actions[names[0]]?.stop();
+      }
       return;
     }
 
@@ -73,11 +85,13 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     }
 
     return () => {
-      actions[names[0]]?.fadeOut(0.5);
+      if (names.length > 0 && actions[names[0]]) {
+        actions[names[0]]?.fadeOut(0.5);
+      }
     };
   }, [actions, names, reducedMotion]);
 
-  // Frame loop for mouse-follow and gentle drift
+  // Frame loop for mouse-follow and breathing
   useFrame((state, delta) => {
     if (reducedMotion || !groupRef.current) return;
 
@@ -91,7 +105,6 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     const targetYaw = THREE.MathUtils.clamp(-pointerX * maxYaw, -maxYaw, maxYaw);
     const targetPitch = THREE.MathUtils.clamp(pointerY * maxPitch, -maxPitch, maxPitch);
 
-    // If head bone exists, apply rotation to head; otherwise smoothly rotate the group
     if (headBoneRef.current) {
       headBoneRef.current.rotation.y = THREE.MathUtils.damp(
         headBoneRef.current.rotation.y,
@@ -108,13 +121,13 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     } else {
       groupRef.current.rotation.y = THREE.MathUtils.damp(
         groupRef.current.rotation.y,
-        targetYaw * 0.6,
+        -Math.PI / 6 + targetYaw * 0.5,
         3,
         delta,
       );
     }
 
-    // Breathing sine fallback if no animation clip is active
+    // Breathing sine fallback
     if (names.length === 0) {
       const breath = Math.sin(state.clock.elapsedTime * 2) * 0.005;
       groupRef.current.position.y = breath;

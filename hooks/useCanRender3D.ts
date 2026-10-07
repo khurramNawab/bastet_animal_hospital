@@ -28,20 +28,15 @@ export function useCanRender3D(): Render3DCapabilities {
     try {
       const canvas = document.createElement('canvas');
       hasWebGL = Boolean(
-        window.WebGLRenderingContext && (canvas.getContext('webgl2') || canvas.getContext('webgl')),
+        window.WebGLRenderingContext &&
+          (canvas.getContext('webgl2') || canvas.getContext('webgl')),
       );
     } catch {
       hasWebGL = false;
     }
 
-    // 4. Low-power / Low-memory Device Check
-    const nav = navigator as Navigator & { deviceMemory?: number };
-    const lowCores = nav.hardwareConcurrency ? nav.hardwareConcurrency <= 4 : false;
-    const lowMemory = nav.deviceMemory ? nav.deviceMemory <= 4 : false;
-    const isLowPower = lowCores || lowMemory;
-
-    // Can render 3D if WebGL supported, desktop viewport, and not severely throttled
-    const canRender3D = hasWebGL && !isMobileViewport && !isLowPower;
+    // Can render 3D if WebGL supported, desktop viewport (>=768px), and not reduced-motion
+    const canRender3D = hasWebGL && !isMobileViewport && !isReducedMotion;
 
     setCapabilities({
       canRender3D,
@@ -53,7 +48,7 @@ export function useCanRender3D(): Render3DCapabilities {
       const updatedMobile = window.innerWidth < 768;
       setCapabilities((prev) => ({
         ...prev,
-        canRender3D: hasWebGL && !updatedMobile && !isLowPower,
+        canRender3D: hasWebGL && !updatedMobile && !isReducedMotion,
       }));
     };
 

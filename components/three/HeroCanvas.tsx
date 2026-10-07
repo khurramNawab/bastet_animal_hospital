@@ -44,7 +44,10 @@ export function HeroCanvas({ reducedMotion = false, onLoaded }: HeroCanvasProps)
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-full min-h-[420px] lg:min-h-[560px]">
+    <div
+      ref={containerRef}
+      className="relative w-full h-full min-h-[440px] lg:min-h-[580px] flex items-center justify-center"
+    >
       <Loader3D onLoaded={onLoaded} />
 
       <Canvas
@@ -56,12 +59,12 @@ export function HeroCanvas({ reducedMotion = false, onLoaded }: HeroCanvasProps)
           alpha: true,
         }}
         camera={{
-          position: [0, 1.2, 3.8],
-          fov: 35,
+          position: [0, 0.9, 3.2],
+          fov: 38,
           near: 0.1,
           far: 50,
         }}
-        className="w-full h-full"
+        className="w-full h-full cursor-grab active:cursor-grabbing"
       >
         <Suspense fallback={null}>
           <Lighting />
