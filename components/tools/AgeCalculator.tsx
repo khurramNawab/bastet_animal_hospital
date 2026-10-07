@@ -40,7 +40,7 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
     config,
   );
 
-  const previousNumberRef = useRef(29);
+  const previousNumberRef = React.useRef(29);
 
   // Animated Count-Up for calculated human age
   useEffect(() => {
