@@ -51,8 +51,12 @@ export interface Doctor {
 
 export interface ServiceItem {
   id: string;
+  slug: string;
   title: string;
   description: string;
+  longDescription?: string;
+  features?: string[];
+  duration?: string;
   icon: string;
   animals: string[];
 }
@@ -63,7 +67,9 @@ export interface AnimalCategory {
   slug: string;
   icon: string;
   comingSoon: boolean;
+  active?: boolean;
   tagline: string;
+  heroLine?: string;
 }
 
 export interface Testimonial {
@@ -90,4 +96,12 @@ export interface StoryPanel {
   detail: string;
   icon: string;
   cameraPose: CameraPose;
+}
+
+export interface WaitlistSubmission {
+  name?: string;
+  email: string;
+  phone?: string;
+  animal: string;
+  hp?: string;
 }

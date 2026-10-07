@@ -34,8 +34,20 @@ export function getServiceById(id: string): ServiceItem | undefined {
   return (servicesData as ServiceItem[]).find((service) => service.id === id);
 }
 
+export function getServiceBySlug(slug: string): ServiceItem | undefined {
+  return (servicesData as ServiceItem[]).find((service) => service.slug === slug);
+}
+
+export function getServicesByAnimal(animalSlug: string): ServiceItem[] {
+  return (servicesData as ServiceItem[]).filter((service) => service.animals.includes(animalSlug));
+}
+
 export function getAnimals(): AnimalCategory[] {
   return animalsData as AnimalCategory[];
+}
+
+export function getAnimalBySlug(slug: string): AnimalCategory | undefined {
+  return (animalsData as AnimalCategory[]).find((animal) => animal.slug === slug);
 }
 
 export function getActiveAnimals(): AnimalCategory[] {

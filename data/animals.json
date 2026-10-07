@@ -3,32 +3,40 @@
     "id": "dog",
     "name": "Canine (Dogs)",
     "slug": "dog",
-    "icon": "dog",
+    "icon": "Dog",
+    "active": true,
     "comingSoon": false,
-    "tagline": "Specialized multi-speciality veterinary care for all dog breeds."
+    "tagline": "Specialized multi-speciality veterinary care for all dog breeds.",
+    "heroLine": "Comprehensive clinical excellence, surgical precision, and 24x7 emergency trauma care designed exclusively for canines."
   },
   {
     "id": "cat",
     "name": "Feline (Cats)",
     "slug": "cat",
-    "icon": "cat",
+    "icon": "Cat",
+    "active": false,
     "comingSoon": true,
-    "tagline": "Gentle, fear-free dedicated cat sanctuary and clinic coming soon."
+    "tagline": "Gentle, fear-free dedicated cat sanctuary and clinic.",
+    "heroLine": "A low-stress feline sanctuary equipped with specialized feline medicine, dental care, and tranquil recovery suites."
   },
   {
     "id": "bird",
     "name": "Avian (Birds)",
     "slug": "bird",
-    "icon": "bird",
+    "icon": "Bird",
+    "active": false,
     "comingSoon": true,
-    "tagline": "Specialist avian medicine and surgical suite coming soon."
+    "tagline": "Specialist avian medicine and surgical suite.",
+    "heroLine": "Expert avian diagnostic endoscopy, beak and feather disease management, and avian critical care."
   },
   {
     "id": "cattle",
     "name": "Livestock & Cattle",
     "slug": "cattle",
-    "icon": "cow",
+    "icon": "Footprints",
+    "active": false,
     "comingSoon": true,
-    "tagline": "Large animal veterinary outreach and consultation services coming soon."
+    "tagline": "Large animal veterinary outreach and consultation.",
+    "heroLine": "On-site mobile veterinary clinics, herd wellness programs, and specialized livestock emergency consultation."
   }
 ]
