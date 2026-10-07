@@ -1,27 +1,37 @@
 import React from 'react';
 import { Hero } from '@/components/sections/Hero';
-import { getSiteConfig, getServices } from '@/lib/data';
+import { Story } from '@/components/sections/Story';
+import { getSiteConfig, getServices, getStoryPanels } from '@/lib/data';
 import { Stethoscope } from 'lucide-react';
 
 export default function HomePage() {
   const siteConfig = getSiteConfig();
   const services = getServices();
+  const storyPanels = getStoryPanels();
 
   return (
     <main className="flex flex-col items-center justify-center w-full overflow-hidden">
       {/* Cinematic 3D Hero Section */}
       <Hero siteConfig={siteConfig} />
 
+      {/* Cinematic Pinned 3D Scroll Storytelling Section */}
+      <Story panels={storyPanels} />
+
       {/* Services Preview Bar */}
       <section
         id="explore-services"
-        className="w-full py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gold/20"
+        className="w-full py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gold/20"
       >
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <span className="text-xs uppercase tracking-widest text-gold-dark font-semibold">
             Comprehensive Canine Care
           </span>
-          <h2 className="font-display text-3xl text-teal font-bold mt-1">Our Core Services</h2>
+          <h2 className="font-display text-3xl sm:text-4xl text-teal font-bold mt-1">
+            Our Core Services
+          </h2>
+          <p className="mt-2 text-sm text-ink/75 max-w-lg mx-auto">
+            World-class diagnostic, surgical, and therapeutic medical disciplines for canines.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.slice(0, 3).map((service) => (

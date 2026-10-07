@@ -3,8 +3,16 @@ import doctorsData from '@/data/doctors.json';
 import servicesData from '@/data/services.json';
 import animalsData from '@/data/animals.json';
 import testimonialsData from '@/data/testimonials.json';
+import storyData from '@/data/story.json';
 
-import type { SiteConfig, Doctor, ServiceItem, AnimalCategory, Testimonial } from './types';
+import type {
+  SiteConfig,
+  Doctor,
+  ServiceItem,
+  AnimalCategory,
+  Testimonial,
+  StoryPanel,
+} from './types';
 
 export function getSiteConfig(): SiteConfig {
   return siteData as SiteConfig;
@@ -36,4 +44,8 @@ export function getActiveAnimals(): AnimalCategory[] {
 
 export function getTestimonials(): Testimonial[] {
   return testimonialsData as Testimonial[];
+}
+
+export function getStoryPanels(): StoryPanel[] {
+  return storyData as StoryPanel[];
 }

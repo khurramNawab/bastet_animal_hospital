@@ -74,3 +74,20 @@ export interface Testimonial {
   text: string;
   rating: number;
 }
+
+export interface CameraPose {
+  position: [number, number, number];
+  target: [number, number, number];
+  dogRotationY: number;
+  dogScale: number;
+}
+
+export interface StoryPanel {
+  id: string;
+  step: string;
+  title: string;
+  line: string;
+  detail: string;
+  icon: string;
+  cameraPose: CameraPose;
+}

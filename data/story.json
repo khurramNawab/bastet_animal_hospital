@@ -1,0 +1,44 @@
+[
+  {
+    "id": "prevent",
+    "step": "01",
+    "title": "Prevent",
+    "line": "Shielding your companion before illnesses begin.",
+    "detail": "Comprehensive immunization protocols, customized nutritional balancing, and proactive wellness screenings designed for lifelong vitality.",
+    "icon": "Shield",
+    "cameraPose": {
+      "position": [-0.6, 0.9, 2.9],
+      "target": [0, 0.7, 0],
+      "dogRotationY": -0.45,
+      "dogScale": 1.5
+    }
+  },
+  {
+    "id": "diagnose",
+    "step": "02",
+    "title": "Diagnose",
+    "line": "High-definition diagnostic precision and instant clinical clarity.",
+    "detail": "Digital radiography, precision ultrasonography, and rapid in-house biochemistry analyzers for immediate and accurate clinical findings.",
+    "icon": "ScanSearch",
+    "cameraPose": {
+      "position": [0.75, 1.15, 2.5],
+      "target": [0, 0.75, 0],
+      "dogRotationY": 0.55,
+      "dogScale": 1.65
+    }
+  },
+  {
+    "id": "heal",
+    "step": "03",
+    "title": "Heal",
+    "line": "Advanced surgical excellence and compassionate recovery.",
+    "detail": "Sterile micro-surgical theatres, dedicated continuous anesthesia monitoring, and soothing post-operative rehabilitation therapy.",
+    "icon": "HeartPulse",
+    "cameraPose": {
+      "position": [0.0, 0.85, 2.8],
+      "target": [0, 0.7, 0],
+      "dogRotationY": 0.05,
+      "dogScale": 1.55
+    }
+  }
+]
