@@ -1,0 +1,70 @@
+{
+  "ageCalculator": {
+    "title": "Dog Age Calculator",
+    "tagline": "Discover your canine companion's physiological age in human years.",
+    "year1Equivalent": 15,
+    "year2Equivalent": 9,
+    "sizes": [
+      {
+        "id": "small",
+        "label": "Small",
+        "weightRange": "Under 10 kg",
+        "description": "e.g., Pomeranian, Pug, Shih Tzu, Chihuahua",
+        "perYearAfter2": 4
+      },
+      {
+        "id": "medium",
+        "label": "Medium",
+        "weightRange": "10 – 25 kg",
+        "description": "e.g., Beagle, Cocker Spaniel, Indian Pariah / Desi Dog",
+        "perYearAfter2": 5
+      },
+      {
+        "id": "large",
+        "label": "Large",
+        "weightRange": "25 – 45 kg",
+        "description": "e.g., Labrador Retriever, German Shepherd, Golden Retriever",
+        "perYearAfter2": 6
+      },
+      {
+        "id": "giant",
+        "label": "Giant",
+        "weightRange": "Over 45 kg",
+        "description": "e.g., Great Dane, Saint Bernard, Mastiff, Rottweiler",
+        "perYearAfter2": 7
+      }
+    ],
+    "lifeStages": [
+      {
+        "id": "puppy",
+        "label": "Puppy / Junior",
+        "minHumanAge": 0,
+        "maxHumanAge": 24,
+        "careHint": "Critical period for core vaccinations, deworming schedules, and developmental nutrition."
+      },
+      {
+        "id": "youngAdult",
+        "label": "Young Adult",
+        "minHumanAge": 24.1,
+        "maxHumanAge": 45,
+        "careHint": "Peak physical vigor. Maintain annual wellness exams, dental hygiene, and active exercise."
+      },
+      {
+        "id": "matureAdult",
+        "label": "Mature Adult",
+        "minHumanAge": 45.1,
+        "maxHumanAge": 65,
+        "careHint": "Middle-age transition. Focus on metabolic blood panels, weight control, and early joint care."
+      },
+      {
+        "id": "senior",
+        "label": "Senior Companion",
+        "minHumanAge": 65.1,
+        "maxHumanAge": 999,
+        "careHint": "Cherished golden years. Recommend bi-annual geriatric health checks, gentle mobility, and cardiac screens."
+      }
+    ],
+    "disclaimer": "This tool provides an approximate physiological estimate based on veterinary canine life-stage charts. Individual breed genetics, metabolic rate, and lifestyle influence biological aging.",
+    "needsVetReview": true
+  }
+}

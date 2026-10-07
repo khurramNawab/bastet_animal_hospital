@@ -114,3 +114,74 @@ export interface WaitlistSubmission {
   animal: string;
   hp?: string;
 }
+
+export type DogSizeId = 'small' | 'medium' | 'large' | 'giant';
+
+export interface DogSizeCategory {
+  id: DogSizeId;
+  label: string;
+  weightRange: string;
+  description: string;
+  perYearAfter2: number;
+}
+
+export interface DogLifeStage {
+  id: string;
+  label: string;
+  minHumanAge: number;
+  maxHumanAge: number;
+  careHint: string;
+}
+
+export interface AgeCalculatorConfig {
+  title: string;
+  tagline: string;
+  year1Equivalent: number;
+  year2Equivalent: number;
+  sizes: DogSizeCategory[];
+  lifeStages: DogLifeStage[];
+  disclaimer: string;
+  needsVetReview: boolean;
+}
+
+export type TriageUrgency = 'emergency' | 'today' | 'soon' | 'monitor';
+
+export interface RedFlagItem {
+  id: string;
+  label: string;
+}
+
+export interface TriageOption {
+  id: string;
+  label: string;
+  score: number;
+}
+
+export interface TriageQuestion {
+  id: string;
+  title: string;
+  prompt: string;
+  options: TriageOption[];
+}
+
+export interface TriageUrgencyDetails {
+  id: TriageUrgency;
+  title: string;
+  subtitle: string;
+  badge: string;
+  level: number;
+  actionPrimary: string;
+  actionSecondary: string;
+  guidance: string[];
+}
+
+export interface SymptomCheckerConfig {
+  title: string;
+  tagline: string;
+  disclaimer: string;
+  needsVetReview: boolean;
+  redFlags: RedFlagItem[];
+  questions: TriageQuestion[];
+  urgencyLevels: Record<TriageUrgency, TriageUrgencyDetails>;
+}
+

@@ -4,6 +4,8 @@ import servicesData from '@/data/services.json';
 import animalsData from '@/data/animals.json';
 import testimonialsData from '@/data/testimonials.json';
 import storyData from '@/data/story.json';
+import toolsData from '@/data/tools.json';
+import symptomCheckerData from '@/data/symptom-checker.json';
 
 import type {
   SiteConfig,
@@ -12,6 +14,8 @@ import type {
   AnimalCategory,
   Testimonial,
   StoryPanel,
+  AgeCalculatorConfig,
+  SymptomCheckerConfig,
 } from './types';
 
 export function getSiteConfig(): SiteConfig {
@@ -69,3 +73,12 @@ export function getTestimonials(): Testimonial[] {
 export function getStoryPanels(): StoryPanel[] {
   return storyData as StoryPanel[];
 }
+
+export function getAgeCalculatorConfig(): AgeCalculatorConfig {
+  return toolsData.ageCalculator as AgeCalculatorConfig;
+}
+
+export function getSymptomCheckerConfig(): SymptomCheckerConfig {
+  return symptomCheckerData.symptomChecker as SymptomCheckerConfig;
+}
+

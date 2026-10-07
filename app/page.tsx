@@ -5,6 +5,7 @@ import { Services } from '@/components/sections/Services';
 import { Doctors } from '@/components/sections/Doctors';
 import { Stats } from '@/components/sections/Stats';
 import { Testimonials } from '@/components/sections/Testimonials';
+import { Tools } from '@/components/sections/Tools';
 import { GoldDivider } from '@/components/ui/GoldDivider';
 import {
   getSiteConfig,
@@ -13,6 +14,8 @@ import {
   getAnimals,
   getDoctors,
   getTestimonials,
+  getAgeCalculatorConfig,
+  getSymptomCheckerConfig,
 } from '@/lib/data';
 
 export default function HomePage() {
@@ -22,6 +25,8 @@ export default function HomePage() {
   const animals = getAnimals();
   const doctors = getDoctors();
   const testimonials = getTestimonials();
+  const ageConfig = getAgeCalculatorConfig();
+  const symptomConfig = getSymptomCheckerConfig();
 
   return (
     <main className="flex flex-col items-center justify-center w-full overflow-hidden">
@@ -39,13 +44,25 @@ export default function HomePage() {
         <GoldDivider variant="eye" />
       </div>
 
-      {/* 4. Doctors & Medical Faculty Showcase */}
+      {/* 4. Interactive Pet Health & Triage Tools */}
+      <Tools
+        ageConfig={ageConfig}
+        symptomConfig={symptomConfig}
+        siteConfig={siteConfig}
+      />
+
+      {/* Egyptian Ankh Pattern Gold Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <GoldDivider variant="ankh-pattern" />
+      </div>
+
+      {/* 5. Doctors & Medical Faculty Showcase */}
       <Doctors doctors={doctors} />
 
-      {/* 5. Viewport Stats Counters Band */}
+      {/* 6. Viewport Stats Counters Band */}
       <Stats stats={siteConfig.stats} />
 
-      {/* 6. Drag Slider Testimonials */}
+      {/* 7. Drag Slider Testimonials */}
       <Testimonials testimonials={testimonials} />
 
       {/* Bottom Line Gold Divider */}
@@ -55,3 +72,4 @@ export default function HomePage() {
     </main>
   );
 }
+

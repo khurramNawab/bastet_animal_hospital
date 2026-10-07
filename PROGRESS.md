@@ -61,20 +61,34 @@
   - Redesigned `doctor-placeholder.svg` with gold-gilded Egyptian archway, Bastet caduceus crest, and luminous silhouette.
   - Verified gatekeeper checks: `npm run check` (37/37 tests passing) and `npm run build`.
 
+- **Phase 6 (Interactive Tools: Age Calculator & Symptom Triage)**:
+  - Created data-driven configurations `data/tools.json` and `data/symptom-checker.json` (marked with `"needsVetReview": true`).
+  - Implemented pure math helper `lib/tools/age.ts` for canine-to-human age conversion across 4 weight classes with puppy/adult/senior life stages.
+  - Implemented pure deterministic triage function `lib/tools/triage.ts` with immediate red-flag short circuiting, conservative scoring, and emergency escalation.
+  - Built accessible modal component `components/ui/ToolDialog.tsx` (focus trap, Esc key listener, focus restoration, body scroll lock, mobile bottom-sheet).
+  - Built `components/tools/AgeCalculator.tsx` with animated count-up, size chips, and wellness check booking CTA.
+  - Built `components/tools/SymptomChecker.tsx` multi-step triage engine with consent disclaimer, red flag screening, clinical guidance, emergency dialer, and WhatsApp links (zero network requests, zero answer storage).
+  - Built homepage section `components/sections/Tools.tsx` and dedicated `/tools` page (`app/tools/page.tsx`) with SEO metadata.
+  - Added comprehensive unit tests in `tests/tools.test.ts` (13 tests; total 50/50 tests passing).
+  - Passed full gatekeeper `npm run check` and production build `npm run build`.
+
 ## In Progress
 
-- Ready for Phase 6 or next steps.
+- Awaiting user confirmation to proceed to Phase 7.
 
 ## Next
 
-- Phase 6: Interactive Pet Health Symptom Checker & Triage Engine.
+- Phase 7: Online Appointment Booking Flow & Consultation Scheduler.
 
 ## Decisions
 
+- **Pure Client-Side Triage**: Symptom evaluation runs deterministically in browser to ensure absolute user privacy and zero data leakage.
+- **Conservative Emergency Escalation**: Any life-threatening red flag immediately short-circuits to the emergency protocol.
 - **Next.js 14 App Router**: Chosen for fast SSR, modern routing, and SEO optimization for the clinic's website.
 - **Vitest + Testing Library**: Selected for fast native ESM test execution and component testing.
 - **Tailwind with strict tokens**: Ensures unified design language matching Bastet luxury vet aesthetic (Teal, Gold, Cream, Ink).
 
 ## Known Issues
 
+- Medical triage guidelines and age charts in `data/tools.json` and `data/symptom-checker.json` are marked with `"needsVetReview": true` and must be reviewed by a licensed veterinarian prior to hospital launch.
 - Dummy doctors, reviews, and placeholder photos are currently active (marked with `"isDummy": true`) and need to be replaced with real hospital data prior to production launch.
