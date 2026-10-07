@@ -4,23 +4,32 @@
     "name": "Arindam Mukherjee",
     "area": "Salt Lake, Kolkata",
     "pet": "Leo (Golden Retriever, 3 yrs)",
-    "text": "The emergency surgical team at Bastet saved Leo when he had an acute abdominal blockage. The compassion and surgical precision here are unmatched anywhere in Kolkata.",
-    "rating": 5
+    "animal": "dog",
+    "date": "October 2026",
+    "text": "The emergency surgical team at Bastet saved Leo when he had an acute abdominal blockage. The compassion, sterility, and surgical precision here are unmatched anywhere in Kolkata.",
+    "rating": 5,
+    "isDummy": true
   },
   {
     "id": "2",
     "name": "Priyanka Roy",
     "area": "Ballygunge, Kolkata",
     "pet": "Bella (Beagle, 2 yrs)",
-    "text": "Dr. Rohit completely healed Bella's chronic skin allergy with the right nutrition and targeted therapy. Truly royal treatment for our beloved pet!",
-    "rating": 5
+    "animal": "dog",
+    "date": "September 2026",
+    "text": "Dr. Rohit completely healed Bella's chronic skin allergy with the right nutrition and targeted allergy therapy. Truly royal treatment for our beloved pet!",
+    "rating": 5,
+    "isDummy": true
   },
   {
     "id": "3",
     "name": "Souvik Ghosh",
     "area": "New Town, Kolkata",
     "pet": "Bruno (German Shepherd, 5 yrs)",
-    "text": "From digital X-rays to gentle dental scaling, Bastet is equipped with the cleanest and most high-tech facilities in the city. Highly recommended!",
-    "rating": 5
+    "animal": "dog",
+    "date": "August 2026",
+    "text": "From digital X-rays to gentle dental scaling, Bastet is equipped with the cleanest and most high-tech facilities in the city. The entire team treated Bruno like family.",
+    "rating": 5,
+    "isDummy": true
   }
 ]

@@ -41,12 +41,18 @@ export interface SiteConfig {
 
 export interface Doctor {
   id: string;
+  slug: string;
   name: string;
   role: string;
   yearsOfExperience: number;
+  qualifications?: string;
+  languages?: string[];
+  specialties?: string[];
   bio: string;
+  longBio?: string;
   image: string;
   animals: string[];
+  isDummy?: boolean;
 }
 
 export interface ServiceItem {
@@ -77,8 +83,11 @@ export interface Testimonial {
   name: string;
   area: string;
   pet: string;
+  animal?: string;
+  date?: string;
   text: string;
   rating: number;
+  isDummy?: boolean;
 }
 
 export interface CameraPose {

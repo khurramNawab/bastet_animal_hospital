@@ -26,6 +26,14 @@ export function getDoctorById(id: string): Doctor | undefined {
   return (doctorsData as Doctor[]).find((doc) => doc.id === id);
 }
 
+export function getDoctorBySlug(slug: string): Doctor | undefined {
+  return (doctorsData as Doctor[]).find((doc) => doc.slug === slug);
+}
+
+export function getDoctorsByAnimal(animalSlug: string): Doctor[] {
+  return (doctorsData as Doctor[]).filter((doc) => doc.animals.includes(animalSlug));
+}
+
 export function getServices(): ServiceItem[] {
   return servicesData as ServiceItem[];
 }

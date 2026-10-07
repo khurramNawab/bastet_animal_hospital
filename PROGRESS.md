@@ -44,13 +44,24 @@
   - Added unit tests in `tests/services.test.ts` (10 tests; total 32/32 tests passing).
   - Passed `npm run check` and `npm run build`.
 
+- **Phase 5 (Doctors, Stats & Testimonials)**:
+  - Enriched `data/doctors.json` (qualifications, specialties, languages, longBio, isDummy) and `data/testimonials.json`.
+  - Extended `GoldDivider.tsx` with 3 SVG variants (`line`, `eye` Eye-of-Horus, `ankh-pattern`).
+  - Built `DoctorCard.tsx` with Egyptian arch frame and slide-up specialties panel on hover/tap/focus.
+  - Built `Doctors.tsx` faculty section with responsive 3-column auto-wrap.
+  - Built dynamic SSG doctor route `app/doctors/[slug]/page.tsx` with metadata, full biography, and appointment CTA.
+  - Built `Stats.tsx` with viewport count-up numbers using `Intl.NumberFormat('en-IN')` (e.g. 5,000+), zero layout shift via tabular nums, and deep teal luxury band.
+  - Built `Testimonials.tsx` drag slider carousel with Framer Motion (snap physics, keyboard arrows, dots, 6s autoplay with hover/focus pause).
+  - Added unit tests in `tests/trust.test.ts` (5 tests; total 37/37 tests passing).
+  - Passed `npm run check` and `npm run build`.
+
 ## In Progress
 
-- Awaiting confirmation to proceed to Phase 5.
+- Awaiting confirmation to proceed to Phase 6.
 
 ## Next
 
-- Phase 5: Doctors & Medical Faculty Showcase + Dynamic Testimonials Slider.
+- Phase 6: Interactive Pet Health Symptom Checker & Triage Engine.
 
 ## Decisions
 
@@ -60,4 +71,4 @@
 
 ## Known Issues
 
-- None at setup stage.
+- Dummy doctors, reviews, and placeholder photos are currently active (marked with `"isDummy": true`) and need to be replaced with real hospital data prior to production launch.
