@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   keywords: [
     'Veterinary Hospital Kolkata',
     'Best Dog Hospital Kolkata',
-    'Pet Surgery Park Street',
+    'Pet Surgery Rash Behari Avenue',
     '24x7 Animal Emergency Kolkata',
     'Dog Clinic Kolkata',
   ],
