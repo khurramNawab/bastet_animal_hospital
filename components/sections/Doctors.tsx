@@ -22,11 +22,11 @@ export function Doctors({ doctors }: DoctorsProps) {
           <span>Medical Faculty</span>
         </div>
 
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal tracking-tight">
+        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal dark:text-cream tracking-tight">
           Meet Your Pet&apos;s Care Team
         </h2>
 
-        <p className="mt-3 text-sm sm:text-base text-ink/80 leading-relaxed font-light max-w-xl mx-auto">
+        <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light max-w-xl mx-auto">
           Distinguished surgeons, dermatologists, and diagnostic physicians dedicated to
           compassionate, fear-free clinical care in Kolkata.
         </p>
@@ -43,7 +43,7 @@ export function Doctors({ doctors }: DoctorsProps) {
       <div className="mt-12 text-center">
         <Link
           href="/doctors"
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-teal hover:text-gold-dark transition-colors"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-teal dark:text-gold hover:text-gold-dark dark:hover:text-gold-light transition-colors"
         >
           <span>Explore All Veterinary Specialists & On-Call Surgeons</span>
           <ArrowRight className="w-4 h-4 text-gold" />

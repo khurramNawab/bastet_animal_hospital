@@ -35,11 +35,11 @@ export function Services({ animals, services, defaultSpecies = 'dog' }: Services
           <span>Multi-Species Clinical Excellence</span>
         </div>
 
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal tracking-tight">
+        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal dark:text-cream tracking-tight">
           Care For Every Companion
         </h2>
 
-        <p className="mt-3 text-sm sm:text-base text-ink/80 leading-relaxed font-light max-w-xl mx-auto">
+        <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light max-w-xl mx-auto">
           Tailored clinical medicine, gentle surgical suites, and dedicated specialists for each
           unique species family.
         </p>
@@ -70,12 +70,12 @@ export function Services({ animals, services, defaultSpecies = 'dog' }: Services
               transition={{ duration: 0.35, ease: 'easeOut' }}
             >
               {/* Species Hero Header Strip */}
-              <div className="mb-8 p-6 rounded-3xl bg-teal/5 border border-gold/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="mb-8 p-6 rounded-3xl bg-teal/5 dark:bg-teal-950/60 border border-gold/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <h3 className="font-display text-xl font-bold text-teal">
+                  <h3 className="font-display text-xl font-bold text-teal dark:text-cream">
                     {currentAnimal.name} Medical Specialities
                   </h3>
-                  <p className="text-xs sm:text-sm text-ink/75 mt-0.5">
+                  <p className="text-xs sm:text-sm text-ink/75 dark:text-cream/75 mt-0.5">
                     {currentAnimal.heroLine || currentAnimal.tagline}
                   </p>
                 </div>
