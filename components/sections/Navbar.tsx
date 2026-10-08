@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, PhoneCall, Calendar } from 'lucide-react';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { cn } from '@/lib/cn';
 import type { SiteConfig } from '@/lib/types';
 
@@ -139,9 +140,10 @@ export function Navbar({ siteConfig }: NavbarProps) {
 
           {/* Right Action Button & Emergency Call */}
           <div className="hidden sm:flex items-center gap-3">
+            <ThemeToggle />
             <a
               href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-              className="p-2 text-teal hover:text-gold-dark transition-colors rounded-full focus-visible:ring-2 focus-visible:ring-gold"
+              className="p-2 text-teal dark:text-cream hover:text-gold transition-colors rounded-full focus-visible:ring-2 focus-visible:ring-gold"
               title={`Call Emergency: ${siteConfig.phone}`}
               aria-label={`Call Emergency: ${siteConfig.phone}`}
             >
@@ -156,17 +158,20 @@ export function Navbar({ siteConfig }: NavbarProps) {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            ref={menuButtonRef}
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-teal hover:bg-gold/10 focus-visible:ring-2 focus-visible:ring-gold"
-            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Right Controls: Theme Toggle + Menu Button */}
+          <div className="flex sm:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-xl text-teal dark:text-cream hover:bg-gold/10 focus-visible:ring-2 focus-visible:ring-gold"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </header>
 

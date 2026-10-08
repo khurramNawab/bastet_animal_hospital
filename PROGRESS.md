@@ -82,19 +82,31 @@
   - Built dedicated `/book` (`app/book/page.tsx`) and `/contact` (`app/contact/page.tsx`) pages with SEO metadata.
   - Built `components/sections/Contact.tsx` with weekly timings table, live "Open Now" indicator, and interactive Google Maps facade.
   - Built `components/ui/FloatingActions.tsx` with quick WhatsApp desk & 24/7 emergency call buttons.
-  - Added unit tests in `tests/booking.test.ts` (12 tests; total 62/62 tests passing).
-  - Passed full gatekeeper `npm run check` and production build `npm run build` (19/19 static pages generated).
+- **Phase 8 (Polish, Dark/Light Theme & Brand Identity)**:
+  - Implemented zero-dependency `ThemeProvider.tsx` supporting `light`, `dark`, and `system` modes with `localStorage` persistence and anti-FOUC inline head script.
+  - Built accessible `ThemeToggle.tsx` with Sun, Moon, and System monitors, integrated into desktop `Navbar` and mobile drawer.
+  - Built additive `PawCursor.tsx` desktop-only mouse follower with `rAF` lerp, interactive element scaling, and automatic suppression on touch/coarse pointers and `prefers-reduced-motion`.
+  - Built first-visit `SiteLoader.tsx` golden paw sequence overlay with `sessionStorage` guard (`bastet_intro_shown`), 1.1s auto-fade, and non-blocking SSR.
+  - Added smooth Framer Motion page entrance transitions via `app/template.tsx` with reduced-motion support.
+  - Designed custom Egyptian royal 404 (`app/not-found.tsx`), robust error boundary (`app/error.tsx`), and shimmering route loader (`app/loading.tsx`).
+  - Created crisp SVG brand favicon (`app/icon.svg`) featuring golden feline silhouette and medical cross.
+  - Updated real hospital credentials in `data/site.json` and `app/layout.tsx` (Rash Behari Avenue, Kolkata, +91 91473 27256, WhatsApp 919147327250, bastetsmallanimalhospital@gmail.com).
+  - Added unit tests in `tests/polish.test.ts` (5 tests; total 67/67 tests passing).
+  - Passed full gatekeeper `npm run check` and production build `npm run build` (20/20 static pages generated).
 
 ## In Progress
 
-- Awaiting user confirmation to proceed to Phase 8.
+- Awaiting user confirmation to proceed to Phase 9.
 
 ## Next
 
-- Phase 8: Clinical Pet Health Knowledge Base & Care Articles (`/tips`).
+- Phase 9: Knowledge Base & Care Articles (`/tips`) / Production Launch Preparation.
 
 ## Decisions
 
+- **Zero-Dependency Theme Switcher**: Built custom React context + anti-FOUC script rather than external libraries to maintain zero runtime bloat and prevent SSR hydration mismatches.
+- **Additive Mouse Follower**: The custom paw cursor is strictly additive—it does not hide the native system pointer, does not intercept clicks (`pointer-events-none`), and cleanly shuts down on touch screens or low-motion preferences.
+- **Session-Guarded Splash**: `SiteLoader` only triggers once per browser session using `sessionStorage` so navigating internal routes remains instant and uncluttered.
 - **Appointment Booking is a Request**: Clearly communicates that online submissions are appointment requests to be confirmed by hospital coordinators via phone or WhatsApp, avoiding false confirmation promises.
 - **Pure Client-Side Triage**: Symptom evaluation runs deterministically in browser to ensure absolute user privacy and zero data leakage.
 - **Conservative Emergency Escalation**: Any life-threatening red flag immediately short-circuits to the emergency protocol.
@@ -104,8 +116,8 @@
 
 ## Known Issues
 
-- Real phone numbers, WhatsApp, and hospital physical address in `data/site.json` are placeholders (`"isDummy": true`) and must be updated with the actual hospital credentials before production launch.
 - In-memory rate limiting on `/api/book` and `/api/waitlist` is suitable for single-instance deployments; for multi-region serverless scale, an Upstash Redis or Supabase Edge rate limiter should be connected.
 - User data retention and privacy policy must be published prior to accepting real pet parent submissions.
 - Medical triage guidelines and age charts in `data/tools.json` and `data/symptom-checker.json` are marked with `"needsVetReview": true` and must be reviewed by a licensed veterinarian prior to hospital launch.
 - Dummy doctors, reviews, and placeholder photos are currently active (marked with `"isDummy": true`) and need to be replaced with real hospital data prior to production launch.
+

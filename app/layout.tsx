@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 import { Playfair_Display, Inter } from 'next/font/google';
 import { SmoothScroll } from '@/components/providers/SmoothScroll';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
 import { FloatingActions } from '@/components/ui/FloatingActions';
+import { PawCursor } from '@/components/ui/PawCursor';
+import { SiteLoader } from '@/components/ui/SiteLoader';
 import { getSiteConfig } from '@/lib/data';
 import './globals.css';
 
@@ -43,7 +46,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0B3C3F',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FAF5E9' },
+    { media: '(prefers-color-scheme: dark)', color: '#062527' },
+  ],
   width: 'device-width',
   initialScale: 1,
 };
@@ -52,17 +58,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const siteConfig = getSiteConfig();
 
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col bg-cream text-ink antialiased selection:bg-gold selection:text-ink">
-        <SmoothScroll>
-          <Navbar siteConfig={siteConfig} />
-          <div id="main-content" className="flex-1 pt-20">
-            {children}
-          </div>
-          <Footer siteConfig={siteConfig} />
-          <FloatingActions siteConfig={siteConfig} />
-        </SmoothScroll>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${playfair.variable} ${inter.variable}`}
+    >
+      <head>
+        {/* Anti-FOUC Theme Initialization Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('bastet_theme');var d=t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-screen flex flex-col bg-cream text-ink dark:bg-ink dark:text-cream antialiased selection:bg-gold selection:text-ink transition-colors duration-300">
+        <ThemeProvider>
+          <SmoothScroll>
+            <SiteLoader />
+            <PawCursor />
+            <Navbar siteConfig={siteConfig} />
+            <div id="main-content" className="flex-1 pt-20">
+              {children}
+            </div>
+            <Footer siteConfig={siteConfig} />
+            <FloatingActions siteConfig={siteConfig} />
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+
