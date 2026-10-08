@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from 'next/font/google';
 import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
+import { FloatingActions } from '@/components/ui/FloatingActions';
 import { getSiteConfig } from '@/lib/data';
 import './globals.css';
 
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </div>
           <Footer siteConfig={siteConfig} />
+          <FloatingActions siteConfig={siteConfig} />
         </SmoothScroll>
       </body>
     </html>

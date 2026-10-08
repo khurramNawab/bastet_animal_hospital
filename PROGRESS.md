@@ -72,16 +72,30 @@
   - Added comprehensive unit tests in `tests/tools.test.ts` (13 tests; total 50/50 tests passing).
   - Passed full gatekeeper `npm run check` and production build `npm run build`.
 
+- **Phase 7 (Booking Request & Contact System)**:
+  - Configured slots config, daily opening hours, Google Maps links, and `isDummy: true` in `data/site.json`.
+  - Implemented pure helpers `lib/booking/slots.ts` (dynamic 30-min slot generation, 2h notice cutoff), `lib/booking/whatsapp.ts` (prefilled WhatsApp booking message builder), and `lib/booking/openStatus.ts` (real-time Asia/Kolkata open/closed status).
+  - Built Zod schema `lib/schemas/booking.ts` with Indian mobile phone normalizer (`+91XXXXXXXXXX`) and server/client shared validation.
+  - Implemented secure API route `app/api/book/route.ts` with honeypot spam defense, IP/phone rate limiting, slot capacity conflict checking, and Supabase insertion with zero PII in responses.
+  - Created SQL migration `supabase/migrations/002_appointments.sql` with unique request codes, slot indexes, and RLS enabled.
+  - Built luxury 3-step form `components/sections/BookingForm.tsx` (Patient Info → Service, Doctor, Date & Time Slots → Review & Submit) with URL query param prefill and direct WhatsApp confirmation.
+  - Built dedicated `/book` (`app/book/page.tsx`) and `/contact` (`app/contact/page.tsx`) pages with SEO metadata.
+  - Built `components/sections/Contact.tsx` with weekly timings table, live "Open Now" indicator, and interactive Google Maps facade.
+  - Built `components/ui/FloatingActions.tsx` with quick WhatsApp desk & 24/7 emergency call buttons.
+  - Added unit tests in `tests/booking.test.ts` (12 tests; total 62/62 tests passing).
+  - Passed full gatekeeper `npm run check` and production build `npm run build` (19/19 static pages generated).
+
 ## In Progress
 
-- Awaiting user confirmation to proceed to Phase 7.
+- Awaiting user confirmation to proceed to Phase 8.
 
 ## Next
 
-- Phase 7: Online Appointment Booking Flow & Consultation Scheduler.
+- Phase 8: Clinical Pet Health Knowledge Base & Care Articles (`/tips`).
 
 ## Decisions
 
+- **Appointment Booking is a Request**: Clearly communicates that online submissions are appointment requests to be confirmed by hospital coordinators via phone or WhatsApp, avoiding false confirmation promises.
 - **Pure Client-Side Triage**: Symptom evaluation runs deterministically in browser to ensure absolute user privacy and zero data leakage.
 - **Conservative Emergency Escalation**: Any life-threatening red flag immediately short-circuits to the emergency protocol.
 - **Next.js 14 App Router**: Chosen for fast SSR, modern routing, and SEO optimization for the clinic's website.
@@ -90,5 +104,8 @@
 
 ## Known Issues
 
+- Real phone numbers, WhatsApp, and hospital physical address in `data/site.json` are placeholders (`"isDummy": true`) and must be updated with the actual hospital credentials before production launch.
+- In-memory rate limiting on `/api/book` and `/api/waitlist` is suitable for single-instance deployments; for multi-region serverless scale, an Upstash Redis or Supabase Edge rate limiter should be connected.
+- User data retention and privacy policy must be published prior to accepting real pet parent submissions.
 - Medical triage guidelines and age charts in `data/tools.json` and `data/symptom-checker.json` are marked with `"needsVetReview": true` and must be reviewed by a licensed veterinarian prior to hospital launch.
 - Dummy doctors, reviews, and placeholder photos are currently active (marked with `"isDummy": true`) and need to be replaced with real hospital data prior to production launch.

@@ -23,6 +23,20 @@ export interface ModelCredit {
   url: string;
 }
 
+export interface OpeningHoursDay {
+  open: string;
+  close: string;
+  label: string;
+  isClosed?: boolean;
+}
+
+export interface SlotsConfig {
+  durationMinutes: number;
+  bookingWindowDays: number;
+  minNoticeHours: number;
+  maxPerSlot: number;
+}
+
 export interface SiteConfig {
   name: string;
   tagline: string;
@@ -31,13 +45,45 @@ export interface SiteConfig {
   phone: string;
   whatsapp: string;
   email: string;
+  isDummy?: boolean;
   timings: SiteTiming;
+  openingHours: Record<string, OpeningHoursDay>;
+  slotsConfig: SlotsConfig;
+  closedDates: string[];
+  mapEmbedUrl: string;
+  mapLink: string;
+  emergencyNote?: string;
   stats: SiteStat[];
   navLinks: NavLink[];
   credits?: {
     model3D?: ModelCredit;
   };
 }
+
+export interface BookingFormData {
+  ownerName: string;
+  phone: string;
+  email?: string;
+  animal: string;
+  petName: string;
+  breed?: string;
+  petAge?: string;
+  service: string;
+  doctor?: string;
+  date: string;
+  time: string;
+  message?: string;
+  consent: boolean;
+  hp?: string;
+}
+
+export interface BookingSubmissionResponse {
+  ok: boolean;
+  requestCode?: string;
+  message?: string;
+  error?: string;
+}
+
 
 export interface Doctor {
   id: string;
