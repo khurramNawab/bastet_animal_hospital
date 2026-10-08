@@ -85,7 +85,7 @@ export function Hero({ siteConfig }: HeroProps) {
 
             {/* Visually Prominent Display Heading */}
             <div
-              className="hero-anim font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-teal tracking-tight leading-[1.12] mb-5"
+              className="hero-anim font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-teal dark:text-cream tracking-tight leading-[1.12] mb-5"
               aria-label={siteConfig.tagline}
             >
               {taglineWords.map((word, idx) => (
@@ -96,9 +96,9 @@ export function Hero({ siteConfig }: HeroProps) {
             </div>
 
             {/* Subtext */}
-            <p className="hero-anim text-base sm:text-lg text-ink/80 leading-relaxed font-normal mb-8 max-w-lg">
+            <p className="hero-anim text-base sm:text-lg text-ink/80 dark:text-cream/80 leading-relaxed font-normal mb-8 max-w-lg">
               Advanced sterile surgeries, digital radiography, canine dermatology, and 24x7
-              emergency trauma care in Park Street, {siteConfig.city}.
+              emergency trauma care in Rash Behari Avenue, {siteConfig.city}.
             </p>
 
             {/* Magnetic CTA Buttons */}
@@ -115,7 +115,7 @@ export function Hero({ siteConfig }: HeroProps) {
               <MagneticButton
                 href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
                 variant="outline"
-                className="px-8 py-4 text-xs uppercase tracking-wider gap-2"
+                className="px-8 py-4 text-xs uppercase tracking-wider gap-2 dark:border-gold/50 dark:text-cream"
               >
                 <PhoneCall className="w-4 h-4" />
                 <span>Emergency: {siteConfig.phone}</span>
@@ -126,19 +126,19 @@ export function Hero({ siteConfig }: HeroProps) {
             <div className="hero-anim grid grid-cols-3 gap-4 pt-6 border-t border-gold/20 w-full">
               <div className="flex items-center gap-2">
                 <HeartPulse className="w-4 h-4 text-gold shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-teal leading-tight">
+                <span className="text-[11px] sm:text-xs font-semibold text-teal dark:text-cream leading-tight">
                   24x7 Emergency
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Stethoscope className="w-4 h-4 text-gold shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-teal leading-tight">
+                <span className="text-[11px] sm:text-xs font-semibold text-teal dark:text-cream leading-tight">
                   3 Expert Doctors
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-gold shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-teal leading-tight">
+                <span className="text-[11px] sm:text-xs font-semibold text-teal dark:text-cream leading-tight">
                   5000+ Happy Pets
                 </span>
               </div>

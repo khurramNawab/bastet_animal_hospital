@@ -35,6 +35,13 @@ export const metadata: Metadata = {
     'Dog Clinic Kolkata',
   ],
   authors: [{ name: 'Bastet Small Animal Hospital' }],
+  icons: {
+    icon: [
+      { url: '/images/Bastetanimalhospital.avif', type: 'image/avif' },
+    ],
+    shortcut: '/images/Bastetanimalhospital.avif',
+    apple: '/images/Bastetanimalhospital.avif',
+  },
   openGraph: {
     title: 'Bastet Small Animal Hospital | Premier Veterinary Care in Kolkata',
     description:

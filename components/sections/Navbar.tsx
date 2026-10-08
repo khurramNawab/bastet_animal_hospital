@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, PhoneCall, Calendar } from 'lucide-react';
@@ -72,41 +73,31 @@ export function Navbar({ siteConfig }: NavbarProps) {
           className={cn(
             'max-w-7xl mx-auto rounded-2xl transition-all duration-300 ease-out flex items-center justify-between px-4 sm:px-6 py-2.5',
             isScrolled
-              ? 'glass shadow-glass border-gold/30 backdrop-blur-md bg-white/80 dark:bg-teal-900/80'
-              : 'bg-white/40 backdrop-blur-xs border border-white/30',
+              ? 'glass shadow-glass border-gold/30 backdrop-blur-md bg-white/80 dark:bg-teal-950/90 dark:border-gold/30'
+              : 'bg-white/40 dark:bg-ink/60 backdrop-blur-xs border border-white/30 dark:border-gold/20',
           )}
         >
           {/* Brand Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1"
+            className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1"
             aria-label="Bastet Small Animal Hospital Home"
           >
-            <div className="relative w-8 h-8 rounded-full bg-teal flex items-center justify-center border border-gold/40 shadow-sm group-hover:scale-105 transition-transform duration-200">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="stroke-gold"
-                aria-hidden="true"
-              >
-                {/* Stylized Cat Ear & Egyptian Eye Motif */}
-                <path
-                  d="M4 14L8 6L12 11L16 6L20 14"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle cx="12" cy="16" r="2" fill="#C9A24B" />
-              </svg>
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-teal-900 flex items-center justify-center border border-gold/40 shadow-sm group-hover:scale-105 transition-transform duration-200">
+              <Image
+                src="/images/Bastetanimalhospital.avif"
+                alt="Bastet Small Animal Hospital Logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-xl font-bold tracking-wide text-teal group-hover:text-teal-600 transition-colors">
+              <span className="font-display text-xl font-bold tracking-wide text-teal dark:text-gold group-hover:text-teal-600 dark:group-hover:text-gold-light transition-colors">
                 Bastet
               </span>
-              <span className="text-[10px] tracking-widest uppercase font-medium text-gold-dark -mt-1">
+              <span className="text-[10px] tracking-widest uppercase font-medium text-gold-dark dark:text-cream/70 -mt-1">
                 Animal Hospital
               </span>
             </div>
@@ -122,7 +113,9 @@ export function Navbar({ siteConfig }: NavbarProps) {
                   href={link.href}
                   className={cn(
                     'relative px-3.5 py-1.5 text-sm font-medium transition-colors duration-200 rounded-lg',
-                    isActive ? 'text-teal font-semibold' : 'text-ink/80 hover:text-teal',
+                    isActive
+                      ? 'text-teal dark:text-gold font-semibold'
+                      : 'text-ink/80 dark:text-cream/80 hover:text-teal dark:hover:text-gold',
                   )}
                 >
                   {link.label}

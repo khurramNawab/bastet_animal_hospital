@@ -124,7 +124,7 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
               </div>
 
               {/* Review Text */}
-              <p className="text-sm sm:text-base text-ink/85 leading-relaxed font-light italic mb-6">
+              <p className="text-sm sm:text-base text-ink/85 dark:text-cream/85 leading-relaxed font-light italic mb-6">
                 &ldquo;{item.text}&rdquo;
               </p>
             </div>
@@ -132,9 +132,9 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
             {/* Author Info */}
             <div className="pt-4 border-t border-gold/20 flex items-center justify-between">
               <div>
-                <h3 className="font-display font-bold text-base text-teal">{item.name}</h3>
-                <p className="text-xs text-gold-dark font-medium mt-0.5">{item.pet}</p>
-                <p className="text-[11px] text-ink/60">{item.area}</p>
+                <h3 className="font-display font-bold text-base text-teal dark:text-cream">{item.name}</h3>
+                <p className="text-xs text-gold-dark dark:text-gold font-medium mt-0.5">{item.pet}</p>
+                <p className="text-[11px] text-ink/60 dark:text-cream/60">{item.area}</p>
               </div>
             </div>
           </div>
@@ -174,16 +174,16 @@ export function Testimonials({ testimonials }: TestimonialsProps) {
                     ))}
                   </div>
 
-                  <p className="text-sm sm:text-base text-ink/85 leading-relaxed font-light italic mb-6">
+                  <p className="text-sm sm:text-base text-ink/85 dark:text-cream/85 leading-relaxed font-light italic mb-6">
                     &ldquo;{item.text}&rdquo;
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-gold/20 flex items-center justify-between">
                   <div>
-                    <h3 className="font-display font-bold text-base text-teal">{item.name}</h3>
-                    <p className="text-xs text-gold-dark font-medium mt-0.5">{item.pet}</p>
-                    <p className="text-[11px] text-ink/60">{item.area}</p>
+                    <h3 className="font-display font-bold text-base text-teal dark:text-cream">{item.name}</h3>
+                    <p className="text-xs text-gold-dark dark:text-gold font-medium mt-0.5">{item.pet}</p>
+                    <p className="text-[11px] text-ink/60 dark:text-cream/60">{item.area}</p>
                   </div>
                 </div>
               </div>

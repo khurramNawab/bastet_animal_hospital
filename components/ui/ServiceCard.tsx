@@ -124,26 +124,26 @@ export function ServiceCard({ service, animalSlug }: ServiceCardProps) {
             </div>
 
             {service.duration && (
-              <span className="inline-flex items-center gap-1 text-[11px] font-medium text-ink/70 bg-gold/10 border border-gold/20 px-2.5 py-1 rounded-full">
-                <Clock className="w-3 h-3 text-gold-dark" />
+              <span className="inline-flex items-center gap-1 text-[11px] font-medium text-ink/70 dark:text-cream/80 bg-gold/10 border border-gold/20 px-2.5 py-1 rounded-full">
+                <Clock className="w-3 h-3 text-gold-dark dark:text-gold" />
                 <span>{service.duration}</span>
               </span>
             )}
           </div>
 
           {/* Title */}
-          <h3 className="font-display font-bold text-xl text-teal group-hover:text-teal-600 transition-colors mb-2">
+          <h3 className="font-display font-bold text-xl text-teal dark:text-cream group-hover:text-teal-600 dark:group-hover:text-gold transition-colors mb-2">
             {service.title}
           </h3>
 
           {/* Short Description */}
-          <p className="text-sm text-ink/80 leading-relaxed font-light mb-4 line-clamp-3">
+          <p className="text-sm text-ink/80 dark:text-cream/80 leading-relaxed font-light mb-4 line-clamp-3">
             {service.description}
           </p>
         </div>
 
         {/* Bottom: Learn More Link with Sliding Arrow */}
-        <div className="pt-3 border-t border-gold/20 flex items-center justify-between text-xs font-semibold text-teal group-hover:text-gold-dark transition-colors">
+        <div className="pt-3 border-t border-gold/20 flex items-center justify-between text-xs font-semibold text-teal dark:text-gold group-hover:text-gold-dark dark:group-hover:text-gold-light transition-colors">
           <span>Explore Clinical Details</span>
           <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-200 text-gold" />
         </div>

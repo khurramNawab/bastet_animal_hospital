@@ -52,7 +52,7 @@ export function SpeciesTabs({ animals, activeSlug, onSelect }: SpeciesTabsProps)
     <div
       role="tablist"
       aria-label="Select pet species"
-      className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-3xl bg-cream-dark/60 border border-gold/25 backdrop-blur-md max-w-2xl mx-auto shadow-sm"
+      className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-3xl bg-cream-dark/60 dark:bg-teal-950/70 border border-gold/25 backdrop-blur-md max-w-2xl mx-auto shadow-sm"
     >
       {animals.map((animal, idx) => {
         const isSelected = activeSlug === animal.slug;
@@ -72,7 +72,7 @@ export function SpeciesTabs({ animals, activeSlug, onSelect }: SpeciesTabsProps)
             onKeyDown={(e) => handleKeyDown(e, idx)}
             className={cn(
               'relative flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-gold',
-              isSelected ? 'text-ink' : 'text-ink/75 hover:text-teal',
+              isSelected ? 'text-ink' : 'text-ink/75 dark:text-cream/80 hover:text-teal dark:hover:text-gold',
             )}
           >
             {isSelected && (

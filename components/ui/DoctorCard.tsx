@@ -45,21 +45,21 @@ export function DoctorCard({ doctor }: DoctorCardProps) {
       {/* Card Body Info */}
       <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
         <div>
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-gold-dark font-semibold mb-1">
-            <Stethoscope className="w-3.5 h-3.5 text-gold-dark" />
+          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-gold-dark dark:text-gold font-semibold mb-1">
+            <Stethoscope className="w-3.5 h-3.5 text-gold-dark dark:text-gold" />
             <span>Veterinary Physician</span>
           </div>
 
-          <h3 className="font-display text-2xl font-bold text-teal group-hover:text-teal-600 transition-colors">
+          <h3 className="font-display text-2xl font-bold text-teal dark:text-cream group-hover:text-teal-600 dark:group-hover:text-gold transition-colors">
             {doctor.name}
           </h3>
 
-          <p className="text-xs sm:text-sm font-medium text-ink/75 mt-1 line-clamp-1">
+          <p className="text-xs sm:text-sm font-medium text-ink/75 dark:text-cream/75 mt-1 line-clamp-1">
             {doctor.role}
           </p>
 
           {doctor.qualifications && (
-            <p className="text-[11px] text-ink/60 mt-0.5 font-sans font-light">
+            <p className="text-[11px] text-ink/60 dark:text-cream/60 mt-0.5 font-sans font-light">
               {doctor.qualifications}
             </p>
           )}
@@ -73,20 +73,20 @@ export function DoctorCard({ doctor }: DoctorCardProps) {
           className="overflow-hidden mt-3"
         >
           <div className="pt-3 border-t border-gold/20">
-            <span className="text-[11px] uppercase tracking-wider text-gold-dark font-semibold block mb-2">
+            <span className="text-[11px] uppercase tracking-wider text-gold-dark dark:text-gold font-semibold block mb-2">
               Clinical Disciplines
             </span>
             <div className="flex flex-wrap gap-1.5 mb-3">
               {doctor.specialties?.slice(0, 3).map((spec, idx) => (
                 <span
                   key={idx}
-                  className="text-[11px] px-2.5 py-1 rounded-lg bg-teal/10 border border-gold/20 text-teal font-medium"
+                  className="text-[11px] px-2.5 py-1 rounded-lg bg-teal/10 dark:bg-gold/15 border border-gold/20 text-teal dark:text-cream font-medium"
                 >
                   {spec}
                 </span>
               ))}
             </div>
-            <p className="text-xs text-ink/80 leading-relaxed line-clamp-2 mb-3">
+            <p className="text-xs text-ink/80 dark:text-cream/80 leading-relaxed line-clamp-2 mb-3">
               {doctor.bio.replace('\n', ' ')}
             </p>
           </div>
@@ -96,7 +96,7 @@ export function DoctorCard({ doctor }: DoctorCardProps) {
         <div className="mt-4 pt-3 border-t border-gold/20 flex items-center justify-between">
           <Link
             href={`/doctors/${doctor.slug}`}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-teal hover:text-gold-dark transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-teal dark:text-gold hover:text-gold-dark dark:hover:text-gold-light transition-colors"
           >
             <span>View Full Profile</span>
             <ArrowRight className="w-3.5 h-3.5 text-gold group-hover:translate-x-1 transition-transform" />
@@ -105,7 +105,7 @@ export function DoctorCard({ doctor }: DoctorCardProps) {
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="md:hidden p-1.5 text-teal hover:text-gold"
+            className="md:hidden p-1.5 text-teal dark:text-cream hover:text-gold"
             aria-label={isExpanded ? 'Collapse specialties' : 'Expand specialties'}
           >
             {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
