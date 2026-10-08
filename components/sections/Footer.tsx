@@ -18,14 +18,14 @@ export function Footer({ siteConfig }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Col 1: Brand & Tagline */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-teal-800 flex items-center justify-center border border-gold/40 shrink-0">
+            <Link href="/" className="flex items-center gap-3.5 group">
+              <div className="w-12 h-12 rounded-2xl overflow-hidden bg-teal-800/80 flex items-center justify-center border border-gold/40 p-1 shrink-0 group-hover:scale-105 transition-transform duration-200">
                 <Image
                   src="/images/Bastetanimalhospital.avif"
                   alt="Bastet Small Animal Hospital Logo"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-cover"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain"
                 />
               </div>
               <span className="font-display text-2xl font-bold tracking-wide text-gold">

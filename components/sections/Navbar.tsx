@@ -80,25 +80,25 @@ export function Navbar({ siteConfig }: NavbarProps) {
           {/* Brand Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1"
+            className="flex items-center gap-3.5 group focus-visible:ring-2 focus-visible:ring-gold rounded-xl p-1"
             aria-label="Bastet Small Animal Hospital Home"
           >
-            <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-teal-900 flex items-center justify-center border border-gold/40 shadow-sm group-hover:scale-105 transition-transform duration-200">
+            <div className="relative w-12 h-12 rounded-2xl overflow-hidden bg-teal-900/80 dark:bg-teal-950 border border-gold/50 shadow-md group-hover:scale-105 group-hover:border-gold transition-all duration-200 p-1 flex items-center justify-center shrink-0">
               <Image
                 src="/images/Bastetanimalhospital.avif"
                 alt="Bastet Small Animal Hospital Logo"
-                width={40}
-                height={40}
-                className="w-full h-full object-cover"
+                width={48}
+                height={48}
+                className="w-full h-full object-contain"
                 priority
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-xl font-bold tracking-wide text-teal dark:text-gold group-hover:text-teal-600 dark:group-hover:text-gold-light transition-colors">
+              <span className="font-display text-2xl font-bold tracking-wide text-teal dark:text-gold group-hover:text-teal-600 dark:group-hover:text-gold-light transition-colors leading-tight">
                 Bastet
               </span>
-              <span className="text-[10px] tracking-widest uppercase font-medium text-gold-dark dark:text-cream/70 -mt-1">
-                Animal Hospital
+              <span className="text-[11px] tracking-widest uppercase font-semibold text-gold-dark dark:text-cream/80">
+                Small Animal Hospital
               </span>
             </div>
           </Link>
