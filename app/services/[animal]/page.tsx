@@ -13,12 +13,11 @@ import {
   CheckCircle,
   Clock,
   Calendar,
-  ArrowLeft,
 } from 'lucide-react';
-import { getAnimals, getAnimalBySlug, getServicesByAnimal, getSiteConfig } from '@/lib/data';
+import { getAnimals, getAnimalBySlug, getServicesByAnimal } from '@/lib/data';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { WaitlistForm } from '@/components/sections/WaitlistForm';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 
 interface ServicePageProps {
   params: {
@@ -88,21 +87,21 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'ShieldCheck':
-        return <ShieldCheck className="w-6 h-6 text-gold" />;
+        return <ShieldCheck className="w-6 h-6 text-orange" />;
       case 'Activity':
-        return <Activity className="w-6 h-6 text-gold" />;
+        return <Activity className="w-6 h-6 text-orange" />;
       case 'Sparkles':
-        return <Sparkles className="w-6 h-6 text-gold" />;
+        return <Sparkles className="w-6 h-6 text-orange" />;
       case 'Scissors':
-        return <Scissors className="w-6 h-6 text-gold" />;
+        return <Scissors className="w-6 h-6 text-orange" />;
       case 'HeartPulse':
-        return <HeartPulse className="w-6 h-6 text-gold" />;
+        return <HeartPulse className="w-6 h-6 text-orange" />;
       case 'Microscope':
-        return <Microscope className="w-6 h-6 text-gold" />;
+        return <Microscope className="w-6 h-6 text-orange" />;
       case 'Home':
-        return <Home className="w-6 h-6 text-gold" />;
+        return <Home className="w-6 h-6 text-orange" />;
       default:
-        return <Activity className="w-6 h-6 text-gold" />;
+        return <Activity className="w-6 h-6 text-orange" />;
     }
   };
 
@@ -112,7 +111,7 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: 'Services', href: '/services' },
+            { label: 'Services', href: '/#services' },
             { label: `${animal.name} Care` },
           ]}
         />
@@ -120,10 +119,10 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
 
       {/* Hero Header */}
       <div className="text-center max-w-3xl mx-auto mb-14">
-        <span className="text-xs uppercase tracking-widest text-gold-dark dark:text-gold font-semibold">
+        <span className="text-xs uppercase tracking-widest text-orange-deep dark:text-sand font-semibold">
           {animal.comingSoon ? 'Expansion Wing' : 'Clinical Specialities'}
         </span>
-        <h1 className="font-display text-4xl sm:text-5xl font-bold text-teal dark:text-cream mt-2">
+        <h1 className="font-display text-4xl sm:text-5xl font-bold text-olive-deep dark:text-cream mt-2">
           {animal.name} Care & Specialities
         </h1>
         <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light">
@@ -139,21 +138,21 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
               <section
                 key={service.id}
                 id={service.slug}
-                className="scroll-mt-28 p-8 sm:p-10 rounded-4xl glass-card border border-gold/30 shadow-glass"
+                className="scroll-mt-28 p-8 sm:p-10 rounded-4xl glass-card border border-sand/40 shadow-glass"
               >
                 <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
                   {/* Left info */}
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-14 h-14 rounded-2xl bg-teal text-gold flex items-center justify-center border border-gold/30 shadow-sm shrink-0">
+                      <div className="w-14 h-14 rounded-2xl bg-olive-deep text-sand flex items-center justify-center border border-sand/40 shadow-sm shrink-0">
                         {getIcon(service.icon)}
                       </div>
                       <div>
-                        <h2 className="font-display text-2xl sm:text-3xl font-bold text-teal">
+                        <h2 className="font-display text-2xl sm:text-3xl font-bold text-olive-deep dark:text-cream">
                           {service.title}
                         </h2>
                         {service.duration && (
-                          <div className="inline-flex items-center gap-1.5 text-xs font-medium text-gold-dark mt-1">
+                          <div className="inline-flex items-center gap-1.5 text-xs font-medium text-orange-deep dark:text-sand mt-1">
                             <Clock className="w-3.5 h-3.5" />
                             <span>Estimated Duration: {service.duration}</span>
                           </div>
@@ -161,23 +160,23 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
                       </div>
                     </div>
 
-                    <p className="text-sm sm:text-base text-ink/85 leading-relaxed font-light mb-6">
+                    <p className="text-sm sm:text-base text-ink/85 dark:text-cream/85 leading-relaxed font-light mb-6">
                       {service.longDescription || service.description}
                     </p>
 
                     {/* Features list */}
                     {service.features && service.features.length > 0 && (
                       <div className="pt-2">
-                        <h3 className="text-xs uppercase tracking-widest text-gold-dark font-semibold mb-3">
+                        <h3 className="text-xs uppercase tracking-widest text-orange-deep dark:text-sand font-semibold mb-3">
                           Key Clinical Highlights
                         </h3>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                           {service.features.map((feature, idx) => (
                             <li
                               key={idx}
-                              className="flex items-start gap-2.5 text-xs sm:text-sm text-ink/80"
+                              className="flex items-start gap-2.5 text-xs sm:text-sm text-ink/80 dark:text-cream/80"
                             >
-                              <CheckCircle className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                              <CheckCircle className="w-4 h-4 text-orange shrink-0 mt-0.5" />
                               <span>{feature}</span>
                             </li>
                           ))}
@@ -190,9 +189,9 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
                   <div className="w-full lg:w-auto flex lg:flex-col items-center justify-center shrink-0 pt-4 lg:pt-0">
                     <Link
                       href="/book"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-gold text-ink font-semibold text-xs uppercase tracking-wider shadow-gold-glow hover:bg-gold-light transition-all"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-orange text-ink font-semibold text-xs uppercase tracking-wider shadow-warm-glow hover:bg-orange-soft transition-all"
                     >
-                      <Calendar className="w-4 h-4" />
+                      <Calendar className="w-4 h-4 text-ink" />
                       <span>Book Consultation</span>
                     </Link>
                   </div>
@@ -201,13 +200,13 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
             ))}
           </div>
 
-          <GoldDivider className="py-8" />
+          <CrossDivider variant="line" className="py-8" />
         </div>
       ) : (
         /* Coming Soon Species: Waitlist Section */
         <div className="max-w-2xl mx-auto py-6">
           <WaitlistForm animal={animal} />
-          <GoldDivider className="py-12" />
+          <CrossDivider variant="paws" className="py-12" />
         </div>
       )}
     </main>

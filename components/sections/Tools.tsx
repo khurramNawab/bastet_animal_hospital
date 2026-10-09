@@ -27,12 +27,12 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
     >
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-14">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold-dark text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
+          <Sparkles className="w-3.5 h-3.5 text-orange" />
           <span>Clinical Utilities</span>
         </div>
 
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal dark:text-cream tracking-tight">
+        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive dark:text-cream tracking-tight">
           Pet Parent Health Tools
         </h2>
 
@@ -45,15 +45,15 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
       {/* 2 Luxury Interactive Tool Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
         {/* Card 1: Dog Age Calculator */}
-        <div className="group relative rounded-3xl p-8 sm:p-10 glass-card border border-gold/30 hover:border-gold/60 transition-all duration-300 shadow-glass flex flex-col justify-between overflow-hidden">
-          <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-gold/15 to-transparent rounded-bl-full pointer-events-none" />
+        <div className="group relative rounded-3xl p-8 sm:p-10 glass-card border border-sand/40 hover:border-orange/60 transition-all duration-300 shadow-glass flex flex-col justify-between overflow-hidden">
+          <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-orange/15 to-transparent rounded-bl-full pointer-events-none" />
 
           <div>
-            <div className="w-14 h-14 rounded-2xl bg-teal/10 dark:bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-6 group-hover:bg-teal group-hover:text-gold transition-colors">
+            <div className="w-14 h-14 rounded-2xl bg-sand/30 dark:bg-olive-900 border border-sand/40 flex items-center justify-center text-orange mb-6 group-hover:bg-orange group-hover:text-ink transition-colors">
               <Calculator className="w-7 h-7" />
             </div>
 
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-teal dark:text-cream mb-2">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-olive dark:text-cream mb-2">
               Dog Age Calculator
             </h3>
 
@@ -64,11 +64,11 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
 
             <ul className="text-xs text-ink/70 dark:text-cream/70 space-y-2 mb-8 font-light">
               <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                <span className="w-1.5 h-1.5 rounded-full bg-orange" />
                 <span>Customized for Small, Medium, Large & Giant breeds</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                <span className="w-1.5 h-1.5 rounded-full bg-orange" />
                 <span>Life stage care hints for puppies, adults & seniors</span>
               </li>
             </ul>
@@ -78,28 +78,28 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
             ref={ageTriggerRef}
             type="button"
             onClick={() => setActiveModal('age')}
-            className="w-full py-3.5 px-6 rounded-2xl bg-teal dark:bg-gold text-cream dark:text-ink font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-teal-800 dark:hover:bg-gold-light transition-all shadow-md group-hover:shadow-lg focus-visible:ring-2 focus-visible:ring-gold"
+            className="w-full py-3.5 px-6 rounded-full bg-orange text-ink font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-orange-soft transition-all shadow-warm-glow group-hover:shadow-warm-glow-lg focus-visible:ring-2 focus-visible:ring-orange-deep"
           >
             <span>Open Age Calculator</span>
-            <ArrowRight className="w-4 h-4 text-gold dark:text-ink group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-ink group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
         {/* Card 2: Symptom Checker */}
-        <div className="group relative rounded-3xl p-8 sm:p-10 glass-card border border-gold/30 hover:border-gold/60 transition-all duration-300 shadow-glass flex flex-col justify-between overflow-hidden">
-          <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-teal/15 to-transparent rounded-bl-full pointer-events-none" />
+        <div className="group relative rounded-3xl p-8 sm:p-10 glass-card border border-sand/40 hover:border-orange/60 transition-all duration-300 shadow-glass flex flex-col justify-between overflow-hidden">
+          <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-sand/20 to-transparent rounded-bl-full pointer-events-none" />
 
           <div>
-            <div className="w-14 h-14 rounded-2xl bg-teal/10 dark:bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-6 group-hover:bg-teal group-hover:text-gold transition-colors">
+            <div className="w-14 h-14 rounded-2xl bg-sand/30 dark:bg-olive-900 border border-sand/40 flex items-center justify-center text-orange mb-6 group-hover:bg-orange group-hover:text-ink transition-colors">
               <Activity className="w-7 h-7" />
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-gold/15 border border-gold/30 text-gold-dark dark:text-gold text-[11px] font-semibold mb-2">
-              <ShieldAlert className="w-3 h-3 text-gold-dark dark:text-gold" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sand/40 border border-sand/50 text-orange-deep dark:text-sand text-[11px] font-semibold mb-2">
+              <ShieldAlert className="w-3 h-3 text-orange-deep dark:text-orange" />
               <span>Guidance & Triage Only</span>
             </div>
 
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-teal dark:text-cream mb-2">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-olive dark:text-cream mb-2">
               Symptom Triage Checker
             </h3>
 
@@ -110,11 +110,11 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
 
             <ul className="text-xs text-ink/70 dark:text-cream/70 space-y-2 mb-8 font-light">
               <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                <span className="w-1.5 h-1.5 rounded-full bg-orange" />
                 <span>Life-threatening red flags & emergency priority screening</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                <span className="w-1.5 h-1.5 rounded-full bg-orange" />
                 <span>Direct 24/7 hospital calling & location guidance</span>
               </li>
             </ul>
@@ -124,10 +124,10 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
             ref={symptomTriggerRef}
             type="button"
             onClick={() => setActiveModal('symptom')}
-            className="w-full py-3.5 px-6 rounded-2xl bg-teal dark:bg-gold text-cream dark:text-ink font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-teal-800 dark:hover:bg-gold-light transition-all shadow-md group-hover:shadow-lg focus-visible:ring-2 focus-visible:ring-gold"
+            className="w-full py-3.5 px-6 rounded-full bg-orange text-ink font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-orange-soft transition-all shadow-warm-glow group-hover:shadow-warm-glow-lg focus-visible:ring-2 focus-visible:ring-orange-deep"
           >
             <span>Start Symptom Check</span>
-            <ArrowRight className="w-4 h-4 text-gold dark:text-ink group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-ink group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>

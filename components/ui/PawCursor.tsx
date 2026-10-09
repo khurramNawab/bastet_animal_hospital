@@ -53,7 +53,7 @@ export function PawCursor() {
 
     // Smooth animation loop
     const render = () => {
-      // Lerp smoothing (15% interpolation speed)
+      // Lerp smoothing (18% interpolation speed)
       pos.current.x += (target.current.x - pos.current.x) * 0.18;
       pos.current.y += (target.current.y - pos.current.y) * 0.18;
 
@@ -102,19 +102,19 @@ export function PawCursor() {
         transform: 'translate3d(-100px, -100px, 0)',
       }}
     >
-      {/* Outer Golden Aura Ring */}
+      {/* Outer Warm Orange Ring */}
       <div
-        className={`relative -top-3 -left-3 rounded-full border border-gold/60 transition-all duration-200 ease-out flex items-center justify-center ${
+        className={`relative -top-3 -left-3 rounded-full border border-orange/60 transition-all duration-200 ease-out flex items-center justify-center ${
           isMouseDown
-            ? 'w-6 h-6 scale-90 bg-gold/40 shadow-gold-glow'
+            ? 'w-6 h-6 scale-90 bg-orange/40 shadow-warm-glow'
             : isHovering
-            ? 'w-10 h-10 scale-125 bg-gold/15 shadow-gold-glow-lg border-gold'
-            : 'w-6 h-6 scale-100 bg-gold/10'
+            ? 'w-10 h-10 scale-125 bg-orange/15 shadow-warm-glow-lg border-orange'
+            : 'w-6 h-6 scale-100 bg-orange/10'
         }`}
       >
-        {/* Tiny Golden Paw Center Dot */}
+        {/* Warm Orange Paw Center Dot */}
         <div
-          className={`rounded-full bg-gold transition-all duration-150 ${
+          className={`rounded-full bg-orange transition-all duration-150 ${
             isHovering ? 'w-2.5 h-2.5' : 'w-1.5 h-1.5'
           }`}
         />

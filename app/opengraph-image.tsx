@@ -19,16 +19,16 @@ export default async function Image() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#062527',
-          backgroundImage: 'radial-gradient(circle at 50% 40%, rgba(201, 162, 75, 0.18) 0%, rgba(6, 37, 39, 0.95) 75%)',
-          border: '12px solid #C9A24B',
+          backgroundColor: '#2B3318',
+          backgroundImage: 'radial-gradient(circle at 50% 40%, rgba(255, 117, 27, 0.15) 0%, rgba(43, 51, 24, 0.98) 80%)',
+          border: '12px solid #FF751B',
           padding: '40px 60px',
           textAlign: 'center',
-          fontFamily: 'serif',
-          color: '#FAF5E9',
+          fontFamily: 'sans-serif',
+          color: '#FFF6E5',
         }}
       >
-        {/* Brand Crest Icon Motif */}
+        {/* Brand Orange Cross Badge */}
         <div
           style={{
             display: 'flex',
@@ -37,13 +37,12 @@ export default async function Image() {
             width: '84px',
             height: '84px',
             borderRadius: '24px',
-            backgroundColor: '#0B3C3F',
-            border: '3px solid #C9A24B',
+            backgroundColor: '#FF751B',
             marginBottom: '28px',
-            boxShadow: '0 0 35px rgba(201, 162, 75, 0.4)',
+            boxShadow: '0 0 35px rgba(255, 117, 27, 0.4)',
           }}
         >
-          <span style={{ fontSize: '46px', color: '#C9A24B', fontWeight: 'bold' }}>B</span>
+          <span style={{ fontSize: '46px', color: '#241E10', fontWeight: 'bold' }}>+</span>
         </div>
 
         {/* Title */}
@@ -52,7 +51,7 @@ export default async function Image() {
             fontSize: '56px',
             fontWeight: 'bold',
             letterSpacing: '0.04em',
-            color: '#C9A24B',
+            color: '#FFF6E5',
             marginBottom: '16px',
             textTransform: 'uppercase',
           }}
@@ -64,15 +63,14 @@ export default async function Image() {
         <div
           style={{
             fontSize: '28px',
-            color: '#FAF5E9',
+            color: '#F7DAA7',
             maxWidth: '900px',
             lineHeight: 1.35,
-            fontFamily: 'sans-serif',
-            fontWeight: 300,
+            fontWeight: 400,
             marginBottom: '28px',
           }}
         >
-          Where Every Paw Gets Royal Care
+          Compassionate, Advanced Veterinary Medicine in Kolkata
         </div>
 
         {/* Badges Band */}
@@ -81,8 +79,7 @@ export default async function Image() {
             display: 'flex',
             gap: '24px',
             fontSize: '18px',
-            color: '#C9A24B',
-            fontFamily: 'sans-serif',
+            color: '#FFB27A',
             fontWeight: 600,
             letterSpacing: '0.08em',
             textTransform: 'uppercase',

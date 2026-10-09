@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Sparkles } from 'lucide-react';
 import { Contact } from '@/components/sections/Contact';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 import { getSiteConfig } from '@/lib/data';
 
 export const metadata: Metadata = {
@@ -23,23 +23,23 @@ export default function ContactPage() {
     <main className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold-dark text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 dark:bg-olive-deep/70 border border-sand/60 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
+          <Sparkles className="w-3.5 h-3.5 text-orange" />
           <span>Connect & Directions</span>
         </div>
 
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-teal tracking-tight">
+        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-olive-deep dark:text-cream tracking-tight">
           Get in Touch
         </h1>
 
-        <p className="mt-3 text-base sm:text-lg text-ink/80 leading-relaxed font-light">
+        <p className="mt-3 text-base sm:text-lg text-ink/80 dark:text-cream/80 leading-relaxed font-light">
           Visit our modern veterinary hospital in Park Street, Kolkata or connect directly via
           phone and WhatsApp.
         </p>
       </div>
 
       <div className="w-full max-w-4xl mb-12">
-        <GoldDivider variant="eye" />
+        <CrossDivider variant="cross" />
       </div>
 
       <Contact siteConfig={siteConfig} />

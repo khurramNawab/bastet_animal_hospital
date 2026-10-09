@@ -17,12 +17,12 @@ export function Doctors({ doctors }: DoctorsProps) {
     >
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-14">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold-dark text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
+          <Sparkles className="w-3.5 h-3.5 text-orange" />
           <span>Medical Faculty</span>
         </div>
 
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal dark:text-cream tracking-tight">
+        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive dark:text-cream tracking-tight">
           Meet Your Pet&apos;s Care Team
         </h2>
 
@@ -43,10 +43,10 @@ export function Doctors({ doctors }: DoctorsProps) {
       <div className="mt-12 text-center">
         <Link
           href="/doctors"
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-teal dark:text-gold hover:text-gold-dark dark:hover:text-gold-light transition-colors"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-olive dark:text-sand hover:text-orange-deep dark:hover:text-orange transition-colors"
         >
           <span>Explore All Veterinary Specialists & On-Call Surgeons</span>
-          <ArrowRight className="w-4 h-4 text-gold" />
+          <ArrowRight className="w-4 h-4 text-orange" />
         </Link>
       </div>
     </section>

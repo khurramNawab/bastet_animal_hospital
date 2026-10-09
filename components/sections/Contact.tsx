@@ -10,7 +10,6 @@ import {
   ExternalLink,
   ShieldCheck,
   AlertTriangle,
-  Sparkles,
 } from 'lucide-react';
 import { getClinicOpenStatus } from '@/lib/booking/openStatus';
 import { cn } from '@/lib/cn';
@@ -48,7 +47,7 @@ export function Contact({ siteConfig }: ContactProps) {
       {/* LEFT COLUMN: CONTACT DETAILS & TIMINGS */}
       <div className="lg:col-span-6 flex flex-col gap-8">
         {/* Live Clinic Status Card */}
-        <div className="p-6 rounded-3xl bg-teal-900 text-cream border border-gold/40 shadow-xl flex items-center justify-between gap-4">
+        <div className="p-6 rounded-3xl bg-olive-deep text-cream border border-sand/40 shadow-xl flex items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
             <div className="relative">
               <div
@@ -92,19 +91,19 @@ export function Contact({ siteConfig }: ContactProps) {
           {/* General Inquiries */}
           <a
             href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-            className="p-5 rounded-2xl glass-card border border-gold/30 hover:border-gold/60 transition-all flex items-start gap-4 group"
+            className="p-5 rounded-2xl glass-card border border-sand/40 hover:border-orange/60 transition-all flex items-start gap-4 group"
           >
-            <div className="p-3 rounded-xl bg-teal/10 text-teal group-hover:bg-teal group-hover:text-gold transition-colors">
+            <div className="p-3 rounded-xl bg-sand/30 dark:bg-olive-900 text-orange group-hover:bg-orange group-hover:text-ink transition-colors">
               <Phone className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs uppercase tracking-wider text-gold-dark font-semibold block mb-0.5">
+              <span className="text-xs uppercase tracking-wider text-orange-deep dark:text-sand font-semibold block mb-0.5">
                 Appointments & Reception
               </span>
-              <span className="font-display text-base font-bold text-teal group-hover:text-teal-700 transition-colors">
+              <span className="font-display text-base font-bold text-olive dark:text-cream group-hover:text-orange-deep dark:group-hover:text-orange transition-colors">
                 {siteConfig.phone}
               </span>
-              <p className="text-[11px] text-ink/60 mt-0.5 font-light">
+              <p className="text-[11px] text-ink/60 dark:text-cream/60 mt-0.5 font-light">
                 Call during regular OPD hours
               </p>
             </div>
@@ -115,19 +114,19 @@ export function Contact({ siteConfig }: ContactProps) {
             href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-5 rounded-2xl glass-card border border-gold/30 hover:border-gold/60 transition-all flex items-start gap-4 group"
+            className="p-5 rounded-2xl glass-card border border-sand/40 hover:border-orange/60 transition-all flex items-start gap-4 group"
           >
-            <div className="p-3 rounded-xl bg-teal/10 text-teal group-hover:bg-teal group-hover:text-gold transition-colors">
+            <div className="p-3 rounded-xl bg-sand/30 dark:bg-olive-900 text-orange group-hover:bg-orange group-hover:text-ink transition-colors">
               <MessageSquare className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs uppercase tracking-wider text-gold-dark font-semibold block mb-0.5">
+              <span className="text-xs uppercase tracking-wider text-orange-deep dark:text-sand font-semibold block mb-0.5">
                 WhatsApp Desk
               </span>
-              <span className="font-display text-base font-bold text-teal group-hover:text-teal-700 transition-colors">
+              <span className="font-display text-base font-bold text-olive dark:text-cream group-hover:text-orange-deep dark:group-hover:text-orange transition-colors">
                 Quick Chat & Reports
               </span>
-              <p className="text-[11px] text-ink/60 mt-0.5 font-light">
+              <p className="text-[11px] text-ink/60 dark:text-cream/60 mt-0.5 font-light">
                 Prescriptions & Slot inquiries
               </p>
             </div>
@@ -145,10 +144,10 @@ export function Contact({ siteConfig }: ContactProps) {
               <span className="text-xs uppercase tracking-wider text-red-600 font-bold block mb-0.5">
                 24x7 Emergency Trauma Unit
               </span>
-              <span className="font-display text-base font-bold text-red-950">
+              <span className="font-display text-base font-bold text-red-950 dark:text-red-200">
                 {siteConfig.phone} (Always Active)
               </span>
-              <p className="text-[11px] text-red-900/80 mt-0.5 font-light">
+              <p className="text-[11px] text-red-900/80 dark:text-red-300/80 mt-0.5 font-light">
                 Immediate clinical triage, oxygenation, and on-call surgeons
               </p>
             </div>
@@ -157,16 +156,16 @@ export function Contact({ siteConfig }: ContactProps) {
           {/* Email */}
           <a
             href={`mailto:${siteConfig.email}`}
-            className="p-5 rounded-2xl glass-card border border-gold/30 hover:border-gold/60 transition-all flex items-start gap-4 group sm:col-span-2"
+            className="p-5 rounded-2xl glass-card border border-sand/40 hover:border-orange/60 transition-all flex items-start gap-4 group sm:col-span-2"
           >
-            <div className="p-3 rounded-xl bg-teal/10 text-teal group-hover:bg-teal group-hover:text-gold transition-colors">
+            <div className="p-3 rounded-xl bg-sand/30 dark:bg-olive-900 text-orange group-hover:bg-orange group-hover:text-ink transition-colors">
               <Mail className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs uppercase tracking-wider text-gold-dark font-semibold block mb-0.5">
+              <span className="text-xs uppercase tracking-wider text-orange-deep dark:text-sand font-semibold block mb-0.5">
                 Official Email
               </span>
-              <span className="font-display text-base font-bold text-teal group-hover:text-teal-700 transition-colors break-all">
+              <span className="font-display text-base font-bold text-olive dark:text-cream group-hover:text-orange-deep dark:group-hover:text-orange transition-colors break-all">
                 {siteConfig.email}
               </span>
             </div>
@@ -174,15 +173,15 @@ export function Contact({ siteConfig }: ContactProps) {
         </div>
 
         {/* Weekly Operating Hours Table */}
-        <div className="p-6 rounded-3xl glass-card border border-gold/30 shadow-glass">
+        <div className="p-6 rounded-3xl glass-card border border-sand/40 shadow-glass">
           <div className="flex items-center gap-2 mb-4">
-            <Clock className="w-4 h-4 text-gold-dark" />
-            <h3 className="font-display text-lg font-bold text-teal">
+            <Clock className="w-4 h-4 text-orange-deep dark:text-orange" />
+            <h3 className="font-display text-lg font-bold text-olive dark:text-cream">
               Hospital Operating Schedule
             </h3>
           </div>
 
-          <div className="divide-y divide-gold/15 text-xs">
+          <div className="divide-y divide-sand/20 text-xs">
             {WEEKDAYS_ORDER.map(({ key, label }) => {
               const daySchedule = siteConfig.openingHours?.[key];
               const isToday = openStatus.dayName.toLowerCase() === key;
@@ -192,19 +191,19 @@ export function Contact({ siteConfig }: ContactProps) {
                   key={key}
                   className={cn(
                     'py-2.5 px-3 flex items-center justify-between rounded-lg transition-colors',
-                    isToday ? 'bg-gold/15 font-semibold text-teal' : 'text-ink/80',
+                    isToday ? 'bg-sand/30 font-semibold text-olive dark:text-sand' : 'text-ink/80 dark:text-cream/80',
                   )}
                 >
                   <div className="flex items-center gap-2">
                     <span>{label}</span>
                     {isToday && (
-                      <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-gold text-ink">
+                      <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-full bg-orange text-ink">
                         Today
                       </span>
                     )}
                   </div>
 
-                  <span className={isToday ? 'text-teal font-bold' : 'text-ink/70'}>
+                  <span className={isToday ? 'text-olive dark:text-cream font-bold' : 'text-ink/70 dark:text-cream/70'}>
                     {daySchedule ? daySchedule.label : 'Closed'}
                   </span>
                 </div>
@@ -212,8 +211,8 @@ export function Contact({ siteConfig }: ContactProps) {
             })}
           </div>
 
-          <div className="mt-4 pt-3 border-t border-gold/20 flex items-center gap-2 text-xs text-gold-dark font-semibold">
-            <ShieldCheck className="w-4 h-4 text-gold-dark" />
+          <div className="mt-4 pt-3 border-t border-sand/30 flex items-center gap-2 text-xs text-orange-deep dark:text-sand font-semibold">
+            <ShieldCheck className="w-4 h-4 text-orange" />
             <span>24/7 Critical Care & Emergency Admissions are always active.</span>
           </div>
         </div>
@@ -222,19 +221,19 @@ export function Contact({ siteConfig }: ContactProps) {
       {/* RIGHT COLUMN: LOCATION & GOOGLE MAPS */}
       <div className="lg:col-span-6 flex flex-col gap-6 h-full">
         {/* Address Card */}
-        <div className="p-6 rounded-3xl glass-card border border-gold/30 shadow-glass flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="p-6 rounded-3xl glass-card border border-sand/40 shadow-glass flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3.5">
-            <div className="p-3 rounded-2xl bg-teal/10 text-gold-dark shrink-0">
+            <div className="p-3 rounded-2xl bg-sand/30 text-orange-deep dark:text-orange shrink-0">
               <MapPin className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-xs uppercase tracking-wider text-gold-dark font-semibold block mb-0.5">
+              <span className="text-xs uppercase tracking-wider text-orange-deep dark:text-sand font-semibold block mb-0.5">
                 Hospital Location
               </span>
-              <h3 className="font-display text-lg font-bold text-teal">
+              <h3 className="font-display text-lg font-bold text-olive dark:text-cream">
                 {siteConfig.name}
               </h3>
-              <p className="text-xs text-ink/75 mt-0.5 leading-relaxed font-light">
+              <p className="text-xs text-ink/75 dark:text-cream/75 mt-0.5 leading-relaxed font-light">
                 {siteConfig.address}
               </p>
             </div>
@@ -244,15 +243,15 @@ export function Contact({ siteConfig }: ContactProps) {
             href={siteConfig.mapLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="py-2.5 px-5 rounded-xl bg-teal text-cream text-xs font-semibold uppercase tracking-wider flex items-center gap-2 hover:bg-teal-800 transition-all shrink-0 shadow-sm"
+            className="py-2.5 px-5 rounded-full bg-orange text-ink font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-orange-soft transition-all shrink-0 shadow-warm-glow"
           >
             <span>Get Directions</span>
-            <ExternalLink className="w-3.5 h-3.5 text-gold" />
+            <ExternalLink className="w-3.5 h-3.5 text-ink" />
           </a>
         </div>
 
         {/* Interactive Google Maps Frame / Facade */}
-        <div className="relative w-full h-[380px] sm:h-[460px] rounded-3xl overflow-hidden border border-gold/40 shadow-xl bg-teal-900/10 flex items-center justify-center">
+        <div className="relative w-full h-[380px] sm:h-[460px] rounded-3xl overflow-hidden border border-sand/40 shadow-xl bg-olive-900/10 flex items-center justify-center">
           {isMapLoaded ? (
             <iframe
               src={siteConfig.mapEmbedUrl}
@@ -267,21 +266,21 @@ export function Contact({ siteConfig }: ContactProps) {
             />
           ) : (
             <div className="p-8 text-center flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold shadow-gold-glow">
+              <div className="w-16 h-16 rounded-full bg-sand/30 border border-orange flex items-center justify-center text-orange shadow-warm-glow">
                 <MapPin className="w-8 h-8" />
               </div>
               <div>
-                <h4 className="font-display text-xl font-bold text-teal">
+                <h4 className="font-display text-xl font-bold text-olive dark:text-cream">
                   Explore Clinic Map
                 </h4>
-                <p className="text-xs text-ink/70 max-w-xs mx-auto mt-1 font-light">
-                  Click below to load the interactive Google Maps view of Park Street, Kolkata.
+                <p className="text-xs text-ink/70 dark:text-cream/70 max-w-xs mx-auto mt-1 font-light">
+                  Click below to load the interactive Google Maps view of Rash Behari Avenue, Kolkata.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsMapLoaded(true)}
-                className="py-3 px-6 rounded-2xl bg-teal text-cream font-semibold text-xs uppercase tracking-wider hover:bg-teal-800 transition-all shadow-md focus-visible:ring-2 focus-visible:ring-gold"
+                className="py-3 px-6 rounded-full bg-orange text-ink font-bold text-xs uppercase tracking-wider hover:bg-orange-soft transition-all shadow-warm-glow focus-visible:ring-2 focus-visible:ring-orange-deep"
               >
                 <span>Load Interactive Map</span>
               </button>

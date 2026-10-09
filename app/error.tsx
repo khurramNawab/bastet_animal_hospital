@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { AlertTriangle, RotateCcw, Home, Phone } from 'lucide-react';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 
 export default function GlobalError({
   error,
@@ -23,7 +23,7 @@ export default function GlobalError({
         <AlertTriangle className="w-8 h-8" />
       </div>
 
-      <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal dark:text-cream tracking-tight mb-3">
+      <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive-deep dark:text-cream tracking-tight mb-3">
         Temporary Clinical Interruption
       </h1>
 
@@ -33,14 +33,14 @@ export default function GlobalError({
       </p>
 
       <div className="w-full max-w-xs mb-8">
-        <GoldDivider variant="line" />
+        <CrossDivider variant="line" />
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-4">
         <button
           type="button"
           onClick={() => reset()}
-          className="py-3 px-6 rounded-2xl bg-gold hover:bg-gold-light text-ink font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-gold-glow transition-all"
+          className="py-3 px-6 rounded-2xl bg-orange hover:bg-orange-soft text-ink font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-warm-glow transition-all"
         >
           <RotateCcw className="w-4 h-4" />
           <span>Try Again</span>
@@ -48,17 +48,17 @@ export default function GlobalError({
 
         <Link
           href="/"
-          className="py-3 px-6 rounded-2xl bg-teal dark:bg-teal-800 text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
+          className="py-3 px-6 rounded-2xl bg-olive-deep text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all hover:bg-olive"
         >
-          <Home className="w-4 h-4 text-gold" />
+          <Home className="w-4 h-4 text-sand" />
           <span>Return Home</span>
         </Link>
 
         <Link
           href="/contact"
-          className="py-3 px-6 rounded-2xl border border-gold/40 hover:bg-gold/15 text-teal dark:text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
+          className="py-3 px-6 rounded-2xl border border-sand/50 hover:bg-sand/20 text-olive-deep dark:text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
         >
-          <Phone className="w-4 h-4 text-gold" />
+          <Phone className="w-4 h-4 text-orange" />
           <span>Emergency Line</span>
         </Link>
       </div>

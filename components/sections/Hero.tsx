@@ -66,26 +66,26 @@ export function Hero({ siteConfig }: HeroProps) {
       aria-label="Hero Section"
     >
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 left-10 w-80 h-80 bg-teal/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 left-10 w-80 h-80 bg-sand/20 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* Conditional 3D Scene vs High-Performance Fallback */}
       {isMounted && canRender3D ? (
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Text Column (5 Cols) */}
+          {/* Left Text Column (6 Cols) */}
           <div ref={contentRef} className="lg:col-span-6 flex flex-col items-start z-10">
             {/* Eyebrow Chip */}
-            <div className="hero-anim inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold-dark text-xs font-semibold uppercase tracking-widest mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
-              <span>Kolkata&apos;s Premium Dog Hospital</span>
+            <div className="hero-anim inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-orange" />
+              <span>Kolkata&apos;s Trusted Pet Hospital</span>
             </div>
 
             {/* Semantic H1 for SEO */}
-            <h1 className="sr-only">Trusted Dog Hospital in Kolkata - {siteConfig.name}</h1>
+            <h1 className="sr-only">Trusted Animal Hospital in Kolkata - {siteConfig.name}</h1>
 
             {/* Visually Prominent Display Heading */}
             <div
-              className="hero-anim font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-teal dark:text-cream tracking-tight leading-[1.12] mb-5"
+              className="hero-anim font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-olive dark:text-cream tracking-tight leading-[1.12] mb-5"
               aria-label={siteConfig.tagline}
             >
               {taglineWords.map((word, idx) => (
@@ -97,7 +97,7 @@ export function Hero({ siteConfig }: HeroProps) {
 
             {/* Subtext */}
             <p className="hero-anim text-base sm:text-lg text-ink/80 dark:text-cream/80 leading-relaxed font-normal mb-8 max-w-lg">
-              Advanced sterile surgeries, digital radiography, canine dermatology, and 24x7
+              Advanced sterile surgeries, digital radiography, dermatology, and 24x7
               emergency trauma care in Rash Behari Avenue, {siteConfig.city}.
             </p>
 
@@ -106,7 +106,7 @@ export function Hero({ siteConfig }: HeroProps) {
               <MagneticButton
                 href="/book"
                 variant="primary"
-                className="px-8 py-4 text-xs uppercase tracking-wider gap-2 shadow-gold-glow"
+                className="px-8 py-4 text-xs uppercase tracking-wider gap-2 shadow-warm-glow"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book Appointment</span>
@@ -115,7 +115,7 @@ export function Hero({ siteConfig }: HeroProps) {
               <MagneticButton
                 href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
                 variant="outline"
-                className="px-8 py-4 text-xs uppercase tracking-wider gap-2 dark:border-gold/50 dark:text-cream"
+                className="px-8 py-4 text-xs uppercase tracking-wider gap-2 dark:border-sand/40 dark:text-cream"
               >
                 <PhoneCall className="w-4 h-4" />
                 <span>Emergency: {siteConfig.phone}</span>
@@ -123,22 +123,22 @@ export function Hero({ siteConfig }: HeroProps) {
             </div>
 
             {/* Trust Badges */}
-            <div className="hero-anim grid grid-cols-3 gap-4 pt-6 border-t border-gold/20 w-full">
+            <div className="hero-anim grid grid-cols-3 gap-4 pt-6 border-t border-sand/30 w-full">
               <div className="flex items-center gap-2">
-                <HeartPulse className="w-4 h-4 text-gold shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-teal dark:text-cream leading-tight">
+                <HeartPulse className="w-4 h-4 text-orange shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-olive dark:text-cream leading-tight">
                   24x7 Emergency
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Stethoscope className="w-4 h-4 text-gold shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-teal dark:text-cream leading-tight">
+                <Stethoscope className="w-4 h-4 text-orange shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-olive dark:text-cream leading-tight">
                   3 Expert Doctors
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-gold shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-teal dark:text-cream leading-tight">
+                <ShieldCheck className="w-4 h-4 text-orange shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-olive dark:text-cream leading-tight">
                   5000+ Happy Pets
                 </span>
               </div>
@@ -148,7 +148,7 @@ export function Hero({ siteConfig }: HeroProps) {
           {/* Right 3D Canine Canvas Column (6 Cols) */}
           <div className="lg:col-span-6 relative w-full h-[460px] lg:h-[600px] flex items-center justify-center">
             {/* Ambient Radial Spotlight */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-teal/20 via-gold/15 to-transparent rounded-full blur-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-sand/20 via-orange/10 to-transparent rounded-full blur-2xl" />
             <HeroCanvas reducedMotion={isReducedMotion} onLoaded={() => setModelLoaded(true)} />
           </div>
         </div>
@@ -160,7 +160,7 @@ export function Hero({ siteConfig }: HeroProps) {
       <div className="w-full flex items-center justify-center pt-2 pb-2">
         <a
           href="#explore-services"
-          className="flex flex-col items-center gap-1 text-xs uppercase tracking-widest text-gold-dark font-medium opacity-80 hover:opacity-100 transition-opacity"
+          className="flex flex-col items-center gap-1 text-xs uppercase tracking-widest text-orange-deep dark:text-sand font-medium opacity-80 hover:opacity-100 transition-opacity"
           aria-label="Scroll to discover services"
         >
           <span>Explore</span>

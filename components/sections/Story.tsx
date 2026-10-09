@@ -7,7 +7,7 @@ import { Shield, ScanSearch, HeartPulse } from 'lucide-react';
 import { useCanRender3D } from '@/hooks/useCanRender3D';
 import { StoryCanvas } from '@/components/three';
 import { StoryFallback } from './StoryFallback';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 import { cn } from '@/lib/cn';
 import type { StoryPanel } from '@/lib/types';
 
@@ -60,13 +60,13 @@ export function Story({ panels }: StoryProps) {
   const getIcon = (name: string) => {
     switch (name) {
       case 'Shield':
-        return <Shield className="w-6 h-6 text-gold" />;
+        return <Shield className="w-6 h-6 text-orange" />;
       case 'ScanSearch':
-        return <ScanSearch className="w-6 h-6 text-gold" />;
+        return <ScanSearch className="w-6 h-6 text-orange" />;
       case 'HeartPulse':
-        return <HeartPulse className="w-6 h-6 text-gold" />;
+        return <HeartPulse className="w-6 h-6 text-orange" />;
       default:
-        return <Shield className="w-6 h-6 text-gold" />;
+        return <Shield className="w-6 h-6 text-orange" />;
     }
   };
 
@@ -74,17 +74,14 @@ export function Story({ panels }: StoryProps) {
     return <StoryFallback panels={panels} />;
   }
 
-  // Calculate background color transition from Cream (#FAF5E9) to Deep Teal (#062527)
-  const bgOpacity = Math.min(1, Math.max(0, scrollProgress * 1.2));
-
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[220vh] bg-teal-900 text-cream"
+      className="relative w-full min-h-[220vh] bg-olive-deep text-cream"
       aria-label="How We Care - Clinical Journey"
     >
       {/* Dynamic Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#C9A24B_1px,transparent_1px)] [background-size:28px_28px] opacity-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#F7DAA7_1px,transparent_1px)] [background-size:28px_28px] opacity-10 pointer-events-none" />
 
       {/* Pinned Viewport Container */}
       <div
@@ -92,9 +89,9 @@ export function Story({ panels }: StoryProps) {
         className="w-full h-screen overflow-hidden flex flex-col justify-between"
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-full flex flex-col justify-between">
-          {/* Top Gold Divider */}
+          {/* Top Divider */}
           <div className="w-full">
-            <GoldDivider className="py-2" />
+            <CrossDivider variant="line" className="py-2" />
           </div>
 
           {/* Main Grid: Left Story Text Panels | Right 3D Dog Canvas */}
@@ -109,8 +106,8 @@ export function Story({ panels }: StoryProps) {
                       className={cn(
                         'w-8 h-8 rounded-full border flex items-center justify-center text-xs font-bold font-display transition-all duration-300',
                         activeStepIndex === idx
-                          ? 'border-gold bg-gold text-ink shadow-gold-glow scale-110'
-                          : 'border-gold/30 text-gold/60 bg-teal/40',
+                          ? 'border-orange bg-orange text-ink shadow-warm-glow scale-110'
+                          : 'border-sand/30 text-sand/60 bg-olive-900/60',
                       )}
                     >
                       {panel.step}
@@ -119,7 +116,7 @@ export function Story({ panels }: StoryProps) {
                       <div
                         className={cn(
                           'w-0.5 h-12 transition-colors duration-300',
-                          activeStepIndex > idx ? 'bg-gold' : 'bg-gold/20',
+                          activeStepIndex > idx ? 'bg-orange' : 'bg-sand/20',
                         )}
                       />
                     )}
@@ -129,14 +126,14 @@ export function Story({ panels }: StoryProps) {
 
               {/* Cross-Fading Text Content */}
               <div className="flex-1 min-h-[280px] flex flex-col justify-center">
-                <span className="text-xs uppercase tracking-widest text-gold font-semibold mb-2 block">
+                <span className="text-xs uppercase tracking-widest text-sand font-semibold mb-2 block">
                   How We Care • Step {panels[activeStepIndex].step}
                 </span>
 
                 <h2 className="sr-only">How We Care For Every Companion</h2>
 
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-3 rounded-2xl bg-teal/60 border border-gold/40 shadow-sm backdrop-blur-md">
+                  <div className="p-3 rounded-2xl bg-olive-900 border border-sand/40 shadow-sm backdrop-blur-md">
                     {getIcon(panels[activeStepIndex].icon)}
                   </div>
                   <h3 className="font-display text-4xl sm:text-5xl font-bold text-cream">
@@ -144,7 +141,7 @@ export function Story({ panels }: StoryProps) {
                   </h3>
                 </div>
 
-                <p className="text-base sm:text-lg font-semibold text-gold-light mb-3 leading-snug">
+                <p className="text-base sm:text-lg font-semibold text-orange-soft mb-3 leading-snug">
                   {panels[activeStepIndex].line}
                 </p>
 
@@ -156,14 +153,14 @@ export function Story({ panels }: StoryProps) {
 
             {/* Right Column: 3D Story Canvas with dynamic camera poses */}
             <div className="lg:col-span-6 relative w-full h-[400px] lg:h-[520px] flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-tr from-gold/15 via-teal/20 to-transparent rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-sand/15 via-orange/10 to-transparent rounded-full blur-3xl pointer-events-none" />
               <StoryCanvas progress={scrollProgress} panels={panels} />
             </div>
           </div>
 
-          {/* Bottom Gold Divider & Indicator */}
+          {/* Bottom Divider & Indicator */}
           <div className="w-full flex flex-col items-center">
-            <GoldDivider className="py-2" />
+            <CrossDivider variant="line" className="py-2" />
           </div>
         </div>
       </div>

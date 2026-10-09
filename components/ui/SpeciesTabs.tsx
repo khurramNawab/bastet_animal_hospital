@@ -52,7 +52,7 @@ export function SpeciesTabs({ animals, activeSlug, onSelect }: SpeciesTabsProps)
     <div
       role="tablist"
       aria-label="Select pet species"
-      className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-3xl bg-cream-dark/60 dark:bg-teal-950/70 border border-gold/25 backdrop-blur-md max-w-2xl mx-auto shadow-sm"
+      className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 p-1.5 rounded-full bg-sand/30 dark:bg-olive-900/70 border border-sand/40 backdrop-blur-md max-w-2xl mx-auto shadow-sm"
     >
       {animals.map((animal, idx) => {
         const isSelected = activeSlug === animal.slug;
@@ -71,14 +71,14 @@ export function SpeciesTabs({ animals, activeSlug, onSelect }: SpeciesTabsProps)
             onClick={() => onSelect(animal.slug)}
             onKeyDown={(e) => handleKeyDown(e, idx)}
             className={cn(
-              'relative flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-gold',
-              isSelected ? 'text-ink' : 'text-ink/75 dark:text-cream/80 hover:text-teal dark:hover:text-gold',
+              'relative flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-orange-deep',
+              isSelected ? 'text-ink font-bold' : 'text-ink/75 dark:text-cream/80 hover:text-orange-deep dark:hover:text-orange',
             )}
           >
             {isSelected && (
               <motion.div
                 layoutId="activeSpeciesPill"
-                className="absolute inset-0 bg-gold rounded-2xl shadow-gold-glow -z-10"
+                className="absolute inset-0 bg-orange rounded-full shadow-warm-glow -z-10"
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
             )}
@@ -95,7 +95,7 @@ export function SpeciesTabs({ animals, activeSlug, onSelect }: SpeciesTabsProps)
                   'inline-flex items-center gap-1 text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full border',
                   isSelected
                     ? 'bg-ink/10 text-ink border-ink/20'
-                    : 'bg-gold/15 text-gold-dark border-gold/30',
+                    : 'bg-orange/15 text-orange-deep dark:text-sand border-orange/30',
                 )}
               >
                 <Sparkles className="w-2.5 h-2.5" />

@@ -14,7 +14,6 @@ import {
   ArrowRight,
   Clock,
 } from 'lucide-react';
-import { cn } from '@/lib/cn';
 import type { ServiceItem } from '@/lib/types';
 
 interface ServiceCardProps {
@@ -72,21 +71,21 @@ export function ServiceCard({ service, animalSlug }: ServiceCardProps) {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'ShieldCheck':
-        return <ShieldCheck className="w-5 h-5 text-gold" />;
+        return <ShieldCheck className="w-5 h-5 text-orange" />;
       case 'Activity':
-        return <Activity className="w-5 h-5 text-gold" />;
+        return <Activity className="w-5 h-5 text-orange" />;
       case 'Sparkles':
-        return <Sparkles className="w-5 h-5 text-gold" />;
+        return <Sparkles className="w-5 h-5 text-orange" />;
       case 'Scissors':
-        return <Scissors className="w-5 h-5 text-gold" />;
+        return <Scissors className="w-5 h-5 text-orange" />;
       case 'HeartPulse':
-        return <HeartPulse className="w-5 h-5 text-gold" />;
+        return <HeartPulse className="w-5 h-5 text-orange" />;
       case 'Microscope':
-        return <Microscope className="w-5 h-5 text-gold" />;
+        return <Microscope className="w-5 h-5 text-orange" />;
       case 'Home':
-        return <Home className="w-5 h-5 text-gold" />;
+        return <Home className="w-5 h-5 text-orange" />;
       default:
-        return <Activity className="w-5 h-5 text-gold" />;
+        return <Activity className="w-5 h-5 text-orange" />;
     }
   };
 
@@ -104,14 +103,14 @@ export function ServiceCard({ service, animalSlug }: ServiceCardProps) {
     >
       <Link
         href={`/services/${animalSlug}#${service.slug}`}
-        className="group relative flex flex-col justify-between h-full p-6 sm:p-7 rounded-3xl glass-card hover:border-gold/60 transition-all duration-300 shadow-glass overflow-hidden block"
+        className="group relative flex flex-col justify-between h-full p-6 sm:p-7 rounded-3xl glass-card hover:border-orange/60 transition-all duration-300 shadow-glass overflow-hidden block"
       >
-        {/* Dynamic Cursor-Following Gold Glow */}
+        {/* Dynamic Cursor-Following Warm Glow */}
         <div
           className="absolute inset-0 pointer-events-none transition-opacity duration-300 -z-10"
           style={{
             opacity: glowPos.opacity,
-            background: `radial-gradient(circle at ${glowPos.x}% ${glowPos.y}%, rgba(201, 162, 75, 0.25) 0%, transparent 60%)`,
+            background: `radial-gradient(circle at ${glowPos.x}% ${glowPos.y}%, rgba(255, 117, 27, 0.2) 0%, transparent 60%)`,
           }}
           aria-hidden="true"
         />
@@ -119,20 +118,20 @@ export function ServiceCard({ service, animalSlug }: ServiceCardProps) {
         <div>
           {/* Top Row: Icon & Duration */}
           <div className="flex items-center justify-between gap-4 mb-4">
-            <div className="w-12 h-12 rounded-2xl bg-teal text-gold flex items-center justify-center border border-gold/30 shadow-sm group-hover:scale-105 group-hover:border-gold transition-all duration-300">
+            <div className="w-12 h-12 rounded-2xl bg-olive-900 text-orange flex items-center justify-center border border-sand/40 shadow-sm group-hover:scale-105 group-hover:border-orange transition-all duration-300">
               {getIcon(service.icon)}
             </div>
 
             {service.duration && (
-              <span className="inline-flex items-center gap-1 text-[11px] font-medium text-ink/70 dark:text-cream/80 bg-gold/10 border border-gold/20 px-2.5 py-1 rounded-full">
-                <Clock className="w-3 h-3 text-gold-dark dark:text-gold" />
+              <span className="inline-flex items-center gap-1 text-[11px] font-medium text-ink/70 dark:text-cream/80 bg-sand/30 border border-sand/50 px-2.5 py-1 rounded-full">
+                <Clock className="w-3 h-3 text-orange-deep dark:text-orange" />
                 <span>{service.duration}</span>
               </span>
             )}
           </div>
 
           {/* Title */}
-          <h3 className="font-display font-bold text-xl text-teal dark:text-cream group-hover:text-teal-600 dark:group-hover:text-gold transition-colors mb-2">
+          <h3 className="font-display font-bold text-xl text-olive dark:text-cream group-hover:text-orange-deep dark:group-hover:text-orange transition-colors mb-2">
             {service.title}
           </h3>
 
@@ -143,9 +142,9 @@ export function ServiceCard({ service, animalSlug }: ServiceCardProps) {
         </div>
 
         {/* Bottom: Learn More Link with Sliding Arrow */}
-        <div className="pt-3 border-t border-gold/20 flex items-center justify-between text-xs font-semibold text-teal dark:text-gold group-hover:text-gold-dark dark:group-hover:text-gold-light transition-colors">
+        <div className="pt-3 border-t border-sand/40 flex items-center justify-between text-xs font-semibold text-olive dark:text-sand group-hover:text-orange-deep dark:group-hover:text-orange transition-colors">
           <span>Explore Clinical Details</span>
-          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-200 text-gold" />
+          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-200 text-orange" />
         </div>
       </Link>
     </motion.div>

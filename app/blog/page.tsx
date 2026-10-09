@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Sparkles, BookOpen } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { getBlogPosts, getSiteConfig } from '@/lib/data';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 
 export const metadata: Metadata = {
   title: 'Pet Care Guides & Veterinary Health Tips | Bastet Small Animal Hospital Kolkata',
@@ -39,12 +39,12 @@ export default function BlogPage() {
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-14">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold-dark dark:text-gold text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 dark:bg-olive-deep/70 border border-sand/60 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
+          <Sparkles className="w-3.5 h-3.5 text-orange" />
           <span>Clinical Knowledge Base</span>
         </div>
 
-        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal dark:text-cream tracking-tight mb-4">
+        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive-deep dark:text-cream tracking-tight mb-4">
           Pet Health & Care Guides
         </h1>
 
@@ -56,13 +56,13 @@ export default function BlogPage() {
 
       {/* Category Filter Chips */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-12" aria-label="Article categories">
-        <span className="px-4 py-2 rounded-2xl bg-gold text-ink text-xs font-semibold shadow-gold-glow">
+        <span className="px-4 py-2 rounded-2xl bg-orange text-ink text-xs font-semibold shadow-warm-glow">
           All Guides ({posts.length})
         </span>
         {categories.map((cat) => (
           <span
             key={cat}
-            className="px-4 py-2 rounded-2xl glass border border-gold/30 text-ink/75 dark:text-cream/75 text-xs font-medium"
+            className="px-4 py-2 rounded-2xl glass border border-sand/40 text-ink/75 dark:text-cream/75 text-xs font-medium"
           >
             {cat}
           </span>
@@ -76,8 +76,8 @@ export default function BlogPage() {
         ))}
       </div>
 
-      {/* Bottom Gold Divider */}
-      <GoldDivider className="mt-16 mb-8" />
+      {/* Bottom Cross Divider */}
+      <CrossDivider variant="paws" className="mt-16 mb-8" />
     </main>
   );
 }

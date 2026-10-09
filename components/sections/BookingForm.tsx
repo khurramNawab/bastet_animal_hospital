@@ -1,23 +1,17 @@
 'use client';
 
-import React, { useState, useEffect, useId } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   AlertTriangle,
   Phone,
-  Calendar,
-  Clock,
-  User,
-  Heart,
-  Stethoscope,
   CheckCircle2,
   ArrowRight,
   ArrowLeft,
   Loader2,
   MessageSquare,
-  Sparkles,
   ShieldCheck,
 } from 'lucide-react';
 import { normalizeIndianPhone } from '@/lib/schemas/booking';
@@ -235,7 +229,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
         <a
           href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-          className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shrink-0 transition-all shadow-md"
+          className="px-4 py-2 rounded-full bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shrink-0 transition-all shadow-md"
         >
           <Phone className="w-3.5 h-3.5" />
           <span>Call 24/7: {siteConfig.phone}</span>
@@ -243,12 +237,12 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
       </div>
 
       {/* Main Glass Form Container */}
-      <div className="p-6 sm:p-10 rounded-3xl glass-card border border-gold/30 shadow-glass relative overflow-hidden">
+      <div className="p-6 sm:p-10 rounded-3xl glass-card border border-sand/40 shadow-glass relative overflow-hidden">
         {step < 4 && (
           <>
             {/* Step Progress Tracker */}
             <div className="mb-8">
-              <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-gold-dark mb-2">
+              <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-orange-deep dark:text-sand mb-2">
                 <span>Step {step} of 3</span>
                 <span>
                   {step === 1 && 'Patient Details'}
@@ -256,19 +250,19 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                   {step === 3 && 'Review & Confirm'}
                 </span>
               </div>
-              <div className="w-full h-1.5 bg-gold/20 rounded-full overflow-hidden">
+              <div className="w-full h-1.5 bg-sand/30 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gold transition-all duration-300 rounded-full"
+                  className="h-full bg-orange transition-all duration-300 rounded-full"
                   style={{ width: `${(step / 3) * 100}%` }}
                 />
               </div>
             </div>
 
             <div className="mb-8">
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-teal">
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-olive dark:text-cream">
                 Request an Appointment
               </h2>
-              <p className="text-xs sm:text-sm text-ink/75 font-light mt-1">
+              <p className="text-xs sm:text-sm text-ink/75 dark:text-cream/75 font-light mt-1">
                 All online submissions are requests. Our staff will contact you via phone or
                 WhatsApp to confirm your slot.
               </p>
@@ -287,7 +281,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {/* Owner Name */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
                   Your Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -297,10 +291,10 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                   value={formData.ownerName}
                   onChange={(e) => handleInputChange('ownerName', e.target.value)}
                   className={cn(
-                    'w-full px-4 py-3 rounded-xl bg-white border text-ink placeholder:text-ink/30 focus:outline-none focus:ring-2 transition-all text-sm',
+                    'w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border text-ink dark:text-cream placeholder:text-ink/30 focus:outline-none focus:ring-2 transition-all text-sm',
                     fieldErrors.ownerName
                       ? 'border-red-500 focus:ring-red-400'
-                      : 'border-gold/40 focus:border-gold focus:ring-gold/30',
+                      : 'border-sand/50 focus:border-orange focus:ring-orange/30',
                   )}
                 />
                 {fieldErrors.ownerName && (
@@ -310,7 +304,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
               {/* Phone Number */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
                   Mobile Number (WhatsApp) <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -320,10 +314,10 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                   value={formData.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
                   className={cn(
-                    'w-full px-4 py-3 rounded-xl bg-white border text-ink placeholder:text-ink/30 focus:outline-none focus:ring-2 transition-all text-sm',
+                    'w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border text-ink dark:text-cream placeholder:text-ink/30 focus:outline-none focus:ring-2 transition-all text-sm',
                     fieldErrors.phone
                       ? 'border-red-500 focus:ring-red-400'
-                      : 'border-gold/40 focus:border-gold focus:ring-gold/30',
+                      : 'border-sand/50 focus:border-orange focus:ring-orange/30',
                   )}
                 />
                 {fieldErrors.phone && (
@@ -333,21 +327,21 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
               {/* Email (Optional) */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
-                  Email Address <span className="text-ink/40 font-normal lowercase">(optional)</span>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
+                  Email Address <span className="text-ink/40 dark:text-cream/40 font-normal lowercase">(optional)</span>
                 </label>
                 <input
                   type="email"
                   placeholder="name@example.com"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-gold/40 text-ink placeholder:text-ink/30 focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition-all text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border border-sand/50 text-ink dark:text-cream placeholder:text-ink/30 focus:border-orange focus:ring-2 focus:ring-orange/30 outline-none transition-all text-sm"
                 />
               </div>
 
               {/* Pet Name */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
                   Pet&apos;s Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -357,10 +351,10 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                   value={formData.petName}
                   onChange={(e) => handleInputChange('petName', e.target.value)}
                   className={cn(
-                    'w-full px-4 py-3 rounded-xl bg-white border text-ink placeholder:text-ink/30 focus:outline-none focus:ring-2 transition-all text-sm',
+                    'w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border text-ink dark:text-cream placeholder:text-ink/30 focus:outline-none focus:ring-2 transition-all text-sm',
                     fieldErrors.petName
                       ? 'border-red-500 focus:ring-red-400'
-                      : 'border-gold/40 focus:border-gold focus:ring-gold/30',
+                      : 'border-sand/50 focus:border-orange focus:ring-orange/30',
                   )}
                 />
                 {fieldErrors.petName && (
@@ -370,29 +364,29 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
               {/* Breed */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
-                  Breed <span className="text-ink/40 font-normal lowercase">(optional)</span>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
+                  Breed <span className="text-ink/40 dark:text-cream/40 font-normal lowercase">(optional)</span>
                 </label>
                 <input
                   type="text"
                   placeholder="e.g. Golden Retriever / Desi Dog"
                   value={formData.breed}
                   onChange={(e) => handleInputChange('breed', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-gold/40 text-ink placeholder:text-ink/30 focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition-all text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border border-sand/50 text-ink dark:text-cream placeholder:text-ink/30 focus:border-orange focus:ring-2 focus:ring-orange/30 outline-none transition-all text-sm"
                 />
               </div>
 
               {/* Pet Age */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
-                  Pet&apos;s Age <span className="text-ink/40 font-normal lowercase">(optional)</span>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
+                  Pet&apos;s Age <span className="text-ink/40 dark:text-cream/40 font-normal lowercase">(optional)</span>
                 </label>
                 <input
                   type="text"
                   placeholder="e.g. 3 years"
                   value={formData.petAge}
                   onChange={(e) => handleInputChange('petAge', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-gold/40 text-ink placeholder:text-ink/30 focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition-all text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border border-sand/50 text-ink dark:text-cream placeholder:text-ink/30 focus:border-orange focus:ring-2 focus:ring-orange/30 outline-none transition-all text-sm"
                 />
               </div>
             </div>
@@ -402,10 +396,10 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
               <button
                 type="button"
                 onClick={handleNextToStep2}
-                className="py-3 px-8 rounded-2xl bg-teal text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-teal-800 transition-all shadow-md focus-visible:ring-2 focus-visible:ring-gold"
+                className="py-3 px-8 rounded-full bg-orange text-ink font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-orange-soft transition-all shadow-warm-glow focus-visible:ring-2 focus-visible:ring-orange-deep"
               >
                 <span>Continue to Service & Date</span>
-                <ArrowRight className="w-4 h-4 text-gold" />
+                <ArrowRight className="w-4 h-4 text-ink" />
               </button>
             </div>
           </motion.div>
@@ -421,17 +415,17 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
           >
             {/* Service Selection Dropdown */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
                 Clinical Service <span className="text-red-500">*</span>
               </label>
               <select
                 value={formData.service}
                 onChange={(e) => handleInputChange('service', e.target.value)}
                 className={cn(
-                  'w-full px-4 py-3 rounded-xl bg-white border text-ink focus:outline-none focus:ring-2 transition-all text-sm font-medium',
+                  'w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border text-ink dark:text-cream focus:outline-none focus:ring-2 transition-all text-sm font-medium',
                   fieldErrors.service
                     ? 'border-red-500 focus:ring-red-400'
-                    : 'border-gold/40 focus:border-gold focus:ring-gold/30',
+                    : 'border-sand/50 focus:border-orange focus:ring-orange/30',
                 )}
               >
                 <option value="">-- Choose a Service --</option>
@@ -448,13 +442,13 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
             {/* Doctor Preference */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
-                Preferred Doctor <span className="text-ink/40 font-normal lowercase">(optional)</span>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
+                Preferred Doctor <span className="text-ink/40 dark:text-cream/40 font-normal lowercase">(optional)</span>
               </label>
               <select
                 value={formData.doctor}
                 onChange={(e) => handleInputChange('doctor', e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white border border-gold/40 text-ink focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition-all text-sm font-medium"
+                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border border-sand/50 text-ink dark:text-cream focus:border-orange focus:ring-2 focus:ring-orange/30 outline-none transition-all text-sm font-medium"
               >
                 <option value="no-preference">No Preference (First Available Specialist)</option>
                 {doctors.map((d) => (
@@ -467,7 +461,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
             {/* Date Selection */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
                 Appointment Date <span className="text-red-500">*</span>
               </label>
               <input
@@ -480,10 +474,10 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                   handleInputChange('time', ''); // Reset selected time on date change
                 }}
                 className={cn(
-                  'w-full px-4 py-3 rounded-xl bg-white border text-ink focus:outline-none focus:ring-2 transition-all text-sm font-medium',
+                  'w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border text-ink dark:text-cream focus:outline-none focus:ring-2 transition-all text-sm font-medium',
                   fieldErrors.date
                     ? 'border-red-500 focus:ring-red-400'
-                    : 'border-gold/40 focus:border-gold focus:ring-gold/30',
+                    : 'border-sand/50 focus:border-orange focus:ring-orange/30',
                 )}
               />
               {fieldErrors.date && (
@@ -493,12 +487,12 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
             {/* Time Slot Chips Grid */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-2">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-2">
                 Preferred Time Slot <span className="text-red-500">*</span>
               </label>
 
               {timeSlots.length === 0 ? (
-                <p className="text-xs text-ink/60 italic p-3 rounded-xl bg-teal/5 border border-gold/20">
+                <p className="text-xs text-ink/60 dark:text-cream/60 italic p-3 rounded-xl bg-sand/20 border border-sand/30">
                   The clinic is closed on this date. Please pick another day.
                 </p>
               ) : (
@@ -514,10 +508,10 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                         className={cn(
                           'p-2.5 rounded-xl border text-xs font-semibold transition-all duration-200 flex flex-col items-center justify-center',
                           !slot.isAvailable
-                            ? 'opacity-30 bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                            ? 'opacity-30 bg-gray-100 dark:bg-olive-900 text-gray-400 border-gray-200 dark:border-olive-800 cursor-not-allowed'
                             : isSelected
-                            ? 'border-gold bg-gold text-ink shadow-gold-glow ring-2 ring-gold'
-                            : 'border-gold/30 bg-white hover:border-gold hover:bg-gold/10 text-teal',
+                            ? 'border-orange bg-orange text-ink font-bold shadow-warm-glow ring-2 ring-orange'
+                            : 'border-sand/40 bg-white dark:bg-olive-900 hover:border-orange hover:bg-orange/10 text-ink dark:text-cream',
                         )}
                       >
                         <span>{slot.label}</span>
@@ -537,7 +531,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="py-3 px-6 rounded-xl border border-gold/40 text-teal font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-gold/15 transition-all"
+                className="py-3 px-6 rounded-full border border-sand/50 text-olive dark:text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-sand/20 transition-all"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>Back</span>
@@ -546,10 +540,10 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
               <button
                 type="button"
                 onClick={handleNextToStep3}
-                className="py-3 px-8 rounded-2xl bg-teal text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-teal-800 transition-all shadow-md focus-visible:ring-2 focus-visible:ring-gold"
+                className="py-3 px-8 rounded-full bg-orange text-ink font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-orange-soft transition-all shadow-warm-glow focus-visible:ring-2 focus-visible:ring-orange-deep"
               >
                 <span>Review Request</span>
-                <ArrowRight className="w-4 h-4 text-gold" />
+                <ArrowRight className="w-4 h-4 text-ink" />
               </button>
             </div>
           </motion.div>
@@ -565,8 +559,8 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
             className="flex flex-col gap-6"
           >
             {/* Summary Review Card */}
-            <div className="p-6 rounded-2xl bg-teal-900 text-cream border border-gold/40 shadow-xl flex flex-col gap-4">
-              <span className="text-xs uppercase tracking-widest text-gold font-semibold block">
+            <div className="p-6 rounded-2xl bg-olive-deep text-cream border border-sand/40 shadow-xl flex flex-col gap-4">
+              <span className="text-xs uppercase tracking-widest text-sand font-semibold block">
                 Appointment Summary
               </span>
 
@@ -590,7 +584,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
                 <div>
                   <span className="text-cream/60 block">Service:</span>
-                  <span className="font-semibold text-gold text-sm">
+                  <span className="font-semibold text-orange text-sm">
                     {selectedServiceObj?.title || formData.service}
                   </span>
                 </div>
@@ -613,9 +607,9 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
 
             {/* Special Instructions / Message */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-olive dark:text-sand mb-1.5">
                 Special Notes or Medical History{' '}
-                <span className="text-ink/40 font-normal lowercase">(optional)</span>
+                <span className="text-ink/40 dark:text-cream/40 font-normal lowercase">(optional)</span>
               </label>
               <textarea
                 rows={3}
@@ -623,7 +617,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                 placeholder="Any existing symptoms, dietary restrictions, or previous vaccination records..."
                 value={formData.message}
                 onChange={(e) => handleInputChange('message', e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white border border-gold/40 text-ink placeholder:text-ink/30 focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition-all text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-olive-950 border border-sand/50 text-ink dark:text-cream placeholder:text-ink/30 focus:border-orange focus:ring-2 focus:ring-orange/30 outline-none transition-all text-sm"
               />
             </div>
 
@@ -645,16 +639,16 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                   type="checkbox"
                   checked={formData.consent}
                   onChange={(e) => handleInputChange('consent', e.target.checked)}
-                  className="mt-0.5 h-4 w-4 rounded border-gold/40 text-teal focus:ring-gold accent-teal shrink-0"
+                  className="mt-0.5 h-4 w-4 rounded border-sand/50 text-orange focus:ring-orange-deep accent-orange shrink-0"
                 />
                 <span className="text-xs text-ink/80 dark:text-cream/80 leading-relaxed font-light">
                   I agree to be contacted via telephone or WhatsApp regarding this appointment
                   request. I have reviewed the{' '}
-                  <Link href="/terms" target="_blank" className="text-gold font-semibold underline underline-offset-2 hover:text-gold-light">
+                  <Link href="/terms" target="_blank" className="text-orange-deep dark:text-orange font-semibold underline underline-offset-2 hover:text-orange">
                     Terms of Service
                   </Link>{' '}
                   and{' '}
-                  <Link href="/privacy-policy" target="_blank" className="text-gold font-semibold underline underline-offset-2 hover:text-gold-light">
+                  <Link href="/privacy-policy" target="_blank" className="text-orange-deep dark:text-orange font-semibold underline underline-offset-2 hover:text-orange">
                     Privacy Policy
                   </Link>
                   .
@@ -678,7 +672,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                 type="button"
                 onClick={() => setStep(2)}
                 disabled={isSubmitting}
-                className="py-3 px-6 rounded-xl border border-gold/40 text-teal font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-gold/15 transition-all"
+                className="py-3 px-6 rounded-full border border-sand/50 text-olive dark:text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5 hover:bg-sand/20 transition-all"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>Back</span>
@@ -687,7 +681,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="py-3.5 px-8 rounded-2xl bg-gold hover:bg-gold-light text-ink font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-gold-glow transition-all disabled:opacity-60"
+                className="py-3.5 px-8 rounded-full bg-orange hover:bg-orange-soft text-ink font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-warm-glow transition-all disabled:opacity-60"
               >
                 {isSubmitting ? (
                   <>
@@ -697,7 +691,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                 ) : (
                   <>
                     <span>Submit Appointment Request</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-ink" />
                   </>
                 )}
               </button>
@@ -712,32 +706,32 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
             animate={{ opacity: 1, scale: 1 }}
             className="flex flex-col items-center text-center py-6 gap-6"
           >
-            <div className="w-20 h-20 rounded-full bg-gold/20 border-2 border-gold flex items-center justify-center text-gold shadow-gold-glow animate-pulse">
-              <CheckCircle2 className="w-10 h-10 text-gold" />
+            <div className="w-20 h-20 rounded-full bg-sand/30 border-2 border-orange flex items-center justify-center text-orange shadow-warm-glow animate-pulse">
+              <CheckCircle2 className="w-10 h-10 text-orange" />
             </div>
 
             <div>
-              <span className="text-xs uppercase tracking-widest text-gold-dark font-semibold block mb-1">
+              <span className="text-xs uppercase tracking-widest text-orange-deep dark:text-sand font-semibold block mb-1">
                 Request ID: {requestCode}
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-teal">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-olive dark:text-cream">
                 Appointment Request Received!
               </h2>
-              <p className="text-sm text-ink/80 font-light mt-2 max-w-lg mx-auto leading-relaxed">
-                Thank you, <strong className="font-semibold text-teal">{formData.ownerName}</strong>.
+              <p className="text-sm text-ink/80 dark:text-cream/80 font-light mt-2 max-w-lg mx-auto leading-relaxed">
+                Thank you, <strong className="font-semibold text-olive dark:text-cream">{formData.ownerName}</strong>.
                 Our medical reception team has received your request for{' '}
-                <strong className="font-semibold text-teal">{formData.petName}</strong> on{' '}
-                <strong className="font-semibold text-teal">
+                <strong className="font-semibold text-olive dark:text-cream">{formData.petName}</strong> on{' '}
+                <strong className="font-semibold text-olive dark:text-cream">
                   {formData.date} at {formData.time}
                 </strong>
                 .
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-teal/5 border border-gold/30 text-xs text-ink/75 max-w-md text-left flex items-start gap-3">
-              <ShieldCheck className="w-5 h-5 text-gold-dark shrink-0 mt-0.5" />
+            <div className="p-4 rounded-2xl bg-sand/20 dark:bg-olive-900/60 border border-sand/30 text-xs text-ink/85 dark:text-cream/85 max-w-md text-left flex items-start gap-3">
+              <ShieldCheck className="w-5 h-5 text-orange shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-teal block mb-0.5">Confirmation Protocol</span>
+                <span className="font-semibold text-olive dark:text-sand block mb-0.5">Confirmation Protocol</span>
                 <p className="leading-relaxed">
                   We will contact you via phone or WhatsApp within operating hours to finalize and
                   confirm your consultation.
@@ -751,9 +745,9 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                 href={whatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-3.5 px-6 rounded-2xl bg-teal hover:bg-teal-800 text-cream font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all"
+                className="flex-1 py-3.5 px-6 rounded-full bg-orange hover:bg-orange-soft text-ink font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-warm-glow transition-all"
               >
-                <MessageSquare className="w-4 h-4 text-gold" />
+                <MessageSquare className="w-4 h-4 text-ink" />
                 <span>Confirm on WhatsApp</span>
               </a>
 
@@ -763,7 +757,7 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                   setStep(1);
                   setFormData((prev) => ({ ...prev, petName: '', time: '', message: '' }));
                 }}
-                className="py-3.5 px-6 rounded-2xl border border-gold/40 hover:bg-gold/15 text-teal font-semibold text-xs uppercase tracking-wider transition-all"
+                className="py-3.5 px-6 rounded-full border border-sand/50 hover:bg-sand/20 text-olive dark:text-cream font-semibold text-xs uppercase tracking-wider transition-all"
               >
                 <span>Book Another</span>
               </button>

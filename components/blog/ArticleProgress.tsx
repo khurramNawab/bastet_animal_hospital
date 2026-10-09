@@ -58,13 +58,13 @@ export function ArticleProgress({ headings, title }: ArticleProgressProps) {
 
   return (
     <>
-      {/* Pinned Golden Reading Progress Bar */}
+      {/* Pinned Warm Reading Progress Bar */}
       <div
-        className="fixed top-0 left-0 right-0 h-1 bg-gold/20 z-[60] pointer-events-none"
+        className="fixed top-0 left-0 right-0 h-1 bg-sand/30 z-[60] pointer-events-none"
         aria-hidden="true"
       >
         <div
-          className="h-full bg-gradient-to-r from-gold via-gold-light to-gold shadow-gold-glow transition-all duration-75 ease-out"
+          className="h-full bg-gradient-to-r from-orange to-orange-soft shadow-warm-glow transition-all duration-75 ease-out"
           style={{ width: `${readingProgress}%` }}
         />
       </div>
@@ -73,9 +73,9 @@ export function ArticleProgress({ headings, title }: ArticleProgressProps) {
       <div className="hidden lg:block sticky top-28 space-y-6">
         {/* Table of Contents Card */}
         {headings.length > 0 && (
-          <div className="p-6 rounded-3xl glass-card border border-gold/30 shadow-glass">
-            <h4 className="font-display font-bold text-sm text-teal dark:text-gold uppercase tracking-wider flex items-center gap-2 mb-4">
-              <List className="w-4 h-4 text-gold" />
+          <div className="p-6 rounded-3xl glass-card border border-sand/40 shadow-glass">
+            <h4 className="font-display font-bold text-sm text-olive-deep dark:text-sand uppercase tracking-wider flex items-center gap-2 mb-4">
+              <List className="w-4 h-4 text-orange" />
               <span>Table of Contents</span>
             </h4>
             <nav aria-label="Article Table of Contents">
@@ -88,8 +88,8 @@ export function ArticleProgress({ headings, title }: ArticleProgressProps) {
                         href={`#${h.id}`}
                         className={`block py-1 transition-colors leading-snug rounded ${
                           isActive
-                            ? 'text-gold-dark dark:text-gold font-semibold translate-x-1'
-                            : 'hover:text-teal dark:hover:text-gold'
+                            ? 'text-orange-deep dark:text-orange font-semibold translate-x-1'
+                            : 'hover:text-olive-deep dark:hover:text-sand'
                         }`}
                       >
                         {h.text}
@@ -103,26 +103,26 @@ export function ArticleProgress({ headings, title }: ArticleProgressProps) {
         )}
 
         {/* Share Card */}
-        <div className="p-6 rounded-3xl glass-card border border-gold/30 shadow-glass">
-          <h4 className="font-display font-bold text-xs text-teal dark:text-gold uppercase tracking-wider flex items-center gap-2 mb-3">
-            <Share2 className="w-3.5 h-3.5 text-gold" />
+        <div className="p-6 rounded-3xl glass-card border border-sand/40 shadow-glass">
+          <h4 className="font-display font-bold text-xs text-olive-deep dark:text-sand uppercase tracking-wider flex items-center gap-2 mb-3">
+            <Share2 className="w-3.5 h-3.5 text-orange" />
             <span>Share Guide</span>
           </h4>
           <div className="flex flex-col gap-2">
             <button
               type="button"
               onClick={handleWhatsAppShare}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-teal/10 dark:bg-gold/15 border border-gold/30 text-teal dark:text-cream text-xs font-semibold hover:bg-gold hover:text-ink transition-colors"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-sand/30 dark:bg-olive-deep/70 border border-sand/40 text-olive-deep dark:text-cream text-xs font-semibold hover:bg-orange hover:text-ink transition-colors"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-gold" />
+              <MessageCircle className="w-3.5 h-3.5 text-orange-deep dark:text-sand" />
               <span>Share on WhatsApp</span>
             </button>
             <button
               type="button"
               onClick={handleCopyLink}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/40 dark:bg-ink/40 border border-gold/20 text-ink/80 dark:text-cream/80 text-xs font-medium hover:border-gold transition-colors"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/40 dark:bg-ink/40 border border-sand/30 text-ink/80 dark:text-cream/80 text-xs font-medium hover:border-orange transition-colors"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-gold" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-orange" />}
               <span>{copied ? 'Link Copied!' : 'Copy Article Link'}</span>
             </button>
           </div>

@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useId } from 'react';
+import React, { useState, useEffect, useId } from 'react';
 import Link from 'next/link';
-import { Sparkles, Calendar, Heart, ArrowRight, Info } from 'lucide-react';
+import { Sparkles, Heart, ArrowRight, Info } from 'lucide-react';
 import { calcHumanAge } from '@/lib/tools/age';
 import { cn } from '@/lib/cn';
 import type { AgeCalculatorConfig, DogSizeId } from '@/lib/types';
@@ -94,7 +94,7 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
         <div>
           <label
             htmlFor={nameInputId}
-            className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5"
+            className="block text-xs font-semibold uppercase tracking-wider text-olive mb-1.5"
           >
             Dog&apos;s Name <span className="text-ink/40 font-normal lowercase">(optional)</span>
           </label>
@@ -105,13 +105,13 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
             onChange={(e) => setDogName(e.target.value)}
             placeholder="e.g., Leo or Bella"
             maxLength={30}
-            className="w-full px-4 py-2.5 rounded-xl bg-white border border-gold/40 text-ink placeholder:text-ink/30 focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition-all text-sm"
+            className="w-full px-4 py-2.5 rounded-xl bg-white border border-sand/50 text-ink placeholder:text-ink/30 focus:border-orange focus:ring-2 focus:ring-orange/30 outline-none transition-all text-sm"
           />
         </div>
 
         {/* Size Selection Chips */}
         <div>
-          <span className="block text-xs font-semibold uppercase tracking-wider text-teal mb-2">
+          <span className="block text-xs font-semibold uppercase tracking-wider text-olive mb-2">
             Dog Size Category
           </span>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -123,16 +123,16 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
                   type="button"
                   onClick={() => setSize(s.id)}
                   className={cn(
-                    'p-3 rounded-2xl border text-left transition-all duration-200 flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-gold',
+                    'p-3 rounded-2xl border text-left transition-all duration-200 flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-orange-deep',
                     isSelected
-                      ? 'border-gold bg-gold/15 shadow-sm ring-1 ring-gold'
-                      : 'border-gold/20 bg-white/70 hover:border-gold/50 hover:bg-white',
+                      ? 'border-orange bg-orange/15 shadow-sm ring-1 ring-orange'
+                      : 'border-sand/40 bg-white/70 hover:border-orange/50 hover:bg-white',
                   )}
                 >
-                  <span className="font-display font-bold text-sm text-teal">
+                  <span className="font-display font-bold text-sm text-olive">
                     {s.label}
                   </span>
-                  <span className="text-[11px] text-gold-dark font-medium mt-0.5">
+                  <span className="text-[11px] text-orange-deep font-medium mt-0.5">
                     {s.weightRange}
                   </span>
                 </button>
@@ -146,7 +146,7 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
           <div>
             <label
               htmlFor={yearsInputId}
-              className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5"
+              className="block text-xs font-semibold uppercase tracking-wider text-olive mb-1.5"
             >
               Age (Years)
             </label>
@@ -157,14 +157,14 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
               max={30}
               value={years}
               onChange={(e) => setYears(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl bg-white border border-gold/40 text-ink focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition-all text-base font-semibold"
+              className="w-full px-4 py-2.5 rounded-xl bg-white border border-sand/50 text-ink focus:border-orange focus:ring-2 focus:ring-orange/30 outline-none transition-all text-base font-semibold"
             />
           </div>
 
           <div>
             <label
               htmlFor={monthsInputId}
-              className="block text-xs font-semibold uppercase tracking-wider text-teal mb-1.5"
+              className="block text-xs font-semibold uppercase tracking-wider text-olive mb-1.5"
             >
               Months (0 – 11)
             </label>
@@ -175,7 +175,7 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
               max={11}
               value={months}
               onChange={(e) => setMonths(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl bg-white border border-gold/40 text-ink focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none transition-all text-base font-semibold"
+              className="w-full px-4 py-2.5 rounded-xl bg-white border border-sand/50 text-ink focus:border-orange focus:ring-2 focus:ring-orange/30 outline-none transition-all text-base font-semibold"
             />
           </div>
         </div>
@@ -183,13 +183,13 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
 
       {/* Result Card */}
       {result.isValid ? (
-        <div className="mt-2 p-6 rounded-2xl bg-teal-900 text-cream border border-gold/40 shadow-xl relative overflow-hidden flex flex-col gap-4">
+        <div className="mt-2 p-6 rounded-2xl bg-olive-deep text-cream border border-sand/40 shadow-xl relative overflow-hidden flex flex-col gap-4">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <span className="text-xs uppercase tracking-widest text-gold font-semibold block mb-1">
+              <span className="text-xs uppercase tracking-widest text-sand font-semibold block mb-1">
                 Estimated Equivalent
               </span>
-              <div className="font-display text-4xl sm:text-5xl font-bold text-gold tabular-nums flex items-baseline gap-2">
+              <div className="font-display text-4xl sm:text-5xl font-bold text-sand tabular-nums flex items-baseline gap-2">
                 <span>≈ {displayNumber}</span>
                 <span className="text-lg sm:text-xl text-cream font-normal font-sans">
                   human years
@@ -198,8 +198,8 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
             </div>
 
             {result.lifeStage && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-semibold">
-                <Sparkles className="w-3.5 h-3.5 text-gold" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sand/20 border border-sand/40 text-sand text-xs font-semibold">
+                <Sparkles className="w-3.5 h-3.5 text-orange" />
                 <span>{result.lifeStage.label}</span>
               </div>
             )}
@@ -207,24 +207,24 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
 
           {/* Care Hint for Life Stage */}
           {result.careHint && (
-            <div className="p-3.5 rounded-xl bg-teal/60 border border-gold/20 flex items-start gap-3">
-              <Heart className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+            <div className="p-3.5 rounded-xl bg-olive-900 border border-sand/30 flex items-start gap-3">
+              <Heart className="w-4 h-4 text-orange shrink-0 mt-0.5" />
               <p className="text-xs text-cream/90 leading-relaxed font-light">
-                <strong className="font-semibold text-gold-light">{displayName}:</strong>{' '}
+                <strong className="font-semibold text-orange-soft">{displayName}:</strong>{' '}
                 {result.careHint}
               </p>
             </div>
           )}
 
           {/* Soft CTA */}
-          <div className="pt-2 border-t border-gold/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="pt-2 border-t border-sand/20 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-[11px] text-cream/60">
               Personalized longevity starts with proactive wellness care.
             </p>
 
             <Link
               href="/book"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gold text-ink font-semibold text-xs hover:bg-gold-light transition-all shadow-gold-glow shrink-0"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange text-ink font-bold text-xs uppercase tracking-wider hover:bg-orange-soft transition-all shadow-warm-glow shrink-0"
             >
               <span>Book Wellness Check</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -240,7 +240,7 @@ export function AgeCalculator({ config }: AgeCalculatorProps) {
 
       {/* Approximate Disclaimer Note */}
       <div className="flex items-start gap-2 text-[11px] text-ink/60 leading-relaxed">
-        <Info className="w-3.5 h-3.5 text-gold-dark shrink-0 mt-0.5" />
+        <Info className="w-3.5 h-3.5 text-orange-deep shrink-0 mt-0.5" />
         <p>{config.disclaimer}</p>
       </div>
     </div>

@@ -1,13 +1,14 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Deep Teal Luxury Base -->
-  <rect width="64" height="64" rx="16" fill="#0B3C3F"/>
-  <!-- Gold Outer Rim -->
-  <rect x="2.5" y="2.5" width="59" height="59" rx="13.5" stroke="#C9A24B" stroke-width="2" stroke-opacity="0.8"/>
+  <!-- Warm Background Base -->
+  <rect width="64" height="64" rx="16" fill="#FFF6E5"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="#F7DAA7" stroke-width="2"/>
   
-  <!-- Royal Egyptian Cat Silhouette with Ears -->
-  <path d="M19 43C19 33 22 23 23 18L29 27C30.5 26.5 33.5 26.5 35 27L41 18C42 23 45 33 45 43C45 46 41 48 32 48C23 48 19 46 19 43Z" fill="#C9A24B"/>
-  
-  <!-- Center Heart & Medical Cross Emblem -->
-  <circle cx="32" cy="37" r="5.5" fill="#0B3C3F"/>
-  <path d="M32 33.5V40.5M28.5 37H35.5" stroke="#C9A24B" stroke-width="2" stroke-linecap="round"/>
+  <!-- Orange Medical Cross -->
+  <path d="M26 12C26 10.8954 26.8954 10 28 10H36C37.1046 10 38 10.8954 38 12V24C38 25.1046 38.8954 26 40 26H52C53.1046 26 54 26.8954 54 28V36C54 37.1046 53.1046 38 52 38H40C38.8954 38 38 38.8954 38 40V52C38 53.1046 37.1046 54 36 54H28C26.8954 54 26 53.1046 26 52V40C26 38.8954 25.1046 38 24 38H12C10.8954 38 10 37.1046 10 36V28C10 26.8954 10.8954 26 12 26H24C25.1046 26 26 25.1046 26 24V12Z" fill="#FF751B"/>
+
+  <!-- Center Pet Paw Motif in Cream & Olive -->
+  <ellipse cx="27" cy="27" rx="2" ry="2.8" fill="#FFF6E5"/>
+  <ellipse cx="32" cy="24" rx="2" ry="2.8" fill="#FFF6E5"/>
+  <ellipse cx="37" cy="27" rx="2" ry="2.8" fill="#FFF6E5"/>
+  <path d="M28 34C28 31 30 29 32 29s4 2 4 5c0 2.5-1.8 4-4 4s-4-1.5-4-4z" fill="#FFF6E5"/>
 </svg>

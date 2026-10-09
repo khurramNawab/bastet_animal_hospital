@@ -97,9 +97,9 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
       case 'emergency':
         return <AlertTriangle className="w-6 h-6 text-red-400" />;
       case 'today':
-        return <Clock className="w-6 h-6 text-gold" />;
+        return <Clock className="w-6 h-6 text-orange" />;
       case 'soon':
-        return <Calendar className="w-6 h-6 text-teal-300" />;
+        return <Calendar className="w-6 h-6 text-olive-soft" />;
       case 'monitor':
         return <CheckCircle2 className="w-6 h-6 text-emerald-400" />;
     }
@@ -110,39 +110,39 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
       case 'emergency':
         return 'bg-red-500/20 text-red-300 border-red-500/40';
       case 'today':
-        return 'bg-gold/20 text-gold border-gold/40';
+        return 'bg-orange/20 text-orange-deep dark:text-orange-soft border-orange/40';
       case 'soon':
-        return 'bg-teal/40 text-teal-200 border-teal-400/40';
+        return 'bg-olive/20 text-olive-soft border-olive/40';
       case 'monitor':
         return 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
     }
   };
 
   return (
-    <div className="w-full flex flex-col gap-6 text-ink">
+    <div className="w-full flex flex-col gap-6 text-ink dark:text-cream">
       {/* SCREEN 1: INTRO & CONSENT */}
       {step === 'intro' && (
         <div className="flex flex-col gap-6 py-2">
-          <div className="p-5 rounded-2xl bg-teal-900/10 border border-gold/40 flex items-start gap-3">
-            <ShieldAlert className="w-6 h-6 text-gold-dark shrink-0 mt-0.5" />
+          <div className="p-5 rounded-2xl bg-sand/30 dark:bg-olive-deep/60 border border-sand/60 dark:border-sand/30 flex items-start gap-3">
+            <ShieldAlert className="w-6 h-6 text-orange-deep shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-display font-bold text-base text-teal mb-1">
+              <h3 className="font-display font-bold text-base text-olive-deep dark:text-sand mb-1">
                 Clinical Triage Guidance
               </h3>
-              <p className="text-xs text-ink/80 leading-relaxed font-light">
+              <p className="text-xs text-ink/80 dark:text-cream/80 leading-relaxed font-light">
                 {config.disclaimer}
               </p>
             </div>
           </div>
 
-          <p className="text-sm text-ink/80 leading-relaxed font-light">
+          <p className="text-sm text-ink/80 dark:text-cream/80 leading-relaxed font-light">
             This rapid assessment evaluates critical symptoms to help you determine whether your pet
             needs immediate emergency stabilization, same-day consultation, or monitored home care.
           </p>
 
-          <div className="p-4 rounded-xl bg-white/70 border border-gold/30 text-xs text-ink/70 flex flex-col gap-2">
-            <div className="flex items-center gap-2 font-semibold text-teal">
-              <HelpCircle className="w-4 h-4 text-gold-dark" />
+          <div className="p-4 rounded-xl bg-white/70 dark:bg-olive-deep/40 border border-sand/40 text-xs text-ink/70 dark:text-cream/70 flex flex-col gap-2">
+            <div className="flex items-center gap-2 font-semibold text-olive-deep dark:text-sand">
+              <HelpCircle className="w-4 h-4 text-orange-deep" />
               <span>Safety & Privacy Notice</span>
             </div>
             <p className="leading-relaxed">
@@ -154,10 +154,10 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
           <button
             type="button"
             onClick={() => setStep('redflags')}
-            className="w-full py-3.5 px-6 rounded-2xl bg-teal text-cream font-semibold text-sm hover:bg-teal-800 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg focus-visible:ring-2 focus-visible:ring-gold"
+            className="w-full py-3.5 px-6 rounded-2xl bg-orange text-ink font-semibold text-sm hover:bg-orange-soft transition-all flex items-center justify-center gap-2 shadow-warm-glow hover:shadow-lg focus-visible:ring-2 focus-visible:ring-orange-deep"
           >
             <span>I Understand — Begin Assessment</span>
-            <ArrowRight className="w-4 h-4 text-gold" />
+            <ArrowRight className="w-4 h-4 text-ink" />
           </button>
         </div>
       )}
@@ -170,10 +170,10 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
               <AlertTriangle className="w-4 h-4" />
               <span>Critical Priority Screening</span>
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-teal">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-olive-deep dark:text-cream">
               Is your dog experiencing any of these right now?
             </h3>
-            <p className="text-xs text-ink/70 mt-1 font-light">
+            <p className="text-xs text-ink/70 dark:text-cream/70 mt-1 font-light">
               Select all that apply. If any critical signs are present, immediate emergency care is
               advised.
             </p>
@@ -189,15 +189,15 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
                   className={cn(
                     'p-3.5 rounded-xl border text-xs sm:text-sm font-medium flex items-start gap-3 cursor-pointer transition-all',
                     isChecked
-                      ? 'border-red-500 bg-red-50 text-red-950 font-semibold shadow-sm ring-1 ring-red-400'
-                      : 'border-gold/30 bg-white/70 hover:border-gold/60 text-ink/90 hover:bg-white',
+                      ? 'border-red-500 bg-red-50 dark:bg-red-950/40 text-red-950 dark:text-red-200 font-semibold shadow-sm ring-1 ring-red-400'
+                      : 'border-sand/40 bg-white/70 dark:bg-olive-deep/40 hover:border-sand/80 text-ink/90 dark:text-cream/90 hover:bg-white dark:hover:bg-olive-deep/60',
                   )}
                 >
                   <input
                     type="checkbox"
                     checked={isChecked}
                     onChange={() => handleToggleRedFlag(flag.id)}
-                    className="mt-0.5 h-4 w-4 rounded border-gold/40 text-red-600 focus:ring-red-500 accent-red-600 shrink-0"
+                    className="mt-0.5 h-4 w-4 rounded border-sand/60 text-red-600 focus:ring-red-500 accent-red-600 shrink-0"
                   />
                   <span>{flag.label}</span>
                 </label>
@@ -205,11 +205,11 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
             })}
           </fieldset>
 
-          <div className="pt-2 border-t border-gold/20 flex items-center justify-between gap-4">
+          <div className="pt-2 border-t border-sand/30 flex items-center justify-between gap-4">
             <button
               type="button"
               onClick={() => setStep('intro')}
-              className="px-4 py-2.5 rounded-xl border border-gold/40 text-teal text-xs font-semibold hover:bg-gold/15 transition-all flex items-center gap-1.5"
+              className="px-4 py-2.5 rounded-xl border border-sand/50 text-olive-deep dark:text-cream text-xs font-semibold hover:bg-sand/20 transition-all flex items-center gap-1.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back</span>
@@ -222,7 +222,7 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
                 'px-6 py-2.5 rounded-xl font-semibold text-xs transition-all flex items-center gap-2 shadow-sm',
                 selectedRedFlags.length > 0
                   ? 'bg-red-600 text-white hover:bg-red-700 shadow-md'
-                  : 'bg-teal text-cream hover:bg-teal-800',
+                  : 'bg-orange text-ink hover:bg-orange-soft shadow-warm-glow',
               )}
             >
               <span>
@@ -241,21 +241,21 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
         <div className="flex flex-col gap-6">
           {/* Progress Bar & Header */}
           <div>
-            <div className="flex items-center justify-between text-xs text-gold-dark font-semibold uppercase tracking-wider mb-2">
+            <div className="flex items-center justify-between text-xs text-orange-deep dark:text-sand font-semibold uppercase tracking-wider mb-2">
               <span>
                 Question {currentQuestionIndex + 1} of {totalQuestions}
               </span>
               <span>{Math.round(((currentQuestionIndex + 1) / totalQuestions) * 100)}%</span>
             </div>
             <div
-              className="w-full h-1.5 bg-gold/20 rounded-full overflow-hidden"
+              className="w-full h-1.5 bg-sand/30 rounded-full overflow-hidden"
               role="progressbar"
               aria-valuenow={currentQuestionIndex + 1}
               aria-valuemin={1}
               aria-valuemax={totalQuestions}
             >
               <div
-                className="h-full bg-gold transition-all duration-300 rounded-full"
+                className="h-full bg-orange transition-all duration-300 rounded-full"
                 style={{
                   width: `${((currentQuestionIndex + 1) / totalQuestions) * 100}%`,
                 }}
@@ -264,10 +264,10 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
           </div>
 
           <div>
-            <span className="text-xs uppercase tracking-widest text-gold-dark font-semibold block mb-1">
+            <span className="text-xs uppercase tracking-widest text-orange-deep dark:text-sand font-semibold block mb-1">
               {currentQuestion.title}
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-teal">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-olive-deep dark:text-cream">
               {currentQuestion.prompt}
             </h3>
           </div>
@@ -282,31 +282,31 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
                   type="button"
                   onClick={() => handleSelectOption(currentQuestion.id, option.id)}
                   className={cn(
-                    'w-full p-4 rounded-2xl border text-left text-sm font-medium transition-all duration-200 flex items-center justify-between focus-visible:ring-2 focus-visible:ring-gold',
+                    'w-full p-4 rounded-2xl border text-left text-sm font-medium transition-all duration-200 flex items-center justify-between focus-visible:ring-2 focus-visible:ring-orange',
                     isSelected
-                      ? 'border-gold bg-gold/20 text-teal font-semibold ring-1 ring-gold shadow-sm'
-                      : 'border-gold/30 bg-white/80 hover:border-gold hover:bg-white text-ink',
+                      ? 'border-orange bg-sand/40 dark:bg-olive-deep/70 text-olive-deep dark:text-cream font-semibold ring-1 ring-orange shadow-sm'
+                      : 'border-sand/40 bg-white/80 dark:bg-olive-deep/30 hover:border-sand hover:bg-white dark:hover:bg-olive-deep/50 text-ink dark:text-cream',
                   )}
                 >
                   <span>{option.label}</span>
                   <div
                     className={cn(
                       'w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-3',
-                      isSelected ? 'border-gold bg-gold' : 'border-gold/40',
+                      isSelected ? 'border-orange bg-orange' : 'border-sand/60',
                     )}
                   >
-                    {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-teal" />}
+                    {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-ink" />}
                   </div>
                 </button>
               );
             })}
           </fieldset>
 
-          <div className="pt-2 border-t border-gold/20 flex items-center justify-between">
+          <div className="pt-2 border-t border-sand/30 flex items-center justify-between">
             <button
               type="button"
               onClick={handleBackQuestion}
-              className="px-4 py-2 rounded-xl border border-gold/40 text-teal text-xs font-semibold hover:bg-gold/15 transition-all flex items-center gap-1.5"
+              className="px-4 py-2 rounded-xl border border-sand/50 text-olive-deep dark:text-cream text-xs font-semibold hover:bg-sand/20 transition-all flex items-center gap-1.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back</span>
@@ -328,7 +328,7 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
               'p-6 sm:p-7 rounded-3xl border shadow-xl flex flex-col gap-5 text-cream relative overflow-hidden',
               triageResult.urgency === 'emergency'
                 ? 'bg-red-950 border-red-500/60'
-                : 'bg-teal-900 border-gold/40',
+                : 'bg-olive-deep border-sand/40',
             )}
           >
             {/* Header with Urgency Badge & Icon */}
@@ -376,14 +376,14 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
             )}
 
             {/* Clinical Guidance Checklist */}
-            <div className="p-4 rounded-2xl bg-teal/50 border border-gold/20 flex flex-col gap-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-gold-light">
+            <div className="p-4 rounded-2xl bg-olive/40 border border-sand/20 flex flex-col gap-2">
+              <span className="text-xs font-semibold uppercase tracking-wider text-sand">
                 Recommended Actions:
               </span>
               <ul className="text-xs text-cream/85 space-y-1.5 font-light">
                 {triageResult.urgencyDetails.guidance.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="text-gold font-bold">•</span>
+                    <span className="text-orange font-bold">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -406,9 +406,9 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
                     href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="py-3 px-4 rounded-xl bg-teal-800 hover:bg-teal-700 text-cream border border-gold/40 font-semibold text-xs flex items-center justify-center gap-2 transition-all"
+                    className="py-3 px-4 rounded-xl bg-olive-deep/90 hover:bg-olive/60 text-cream border border-sand/40 font-semibold text-xs flex items-center justify-center gap-2 transition-all"
                   >
-                    <MessageSquare className="w-4 h-4 text-gold" />
+                    <MessageSquare className="w-4 h-4 text-sand" />
                     <span>WhatsApp</span>
                   </a>
                 </>
@@ -416,9 +416,9 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
                 <>
                   <Link
                     href="/book"
-                    className="flex-1 py-3 px-4 rounded-xl bg-gold hover:bg-gold-light text-ink font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-gold-glow transition-all"
+                    className="flex-1 py-3 px-4 rounded-xl bg-orange hover:bg-orange-soft text-ink font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-warm-glow transition-all"
                   >
-                    <Calendar className="w-4 h-4" />
+                    <Calendar className="w-4 h-4 text-ink" />
                     <span>{triageResult.urgencyDetails.actionPrimary}</span>
                   </Link>
 
@@ -426,9 +426,9 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
                     href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="py-3 px-4 rounded-xl bg-teal/60 hover:bg-teal/40 text-cream border border-gold/40 font-semibold text-xs flex items-center justify-center gap-2 transition-all"
+                    className="py-3 px-4 rounded-xl bg-olive/40 hover:bg-olive/60 text-cream border border-sand/40 font-semibold text-xs flex items-center justify-center gap-2 transition-all"
                   >
-                    <MessageSquare className="w-4 h-4 text-gold" />
+                    <MessageSquare className="w-4 h-4 text-sand" />
                     <span>Consult on WhatsApp</span>
                   </a>
                 </>
@@ -437,31 +437,31 @@ export function SymptomChecker({ config, siteConfig }: SymptomCheckerProps) {
           </div>
 
           {/* Hospital Location Summary */}
-          <div className="p-3.5 rounded-xl bg-white/70 border border-gold/30 flex items-center justify-between text-xs text-ink/75">
+          <div className="p-3.5 rounded-xl bg-white/70 dark:bg-olive-deep/40 border border-sand/40 flex items-center justify-between text-xs text-ink/75 dark:text-cream/75">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-gold-dark shrink-0" />
+              <MapPin className="w-4 h-4 text-orange-deep shrink-0" />
               <span>{siteConfig.address}</span>
             </div>
             <a
               href="https://maps.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-teal font-semibold hover:text-gold-dark underline shrink-0 ml-2"
+              className="text-olive font-semibold hover:text-orange-deep underline shrink-0 ml-2"
             >
               Directions
             </a>
           </div>
 
           {/* Disclaimer & Start Over */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-gold/20">
-            <p className="text-[11px] text-ink/60 italic max-w-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-sand/30">
+            <p className="text-[11px] text-ink/60 dark:text-cream/60 italic max-w-sm">
               * {config.disclaimer}
             </p>
 
             <button
               type="button"
               onClick={handleReset}
-              className="px-4 py-2 rounded-xl border border-gold/40 text-teal text-xs font-semibold hover:bg-gold/15 transition-all flex items-center gap-1.5 shrink-0"
+              className="px-4 py-2 rounded-xl border border-sand/50 text-olive-deep dark:text-cream text-xs font-semibold hover:bg-sand/20 transition-all flex items-center gap-1.5 shrink-0"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Start Over</span>

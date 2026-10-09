@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { FileCheck, AlertTriangle, PhoneCall, Calendar, CheckCircle2 } from 'lucide-react';
+import { FileCheck, AlertTriangle, PhoneCall, CheckCircle2 } from 'lucide-react';
 import { getSiteConfig } from '@/lib/data';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Bastet Small Animal Hospital Kolkata',
@@ -27,12 +27,12 @@ export default function TermsPage() {
 
       {/* Header */}
       <div className="mb-10 text-center sm:text-left">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold/15 text-gold-dark dark:text-gold text-xs font-semibold uppercase tracking-wider mb-3">
-          <FileCheck className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sand/30 dark:bg-olive-deep/70 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-wider mb-3">
+          <FileCheck className="w-3.5 h-3.5 text-orange" />
           <span>Hospital Regulations</span>
         </div>
 
-        <h1 className="font-display text-3xl sm:text-4xl font-bold text-teal dark:text-cream mb-2">
+        <h1 className="font-display text-3xl sm:text-4xl font-bold text-olive-deep dark:text-cream mb-2">
           Terms of Service
         </h1>
         <p className="text-xs text-ink/60 dark:text-cream/60">
@@ -43,9 +43,9 @@ export default function TermsPage() {
       {/* Content Sections */}
       <div className="space-y-8 text-sm sm:text-base text-ink/85 dark:text-cream/85 font-light leading-relaxed">
         {/* Section 1: Appointment Request Model */}
-        <section className="p-7 rounded-3xl glass-card border border-gold/25 space-y-3">
-          <h2 className="font-display text-xl font-bold text-teal dark:text-gold flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-gold shrink-0" />
+        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
+          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
+            <CheckCircle2 className="w-5 h-5 text-orange shrink-0" />
             <span>1. Online Booking is an Appointment Request</span>
           </h2>
           <p>
@@ -78,8 +78,8 @@ export default function TermsPage() {
         </section>
 
         {/* Section 3: Educational Tools Disclaimer */}
-        <section className="p-7 rounded-3xl glass-card border border-gold/25 space-y-3">
-          <h2 className="font-display text-xl font-bold text-teal dark:text-gold">
+        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
+          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand">
             3. Non-Diagnostic Nature of Online Health Tools
           </h2>
           <p>
@@ -87,7 +87,7 @@ export default function TermsPage() {
           </p>
           <p className="text-xs sm:text-sm text-ink/75 dark:text-cream/75">
             Read our full{' '}
-            <Link href="/medical-disclaimer" className="text-gold font-semibold underline underline-offset-4 hover:text-gold-light">
+            <Link href="/medical-disclaimer" className="text-orange-deep dark:text-sand font-semibold underline underline-offset-4 hover:text-orange">
               Medical Disclaimer
             </Link>{' '}
             for comprehensive details.
@@ -95,8 +95,8 @@ export default function TermsPage() {
         </section>
 
         {/* Section 4: Patient Care & In-Clinic Conduct */}
-        <section className="p-7 rounded-3xl glass-card border border-gold/25 space-y-3">
-          <h2 className="font-display text-xl font-bold text-teal dark:text-gold">
+        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
+          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand">
             4. In-Clinic Safety & Pet Parent Responsibility
           </h2>
           <p>
@@ -110,7 +110,7 @@ export default function TermsPage() {
         </section>
       </div>
 
-      <GoldDivider className="mt-14 mb-8" />
+      <CrossDivider variant="line" className="mt-14 mb-8" />
     </main>
   );
 }

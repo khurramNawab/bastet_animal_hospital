@@ -8,7 +8,7 @@ import { getBlogPostingJsonLd, serializeJsonLd } from '@/lib/seo/jsonld';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { ArticleProgress } from '@/components/blog/ArticleProgress';
 import { BlogCard } from '@/components/blog/BlogCard';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 
 interface BlogPostPageProps {
   params: {
@@ -116,34 +116,34 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           <article className="lg:col-span-8 order-1 lg:order-2 max-w-[68ch]">
             {/* Category & Read Time */}
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold/15 dark:bg-gold/10 border border-gold/30 text-gold-dark dark:text-gold text-xs font-semibold uppercase tracking-wider">
-                <Tag className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sand/30 dark:bg-olive-deep/70 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-wider">
+                <Tag className="w-3 h-3 text-orange-deep dark:text-sand" />
                 <span>{post.category}</span>
               </span>
 
               <span className="inline-flex items-center gap-1 text-xs text-ink/70 dark:text-cream/70">
-                <Clock className="w-3.5 h-3.5 text-gold" />
+                <Clock className="w-3.5 h-3.5 text-orange-deep dark:text-sand" />
                 <span>{post.readingMinutes} min read</span>
               </span>
 
               <span className="inline-flex items-center gap-1 text-xs text-ink/70 dark:text-cream/70">
-                <Calendar className="w-3.5 h-3.5 text-gold" />
+                <Calendar className="w-3.5 h-3.5 text-olive dark:text-sand" />
                 <time dateTime={post.publishedAt}>{formattedDate}</time>
               </span>
             </div>
 
             {/* Article H1 Title */}
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-teal dark:text-cream leading-[1.18] mb-6">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive-deep dark:text-cream leading-[1.18] mb-6">
               {post.title}
             </h1>
 
             {/* Author Credit */}
-            <div className="flex items-center gap-3 pb-6 mb-8 border-b border-gold/20 text-xs text-ink/75 dark:text-cream/75">
-              <div className="w-9 h-9 rounded-full bg-teal text-gold flex items-center justify-center font-display font-bold border border-gold/30">
+            <div className="flex items-center gap-3 pb-6 mb-8 border-b border-sand/30 text-xs text-ink/75 dark:text-cream/75">
+              <div className="w-9 h-9 rounded-full bg-olive-deep text-sand flex items-center justify-center font-display font-bold border border-sand/40">
                 B
               </div>
               <div>
-                <p className="font-semibold text-teal dark:text-gold">
+                <p className="font-semibold text-olive-deep dark:text-sand">
                   {siteConfig.name} Clinical Team
                 </p>
                 <p className="text-ink/60 dark:text-cream/60">
@@ -162,7 +162,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <h2
                       key={idx}
                       id={headingId}
-                      className="font-display text-2xl sm:text-3xl font-bold text-teal dark:text-cream pt-6 pb-1 scroll-mt-24 border-b border-gold/15"
+                      className="font-display text-2xl sm:text-3xl font-bold text-olive-deep dark:text-cream pt-6 pb-1 scroll-mt-24 border-b border-sand/20"
                     >
                       {section.content}
                     </h2>
@@ -182,7 +182,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <ul key={idx} className="space-y-3 pl-2 sm:pl-4 my-4">
                       {section.items.map((item, itemIdx) => (
                         <li key={itemIdx} className="flex items-start gap-3">
-                          <span className="w-2 h-2 rounded-full bg-gold mt-2.5 shrink-0" />
+                          <span className="w-2 h-2 rounded-full bg-orange mt-2.5 shrink-0" />
                           <span className="text-sm sm:text-base leading-relaxed">{item}</span>
                         </li>
                       ))}
@@ -198,11 +198,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                       className={`p-6 rounded-3xl border my-6 ${
                         isEmergency
                           ? 'bg-red-500/10 dark:bg-red-950/30 border-red-500/40 text-ink dark:text-cream'
-                          : 'bg-gold/10 dark:bg-gold/5 border-gold/30 text-ink dark:text-cream'
+                          : 'bg-sand/30 dark:bg-olive-deep/40 border-sand/40 text-ink dark:text-cream'
                       }`}
                     >
-                      <div className="flex items-center gap-2 font-display font-bold text-base text-teal dark:text-gold mb-2">
-                        <AlertCircle className="w-5 h-5 text-gold shrink-0" />
+                      <div className="flex items-center gap-2 font-display font-bold text-base text-olive-deep dark:text-sand mb-2">
+                        <AlertCircle className="w-5 h-5 text-orange shrink-0" />
                         <span>{section.title || 'Important Clinical Note'}</span>
                       </div>
                       <p className="text-sm sm:text-base leading-relaxed font-normal">
@@ -217,13 +217,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             {/* Post-Article Consultation Callout & Booking Action */}
-            <div className="mt-12 p-8 rounded-4xl bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-cream border border-gold/40 shadow-glass">
-              <div className="flex items-center gap-2 text-gold text-xs uppercase tracking-widest font-semibold mb-2">
-                <ShieldCheck className="w-4 h-4" />
+            <div className="mt-12 p-8 rounded-4xl bg-gradient-to-br from-olive-deep via-olive to-olive-deep text-cream border border-sand/40 shadow-glass">
+              <div className="flex items-center gap-2 text-sand text-xs uppercase tracking-widest font-semibold mb-2">
+                <ShieldCheck className="w-4 h-4 text-orange" />
                 <span>Expert Veterinary Care In Kolkata</span>
               </div>
 
-              <h3 className="font-display text-2xl sm:text-3xl font-bold text-gold mb-3">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-sand mb-3">
                 Have Health Concerns About Your Pet?
               </h3>
 
@@ -234,17 +234,17 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="/book"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gold text-ink text-xs font-semibold uppercase tracking-wider shadow-gold-glow hover:bg-gold-light transition-all active:scale-95"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-orange text-ink text-xs font-semibold uppercase tracking-wider shadow-warm-glow hover:bg-orange-soft transition-all active:scale-95"
                 >
-                  <CalendarPlus className="w-4 h-4" />
+                  <CalendarPlus className="w-4 h-4 text-ink" />
                   <span>Request Appointment</span>
                 </Link>
 
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 border border-gold/40 text-cream text-xs font-semibold uppercase tracking-wider hover:bg-white/20 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 border border-sand/40 text-cream text-xs font-semibold uppercase tracking-wider hover:bg-white/20 transition-all"
                 >
-                  <PhoneCall className="w-4 h-4 text-gold" />
+                  <PhoneCall className="w-4 h-4 text-sand" />
                   <span>24/7 Helpline: {siteConfig.phone}</span>
                 </a>
               </div>
@@ -252,8 +252,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Related Services Links */}
             {relatedServices.length > 0 && (
-              <div className="mt-12 pt-8 border-t border-gold/20">
-                <h3 className="font-display font-bold text-xl text-teal dark:text-cream mb-4">
+              <div className="mt-12 pt-8 border-t border-sand/30">
+                <h3 className="font-display font-bold text-xl text-olive-deep dark:text-cream mb-4">
                   Related Clinical Services at Bastet
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -261,17 +261,17 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <Link
                       key={service.id}
                       href={`/services/dog#${service.slug}`}
-                      className="p-4 rounded-2xl glass-card border border-gold/30 hover:border-gold transition-colors flex items-center justify-between group"
+                      className="p-4 rounded-2xl glass-card border border-sand/40 hover:border-orange transition-colors flex items-center justify-between group"
                     >
                       <div>
-                        <h4 className="font-display font-semibold text-sm text-teal dark:text-gold group-hover:text-teal-600 transition-colors">
+                        <h4 className="font-display font-semibold text-sm text-olive-deep dark:text-sand group-hover:text-orange-deep transition-colors">
                           {service.title}
                         </h4>
                         <p className="text-xs text-ink/65 dark:text-cream/65 line-clamp-1 mt-0.5">
                           {service.description}
                         </p>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-gold group-hover:translate-x-1 transition-transform shrink-0" />
+                      <ArrowRight className="w-4 h-4 text-orange group-hover:translate-x-1 transition-transform shrink-0" />
                     </Link>
                   ))}
                 </div>
@@ -280,13 +280,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </article>
         </div>
 
-        {/* Egyptian Divider */}
-        <GoldDivider className="mt-16 mb-12" />
+        {/* Cross Divider */}
+        <CrossDivider variant="cross" className="mt-16 mb-12" />
 
         {/* Related Articles Carousel/Grid */}
         {relatedPosts.length > 0 && (
           <section className="w-full" aria-label="Related Care Articles">
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-teal dark:text-cream text-center mb-8">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-olive-deep dark:text-cream text-center mb-8">
               More Pet Health Guides
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

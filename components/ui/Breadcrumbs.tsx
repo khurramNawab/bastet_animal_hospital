@@ -35,7 +35,7 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
                 {index === 0 ? (
                   <Link
                     href={item.href || '/'}
-                    className="inline-flex items-center gap-1 hover:text-gold dark:hover:text-gold transition-colors focus-visible:ring-1 focus-visible:ring-gold rounded"
+                    className="inline-flex items-center gap-1 hover:text-orange-deep dark:hover:text-orange transition-colors focus-visible:ring-1 focus-visible:ring-orange-deep rounded"
                     title="Bastet Home"
                   >
                     <Home className="w-3.5 h-3.5" />
@@ -44,13 +44,13 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
                 ) : !isLast && item.href ? (
                   <Link
                     href={item.href}
-                    className="hover:text-gold dark:hover:text-gold transition-colors focus-visible:ring-1 focus-visible:ring-gold rounded"
+                    className="hover:text-orange-deep dark:hover:text-orange transition-colors focus-visible:ring-1 focus-visible:ring-orange-deep rounded"
                   >
                     {item.label}
                   </Link>
                 ) : (
                   <span
-                    className="text-teal dark:text-gold font-semibold truncate max-w-[200px] sm:max-w-xs"
+                    className="text-olive dark:text-sand font-semibold truncate max-w-[200px] sm:max-w-xs"
                     aria-current="page"
                   >
                     {item.label}
@@ -58,7 +58,7 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
                 )}
 
                 {!isLast && (
-                  <ChevronRight className="w-3.5 h-3.5 text-gold/60 shrink-0" aria-hidden="true" />
+                  <ChevronRight className="w-3.5 h-3.5 text-sand/80 dark:text-sand/50 shrink-0" aria-hidden="true" />
                 )}
               </li>
             );

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, Phone, AlertTriangle } from 'lucide-react';
+import { MessageSquare, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { SiteConfig } from '@/lib/types';
 
@@ -48,13 +48,13 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
               href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-full bg-teal text-cream border border-gold/40 shadow-xl hover:bg-teal-800 transition-all focus-visible:ring-2 focus-visible:ring-gold"
+              className="group flex items-center gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-full bg-olive-900 text-cream border border-sand/40 shadow-xl hover:bg-olive-800 transition-all focus-visible:ring-2 focus-visible:ring-orange-deep"
               aria-label="Chat with Bastet WhatsApp Reception"
             >
-              <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-cream group-hover:text-gold transition-colors">
+              <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-cream group-hover:text-sand transition-colors">
                 WhatsApp Desk
               </span>
-              <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center text-gold">
+              <div className="w-8 h-8 rounded-full bg-sand/20 flex items-center justify-center text-sand">
                 <MessageSquare className="w-4 h-4" />
               </div>
             </a>
@@ -62,7 +62,7 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
             {/* 2. 24/7 Emergency Line */}
             <a
               href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-              className="group flex items-center gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-full bg-red-600 hover:bg-red-500 text-white border border-red-400 shadow-2xl transition-all focus-visible:ring-2 focus-visible:ring-gold"
+              className="group flex items-center gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-full bg-red-600 hover:bg-red-500 text-white border border-red-400 shadow-2xl transition-all focus-visible:ring-2 focus-visible:ring-orange-deep"
               aria-label="Call 24/7 Emergency Trauma Line"
             >
               <span className="hidden sm:inline text-xs font-bold uppercase tracking-wider text-white">

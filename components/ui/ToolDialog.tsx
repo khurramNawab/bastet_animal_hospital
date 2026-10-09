@@ -115,18 +115,18 @@ export function ToolDialog({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.96 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-2xl max-h-[90vh] sm:max-h-[85vh] flex flex-col bg-cream rounded-t-[32px] sm:rounded-3xl border border-gold/40 shadow-2xl overflow-hidden focus:outline-none"
+            className="relative w-full max-w-2xl max-h-[90vh] sm:max-h-[85vh] flex flex-col bg-cream rounded-t-[32px] sm:rounded-3xl border border-sand shadow-2xl overflow-hidden focus:outline-none text-ink"
           >
             {/* Modal Header */}
-            <div className="px-6 py-4 border-b border-gold/20 flex items-center justify-between bg-teal/5 shrink-0">
-              <h2 className="font-display font-bold text-lg sm:text-xl text-teal">
+            <div className="px-6 py-4 border-b border-sand/40 flex items-center justify-between bg-sand/20 shrink-0">
+              <h2 className="font-display font-bold text-lg sm:text-xl text-olive">
                 {title}
               </h2>
 
               <button
                 type="button"
                 onClick={onClose}
-                className="p-2 rounded-full text-teal hover:bg-gold/20 hover:text-ink transition-colors focus-visible:ring-2 focus-visible:ring-gold"
+                className="p-2 rounded-full text-olive hover:bg-orange/20 hover:text-orange-deep transition-colors focus-visible:ring-2 focus-visible:ring-orange-deep"
                 aria-label="Close dialog"
               >
                 <X className="w-5 h-5" />

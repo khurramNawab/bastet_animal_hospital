@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Sun, Moon, Laptop } from 'lucide-react';
-import { useTheme, type Theme } from '@/components/providers/ThemeProvider';
+import { useTheme } from '@/components/providers/ThemeProvider';
 import { cn } from '@/lib/cn';
 
 interface ThemeToggleProps {
@@ -22,7 +22,7 @@ export function ThemeToggle({ className, showLabels = false }: ThemeToggleProps)
     return (
       <div
         className={cn(
-          'w-9 h-9 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center opacity-50',
+          'w-9 h-9 rounded-full border border-sand/40 bg-sand/10 flex items-center justify-center opacity-50',
           className,
         )}
         aria-hidden="true"
@@ -41,18 +41,18 @@ export function ThemeToggle({ className, showLabels = false }: ThemeToggleProps)
       type="button"
       onClick={cycleTheme}
       className={cn(
-        'relative p-2 rounded-full border border-gold/30 glass hover:border-gold hover:bg-gold/15 text-teal dark:text-cream transition-all duration-300 focus-visible:ring-2 focus-visible:ring-gold flex items-center gap-2',
+        'relative p-2 rounded-full border border-sand/40 glass hover:border-orange hover:bg-orange/15 text-ink dark:text-cream transition-all duration-300 focus-visible:ring-2 focus-visible:ring-orange-deep flex items-center gap-2',
         className,
       )}
       aria-label={`Current theme: ${theme}. Click to change theme mode.`}
       title={`Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`}
     >
       {theme === 'system' ? (
-        <Laptop className="w-4 h-4 text-gold" />
+        <Laptop className="w-4 h-4 text-orange" />
       ) : resolvedTheme === 'dark' ? (
-        <Moon className="w-4 h-4 text-gold fill-gold/20" />
+        <Moon className="w-4 h-4 text-orange fill-orange/20" />
       ) : (
-        <Sun className="w-4 h-4 text-gold fill-gold/20" />
+        <Sun className="w-4 h-4 text-orange fill-orange/20" />
       )}
 
       {showLabels && (

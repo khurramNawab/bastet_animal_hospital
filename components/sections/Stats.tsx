@@ -66,11 +66,11 @@ function StatCounterItem({
     >
       {/* Animated Number with Tabular Nums & Zero Layout Shift */}
       <div
-        className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gold tabular-nums tracking-tight min-h-[1.2em] flex items-center justify-center"
+        className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-sand tabular-nums tracking-tight min-h-[1.2em] flex items-center justify-center"
         aria-hidden="true"
       >
         <span>{formatIndianNumber(currentValue)}</span>
-        <span className="text-gold-light ml-0.5">{stat.suffix}</span>
+        <span className="text-orange ml-0.5">{stat.suffix}</span>
       </div>
 
       {/* Label */}
@@ -94,14 +94,14 @@ export function Stats({ stats }: StatsProps) {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-teal-900 text-cream py-14 sm:py-16 border-y border-gold/30 shadow-2xl overflow-hidden"
+      className="relative w-full bg-olive-deep text-cream py-14 sm:py-16 border-y border-sand/30 shadow-2xl overflow-hidden"
       aria-label="Clinical Metrics and Hospital Impact"
     >
-      {/* Background Subtle Egyptian Geometric Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#C9A24B_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
+      {/* Background Subtle Geometric Grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#F7DAA7_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-gold/20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-sand/20">
           {stats.map((stat, idx) => (
             <StatCounterItem
               key={idx}

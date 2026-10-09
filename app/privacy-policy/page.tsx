@@ -1,10 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Shield, Lock, FileText, Mail, Phone, Calendar } from 'lucide-react';
+import { Shield, Lock, FileText, Mail, Phone } from 'lucide-react';
 import { getSiteConfig } from '@/lib/data';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Bastet Small Animal Hospital Kolkata',
@@ -31,12 +30,12 @@ export default function PrivacyPolicyPage() {
 
       {/* Header */}
       <div className="mb-10 text-center sm:text-left">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold/15 text-gold-dark dark:text-gold text-xs font-semibold uppercase tracking-wider mb-3">
-          <Shield className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sand/30 dark:bg-olive-deep/70 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-wider mb-3">
+          <Shield className="w-3.5 h-3.5 text-orange" />
           <span>Patient Data Protection</span>
         </div>
 
-        <h1 className="font-display text-3xl sm:text-4xl font-bold text-teal dark:text-cream mb-2">
+        <h1 className="font-display text-3xl sm:text-4xl font-bold text-olive-deep dark:text-cream mb-2">
           Privacy Policy
         </h1>
         <p className="text-xs text-ink/60 dark:text-cream/60">
@@ -47,9 +46,9 @@ export default function PrivacyPolicyPage() {
       {/* Policy Content Body */}
       <div className="space-y-8 text-sm sm:text-base text-ink/85 dark:text-cream/85 font-light leading-relaxed">
         {/* Section 1 */}
-        <section className="p-7 rounded-3xl glass-card border border-gold/25 space-y-3">
-          <h2 className="font-display text-xl font-bold text-teal dark:text-gold flex items-center gap-2">
-            <Lock className="w-5 h-5 text-gold shrink-0" />
+        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
+          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
+            <Lock className="w-5 h-5 text-orange shrink-0" />
             <span>1. Information We Collect</span>
           </h2>
           <p>
@@ -63,9 +62,9 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Section 2 */}
-        <section className="p-7 rounded-3xl glass-card border border-gold/25 space-y-3">
-          <h2 className="font-display text-xl font-bold text-teal dark:text-gold flex items-center gap-2">
-            <FileText className="w-5 h-5 text-gold shrink-0" />
+        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
+          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
+            <FileText className="w-5 h-5 text-orange shrink-0" />
             <span>2. Purpose of Data Processing</span>
           </h2>
           <p>Your personal and pet information is processed solely for the following legitimate purposes:</p>
@@ -78,9 +77,9 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Section 3 */}
-        <section className="p-7 rounded-3xl glass-card border border-gold/25 space-y-3">
-          <h2 className="font-display text-xl font-bold text-teal dark:text-gold flex items-center gap-2">
-            <Shield className="w-5 h-5 text-gold shrink-0" />
+        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
+          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
+            <Shield className="w-5 h-5 text-orange shrink-0" />
             <span>3. Data Storage & Security Infrastructure</span>
           </h2>
           <p>
@@ -92,8 +91,8 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Section 4 */}
-        <section className="p-7 rounded-3xl glass-card border border-gold/25 space-y-3">
-          <h2 className="font-display text-xl font-bold text-teal dark:text-gold">
+        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
+          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand">
             4. Your Rights Under DPDP Act 2023
           </h2>
           <p>As a data principal, you hold the following statutory rights regarding your personal information:</p>
@@ -105,8 +104,8 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Section 5: Contact */}
-        <section className="p-7 rounded-3xl bg-teal-900 text-cream border border-gold/30 space-y-3">
-          <h2 className="font-display text-xl font-bold text-gold">
+        <section className="p-7 rounded-3xl bg-olive-deep text-cream border border-sand/40 space-y-3">
+          <h2 className="font-display text-xl font-bold text-sand">
             5. Contact Our Privacy Officer
           </h2>
           <p className="text-xs sm:text-sm text-cream/90">
@@ -114,20 +113,20 @@ export default function PrivacyPolicyPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-2 text-xs">
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-gold shrink-0" />
-              <a href={`mailto:${siteConfig.email}`} className="text-gold-light hover:underline">
+              <Mail className="w-4 h-4 text-sand shrink-0" />
+              <a href={`mailto:${siteConfig.email}`} className="text-sand hover:underline">
                 {siteConfig.email}
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-gold shrink-0" />
+              <Phone className="w-4 h-4 text-sand shrink-0" />
               <span>{siteConfig.phone}</span>
             </div>
           </div>
         </section>
       </div>
 
-      <GoldDivider className="mt-14 mb-8" />
+      <CrossDivider variant="line" className="mt-14 mb-8" />
     </main>
   );
 }

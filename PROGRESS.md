@@ -107,13 +107,29 @@
   - Added comprehensive test suites `tests/seo.test.ts` (8 tests) and `tests/blog.test.ts` (6 tests).
   - Passed full gatekeeper `npm run check` (13/13 files, 81/81 tests passing) and production build `npm run build` (30/30 static pages generated).
 
+- **Redesign R1 (Brand Reskin & Visual Identity Overhaul)**:
+  - Extracted new brand color palette directly from hospital identity:
+    - `orange`: DEFAULT `#FF751B`, `deep`: `#C2410C`, `soft`: `#FFB27A`, `tint`: `#FFE3CF`
+    - `olive`: DEFAULT `#5F6C37`, `deep`: `#2B3318`, `soft`: `#A3AD7C`, `tint`: `#EDEFE0`
+    - `brown`: DEFAULT `#7B4A12`, `deep`: `#3B2208`
+    - `cream`: `#FFF6E5`, `sand`: `#F7DAA7`, `ink`: `#241E10`
+  - Replaced display & body typography with Google Fonts `Bricolage Grotesque` (headings) and `DM Sans` (body) loaded via `next/font/google`.
+  - Built official `Logo.tsx` component with `logo.avif` and dark-mode pill backing for contrast.
+  - Built `CrossDivider.tsx` replacing Egyptian dividers with rounded medical cross and paw motifs across all pages.
+  - Reskinned all 28+ components, tools, forms, and pages across light and dark modes with WCAG AA compliance (4.5:1+ contrast guaranteed, including ink text on `#FF751B` orange buttons).
+  - Reskinned `doctor-placeholder.svg`, `hero-placeholder.svg`, `icon.svg` (orange cross + paw), and `opengraph-image.tsx` social preview.
+  - Added unit test suite `tests/brand.test.ts` (9 tests validating WCAG contrast and component specs; total 90/90 tests passing).
+  - Passed full gatekeeper `npm run check` and `npm run build` (30/30 static pages generated).
+
 ## In Progress
 
-- Phase 9 complete. Ready for final user inspection and review.
+- REDESIGN R1 complete on branch `feat/r1-brand-reskin`. Ready for user review.
 
 ## Next
 
-- Phase 10 / Production Launch: Vet clinical review sign-off, replacement of dummy doctor profiles/photos with real staff data, and production deployment.
+- **REDESIGN R2**: Layout Refinement, Hero enhancement, and 3D Dog integration.
+- **REDESIGN R3**: Micro-interactions, Motion refinement, and responsive mobile polish.
+- **REDESIGN R4**: Performance tuning & final production verification.
 
 ## Decisions
 

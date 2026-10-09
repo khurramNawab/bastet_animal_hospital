@@ -62,21 +62,21 @@ export function SiteLoader() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
           aria-hidden="true"
-          className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-cream/95 dark:bg-ink/95 backdrop-blur-sm pointer-events-none select-none"
+          className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-cream/95 dark:bg-olive-deep/95 backdrop-blur-sm pointer-events-none select-none"
         >
           {/* Glowing Brand Logo Emblem */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="relative w-16 h-16 rounded-2xl overflow-hidden bg-teal-900 border-2 border-gold/60 shadow-gold-glow mb-4 flex items-center justify-center"
+            className="relative w-28 h-14 rounded-2xl overflow-hidden bg-cream p-2 border-2 border-sand shadow-warm-glow mb-4 flex items-center justify-center"
           >
             <Image
-              src="/images/Bastetanimalhospital.avif"
+              src="/brand/logo.avif"
               alt="Bastet Animal Hospital"
-              width={64}
-              height={64}
-              className="w-full h-full object-cover"
+              width={112}
+              height={56}
+              className="w-full h-full object-contain"
               priority
             />
           </motion.div>
@@ -93,7 +93,7 @@ export function SiteLoader() {
                   delay: 0.1 + idx * 0.08,
                   ease: 'easeOut',
                 }}
-                className="w-3 h-3 rounded-full bg-gold shadow-gold-glow"
+                className="w-3 h-3 rounded-full bg-orange shadow-warm-glow"
               />
             ))}
           </div>
@@ -105,10 +105,10 @@ export function SiteLoader() {
             transition={{ duration: 0.3, delay: 0.25 }}
             className="text-center"
           >
-            <span className="font-display font-bold text-xl tracking-widest text-teal dark:text-gold uppercase">
+            <span className="font-display font-bold text-xl tracking-widest text-olive dark:text-cream uppercase">
               Bastet
             </span>
-            <span className="block text-[9px] uppercase tracking-[0.25em] text-gold-dark dark:text-cream/70 font-semibold mt-0.5">
+            <span className="block text-[9px] uppercase tracking-[0.25em] text-brown-soft dark:text-sand font-semibold mt-0.5">
               Small Animal Hospital • Kolkata
             </span>
           </motion.div>

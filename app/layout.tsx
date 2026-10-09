@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Playfair_Display, Inter } from 'next/font/google';
+import { Bricolage_Grotesque, DM_Sans } from 'next/font/google';
 import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { Navbar } from '@/components/sections/Navbar';
@@ -11,14 +11,16 @@ import { getSiteConfig } from '@/lib/data';
 import { getHospitalJsonLd, serializeJsonLd } from '@/lib/seo/jsonld';
 import './globals.css';
 
-const playfair = Playfair_Display({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
+  weight: ['700', '800'],
   display: 'swap',
   variable: '--font-display',
 });
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-body',
 });
@@ -58,8 +60,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#FAF5E9' },
-    { media: '(prefers-color-scheme: dark)', color: '#062527' },
+    { media: '(prefers-color-scheme: light)', color: '#FFF6E5' },
+    { media: '(prefers-color-scheme: dark)', color: '#2B3318' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -74,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${playfair.variable} ${inter.variable}`}
+      className={`${bricolage.variable} ${dmSans.variable}`}
     >
       <head>
         {/* Anti-FOUC Theme Initialization Script */}
@@ -89,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(hospitalJsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-cream text-ink dark:bg-ink dark:text-cream antialiased selection:bg-gold selection:text-ink transition-colors duration-300">
+      <body className="min-h-screen flex flex-col bg-cream text-ink dark:bg-olive-deep dark:text-cream antialiased selection:bg-sand selection:text-ink transition-colors duration-300">
         <ThemeProvider>
           <SmoothScroll>
             <SiteLoader />
@@ -106,4 +108,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
