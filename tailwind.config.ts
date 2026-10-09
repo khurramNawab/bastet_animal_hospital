@@ -95,6 +95,12 @@ const config: Config = {
           800: '#141008',
           900: '#0C0A05',
         },
+        danger: {
+          DEFAULT: '#DC2626',
+          deep: '#991B1B',
+          soft: '#F87171',
+          tint: '#FEE2E2',
+        },
       },
       fontFamily: {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],

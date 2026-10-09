@@ -122,7 +122,7 @@ export function Hero({ siteConfig }: HeroProps) {
     <section
       ref={heroRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full min-h-[calc(100svh-3.5rem)] flex flex-col justify-between overflow-hidden bg-cream dark:bg-olive-deep pt-0"
+      className="relative w-full min-h-[640px] max-h-[920px] h-[100svh] flex flex-col justify-between overflow-hidden bg-cream dark:bg-olive-deep pt-0"
       aria-label="Bastet Small Animal Hospital Hero"
     >
       {/* Background Ambient Radial Glows */}

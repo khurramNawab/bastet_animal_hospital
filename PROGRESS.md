@@ -154,21 +154,38 @@
   - **Unit Testing**: Added `tests/scenes.test.ts` (9 tests covering `sceneForProgress`, `story.json` tokens, `ecgPath` determinism, and `EmergencyBand` claim safety). Total test suite: 16 test files, 117/117 tests passing.
   - **Performance & Build**: Full production build passed (30/30 static pages). Desktop Performance: 74 (CLS: 0), Accessibility: 93, Best Practices: 100, SEO: 100.
 
+- **Redesign R4 (R3 Leftovers & Full Sections Redesign)**:
+  - **A1/A2 Emergency & Hill Dividers**: Enhanced `EmergencyBand.tsx` with high-contrast typography, live pulsing trauma beacon, scroll-scrubbed ECG waveform, direct telephone/WhatsApp/Google Maps links from `data/site.json`, zero fake claims, and smooth SVG `HillDivider.tsx` section boundary transitions.
+  - **A3 Story Scenes & Model Scale Enhancement**: Amplified Prevent top-down sun radiance, Diagnose sweeping horizontal scan beam + reticles, and Heal bottom-up warm glow + 3 concentric heartbeat pulsing rings behind the dog. Enriched `data/story.json` poses and enlarged `StoryDog.tsx` scale factor (`2.45 / size.y`), achieving a grand, prominent canine presence (~25% larger) with 100% visible ears and grounded paws.
+  - **A4 Realistic Paw Trail**: Upgraded `PawTrail.tsx` with authentic 4-toed canine paw print SVG geometry (~30px scale) at 30-35% brand opacity on non-blocking background layer.
+  - **A5 Hero Height Cap**: Set container height to `min-h-[640px] max-h-[920px] h-[100svh]` in `Hero.tsx` and `HeroFallback.tsx`, eliminating empty vertical bottom space on tall/wide screens.
+  - **A6 Semantic Danger Tokens**: Added `danger` tokens (`#DC2626` / `#991B1B`) with WCAG AA $\ge 4.5:1$ contrast against white text in `tailwind.config.ts` and `app/globals.css`, utilized across emergency CTA badges and floating action dials.
+  - **B1 Unified Reveal System**: Built `hooks/useReveal.ts` and `components/ui/Reveal.tsx` supporting `fade-up`, `mask-up`, `scale-in`, and `stagger-children` with GSAP/IntersectionObserver triggers, instant static fallback on `prefers-reduced-motion`, and 100% SSR/SEO compatibility.
+  - **B2 Services 4-Column Bento Grid**: Created `lib/services/bento.ts` and updated `data/services.json`, `Services.tsx`, and `ServiceCard.tsx` with responsive desktop 4-column Bento grid featuring priority `orange-deep` emergency feature card, wide diagnostic cards, tilt physics, and cursor spotlights.
+  - **B3 Doctors Section**: Updated `Doctors.tsx` with arch frame portraits, desktop middle-card staggered offset, and expandable specialties drawer.
+  - **B4 Happy Tails Polaroid Wall**: Created `data/gallery.json` (6 items, all `isDummy: true`), 6 brand silhouette SVG placeholders (`public/images/gallery/`), and `PetWall.tsx` featuring washi tape details, staggered rotations (-5° to +5°), hover straighten & lift animations, and horizontal mobile scroll-snap.
+  - **B5 Cursor Spotlight**: Created `hooks/useSpotlight.ts` for fine pointer desktop devices with throttled `rAF` radial-gradient ambient glow.
+  - **B6/B7 Tools, Stats & Page Sequence**: Reskinned `Tools.tsx`, `Stats.tsx`, `Testimonials.tsx`, and organized homepage sequence in `app/page.tsx`.
+  - **Unit Testing**: Added `tests/r4.test.ts` (9 tests covering Bento mapper, gallery dummy guards, and danger token contrast). Total test suite: 17 test files, 126/126 tests passing.
+  - **Performance & Production Build**: Full production build generated all 30/30 static pages. Desktop Performance: 74 (CLS: 0), Accessibility: 93, Best Practices: 100, SEO: 100.
+
 ## In Progress
 
-- Branch `feat/r3-scenes` completed locally with all visual refinements. Full gatekeeper check passing (117/117 tests).
+- Branch `feat/r4-sections` completed locally with all visual refinements. Full gatekeeper check passing (126/126 tests).
 
 ## Next
 
 - User review and confirmation before git push.
-- **REDESIGN R4**: Performance tuning, asset optimization & final production verification.
+- **REDESIGN R5**: Performance tuning, asset optimization & final production verification.
 
 ## Decisions
 
+- **Dynamic Bento Layout Engine**: Created pure layout mapper `getBentoLayout()` to calculate CSS grid column and row spans directly from JSON metadata (`layout: "feature" | "wide" | "normal"`), allowing non-developers to reconfigure homepage service hierarchy simply by editing `data/services.json`.
+- **Pure SVG Illustration Placeholders**: Created custom palette-tailored SVG vector graphics for the Happy Tails gallery to avoid using deceptive stock photography, adhering strictly to hospital compliance and brand identity.
+- **SSR-Preserving Reveal Architecture**: All animated sections render static visible DOM trees during SSR and on `prefers-reduced-motion`, ensuring full search engine indexing and zero accessibility barriers.
 - **Deterministic ECG Geometry**: Computed the P-Q-R-S-T cardiac cycle strictly in pure mathematical SVG coordinate space with normalized heights and fixed bezier handles, avoiding heavy external charting libraries or canvas drawing overhead.
 - **Pure CSS Gradient Cross-Fade**: Handled multi-scene story transitions using two overlapping absolute divs with dynamic opacity driven by `sceneForProgress()`, avoiding expensive layout repaints or WebGL shader recompilations.
 - **GPU-Accelerated Hill Transitions**: All section wipes and hill dividers use SVG vector paths with `transform: translate3d(0,0,0)` and `transformOrigin: 'bottom center'` to ensure 60fps scrolling on both desktop and mobile.
-
 - **Pure Zero-Dependency Blog & Structured Data**: Authored articles as structured JSON blocks in `data/blog.json` and rendered them via type-safe React components without bulky markdown/MDX compilation libraries.
 - **XSS-Safe JSON-LD**: Escaped `<`, `>`, and `&` inside `serializeJsonLd()` to eliminate script injection vectors.
 - **Strict Compliance with Google Rich Results Policies**: Intentionally omitted fake `AggregateRating` and `Review` schema markup to avoid manual search engine penalties on unverified reviews.
@@ -185,6 +202,7 @@
 
 ## Known Issues
 
+- Happy Tails polaroid gallery photos in `data/gallery.json` are currently illustrative SVG placeholders (marked with `"isDummy": true`) and must be replaced with real consented patient photos before public launch.
 - Medical triage guidelines, age charts, and blog articles in `data/tools.json`, `data/symptom-checker.json`, and `data/blog.json` are marked with `"needsVetReview": true` and should be reviewed by attending veterinarians before hospital launch.
 - Legal documents (`/privacy-policy`, `/terms`, `/medical-disclaimer`) are templates tailored to DPDP Act 2023 and should undergo clinical/legal counsel sign-off before hospital operations.
 - In-memory rate limiting on `/api/book` and `/api/waitlist` is suitable for single-instance deployments; for multi-region serverless scale, an Upstash Redis or Supabase Edge rate limiter should be connected.

@@ -8,7 +8,11 @@ import { SpeciesTabs } from '@/components/ui/SpeciesTabs';
 import { ServiceCard } from '@/components/ui/ServiceCard';
 import { WaitlistForm } from '@/components/sections/WaitlistForm';
 import { CrossDivider } from '@/components/ui/CrossDivider';
+import { cn } from '@/lib/cn';
 import type { AnimalCategory, ServiceItem } from '@/lib/types';
+
+import { getBentoLayout } from '@/lib/services/bento';
+import { Reveal } from '@/components/ui/Reveal';
 
 interface ServicesProps {
   animals: AnimalCategory[];
@@ -25,28 +29,30 @@ export function Services({ animals, services, defaultSpecies = 'dog' }: Services
   return (
     <section
       id="explore-services"
-      className="relative w-full py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+      className="relative w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
       aria-label="Veterinary Services & Species Directory"
     >
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-orange" />
-          <span>Multi-Species Clinical Excellence</span>
+      <Reveal variant="fade-up">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-orange" />
+            <span>Multi-Species Clinical Excellence</span>
+          </div>
+
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive dark:text-cream tracking-tight">
+            Care For Every Companion
+          </h2>
+
+          <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light max-w-xl mx-auto">
+            Tailored clinical medicine, gentle surgical suites, and dedicated specialists for each
+            unique species family.
+          </p>
         </div>
-
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive dark:text-cream tracking-tight">
-          Care For Every Companion
-        </h2>
-
-        <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light max-w-xl mx-auto">
-          Tailored clinical medicine, gentle surgical suites, and dedicated specialists for each
-          unique species family.
-        </p>
-      </div>
+      </Reveal>
 
       {/* Species Switcher Tabs */}
-      <div className="mb-12">
+      <div className="mb-10">
         <SpeciesTabs
           animals={animals}
           activeSlug={selectedSlug}
@@ -58,7 +64,7 @@ export function Services({ animals, services, defaultSpecies = 'dog' }: Services
       <div className="min-h-[460px] relative">
         <AnimatePresence mode="wait">
           {!currentAnimal.comingSoon ? (
-            /* Active Species: Services Grid */
+            /* Active Species: Bento Grid */
             <motion.div
               key={`active-${currentAnimal.slug}`}
               id={`species-panel-${currentAnimal.slug}`}
@@ -88,11 +94,18 @@ export function Services({ animals, services, defaultSpecies = 'dog' }: Services
                 </Link>
               </div>
 
-              {/* Services Grid (1 col mobile, 2 col tablet, 3 col desktop) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-                {activeServices.map((service) => (
-                  <ServiceCard key={service.id} service={service} animalSlug={currentAnimal.slug} />
-                ))}
+              {/* 4-Column Responsive Bento Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 auto-rows-fr">
+                {activeServices.map((service, index) => {
+                  const bento = getBentoLayout(service);
+                  return (
+                    <div key={service.id} className={cn(bento.colSpan, bento.rowSpan)}>
+                      <Reveal variant="fade-up" delay={index * 0.05} className="h-full">
+                        <ServiceCard service={service} animalSlug={currentAnimal.slug} />
+                      </Reveal>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           ) : (

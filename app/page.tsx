@@ -5,10 +5,11 @@ import { Story } from '@/components/sections/Story';
 import { HillDivider } from '@/components/ui/HillDivider';
 import { EmergencyBand } from '@/components/sections/EmergencyBand';
 import { Services } from '@/components/sections/Services';
+import { Tools } from '@/components/sections/Tools';
 import { Doctors } from '@/components/sections/Doctors';
+import { PetWall } from '@/components/sections/PetWall';
 import { Stats } from '@/components/sections/Stats';
 import { Testimonials } from '@/components/sections/Testimonials';
-import { Tools } from '@/components/sections/Tools';
 import { CrossDivider } from '@/components/ui/CrossDivider';
 import {
   getSiteConfig,
@@ -16,6 +17,7 @@ import {
   getStoryPanels,
   getAnimals,
   getDoctors,
+  getGalleryItems,
   getTestimonials,
   getAgeCalculatorConfig,
   getSymptomCheckerConfig,
@@ -27,6 +29,7 @@ export default function HomePage() {
   const storyPanels = getStoryPanels();
   const animals = getAnimals();
   const doctors = getDoctors();
+  const galleryItems = getGalleryItems();
   const testimonials = getTestimonials();
   const ageConfig = getAgeCalculatorConfig();
   const symptomConfig = getSymptomCheckerConfig();
@@ -51,15 +54,15 @@ export default function HomePage() {
       {/* 6. Emergency -> Services Curved Transition */}
       <HillDivider fromColor="orange-deep" toColor="cream" variant="concave" />
 
-      {/* 7. Multi-Species Services Section with SpeciesTabs & Tilt Cards */}
+      {/* 7. Multi-Species Services Section with 4-Column Bento Grid */}
       <Services animals={animals} services={services} defaultSpecies="dog" />
 
       {/* Medical Cross Divider */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         <CrossDivider variant="cross" />
       </div>
 
-      {/* 4. Interactive Pet Health & Triage Tools */}
+      {/* 8. Interactive Pet Health & Triage Tools */}
       <Tools
         ageConfig={ageConfig}
         symptomConfig={symptomConfig}
@@ -67,21 +70,24 @@ export default function HomePage() {
       />
 
       {/* Paw Prints Divider */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         <CrossDivider variant="paws" />
       </div>
 
-      {/* 5. Doctors & Medical Faculty Showcase */}
+      {/* 9. Doctors & Medical Faculty Showcase */}
       <Doctors doctors={doctors} />
 
-      {/* 6. Viewport Stats Counters Band */}
+      {/* 10. Happy Tails Polaroid Wall (New in R4) */}
+      <PetWall items={galleryItems} />
+
+      {/* 11. Viewport Stats Counters Band with Hill Boundaries */}
       <Stats stats={siteConfig.stats} />
 
-      {/* 7. Drag Slider Testimonials */}
+      {/* 12. Drag Slider Testimonials */}
       <Testimonials testimonials={testimonials} />
 
       {/* Bottom Line Divider */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         <CrossDivider variant="line" />
       </div>
     </main>

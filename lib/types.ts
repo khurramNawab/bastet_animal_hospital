@@ -111,6 +111,7 @@ export interface ServiceItem {
   duration?: string;
   icon: string;
   animals: string[];
+  layout?: 'feature' | 'wide' | 'normal';
 }
 
 export interface AnimalCategory {
@@ -133,6 +134,17 @@ export interface Testimonial {
   date?: string;
   text: string;
   rating: number;
+  isDummy?: boolean;
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  caption: string;
+  category: string;
+  image: string;
+  alt: string;
+  rotation?: number;
   isDummy?: boolean;
 }
 

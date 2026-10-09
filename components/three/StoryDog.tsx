@@ -38,8 +38,8 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
     const center = new THREE.Vector3();
     box.getCenter(center);
 
-    // Match exact Hero dog model scale (1.88 units height) for consistent, perfectly proportioned presence
-    const scaleFactor = 1.88 / (size.y || 0.31);
+    // Grand, prominent dog model presence (~25% larger than baseline) filling frame with full paws and ears clear
+    const scaleFactor = 2.45 / (size.y || 0.31);
     clone.scale.setScalar(scaleFactor);
 
     box.setFromObject(clone);

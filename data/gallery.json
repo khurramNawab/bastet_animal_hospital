@@ -1,0 +1,62 @@
+[
+  {
+    "id": "gallery-1",
+    "title": "Post-Op Recovery & Wellness Check",
+    "caption": "Gentle post-operative care and warm recovery monitoring",
+    "category": "Canine Care",
+    "image": "/images/gallery/polaroid-1.svg",
+    "alt": "Illustrated silhouette of happy golden dog receiving veterinary wellness checkup",
+    "rotation": -4,
+    "isDummy": true
+  },
+  {
+    "id": "gallery-2",
+    "title": "Diagnostic Imaging Session",
+    "caption": "Digital radiography and precision cardiac screening",
+    "category": "Diagnostics",
+    "image": "/images/gallery/polaroid-2.svg",
+    "alt": "Illustrated clinical silhouette of companion animal undergoing modern digital imaging",
+    "rotation": 3,
+    "isDummy": true
+  },
+  {
+    "id": "gallery-3",
+    "title": "Therapeutic Fur Care",
+    "caption": "Medicated dermatological bath and coat conditioning",
+    "category": "Dermatology",
+    "image": "/images/gallery/polaroid-3.svg",
+    "alt": "Illustrated silhouette of dog enjoying a soothing therapeutic bath session",
+    "rotation": -2,
+    "isDummy": true
+  },
+  {
+    "id": "gallery-4",
+    "title": "Puppy Immunization Milestone",
+    "caption": "Core vaccinations and pediatric vitality evaluation",
+    "category": "Preventive",
+    "image": "/images/gallery/polaroid-4.svg",
+    "alt": "Illustrated silhouette of young pup after scheduled preventive vaccination",
+    "rotation": 5,
+    "isDummy": true
+  },
+  {
+    "id": "gallery-5",
+    "title": "Dental Hygiene & Tartar Cleanse",
+    "caption": "Ultrasonic scaling for fresh breath and gum health",
+    "category": "Dentistry",
+    "image": "/images/gallery/polaroid-5.svg",
+    "alt": "Illustrated silhouette representing clinical veterinary dental prophylaxis",
+    "rotation": -5,
+    "isDummy": true
+  },
+  {
+    "id": "gallery-6",
+    "title": "Emergency Trauma Stabilization",
+    "caption": "24/7 life support and rapid clinical intervention",
+    "category": "Emergency",
+    "image": "/images/gallery/polaroid-6.svg",
+    "alt": "Illustrated medical motif representing critical emergency stabilization",
+    "rotation": 2,
+    "isDummy": true
+  }
+]

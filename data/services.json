@@ -1,69 +1,5 @@
 [
   {
-    "id": "vaccination",
-    "slug": "preventive-care-vaccination",
-    "title": "Preventive Care & Vaccination",
-    "description": "Comprehensive immunization schedules, core vaccines, and seasonal health screenings to protect your pets.",
-    "longDescription": "Our preventative medicine protocol combines international vaccination standards with thorough physical examinations. We safeguard your pet against rabies, DHPPi, leptospirosis, and kennel cough with gentle administration and minimal stress.",
-    "features": [
-      "Core & non-core personalized vaccination charts",
-      "Full 12-point physical wellness screening",
-      "Internal & external parasite prevention plans",
-      "Digital vaccination certificates & reminder tracking"
-    ],
-    "duration": "30 - 45 mins",
-    "icon": "ShieldCheck",
-    "animals": ["dog"]
-  },
-  {
-    "id": "surgery",
-    "slug": "advanced-veterinary-surgery",
-    "title": "Advanced Veterinary Surgery",
-    "description": "State-of-the-art sterile surgical suites with dedicated anesthesia monitoring and gentle recovery protocols.",
-    "longDescription": "From routine spay and neuter procedures to complex soft tissue and orthopedic surgeries, our surgical suites feature laminar airflow sterility, precision multiparameter vitals tracking, and dedicated post-operative warming incubators.",
-    "features": [
-      "Sterile positive-pressure operating theatre",
-      "Continuous isoflurane gas anesthesia & vitals tracking",
-      "Orthopedic repair & soft tissue surgical mastery",
-      "Multimodal pain management & supervised recovery"
-    ],
-    "duration": "1 - 3 hours",
-    "icon": "Activity",
-    "animals": ["dog"]
-  },
-  {
-    "id": "dental-care",
-    "slug": "dental-prophylaxis-care",
-    "title": "Dental Prophylaxis & Care",
-    "description": "Ultrasonic scaling, tooth polishing, and specialized oral treatments for fresh breath and healthy gums.",
-    "longDescription": "Periodontal disease is the most common condition in adult dogs. Our veterinary dental suite delivers painless ultrasonic subgingival cleaning, enamel polishing, and restorative dental extractions under safe sedation.",
-    "features": [
-      "Ultrasonic supra & sub-gingival scaling",
-      "Fluoride polishing & antibacterial barrier coating",
-      "Digital dental radiography & tooth health scoring",
-      "Painless surgical extractions & gingival therapy"
-    ],
-    "duration": "45 - 60 mins",
-    "icon": "Sparkles",
-    "animals": ["dog"]
-  },
-  {
-    "id": "grooming",
-    "slug": "therapeutic-spa-grooming",
-    "title": "Therapeutic & Spa Grooming",
-    "description": "Medicated baths, breed-specific styling, de-shedding, and hygienic clipping by certified pet stylists.",
-    "longDescription": "More than just aesthetics, our medical grooming unit specializes in dermatological soothing baths, hygienic ear flushes, breed-tailored clipping, and full fur de-shedding to prevent fungal dermatitis.",
-    "features": [
-      "Hypoallergenic & medicated therapeutic baths",
-      "Breed-standard scissoring & hygienic clipping",
-      "Gentle ear flushing & paw pad conditioning",
-      "High-velocity de-shedding & blow drying"
-    ],
-    "duration": "60 - 90 mins",
-    "icon": "Scissors",
-    "animals": ["dog"]
-  },
-  {
     "id": "emergency",
     "slug": "critical-emergency-care",
     "title": "24x7 Critical & Emergency Care",
@@ -77,7 +13,25 @@
     ],
     "duration": "Immediate 24x7",
     "icon": "HeartPulse",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "layout": "feature"
+  },
+  {
+    "id": "vaccination",
+    "slug": "preventive-care-vaccination",
+    "title": "Preventive Care & Vaccination",
+    "description": "Comprehensive immunization schedules, core vaccines, and seasonal health screenings to protect your pets.",
+    "longDescription": "Our preventative medicine protocol combines international vaccination standards with thorough physical examinations. We safeguard your pet against rabies, DHPPi, leptospirosis, and kennel cough with gentle administration and minimal stress.",
+    "features": [
+      "Core & non-core personalized vaccination charts",
+      "Full 12-point physical wellness screening",
+      "Internal & external parasite prevention plans",
+      "Digital vaccination certificates & reminder tracking"
+    ],
+    "duration": "30 - 45 mins",
+    "icon": "ShieldCheck",
+    "animals": ["dog"],
+    "layout": "wide"
   },
   {
     "id": "diagnostics",
@@ -93,7 +47,59 @@
     ],
     "duration": "15 - 30 mins",
     "icon": "Microscope",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "layout": "wide"
+  },
+  {
+    "id": "surgery",
+    "slug": "advanced-veterinary-surgery",
+    "title": "Advanced Veterinary Surgery",
+    "description": "State-of-the-art sterile surgical suites with dedicated anesthesia monitoring and gentle recovery protocols.",
+    "longDescription": "From routine spay and neuter procedures to complex soft tissue and orthopedic surgeries, our surgical suites feature laminar airflow sterility, precision multiparameter vitals tracking, and dedicated post-operative warming incubators.",
+    "features": [
+      "Sterile positive-pressure operating theatre",
+      "Continuous isoflurane gas anesthesia & vitals tracking",
+      "Orthopedic repair & soft tissue surgical mastery",
+      "Multimodal pain management & supervised recovery"
+    ],
+    "duration": "1 - 3 hours",
+    "icon": "Activity",
+    "animals": ["dog"],
+    "layout": "normal"
+  },
+  {
+    "id": "dental-care",
+    "slug": "dental-prophylaxis-care",
+    "title": "Dental Prophylaxis & Care",
+    "description": "Ultrasonic scaling, tooth polishing, and specialized oral treatments for fresh breath and healthy gums.",
+    "longDescription": "Periodontal disease is the most common condition in adult dogs. Our veterinary dental suite delivers painless ultrasonic subgingival cleaning, enamel polishing, and restorative dental extractions under safe sedation.",
+    "features": [
+      "Ultrasonic supra & sub-gingival scaling",
+      "Fluoride polishing & antibacterial barrier coating",
+      "Digital dental radiography & tooth health scoring",
+      "Painless surgical extractions & gingival therapy"
+    ],
+    "duration": "45 - 60 mins",
+    "icon": "Sparkles",
+    "animals": ["dog"],
+    "layout": "normal"
+  },
+  {
+    "id": "grooming",
+    "slug": "therapeutic-spa-grooming",
+    "title": "Therapeutic & Spa Grooming",
+    "description": "Medicated baths, breed-specific styling, de-shedding, and hygienic clipping by certified pet stylists.",
+    "longDescription": "More than just aesthetics, our medical grooming unit specializes in dermatological soothing baths, hygienic ear flushes, breed-tailored clipping, and full fur de-shedding to prevent fungal dermatitis.",
+    "features": [
+      "Hypoallergenic & medicated therapeutic baths",
+      "Breed-standard scissoring & hygienic clipping",
+      "Gentle ear flushing & paw pad conditioning",
+      "High-velocity de-shedding & blow drying"
+    ],
+    "duration": "60 - 90 mins",
+    "icon": "Scissors",
+    "animals": ["dog"],
+    "layout": "normal"
   },
   {
     "id": "pet-boarding",
@@ -109,6 +115,7 @@
     ],
     "duration": "Daycare / Overnight",
     "icon": "Home",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "layout": "normal"
   }
 ]

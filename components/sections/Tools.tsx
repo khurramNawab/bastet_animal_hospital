@@ -7,6 +7,8 @@ import { AgeCalculator } from '@/components/tools/AgeCalculator';
 import { SymptomChecker } from '@/components/tools/SymptomChecker';
 import type { AgeCalculatorConfig, SymptomCheckerConfig, SiteConfig } from '@/lib/types';
 
+import { Reveal } from '@/components/ui/Reveal';
+
 interface ToolsSectionProps {
   ageConfig: AgeCalculatorConfig;
   symptomConfig: SymptomCheckerConfig;
@@ -22,34 +24,37 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
   return (
     <section
       id="tools-section"
-      className="relative w-full py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+      className="relative w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
       aria-label="Pet Parent Health & Triage Tools"
     >
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-14">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-orange" />
-          <span>Clinical Utilities</span>
+      <Reveal variant="fade-up">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-orange" />
+            <span>Clinical Utilities</span>
+          </div>
+
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive dark:text-cream tracking-tight">
+            Pet Parent Health Tools
+          </h2>
+
+          <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light max-w-xl mx-auto">
+            Explore interactive, science-backed utilities designed to calculate physiological age
+            and triage urgent health symptoms.
+          </p>
         </div>
-
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive dark:text-cream tracking-tight">
-          Pet Parent Health Tools
-        </h2>
-
-        <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light max-w-xl mx-auto">
-          Explore interactive, science-backed utilities designed to calculate physiological age
-          and triage urgent health symptoms.
-        </p>
-      </div>
+      </Reveal>
 
       {/* 2 Luxury Interactive Tool Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
         {/* Card 1: Dog Age Calculator */}
-        <div className="group relative rounded-3xl p-8 sm:p-10 glass-card border border-sand/40 hover:border-orange/60 transition-all duration-300 shadow-glass flex flex-col justify-between overflow-hidden">
-          <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-orange/15 to-transparent rounded-bl-full pointer-events-none" />
+        <Reveal variant="fade-up" delay={0.1} className="h-full">
+          <div className="group relative rounded-3xl p-8 sm:p-10 glass-card border border-sand/40 hover:border-orange/60 transition-all duration-300 shadow-glass flex flex-col justify-between overflow-hidden h-full">
+            <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-orange/15 to-transparent rounded-bl-full pointer-events-none" />
 
-          <div>
-            <div className="w-14 h-14 rounded-2xl bg-sand/30 dark:bg-olive-900 border border-sand/40 flex items-center justify-center text-orange mb-6 group-hover:bg-orange group-hover:text-ink transition-colors">
+            <div>
+              <div className="w-14 h-14 rounded-2xl bg-sand/30 dark:bg-olive-900 border border-sand/40 flex items-center justify-center text-orange mb-6 group-hover:bg-orange group-hover:text-ink transition-colors">
               <Calculator className="w-7 h-7" />
             </div>
 
@@ -84,9 +89,11 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
             <ArrowRight className="w-4 h-4 text-ink group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
+      </Reveal>
 
-        {/* Card 2: Symptom Checker */}
-        <div className="group relative rounded-3xl p-8 sm:p-10 glass-card border border-sand/40 hover:border-orange/60 transition-all duration-300 shadow-glass flex flex-col justify-between overflow-hidden">
+      {/* Card 2: Symptom Checker */}
+      <Reveal variant="fade-up" delay={0.2} className="h-full">
+        <div className="group relative rounded-3xl p-8 sm:p-10 glass-card border border-sand/40 hover:border-orange/60 transition-all duration-300 shadow-glass flex flex-col justify-between overflow-hidden h-full">
           <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl from-sand/20 to-transparent rounded-bl-full pointer-events-none" />
 
           <div>
@@ -130,6 +137,7 @@ export function Tools({ ageConfig, symptomConfig, siteConfig }: ToolsSectionProp
             <ArrowRight className="w-4 h-4 text-ink group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
+      </Reveal>
       </div>
 
       {/* Age Calculator Modal */}

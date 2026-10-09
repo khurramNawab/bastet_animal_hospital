@@ -14,6 +14,8 @@
     --color-cream: #fff6e5;
     --color-sand: #f7daa7;
     --color-ink: #241e10;
+    --color-danger: #dc2626;
+    --color-danger-deep: #991b1b;
     --border-glass: rgba(247, 218, 167, 0.4);
     --bg-glass: rgba(255, 246, 229, 0.85);
   }

@@ -7,6 +7,7 @@ import storyData from '@/data/story.json';
 import toolsData from '@/data/tools.json';
 import symptomCheckerData from '@/data/symptom-checker.json';
 import blogData from '@/data/blog.json';
+import galleryData from '@/data/gallery.json';
 
 import type {
   SiteConfig,
@@ -18,6 +19,7 @@ import type {
   AgeCalculatorConfig,
   SymptomCheckerConfig,
   BlogPost,
+  GalleryItem,
 } from './types';
 
 export function getSiteConfig(): SiteConfig {
@@ -96,6 +98,10 @@ export function getRelatedPosts(currentSlug: string, limit = 2): BlogPost[] {
   return (blogData as BlogPost[])
     .filter((post) => post.slug !== currentSlug)
     .slice(0, limit);
+}
+
+export function getGalleryItems(): GalleryItem[] {
+  return galleryData as GalleryItem[];
 }
 
 

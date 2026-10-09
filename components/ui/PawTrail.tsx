@@ -133,18 +133,19 @@ export function PawTrail({
           return (
             <g
               key={idx}
-              className={cn('paw-step transition-opacity', isReducedMotion ? 'opacity-70' : 'opacity-0')}
-              transform={`translate(${offsetX}, ${offsetY}) rotate(${rotation}) scale(0.75)`}
+              className={cn('paw-step transition-opacity', isReducedMotion ? 'opacity-100' : 'opacity-0')}
+              transform={`translate(${offsetX}, ${offsetY}) rotate(${rotation}) scale(1.15)`}
             >
-              {/* Paw Print Graphic */}
-              <ellipse cx="-4" cy="-5" rx="2.5" ry="3.8" fill="#FF751B" opacity="0.9" />
-              <ellipse cx="0" cy="-7" rx="2.5" ry="3.8" fill="#FF751B" opacity="0.9" />
-              <ellipse cx="4" cy="-5" rx="2.5" ry="3.8" fill="#FF751B" opacity="0.9" />
-              <path
-                d="M-5 2C-5 -2 -2 -4.5 0 -4.5S5 -2 5 2C5 5.5 2.5 7.5 0 7.5S-5 5.5 -5 2Z"
-                fill="#FF751B"
-                opacity="0.9"
-              />
+              {/* Authentic 4-Toe Canine Paw Print Graphic (28-36px feel) */}
+              <g className="fill-orange/35 dark:fill-sand/35">
+                {/* 4 Radial Toes */}
+                <ellipse cx="-8" cy="-6" rx="2.4" ry="4.2" transform="rotate(-22 -8 -6)" />
+                <ellipse cx="-3" cy="-11" rx="2.6" ry="4.8" transform="rotate(-8 -3 -11)" />
+                <ellipse cx="3" cy="-11" rx="2.6" ry="4.8" transform="rotate(8 3 -11)" />
+                <ellipse cx="8" cy="-6" rx="2.4" ry="4.2" transform="rotate(22 8 -6)" />
+                {/* Metacarpal Main Pad */}
+                <path d="M -7 1 C -8 -3, -3 -6, 0 -4 C 3 -6, 8 -3, 7 1 C 6 6, 2 8, 0 8 C -2 8, -6 6, -7 1 Z" />
+              </g>
             </g>
           );
         })}

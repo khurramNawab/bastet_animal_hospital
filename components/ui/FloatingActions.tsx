@@ -62,7 +62,7 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
             {/* 2. 24/7 Emergency Line */}
             <a
               href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-              className="group flex items-center gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-full bg-red-600 hover:bg-red-500 text-white border border-red-400 shadow-2xl transition-all focus-visible:ring-2 focus-visible:ring-orange-deep"
+              className="group flex items-center gap-2.5 p-3 sm:px-4 sm:py-2.5 rounded-full bg-danger hover:bg-danger-deep text-white border border-danger-soft/50 shadow-2xl transition-all focus-visible:ring-2 focus-visible:ring-danger-soft"
               aria-label="Call 24/7 Emergency Trauma Line"
             >
               <span className="hidden sm:inline text-xs font-bold uppercase tracking-wider text-white">
