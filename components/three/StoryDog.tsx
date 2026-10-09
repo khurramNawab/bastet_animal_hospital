@@ -38,8 +38,8 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
     const center = new THREE.Vector3();
     box.getCenter(center);
 
-    // Scaled puppy for large, prominent storytelling presence
-    const scaleFactor = 1.65 / (size.y || 0.31);
+    // Normalize puppy height to 1.0 unit, dynamic sizing controlled purely by story pose dogScale
+    const scaleFactor = 1.0 / (size.y || 0.31);
     clone.scale.setScalar(scaleFactor);
 
     box.setFromObject(clone);
@@ -127,7 +127,7 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
   });
 
   return (
-    <group ref={groupRef} position={[0, -0.04, 0]} dispose={null}>
+    <group ref={groupRef} position={[0, -0.28, 0]} dispose={null}>
       <primitive object={clonedScene} />
     </group>
   );
