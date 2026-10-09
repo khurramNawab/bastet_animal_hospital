@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Sparkles, Calculator, Activity } from 'lucide-react';
+import { Calculator, Activity } from 'lucide-react';
+import { PageHero } from '@/components/sections/PageHero';
 import { AgeCalculator } from '@/components/tools/AgeCalculator';
 import { SymptomChecker } from '@/components/tools/SymptomChecker';
-import { CrossDivider } from '@/components/ui/CrossDivider';
 import {
   getAgeCalculatorConfig,
   getSymptomCheckerConfig,
@@ -27,66 +27,55 @@ export default function ToolsPage() {
   const siteConfig = getSiteConfig();
 
   return (
-    <main className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center">
-      {/* Page Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 dark:bg-olive-deep/70 border border-sand/60 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-orange" />
-          <span>Interactive Health Utilities</span>
-        </div>
+    <main className="min-h-screen pb-24">
+      {/* Shared Page Hero with SEO single h1 */}
+      <PageHero
+        title="Pet Parent Health Tools"
+        subtitle="Science-backed canine age computation and symptom triage designed by veterinary physicians in Kolkata."
+        badge="Interactive Clinical Utilities"
+        breadcrumbs={[{ label: 'Health Tools', href: '/tools' }]}
+      />
 
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-olive-deep dark:text-cream tracking-tight">
-          Pet Parent Health Tools
-        </h1>
-
-        <p className="mt-3 text-base sm:text-lg text-ink/80 dark:text-cream/80 leading-relaxed font-light">
-          Science-backed canine age computation and symptom triage designed by veterinary
-          physicians in Kolkata.
-        </p>
-      </div>
-
-      <div className="w-full max-w-5xl mb-12">
-        <CrossDivider variant="cross" />
-      </div>
-
-      {/* 2 Side-by-Side In-Depth Tool Modules */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-        {/* Module 1: Dog Age Calculator */}
-        <div className="w-full p-6 sm:p-8 rounded-3xl glass-card border border-sand/40 shadow-glass">
-          <div className="flex items-center gap-3 mb-6 pb-4 border-b border-sand/30">
-            <div className="p-3 rounded-2xl bg-sand/30 dark:bg-olive-deep/60 border border-sand/50 text-olive-deep dark:text-cream">
-              <Calculator className="w-6 h-6 text-orange-deep" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20">
+        {/* 2 Side-by-Side In-Depth Tool Modules */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {/* Module 1: Dog Age Calculator */}
+          <div className="w-full p-6 sm:p-8 rounded-3xl bg-cream/90 dark:bg-olive-deep/90 border border-sand/50 shadow-glass backdrop-blur-md">
+            <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-sand/30">
+              <div className="p-3 rounded-2xl bg-orange/15 border border-orange/30 text-orange">
+                <Calculator className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="font-heading text-2xl font-extrabold text-olive-deep dark:text-cream">
+                  Canine Age Calculator
+                </h2>
+                <p className="text-xs text-ink/65 dark:text-cream/65 font-body">
+                  Accurate breed-size weight conversion
+                </p>
+              </div>
             </div>
-            <div>
-              <h2 className="font-display text-2xl font-bold text-olive-deep dark:text-cream">
-                Canine Age Calculator
-              </h2>
-              <p className="text-xs text-ink/65 dark:text-cream/65">
-                Accurate breed-size weight conversion
-              </p>
-            </div>
+
+            <AgeCalculator config={ageConfig} />
           </div>
 
-          <AgeCalculator config={ageConfig} />
-        </div>
+          {/* Module 2: Symptom Checker */}
+          <div className="w-full p-6 sm:p-8 rounded-3xl bg-cream/90 dark:bg-olive-deep/90 border border-sand/50 shadow-glass backdrop-blur-md">
+            <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-sand/30">
+              <div className="p-3 rounded-2xl bg-orange/15 border border-orange/30 text-orange">
+                <Activity className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="font-heading text-2xl font-extrabold text-olive-deep dark:text-cream">
+                  Symptom Triage Engine
+                </h2>
+                <p className="text-xs text-ink/65 dark:text-cream/65 font-body">
+                  Urgent warning signs & care priority guidance
+                </p>
+              </div>
+            </div>
 
-        {/* Module 2: Symptom Checker */}
-        <div className="w-full p-6 sm:p-8 rounded-3xl glass-card border border-sand/40 shadow-glass">
-          <div className="flex items-center gap-3 mb-6 pb-4 border-b border-sand/30">
-            <div className="p-3 rounded-2xl bg-sand/30 dark:bg-olive-deep/60 border border-sand/50 text-olive-deep dark:text-cream">
-              <Activity className="w-6 h-6 text-orange-deep" />
-            </div>
-            <div>
-              <h2 className="font-display text-2xl font-bold text-olive-deep dark:text-cream">
-                Symptom Triage Engine
-              </h2>
-              <p className="text-xs text-ink/65 dark:text-cream/65">
-                Urgent warning signs & care priority guidance
-              </p>
-            </div>
+            <SymptomChecker config={symptomConfig} siteConfig={siteConfig} />
           </div>
-
-          <SymptomChecker config={symptomConfig} siteConfig={siteConfig} />
         </div>
       </div>
     </main>

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { AlertTriangle, RotateCcw, Home, Phone } from 'lucide-react';
+import { AlertCircle, RotateCcw, Home, Phone } from 'lucide-react';
 import { CrossDivider } from '@/components/ui/CrossDivider';
 
 export default function GlobalError({
@@ -13,27 +13,32 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log sanitized error locally without leaking PII
     console.error('Runtime error caught by boundary:', error.message);
   }, [error]);
 
   return (
-    <main className="min-h-[75vh] flex flex-col items-center justify-center px-4 py-24 text-center max-w-3xl mx-auto">
-      <div className="w-16 h-16 rounded-full bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-500 mb-6">
-        <AlertTriangle className="w-8 h-8" />
+    <main className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-24 text-center max-w-3xl mx-auto">
+      {/* Brand Error Scene */}
+      <div className="relative w-24 h-24 mb-6 flex items-center justify-center">
+        <div className="w-20 h-20 rounded-3xl bg-danger/15 border-2 border-danger/30 flex items-center justify-center text-danger shadow-warm-glow">
+          <AlertCircle className="w-10 h-10" />
+        </div>
       </div>
 
-      <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive-deep dark:text-cream tracking-tight mb-3">
+      <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-danger/10 border border-danger/20 text-danger text-xs font-semibold uppercase tracking-widest mb-3">
+        <span>System Notice</span>
+      </div>
+
+      <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-olive-deep dark:text-cream tracking-tight mb-3">
         Temporary Clinical Interruption
       </h1>
 
-      <p className="text-sm sm:text-base text-ink/75 dark:text-cream/80 max-w-md mx-auto leading-relaxed font-light mb-8">
-        We encountered an unexpected technical glitch while processing this request. Please try
-        refreshing or contact our reception directly.
+      <p className="text-sm sm:text-base text-ink/75 dark:text-cream/80 max-w-md mx-auto leading-relaxed font-body mb-8">
+        We encountered an unexpected technical issue while loading this view. Please try refreshing or contact our emergency reception directly.
       </p>
 
       <div className="w-full max-w-xs mb-8">
-        <CrossDivider variant="line" />
+        <CrossDivider variant="cross" />
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-4">
@@ -42,25 +47,25 @@ export default function GlobalError({
           onClick={() => reset()}
           className="py-3 px-6 rounded-2xl bg-orange hover:bg-orange-soft text-ink font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-warm-glow transition-all"
         >
-          <RotateCcw className="w-4 h-4" />
+          <RotateCcw className="w-4 h-4 text-ink" />
           <span>Try Again</span>
         </button>
 
         <Link
           href="/"
-          className="py-3 px-6 rounded-2xl bg-olive-deep text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all hover:bg-olive"
+          className="py-3 px-6 rounded-2xl bg-olive-deep hover:bg-olive text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
         >
           <Home className="w-4 h-4 text-sand" />
           <span>Return Home</span>
         </Link>
 
-        <Link
-          href="/contact"
-          className="py-3 px-6 rounded-2xl border border-sand/50 hover:bg-sand/20 text-olive-deep dark:text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
+        <a
+          href="tel:+919876543210"
+          className="py-3 px-6 rounded-2xl border border-sand/60 hover:bg-sand/20 text-olive-deep dark:text-cream font-semibold text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
         >
           <Phone className="w-4 h-4 text-orange" />
-          <span>Emergency Line</span>
-        </Link>
+          <span>Emergency Call</span>
+        </a>
       </div>
     </main>
   );

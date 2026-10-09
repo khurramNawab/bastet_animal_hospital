@@ -15,7 +15,7 @@ import {
   Calendar,
 } from 'lucide-react';
 import { getAnimals, getAnimalBySlug, getServicesByAnimal } from '@/lib/data';
-import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { PageHero } from '@/components/sections/PageHero';
 import { WaitlistForm } from '@/components/sections/WaitlistForm';
 import { CrossDivider } from '@/components/ui/CrossDivider';
 
@@ -106,109 +106,103 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
   };
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      {/* Breadcrumbs */}
-      <div className="mb-6">
-        <Breadcrumbs
-          items={[
-            { label: 'Services', href: '/#services' },
-            { label: `${animal.name} Care` },
-          ]}
-        />
-      </div>
+    <main className="min-h-screen pb-24">
+      {/* PageHero with single SEO h1 */}
+      <PageHero
+        title={`${animal.name} Care & Disciplines`}
+        subtitle={animal.heroLine || animal.tagline}
+        badge={animal.comingSoon ? 'Expansion Wing' : 'Clinical Specialities'}
+        breadcrumbs={[
+          { label: 'Clinical Services', href: '/services' },
+          { label: `${animal.name} Care` },
+        ]}
+      />
 
-      {/* Hero Header */}
-      <div className="text-center max-w-3xl mx-auto mb-14">
-        <span className="text-xs uppercase tracking-widest text-orange-deep dark:text-sand font-semibold">
-          {animal.comingSoon ? 'Expansion Wing' : 'Clinical Specialities'}
-        </span>
-        <h1 className="font-display text-4xl sm:text-5xl font-bold text-olive-deep dark:text-cream mt-2">
-          {animal.name} Care & Specialities
-        </h1>
-        <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light">
-          {animal.heroLine || animal.tagline}
-        </p>
-      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20">
+        {!animal.comingSoon ? (
+          /* Active Species: Full Clinical Detail Sections */
+          <div className="space-y-8">
+            <div className="grid grid-cols-1 gap-8">
+              {services.map((service, idx) => (
+                <section
+                  key={service.id}
+                  id={service.slug}
+                  className={`scroll-mt-28 p-8 sm:p-10 rounded-3xl border border-sand/50 shadow-glass backdrop-blur-md transition-all ${
+                    idx % 2 === 0
+                      ? 'bg-cream/90 dark:bg-olive-deep/90'
+                      : 'bg-sand/20 dark:bg-olive-950/70'
+                  }`}
+                >
+                  <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
+                    {/* Left info */}
+                    <div className="flex-1">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-14 h-14 rounded-2xl bg-olive-deep text-sand flex items-center justify-center border border-sand/40 shadow-sm shrink-0">
+                          {getIcon(service.icon)}
+                        </div>
+                        <div>
+                          <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-olive-deep dark:text-cream">
+                            {service.title}
+                          </h2>
+                          {service.duration && (
+                            <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-deep dark:text-sand mt-1 font-heading">
+                              <Clock className="w-3.5 h-3.5" />
+                              <span>Estimated Duration: {service.duration}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
 
-      {!animal.comingSoon ? (
-        /* Active Species: Full Clinical Detail Sections */
-        <div className="space-y-12">
-          <div className="grid grid-cols-1 gap-10">
-            {services.map((service) => (
-              <section
-                key={service.id}
-                id={service.slug}
-                className="scroll-mt-28 p-8 sm:p-10 rounded-4xl glass-card border border-sand/40 shadow-glass"
-              >
-                <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
-                  {/* Left info */}
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-14 h-14 rounded-2xl bg-olive-deep text-sand flex items-center justify-center border border-sand/40 shadow-sm shrink-0">
-                        {getIcon(service.icon)}
-                      </div>
-                      <div>
-                        <h2 className="font-display text-2xl sm:text-3xl font-bold text-olive-deep dark:text-cream">
-                          {service.title}
-                        </h2>
-                        {service.duration && (
-                          <div className="inline-flex items-center gap-1.5 text-xs font-medium text-orange-deep dark:text-sand mt-1">
-                            <Clock className="w-3.5 h-3.5" />
-                            <span>Estimated Duration: {service.duration}</span>
-                          </div>
-                        )}
-                      </div>
+                      <p className="text-sm sm:text-base text-ink/85 dark:text-cream/85 leading-relaxed font-body mb-6">
+                        {service.longDescription || service.description}
+                      </p>
+
+                      {/* Features list */}
+                      {service.features && service.features.length > 0 && (
+                        <div className="pt-2">
+                          <h3 className="text-xs uppercase tracking-widest text-orange-deep dark:text-sand font-bold font-heading mb-3">
+                            Key Clinical Highlights
+                          </h3>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-body">
+                            {service.features.map((feature, fIdx) => (
+                              <li
+                                key={fIdx}
+                                className="flex items-start gap-2.5 text-xs sm:text-sm text-ink/80 dark:text-cream/80"
+                              >
+                                <CheckCircle className="w-4 h-4 text-orange shrink-0 mt-0.5" />
+                                <span>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
 
-                    <p className="text-sm sm:text-base text-ink/85 dark:text-cream/85 leading-relaxed font-light mb-6">
-                      {service.longDescription || service.description}
-                    </p>
-
-                    {/* Features list */}
-                    {service.features && service.features.length > 0 && (
-                      <div className="pt-2">
-                        <h3 className="text-xs uppercase tracking-widest text-orange-deep dark:text-sand font-semibold mb-3">
-                          Key Clinical Highlights
-                        </h3>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                          {service.features.map((feature, idx) => (
-                            <li
-                              key={idx}
-                              className="flex items-start gap-2.5 text-xs sm:text-sm text-ink/80 dark:text-cream/80"
-                            >
-                              <CheckCircle className="w-4 h-4 text-orange shrink-0 mt-0.5" />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                    {/* Right CTA */}
+                    <div className="w-full lg:w-auto flex lg:flex-col items-center justify-center shrink-0 pt-4 lg:pt-0">
+                      <Link
+                        href={`/book?service=${service.slug}&animal=${animal.slug}`}
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-orange hover:bg-orange-soft text-ink font-bold text-xs uppercase tracking-wider shadow-warm-glow transition-all font-heading"
+                      >
+                        <Calendar className="w-4 h-4 text-ink" />
+                        <span>Book Consultation</span>
+                      </Link>
+                    </div>
                   </div>
+                </section>
+              ))}
+            </div>
 
-                  {/* Right CTA */}
-                  <div className="w-full lg:w-auto flex lg:flex-col items-center justify-center shrink-0 pt-4 lg:pt-0">
-                    <Link
-                      href="/book"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-orange text-ink font-semibold text-xs uppercase tracking-wider shadow-warm-glow hover:bg-orange-soft transition-all"
-                    >
-                      <Calendar className="w-4 h-4 text-ink" />
-                      <span>Book Consultation</span>
-                    </Link>
-                  </div>
-                </div>
-              </section>
-            ))}
+            <CrossDivider variant="cross" className="py-8" />
           </div>
-
-          <CrossDivider variant="line" className="py-8" />
-        </div>
-      ) : (
-        /* Coming Soon Species: Waitlist Section */
-        <div className="max-w-2xl mx-auto py-6">
-          <WaitlistForm animal={animal} />
-          <CrossDivider variant="paws" className="py-12" />
-        </div>
-      )}
+        ) : (
+          /* Coming Soon Species: Waitlist Section */
+          <div className="max-w-2xl mx-auto py-6">
+            <WaitlistForm animal={animal} />
+            <CrossDivider variant="cross" className="py-12" />
+          </div>
+        )}
+      </div>
     </main>
   );
 }

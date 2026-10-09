@@ -153,8 +153,6 @@ export function Services({ animals, services, defaultSpecies = 'dog' }: Services
           )}
         </AnimatePresence>
       </div>
-
-      <CrossDivider variant="cross" className="mt-16" />
     </section>
   );
 }

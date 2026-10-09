@@ -99,7 +99,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="mb-6">
           <Breadcrumbs
             items={[
-              { label: 'Blog', href: '/blog' },
+              { label: 'Pet Health Blog', href: '/blog' },
               { label: post.title },
             ]}
           />
@@ -116,44 +116,44 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           <article className="lg:col-span-8 order-1 lg:order-2 max-w-[68ch]">
             {/* Category & Read Time */}
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sand/30 dark:bg-olive-deep/70 border border-sand/50 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-wider">
-                <Tag className="w-3 h-3 text-orange-deep dark:text-sand" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sand/30 dark:bg-olive-deep/70 border border-sand/50 text-orange-deep dark:text-sand text-xs font-bold font-heading uppercase tracking-wider">
+                <Tag className="w-3 h-3 text-orange" />
                 <span>{post.category}</span>
               </span>
 
-              <span className="inline-flex items-center gap-1 text-xs text-ink/70 dark:text-cream/70">
-                <Clock className="w-3.5 h-3.5 text-orange-deep dark:text-sand" />
+              <span className="inline-flex items-center gap-1 text-xs text-ink/70 dark:text-cream/70 font-body">
+                <Clock className="w-3.5 h-3.5 text-orange" />
                 <span>{post.readingMinutes} min read</span>
               </span>
 
-              <span className="inline-flex items-center gap-1 text-xs text-ink/70 dark:text-cream/70">
+              <span className="inline-flex items-center gap-1 text-xs text-ink/70 dark:text-cream/70 font-body">
                 <Calendar className="w-3.5 h-3.5 text-olive dark:text-sand" />
                 <time dateTime={post.publishedAt}>{formattedDate}</time>
               </span>
             </div>
 
             {/* Article H1 Title */}
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-olive-deep dark:text-cream leading-[1.18] mb-6">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-olive-deep dark:text-cream leading-[1.18] mb-6 tracking-tight">
               {post.title}
             </h1>
 
             {/* Author Credit */}
-            <div className="flex items-center gap-3 pb-6 mb-8 border-b border-sand/30 text-xs text-ink/75 dark:text-cream/75">
-              <div className="w-9 h-9 rounded-full bg-olive-deep text-sand flex items-center justify-center font-display font-bold border border-sand/40">
+            <div className="flex items-center gap-3 pb-6 mb-8 border-b border-sand/30 text-xs text-ink/75 dark:text-cream/75 font-body">
+              <div className="w-9 h-9 rounded-full bg-olive-deep text-sand flex items-center justify-center font-heading font-bold border border-sand/40">
                 B
               </div>
               <div>
-                <p className="font-semibold text-olive-deep dark:text-sand">
+                <p className="font-bold text-olive-deep dark:text-sand font-heading">
                   {siteConfig.name} Clinical Team
                 </p>
-                <p className="text-ink/60 dark:text-cream/60">
-                  Rash Behari Avenue, Kolkata
+                <p className="text-ink/60 dark:text-cream/60 font-body">
+                  Park Street, Kolkata
                 </p>
               </div>
             </div>
 
             {/* Structured Section Renderer */}
-            <div className="space-y-6 text-base sm:text-lg text-ink/85 dark:text-cream/85 leading-relaxed font-light">
+            <div className="space-y-6 text-base sm:text-lg text-ink/85 dark:text-cream/85 leading-relaxed font-body">
               {post.sections.map((section, idx) => {
                 if (section.type === 'h2') {
                   headingCounter++;
@@ -162,7 +162,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <h2
                       key={idx}
                       id={headingId}
-                      className="font-display text-2xl sm:text-3xl font-bold text-olive-deep dark:text-cream pt-6 pb-1 scroll-mt-24 border-b border-sand/20"
+                      className="font-heading text-2xl sm:text-3xl font-extrabold text-olive-deep dark:text-cream pt-6 pb-1 scroll-mt-24 border-b border-sand/20 tracking-tight"
                     >
                       {section.content}
                     </h2>
@@ -195,17 +195,17 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   return (
                     <div
                       key={idx}
-                      className={`p-6 rounded-3xl border my-6 ${
+                      className={`p-6 rounded-3xl border my-6 backdrop-blur-md ${
                         isEmergency
-                          ? 'bg-red-500/10 dark:bg-red-950/30 border-red-500/40 text-ink dark:text-cream'
-                          : 'bg-sand/30 dark:bg-olive-deep/40 border-sand/40 text-ink dark:text-cream'
+                          ? 'bg-danger/10 dark:bg-danger-deep/20 border-danger/30 text-ink dark:text-cream'
+                          : 'bg-sand/30 dark:bg-olive-deep/60 border-sand/50 text-ink dark:text-cream'
                       }`}
                     >
-                      <div className="flex items-center gap-2 font-display font-bold text-base text-olive-deep dark:text-sand mb-2">
+                      <div className="flex items-center gap-2 font-heading font-bold text-base text-olive-deep dark:text-sand mb-2">
                         <AlertCircle className="w-5 h-5 text-orange shrink-0" />
                         <span>{section.title || 'Important Clinical Note'}</span>
                       </div>
-                      <p className="text-sm sm:text-base leading-relaxed font-normal">
+                      <p className="text-sm sm:text-base leading-relaxed font-body">
                         {section.content}
                       </p>
                     </div>
@@ -217,24 +217,24 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             {/* Post-Article Consultation Callout & Booking Action */}
-            <div className="mt-12 p-8 rounded-4xl bg-gradient-to-br from-olive-deep via-olive to-olive-deep text-cream border border-sand/40 shadow-glass">
-              <div className="flex items-center gap-2 text-sand text-xs uppercase tracking-widest font-semibold mb-2">
+            <div className="mt-12 p-8 rounded-3xl bg-olive-deep text-cream border border-sand/40 shadow-xl">
+              <div className="flex items-center gap-2 text-sand text-xs uppercase tracking-widest font-bold font-heading mb-2">
                 <ShieldCheck className="w-4 h-4 text-orange" />
                 <span>Expert Veterinary Care In Kolkata</span>
               </div>
 
-              <h3 className="font-display text-2xl sm:text-3xl font-bold text-sand mb-3">
+              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-sand mb-3">
                 Have Health Concerns About Your Pet?
               </h3>
 
-              <p className="text-sm text-cream/90 font-light leading-relaxed mb-6">
-                Our surgical, diagnostic, and emergency veterinarians are available 24x7 at Rash Behari Avenue, Kolkata. Schedule a clinical examination or contact our hospital desk.
+              <p className="text-sm text-cream/90 font-body leading-relaxed mb-6">
+                Our surgical, diagnostic, and emergency veterinarians are available 24x7 at Park Street, Kolkata. Schedule a clinical examination or contact our hospital desk.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="/book"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-orange text-ink text-xs font-semibold uppercase tracking-wider shadow-warm-glow hover:bg-orange-soft transition-all active:scale-95"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-orange hover:bg-orange-soft text-ink text-xs font-bold uppercase tracking-wider shadow-warm-glow transition-all active:scale-95 font-heading"
                 >
                   <CalendarPlus className="w-4 h-4 text-ink" />
                   <span>Request Appointment</span>
@@ -242,7 +242,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 border border-sand/40 text-cream text-xs font-semibold uppercase tracking-wider hover:bg-white/20 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 border border-sand/40 text-cream text-xs font-bold uppercase tracking-wider hover:bg-white/20 transition-all font-heading"
                 >
                   <PhoneCall className="w-4 h-4 text-sand" />
                   <span>24/7 Helpline: {siteConfig.phone}</span>
@@ -253,7 +253,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Related Services Links */}
             {relatedServices.length > 0 && (
               <div className="mt-12 pt-8 border-t border-sand/30">
-                <h3 className="font-display font-bold text-xl text-olive-deep dark:text-cream mb-4">
+                <h3 className="font-heading font-bold text-xl text-olive-deep dark:text-cream mb-4">
                   Related Clinical Services at Bastet
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -261,13 +261,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <Link
                       key={service.id}
                       href={`/services/dog#${service.slug}`}
-                      className="p-4 rounded-2xl glass-card border border-sand/40 hover:border-orange transition-colors flex items-center justify-between group"
+                      className="p-4 rounded-2xl bg-cream/90 dark:bg-olive-deep/90 border border-sand/50 hover:border-orange transition-colors flex items-center justify-between group shadow-sm"
                     >
                       <div>
-                        <h4 className="font-display font-semibold text-sm text-olive-deep dark:text-sand group-hover:text-orange-deep transition-colors">
+                        <h4 className="font-heading font-bold text-sm text-olive-deep dark:text-sand group-hover:text-orange-deep transition-colors">
                           {service.title}
                         </h4>
-                        <p className="text-xs text-ink/65 dark:text-cream/65 line-clamp-1 mt-0.5">
+                        <p className="text-xs text-ink/65 dark:text-cream/65 line-clamp-1 mt-0.5 font-body">
                           {service.description}
                         </p>
                       </div>
@@ -286,7 +286,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         {/* Related Articles Carousel/Grid */}
         {relatedPosts.length > 0 && (
           <section className="w-full" aria-label="Related Care Articles">
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-olive-deep dark:text-cream text-center mb-8">
+            <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-olive-deep dark:text-cream text-center mb-8">
               More Pet Health Guides
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

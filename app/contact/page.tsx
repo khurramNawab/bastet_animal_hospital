@@ -1,8 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Sparkles } from 'lucide-react';
+import { PageHero } from '@/components/sections/PageHero';
 import { Contact } from '@/components/sections/Contact';
-import { CrossDivider } from '@/components/ui/CrossDivider';
 import { getSiteConfig } from '@/lib/data';
 
 export const metadata: Metadata = {
@@ -20,29 +19,18 @@ export default function ContactPage() {
   const siteConfig = getSiteConfig();
 
   return (
-    <main className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center">
-      {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 dark:bg-olive-deep/70 border border-sand/60 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-orange" />
-          <span>Connect & Directions</span>
-        </div>
+    <main className="min-h-screen pb-24">
+      {/* Shared Page Hero with SEO single h1 */}
+      <PageHero
+        title="Contact & Emergency"
+        subtitle="Find directions, 24/7 trauma care hotline, OPD hours, and WhatsApp reception for Bastet Small Animal Hospital in Kolkata."
+        badge="24/7 Care Support"
+        breadcrumbs={[{ label: 'Contact & Directions', href: '/contact' }]}
+      />
 
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-olive-deep dark:text-cream tracking-tight">
-          Get in Touch
-        </h1>
-
-        <p className="mt-3 text-base sm:text-lg text-ink/80 dark:text-cream/80 leading-relaxed font-light">
-          Visit our modern veterinary hospital in Park Street, Kolkata or connect directly via
-          phone and WhatsApp.
-        </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20">
+        <Contact siteConfig={siteConfig} />
       </div>
-
-      <div className="w-full max-w-4xl mb-12">
-        <CrossDivider variant="cross" />
-      </div>
-
-      <Contact siteConfig={siteConfig} />
     </main>
   );
 }

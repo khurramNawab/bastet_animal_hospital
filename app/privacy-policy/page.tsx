@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Shield, Lock, FileText, Mail, Phone } from 'lucide-react';
+import { Lock, FileText, Shield, Mail, Phone } from 'lucide-react';
 import { getSiteConfig } from '@/lib/data';
-import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { PageHero } from '@/components/sections/PageHero';
 import { CrossDivider } from '@/components/ui/CrossDivider';
 
 export const metadata: Metadata = {
@@ -22,32 +22,19 @@ export default function PrivacyPolicyPage() {
   const siteConfig = getSiteConfig();
 
   return (
-    <main className="w-full min-h-screen py-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      {/* Breadcrumbs */}
-      <div className="mb-6">
-        <Breadcrumbs items={[{ label: 'Privacy Policy' }]} />
-      </div>
+    <main className="min-h-screen pb-24">
+      {/* Shared Page Hero with single SEO h1 */}
+      <PageHero
+        title="Privacy Policy"
+        subtitle="Our commitment to safeguarding patient health data and pet parent information in compliance with Indian DPDP regulations."
+        badge="Patient Data Protection"
+        breadcrumbs={[{ label: 'Privacy Policy' }]}
+      />
 
-      {/* Header */}
-      <div className="mb-10 text-center sm:text-left">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sand/30 dark:bg-olive-deep/70 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-wider mb-3">
-          <Shield className="w-3.5 h-3.5 text-orange" />
-          <span>Patient Data Protection</span>
-        </div>
-
-        <h1 className="font-display text-3xl sm:text-4xl font-bold text-olive-deep dark:text-cream mb-2">
-          Privacy Policy
-        </h1>
-        <p className="text-xs text-ink/60 dark:text-cream/60">
-          Last Updated: March 2026 • Aligned with Digital Personal Data Protection (DPDP) Act, 2023
-        </p>
-      </div>
-
-      {/* Policy Content Body */}
-      <div className="space-y-8 text-sm sm:text-base text-ink/85 dark:text-cream/85 font-light leading-relaxed">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20 space-y-8 text-sm sm:text-base text-ink/85 dark:text-cream/85 font-body leading-relaxed">
         {/* Section 1 */}
-        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
-          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
+        <section className="p-7 rounded-3xl bg-cream/90 dark:bg-olive-deep/90 border border-sand/50 shadow-glass space-y-3 backdrop-blur-md">
+          <h2 className="font-heading text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
             <Lock className="w-5 h-5 text-orange shrink-0" />
             <span>1. Information We Collect</span>
           </h2>
@@ -62,8 +49,8 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Section 2 */}
-        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
-          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
+        <section className="p-7 rounded-3xl bg-cream/90 dark:bg-olive-deep/90 border border-sand/50 shadow-glass space-y-3 backdrop-blur-md">
+          <h2 className="font-heading text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
             <FileText className="w-5 h-5 text-orange shrink-0" />
             <span>2. Purpose of Data Processing</span>
           </h2>
@@ -77,8 +64,8 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Section 3 */}
-        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
-          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
+        <section className="p-7 rounded-3xl bg-cream/90 dark:bg-olive-deep/90 border border-sand/50 shadow-glass space-y-3 backdrop-blur-md">
+          <h2 className="font-heading text-xl font-bold text-olive-deep dark:text-sand flex items-center gap-2">
             <Shield className="w-5 h-5 text-orange shrink-0" />
             <span>3. Data Storage & Security Infrastructure</span>
           </h2>
@@ -91,8 +78,8 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Section 4 */}
-        <section className="p-7 rounded-3xl glass-card border border-sand/40 space-y-3">
-          <h2 className="font-display text-xl font-bold text-olive-deep dark:text-sand">
+        <section className="p-7 rounded-3xl bg-cream/90 dark:bg-olive-deep/90 border border-sand/50 shadow-glass space-y-3 backdrop-blur-md">
+          <h2 className="font-heading text-xl font-bold text-olive-deep dark:text-sand">
             4. Your Rights Under DPDP Act 2023
           </h2>
           <p>As a data principal, you hold the following statutory rights regarding your personal information:</p>
@@ -104,29 +91,29 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Section 5: Contact */}
-        <section className="p-7 rounded-3xl bg-olive-deep text-cream border border-sand/40 space-y-3">
-          <h2 className="font-display text-xl font-bold text-sand">
+        <section className="p-7 rounded-3xl bg-olive-deep text-cream border border-sand/40 space-y-3 shadow-xl">
+          <h2 className="font-heading text-xl font-bold text-sand">
             5. Contact Our Privacy Officer
           </h2>
-          <p className="text-xs sm:text-sm text-cream/90">
+          <p className="text-xs sm:text-sm text-cream/90 font-body">
             To exercise your data privacy rights or request record corrections, please contact our hospital desk:
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 pt-2 text-xs">
+          <div className="flex flex-col sm:flex-row gap-4 pt-2 text-xs font-body">
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-sand shrink-0" />
-              <a href={`mailto:${siteConfig.email}`} className="text-sand hover:underline">
+              <a href={`mailto:${siteConfig.email}`} className="text-sand hover:underline font-medium">
                 {siteConfig.email}
               </a>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-sand shrink-0" />
-              <span>{siteConfig.phone}</span>
+              <span className="font-medium">{siteConfig.phone}</span>
             </div>
           </div>
         </section>
-      </div>
 
-      <CrossDivider variant="line" className="mt-14 mb-8" />
+        <CrossDivider variant="cross" className="mt-14" />
+      </div>
     </main>
   );
 }

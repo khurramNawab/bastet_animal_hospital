@@ -21,11 +21,11 @@ export function Footer({ siteConfig }: FooterProps) {
             <div className="flex items-center">
               <Logo />
             </div>
-            <p className="text-sm text-cream/80 font-light leading-relaxed">
+            <p className="text-sm text-cream/80 font-body leading-relaxed font-light">
               {siteConfig.tagline}. Providing world-class clinical, surgical, and emergency
               veterinary care in {siteConfig.city}.
             </p>
-            <div className="flex items-center gap-2 text-xs text-sand font-medium">
+            <div className="flex items-center gap-2 text-xs text-sand font-semibold font-heading">
               <ShieldCheck className="w-4 h-4 text-orange shrink-0" />
               <span>Registered & Certified Veterinary Hospital</span>
             </div>
@@ -33,10 +33,10 @@ export function Footer({ siteConfig }: FooterProps) {
 
           {/* Col 2: Quick Links */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-sand font-display text-lg font-semibold tracking-wide">
+            <h3 className="text-sand font-heading text-lg font-bold tracking-wide">
               Quick Navigation
             </h3>
-            <ul className="space-y-2 text-sm text-cream/80 font-light">
+            <ul className="space-y-2 text-sm text-cream/80 font-body">
               {siteConfig.navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -52,39 +52,39 @@ export function Footer({ siteConfig }: FooterProps) {
 
           {/* Col 3: Hospital Timings */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-sand font-display text-lg font-semibold tracking-wide flex items-center gap-2">
+            <h3 className="text-sand font-heading text-lg font-bold tracking-wide flex items-center gap-2">
               <Clock className="w-4 h-4 text-orange" />
               Hospital Timings
             </h3>
-            <ul className="space-y-2 text-sm text-cream/80 font-light">
+            <ul className="space-y-2 text-sm text-cream/80 font-body">
               <li className="flex flex-col">
-                <span className="text-xs uppercase tracking-wider text-sand/80 font-medium">
+                <span className="text-xs uppercase tracking-wider text-sand/80 font-bold font-heading">
                   General OPD
                 </span>
                 <span>{siteConfig.timings.weekdays}</span>
               </li>
               <li className="flex flex-col">
-                <span className="text-xs uppercase tracking-wider text-sand/80 font-medium">
+                <span className="text-xs uppercase tracking-wider text-sand/80 font-bold font-heading">
                   Sunday Clinic
                 </span>
                 <span>{siteConfig.timings.sunday}</span>
               </li>
               <li className="flex flex-col pt-1">
-                <span className="text-xs uppercase tracking-wider text-sand font-semibold flex items-center gap-1.5">
+                <span className="text-xs uppercase tracking-wider text-sand font-bold font-heading flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-orange animate-ping" />
                   Emergency Trauma
                 </span>
-                <span className="text-orange-soft font-medium">{siteConfig.timings.emergency}</span>
+                <span className="text-orange-soft font-semibold font-heading">{siteConfig.timings.emergency}</span>
               </li>
             </ul>
           </div>
 
           {/* Col 4: Contact & Emergency WhatsApp */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-sand font-display text-lg font-semibold tracking-wide">
+            <h3 className="text-sand font-heading text-lg font-bold tracking-wide">
               Contact & Location
             </h3>
-            <ul className="space-y-2.5 text-sm text-cream/80 font-light">
+            <ul className="space-y-2.5 text-sm text-cream/80 font-body">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-orange mt-1 shrink-0" />
                 <span>{siteConfig.address}</span>
@@ -93,7 +93,7 @@ export function Footer({ siteConfig }: FooterProps) {
                 <Phone className="w-4 h-4 text-orange shrink-0" />
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-                  className="hover:text-sand transition-colors"
+                  className="hover:text-sand transition-colors font-semibold"
                 >
                   {siteConfig.phone}
                 </a>
@@ -114,7 +114,7 @@ export function Footer({ siteConfig }: FooterProps) {
                 href={`https://wa.me/${siteConfig.whatsapp}?text=Hello%20Bastet%20Hospital,%20I%20would%20like%20to%20inquire%20about%20veterinary%20services`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-orange text-ink font-bold text-xs uppercase tracking-wider hover:bg-orange-soft transition-all duration-200 shadow-warm-glow"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-orange hover:bg-orange-soft text-ink font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-warm-glow font-heading"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>WhatsApp Instant Help</span>
@@ -127,7 +127,7 @@ export function Footer({ siteConfig }: FooterProps) {
         <CrossDivider variant="cross" className="mt-12 mb-8" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream/60">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream/60 font-body">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
             <p>© {currentYear} {siteConfig.name}. All rights reserved.</p>
             <div className="flex items-center gap-4 text-[11px] text-cream/70">

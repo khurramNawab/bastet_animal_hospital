@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { Sparkles, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
+import { PageHero } from '@/components/sections/PageHero';
 import { BookingForm } from '@/components/sections/BookingForm';
-import { CrossDivider } from '@/components/ui/CrossDivider';
 import { getSiteConfig, getServices, getDoctors, getAnimals } from '@/lib/data';
 
 export const metadata: Metadata = {
@@ -23,44 +23,33 @@ export default function BookPage() {
   const animals = getAnimals();
 
   return (
-    <main className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center">
-      {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 dark:bg-olive-deep/70 border border-sand/60 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-orange" />
-          <span>Priority Clinical Scheduling</span>
-        </div>
+    <main className="min-h-screen pb-24">
+      {/* Shared Page Hero with SEO h1 */}
+      <PageHero
+        title="Book an Appointment"
+        subtitle="Reserve your preferred consultation time with our veterinary specialists and surgeons in Park Street, Kolkata."
+        badge="Priority Scheduling"
+        breadcrumbs={[{ label: 'Book Appointment', href: '/book' }]}
+      />
 
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-olive-deep dark:text-cream tracking-tight">
-          Book an Appointment
-        </h1>
-
-        <p className="mt-3 text-base sm:text-lg text-ink/80 dark:text-cream/80 leading-relaxed font-light">
-          Reserve your preferred consultation time with our veterinary specialists and surgeons in
-          Kolkata.
-        </p>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20">
+        {/* Booking Form with Suspense for URL Search Params */}
+        <Suspense
+          fallback={
+            <div className="w-full max-w-3xl mx-auto p-12 text-center text-olive-deep dark:text-cream flex items-center justify-center gap-3">
+              <Calendar className="w-6 h-6 animate-pulse text-orange" />
+              <span className="text-sm font-semibold font-heading">Loading scheduling system...</span>
+            </div>
+          }
+        >
+          <BookingForm
+            siteConfig={siteConfig}
+            services={services}
+            doctors={doctors}
+            animals={animals}
+          />
+        </Suspense>
       </div>
-
-      <div className="w-full max-w-4xl mb-10">
-        <CrossDivider variant="cross" />
-      </div>
-
-      {/* Booking Form with Suspense for URL Search Params */}
-      <Suspense
-        fallback={
-          <div className="w-full max-w-3xl mx-auto p-12 text-center text-olive-deep dark:text-cream flex items-center justify-center gap-3">
-            <Calendar className="w-6 h-6 animate-pulse text-orange" />
-            <span className="text-sm font-semibold">Loading scheduling system...</span>
-          </div>
-        }
-      >
-        <BookingForm
-          siteConfig={siteConfig}
-          services={services}
-          doctors={doctors}
-          animals={animals}
-        />
-      </Suspense>
     </main>
   );
 }
