@@ -14,3 +14,20 @@ global.IntersectionObserver = class IntersectionObserver {
   }
   unobserve() {}
 } as unknown as typeof IntersectionObserver;
+
+// Global matchMedia mock for GSAP and media queries in jsdom
+if (typeof window !== 'undefined') {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: (query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => false,
+    }),
+  });
+}

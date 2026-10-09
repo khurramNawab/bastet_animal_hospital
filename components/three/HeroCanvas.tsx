@@ -10,9 +10,10 @@ import { Loader3D } from './Loader3D';
 interface HeroCanvasProps {
   reducedMotion?: boolean;
   onLoaded?: () => void;
+  onBoop?: () => void;
 }
 
-export function HeroCanvas({ reducedMotion = false, onLoaded }: HeroCanvasProps) {
+export function HeroCanvas({ reducedMotion = false, onLoaded, onBoop }: HeroCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [frameloop, setFrameloop] = useState<'always' | 'never'>('always');
 
@@ -46,7 +47,7 @@ export function HeroCanvas({ reducedMotion = false, onLoaded }: HeroCanvasProps)
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full min-h-[440px] lg:min-h-[580px] flex items-center justify-center"
+      className="relative w-full h-full min-h-[460px] lg:min-h-[600px] flex items-center justify-center"
     >
       <Loader3D onLoaded={onLoaded} />
 
@@ -59,16 +60,16 @@ export function HeroCanvas({ reducedMotion = false, onLoaded }: HeroCanvasProps)
           alpha: true,
         }}
         camera={{
-          position: [0, 0.9, 3.2],
-          fov: 38,
+          position: [0, 0.85, 2.95],
+          fov: 36,
           near: 0.1,
           far: 50,
         }}
-        className="w-full h-full cursor-grab active:cursor-grabbing"
+        className="w-full h-full cursor-pointer active:scale-[0.99] transition-transform"
       >
         <Suspense fallback={null}>
           <Lighting />
-          <DogModel reducedMotion={reducedMotion} />
+          <DogModel reducedMotion={reducedMotion} onBoop={onBoop} />
           <GoldDust reducedMotion={reducedMotion} />
         </Suspense>
       </Canvas>

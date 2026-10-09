@@ -121,13 +121,23 @@
   - Added unit test suite `tests/brand.test.ts` (9 tests validating WCAG contrast and component specs; total 90/90 tests passing).
   - Passed full gatekeeper `npm run check` and `npm run build` (30/30 static pages generated).
 
+- **Redesign R2 (New Hero Section & Playful Canine Visual Identity)**:
+  - Built `FloatCard.tsx` floating glass badge component with 3 variations (24x7 Emergency with pulsing orange indicator, Live Asia/Kolkata OPD status, and 3 Expert Doctors), sine float, and mouse parallax. Zero fake ratings/stars.
+  - Built `HeroServicesMarquee.tsx` infinite horizontal CSS marquee strip with paw print separators, pause-on-hover, accessible `aria-hidden` duplicate track, and static scrollable layout on `prefers-reduced-motion`.
+  - Built `PawTrail.tsx` scroll-triggered S-curve paw trail with GSAP ScrollTrigger scrub, alternating paw angles, and `computePawTrailPoints` helper.
+  - Enhanced `DogModel.tsx` with prominent scaling (~1.82 units height) and click/tap "boop" spring physics + DOM burst particles (paws, hearts, sparkles).
+  - Enhanced `HeroCanvas.tsx` with optimal camera framing (`fov: 36`, position `[0, 0.85, 2.95]`), warm GoldDust sparkles (70 particles), and boop event handler.
+  - Redesigned `HeroFallback.tsx` with tilted orange rounded cross plate, high-performance image fallback, and floating info cards.
+  - Redesigned `Hero.tsx` with cream background, warm radial glows, single semantic H1, fluid Bricolage Grotesque display headline with animated hand-drawn SVG underline on "Royal Care", 3 floating parallax cards, large tilted orange rounded cross motif plate, olive hill bottom curve transition, and services marquee strip.
+  - Expanded `tests/hero.test.ts` (12 tests covering H1, FloatCard, Marquee accessibility, and PawTrail points helper; total 99/99 tests passing).
+  - Passed full gatekeeper `npm run check` and `npm run build` (30/30 static pages generated).
+
 ## In Progress
 
-- REDESIGN R1 complete on branch `feat/r1-brand-reskin`. Ready for user review.
+- REDESIGN R2 complete on branch `feat/r2-hero`. Ready for user review.
 
 ## Next
 
-- **REDESIGN R2**: Layout Refinement, Hero enhancement, and 3D Dog integration.
 - **REDESIGN R3**: Micro-interactions, Motion refinement, and responsive mobile polish.
 - **REDESIGN R4**: Performance tuning & final production verification.
 
