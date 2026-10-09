@@ -142,19 +142,32 @@
   - **Bright Golden Dog Paws & Upward Bounce Lighting**: Added low warm fill light (`position={[0, -2, 3]}`), golden point lights (`position={[0, 0.2, 1.8]}`), and disabled harsh self-shadow on paws (`receiveShadow = false` in `DogModel.tsx` & `StoryDog.tsx`), ensuring paws glow in rich warm golden amber tones with zero black shadow cast.
   - **Tightened Navbar-to-Hero Spacing**: Reduced layout `main-content` top padding to `pt-4 sm:pt-6 md:pt-8` and Hero section padding to `pt-0`, placing the headline and badge closely under the navbar with an optimal luxury gap.
   - **Enlarged Story Section Dog Model**: Boosted `StoryDog.tsx` scale factor to `1.65 / size.y`, calibrated `data/story.json` poses to `dogScale: 1.6 - 1.68` at camera `z: 2.5 - 2.6` and `fov: 42`, restoring grand, prominent dog presence across all 3 storytelling steps with full paws visible.
-  - **Testing**: Maintained full 108/108 unit test pass rate across 15 test suites.
+  - **Redesign R3 (Scenes, Story Multi-Scene & Emergency ECG)**:
+  - **Hero → Story Scene Wipe**: Built `SceneWipe.tsx` with GPU-accelerated SVG hill curve pinned over Hero into Story section via GSAP ScrollTrigger scrub (`0.6`) in `fill-olive-deep`. Static fallback on `prefers-reduced-motion` and mobile.
+  - **Multi-Scene Dynamic Backdrops**: Extended `data/story.json` and created pure helper `lib/story/scene.ts` (`sceneForProgress`) for seamless CSS gradient cross-fading across 3 veterinary scenes:
+    - *Scene 1 (01 Prevent)*: Sun glow radiance with sparkles (`#5F6C37` / `#2B3318`).
+    - *Scene 2 (02 Diagnose)*: Diagnostic scanning beam overlay with reticles and grid in Bastet brand orange (`#7B4A12` / `#2B3318`). Zero fake claims.
+    - *Scene 3 (03 Heal)*: Warm pulsing heartbeat rings in Bastet deep gold (`#2B3318` / `#1A200E`).
+  - **Emergency Band & Scroll ECG**: Built `EmergencyBand.tsx` featuring pure deterministic mathematical ECG waveform (`lib/ecg.ts` `ecgPath`), GSAP ScrollTrigger stroke draw scrub, live pulsing trauma beacon, direct dialer (+91 91473 27256), WhatsApp desk, and Google Maps directions from `data/site.json`.
+  - **Organic Hill Section Dividers**: Built `HillDivider.tsx` curved SVG boundaries connecting Story → Emergency and Emergency → Services with reversible orientation and brand color support.
+  - **Story Dog Normalization**: Harmonized `StoryDog.tsx` scale factor (`1.88 / size.y`), Y position (`-0.34`), and camera pose (`z: 3.25`, `fov: 35`), ensuring consistent size with Hero and complete visibility of head, ears, and all four grounded paws.
+  - **Unit Testing**: Added `tests/scenes.test.ts` (9 tests covering `sceneForProgress`, `story.json` tokens, `ecgPath` determinism, and `EmergencyBand` claim safety). Total test suite: 16 test files, 117/117 tests passing.
+  - **Performance & Build**: Full production build passed (30/30 static pages). Desktop Performance: 74 (CLS: 0), Accessibility: 93, Best Practices: 100, SEO: 100.
 
 ## In Progress
 
-- Branch `feat/r2-hero` completed locally with all visual refinements. Gatekeeper passing (108/108 tests).
+- Branch `feat/r3-scenes` completed locally with all visual refinements. Full gatekeeper check passing (117/117 tests).
 
 ## Next
 
 - User review and confirmation before git push.
-- **REDESIGN R3**: Micro-interactions, Motion refinement, and responsive mobile polish.
-- **REDESIGN R4**: Performance tuning & final production verification.
+- **REDESIGN R4**: Performance tuning, asset optimization & final production verification.
 
 ## Decisions
+
+- **Deterministic ECG Geometry**: Computed the P-Q-R-S-T cardiac cycle strictly in pure mathematical SVG coordinate space with normalized heights and fixed bezier handles, avoiding heavy external charting libraries or canvas drawing overhead.
+- **Pure CSS Gradient Cross-Fade**: Handled multi-scene story transitions using two overlapping absolute divs with dynamic opacity driven by `sceneForProgress()`, avoiding expensive layout repaints or WebGL shader recompilations.
+- **GPU-Accelerated Hill Transitions**: All section wipes and hill dividers use SVG vector paths with `transform: translate3d(0,0,0)` and `transformOrigin: 'bottom center'` to ensure 60fps scrolling on both desktop and mobile.
 
 - **Pure Zero-Dependency Blog & Structured Data**: Authored articles as structured JSON blocks in `data/blog.json` and rendered them via type-safe React components without bulky markdown/MDX compilation libraries.
 - **XSS-Safe JSON-LD**: Escaped `<`, `>`, and `&` inside `serializeJsonLd()` to eliminate script injection vectors.

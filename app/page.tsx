@@ -1,6 +1,9 @@
 import React from 'react';
 import { Hero } from '@/components/sections/Hero';
+import { SceneWipe } from '@/components/ui/SceneWipe';
 import { Story } from '@/components/sections/Story';
+import { HillDivider } from '@/components/ui/HillDivider';
+import { EmergencyBand } from '@/components/sections/EmergencyBand';
 import { Services } from '@/components/sections/Services';
 import { Doctors } from '@/components/sections/Doctors';
 import { Stats } from '@/components/sections/Stats';
@@ -33,10 +36,22 @@ export default function HomePage() {
       {/* 1. Cinematic 3D Hero Section with Floating Badges & Services Marquee */}
       <Hero siteConfig={siteConfig} />
 
-      {/* 2. Cinematic Pinned 3D Scroll Storytelling Section */}
+      {/* 2. Hero -> Story Hill Wipe Transition */}
+      <SceneWipe />
+
+      {/* 3. Cinematic Pinned 3D Multi-Scene Scroll Storytelling Section */}
       <Story panels={storyPanels} />
 
-      {/* 3. Multi-Species Services Section with SpeciesTabs & Tilt Cards */}
+      {/* 4. Story -> Emergency Curved Transition */}
+      <HillDivider fromColor="olive-deep" toColor="orange-deep" variant="hill" />
+
+      {/* 5. 24x7 Emergency Band with Scroll-Animated ECG Waveform */}
+      <EmergencyBand siteConfig={siteConfig} />
+
+      {/* 6. Emergency -> Services Curved Transition */}
+      <HillDivider fromColor="orange-deep" toColor="cream" variant="concave" />
+
+      {/* 7. Multi-Species Services Section with SpeciesTabs & Tilt Cards */}
       <Services animals={animals} services={services} defaultSpecies="dog" />
 
       {/* Medical Cross Divider */}

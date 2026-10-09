@@ -6,6 +6,15 @@
     "line": "Shielding your companion before illnesses begin.",
     "detail": "Comprehensive immunization protocols, customized nutritional balancing, and proactive wellness screenings designed for lifelong vitality.",
     "icon": "Shield",
+    "scene": {
+      "id": "scene-prevent",
+      "mood": "Shield & Vitality",
+      "backgroundFrom": "olive-deep",
+      "backgroundTo": "olive-900",
+      "glow": "orange",
+      "glowOpacity": 0.18,
+      "effect": "sun"
+    },
     "cameraPose": {
       "position": [-0.45, 0.46, 3.25],
       "target": [0, 0.46, 0],
@@ -20,6 +29,15 @@
     "line": "High-definition diagnostic precision and instant clinical clarity.",
     "detail": "Digital radiography, precision ultrasonography, and rapid in-house biochemistry analyzers for immediate and accurate clinical findings.",
     "icon": "ScanSearch",
+    "scene": {
+      "id": "scene-diagnose",
+      "mood": "Precision Diagnostics",
+      "backgroundFrom": "olive-900",
+      "backgroundTo": "olive-deep",
+      "glow": "orange",
+      "glowOpacity": 0.22,
+      "effect": "scan"
+    },
     "cameraPose": {
       "position": [0.45, 0.46, 3.25],
       "target": [0, 0.46, 0],
@@ -34,6 +52,15 @@
     "line": "Advanced surgical excellence and compassionate recovery.",
     "detail": "Sterile micro-surgical theatres, dedicated continuous anesthesia monitoring, and soothing post-operative rehabilitation therapy.",
     "icon": "HeartPulse",
+    "scene": {
+      "id": "scene-heal",
+      "mood": "Surgical Recovery",
+      "backgroundFrom": "brown-deep",
+      "backgroundTo": "olive-deep",
+      "glow": "orange",
+      "glowOpacity": 0.25,
+      "effect": "pulse"
+    },
     "cameraPose": {
       "position": [0.0, 0.46, 3.25],
       "target": [0, 0.46, 0],

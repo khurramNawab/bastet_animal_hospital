@@ -3,11 +3,12 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Shield, ScanSearch, HeartPulse } from 'lucide-react';
+import { Shield, ScanSearch, HeartPulse, Sparkles } from 'lucide-react';
 import { useCanRender3D } from '@/hooks/useCanRender3D';
 import { StoryCanvas } from '@/components/three';
 import { StoryFallback } from './StoryFallback';
 import { CrossDivider } from '@/components/ui/CrossDivider';
+import { sceneForProgress } from '@/lib/story/scene';
 import { cn } from '@/lib/cn';
 import type { StoryPanel } from '@/lib/types';
 
@@ -73,6 +74,9 @@ export function Story({ panels }: StoryProps) {
     }
   };
 
+  const sceneTransition = sceneForProgress(scrollProgress, panels);
+  const activeEffect = panels[activeStepIndex]?.scene?.effect ?? 'sun';
+
   if (!isMounted || !canRender3D || isReducedMotion) {
     return <StoryFallback panels={panels} />;
   }
@@ -80,11 +84,31 @@ export function Story({ panels }: StoryProps) {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-olive-deep text-cream overflow-hidden"
+      className="relative w-full bg-olive-deep text-cream overflow-hidden transition-colors duration-500"
       aria-label="How We Care - Clinical Journey"
     >
+      {/* Multi-Scene Dynamic Background Color & Glow Overlays */}
+      <div
+        className={cn(
+          'absolute inset-0 transition-opacity duration-700 pointer-events-none -z-10',
+          activeStepIndex === 0 && 'bg-gradient-to-b from-olive-deep via-olive-deep to-olive-900',
+          activeStepIndex === 1 && 'bg-gradient-to-b from-olive-900 via-olive-deep to-olive-900',
+          activeStepIndex === 2 && 'bg-gradient-to-b from-brown-deep/80 via-olive-deep to-olive-deep',
+        )}
+      />
+
       {/* Dynamic Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#F7DAA7_1px,transparent_1px)] [background-size:28px_28px] opacity-10 pointer-events-none" />
+
+      {/* Scene 1: Top Soft Sun Glow */}
+      {activeEffect === 'sun' && !isReducedMotion && (
+        <div className="absolute top-0 right-1/4 w-[500px] h-[350px] bg-orange/15 rounded-full blur-3xl pointer-events-none animate-pulse transition-opacity duration-700" />
+      )}
+
+      {/* Scene 3: Deep Warm Pulsing Glow */}
+      {activeEffect === 'pulse' && !isReducedMotion && (
+        <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[380px] bg-orange-deep/20 rounded-full blur-3xl pointer-events-none transition-opacity duration-700" />
+      )}
 
       {/* Pinned Viewport Container */}
       <div
@@ -129,9 +153,16 @@ export function Story({ panels }: StoryProps) {
 
               {/* Cross-Fading Text Content */}
               <div className="flex-1 min-h-[260px] flex flex-col justify-center">
-                <span className="text-xs uppercase tracking-widest text-sand font-semibold mb-2 block">
-                  How We Care • Step {panels[activeStepIndex].step}
-                </span>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs uppercase tracking-widest text-sand font-semibold">
+                    How We Care • Step {panels[activeStepIndex].step}
+                  </span>
+                  {panels[activeStepIndex]?.scene?.mood && (
+                    <span className="px-2 py-0.5 rounded-full bg-sand/15 text-[10px] text-sand font-medium uppercase tracking-wider">
+                      {panels[activeStepIndex].scene.mood}
+                    </span>
+                  )}
+                </div>
 
                 <h2 className="sr-only">How We Care For Every Companion</h2>
 
@@ -154,8 +185,37 @@ export function Story({ panels }: StoryProps) {
               </div>
             </div>
 
-            {/* Right Column: 3D Story Canvas with dynamic camera poses */}
+            {/* Right Column: 3D Story Canvas with dynamic camera poses & visual scene effects */}
             <div className="lg:col-span-6 relative w-full h-[500px] sm:h-[540px] lg:h-[620px] flex items-center justify-center overflow-visible">
+              {/* Scene 2: Scan Beam Effect Overlay */}
+              {activeEffect === 'scan' && !isReducedMotion && (
+                <div
+                  className="absolute inset-x-8 top-12 bottom-12 pointer-events-none z-20 overflow-hidden rounded-3xl border border-orange/20"
+                  aria-hidden="true"
+                >
+                  {/* Subtle Grid Lines */}
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#FF751B0A_1px,transparent_1px),linear-gradient(to_bottom,#FF751B0A_1px,transparent_1px)] bg-[size:32px_32px]" />
+                  {/* Sweeping Horizontal Laser Scan Bar */}
+                  <div className="absolute w-full h-1 bg-gradient-to-r from-transparent via-orange to-transparent shadow-[0_0_15px_#FF751B] animate-scan-sweep opacity-85" />
+                  {/* Corner Target Reticles */}
+                  <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-orange/60" />
+                  <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-orange/60" />
+                  <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-orange/60" />
+                  <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-orange/60" />
+                </div>
+              )}
+
+              {/* Scene 3: Concentric Heartbeat Pulse Rings */}
+              {activeEffect === 'pulse' && !isReducedMotion && (
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <div className="w-80 h-80 rounded-full border border-orange/25 animate-ping opacity-35" />
+                  <div className="absolute w-60 h-60 rounded-full border border-sand/30 animate-pulse opacity-45" />
+                </div>
+              )}
+
               <div className="absolute inset-0 bg-gradient-to-tr from-sand/15 via-orange/10 to-transparent rounded-full blur-3xl pointer-events-none" />
               <StoryCanvas progress={scrollProgress} panels={panels} />
             </div>
@@ -170,3 +230,4 @@ export function Story({ panels }: StoryProps) {
     </section>
   );
 }
+

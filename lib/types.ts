@@ -143,6 +143,18 @@ export interface CameraPose {
   dogScale: number;
 }
 
+export type StorySceneEffect = 'sun' | 'scan' | 'pulse';
+
+export interface StoryScene {
+  id: string;
+  mood: string;
+  backgroundFrom: string;
+  backgroundTo: string;
+  glow: string;
+  glowOpacity: number;
+  effect: StorySceneEffect;
+}
+
 export interface StoryPanel {
   id: string;
   step: string;
@@ -150,6 +162,7 @@ export interface StoryPanel {
   line: string;
   detail: string;
   icon: string;
+  scene?: StoryScene;
   cameraPose: CameraPose;
 }
 
