@@ -43,10 +43,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/images/Bastetanimalhospital.avif', type: 'image/avif' },
+      { url: '/brand/logo.avif', type: 'image/avif' },
     ],
-    shortcut: '/images/Bastetanimalhospital.avif',
-    apple: '/images/Bastetanimalhospital.avif',
+    shortcut: '/icon.svg',
+    apple: '/brand/logo.avif',
   },
   openGraph: {
     title: 'Bastet Small Animal Hospital | Premier Veterinary Care in Kolkata',
