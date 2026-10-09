@@ -6,7 +6,7 @@ import { Doctors } from '@/components/sections/Doctors';
 import { Stats } from '@/components/sections/Stats';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { Tools } from '@/components/sections/Tools';
-import { GoldDivider } from '@/components/ui/GoldDivider';
+import { CrossDivider } from '@/components/ui/CrossDivider';
 import {
   getSiteConfig,
   getServices,
@@ -39,9 +39,9 @@ export default function HomePage() {
       {/* 3. Multi-Species Services Section with SpeciesTabs & Tilt Cards */}
       <Services animals={animals} services={services} defaultSpecies="dog" />
 
-      {/* Egyptian Eye of Horus Gold Divider */}
+      {/* Medical Cross Divider */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <GoldDivider variant="eye" />
+        <CrossDivider variant="cross" />
       </div>
 
       {/* 4. Interactive Pet Health & Triage Tools */}
@@ -51,9 +51,9 @@ export default function HomePage() {
         siteConfig={siteConfig}
       />
 
-      {/* Egyptian Ankh Pattern Gold Divider */}
+      {/* Paw Prints Divider */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <GoldDivider variant="ankh-pattern" />
+        <CrossDivider variant="paws" />
       </div>
 
       {/* 5. Doctors & Medical Faculty Showcase */}
@@ -65,11 +65,10 @@ export default function HomePage() {
       {/* 7. Drag Slider Testimonials */}
       <Testimonials testimonials={testimonials} />
 
-      {/* Bottom Line Gold Divider */}
+      {/* Bottom Line Divider */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <GoldDivider variant="line" />
+        <CrossDivider variant="line" />
       </div>
     </main>
   );
 }
-
