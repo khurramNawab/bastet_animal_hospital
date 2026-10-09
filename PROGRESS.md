@@ -132,12 +132,23 @@
   - Expanded `tests/hero.test.ts` (12 tests covering H1, FloatCard, Marquee accessibility, and PawTrail points helper; total 99/99 tests passing).
   - Passed full gatekeeper `npm run check` and `npm run build` (30/30 static pages generated).
 
+- **Redesign R2.1 (Hero & Section Layout Fixes)**:
+  - **Dog Clipping Eliminated**: Computed safe camera distance dynamically via `fitCamera` pure math helper and tuned `DogModel.tsx` scale factor (1.62) & position (`y: -0.42`) with `HeroCanvas` camera `[0, 0.42, 3.2]` `fov: 34`, guaranteeing >10% headroom clearance across all viewports (1920x1080, 1440x900, 1366x768, 375x812).
+  - **Card Overlap Cleared**: Repositioned floating glass cards away from the canine face/head bounding box (Emergency badge bottom-left, OPD badge mid-right, Doctors badge bottom-right). Created `lib/layout/rectsOverlap.ts` helper and verified clearance.
+  - **Redundant Info Removed**: Removed duplicate trust stats row (24x7 / 3 Specialists / 5,000+) from `Hero.tsx` and `HeroFallback.tsx`, letting primary value prop and CTAs breathe.
+  - **Semantic Status Indicators**: Added accessible green dot (`bg-emerald-600`) and amber dot (`bg-brown-600`) in `FloatCard.tsx` with WCAG AA compliance and pulsing emergency radar ring.
+  - **Story Section Void Fixed**: Removed `min-h-[220vh]` doubled pin-spacing in `Story.tsx`, tuned `StoryDog.tsx` scale/target, and activated immediate intersection mount to eliminate large blank gap.
+  - **Responsive Logo Sizing**: Tuned `Logo.tsx` for optimal height (`h-9 sm:h-10 md:h-11`) and left-alignment across header breakpoints.
+  - **Placeholder Graphics**: Redesigned `doctor-placeholder.svg` with warm cream/sand palette, olive arch, and orange stethoscope + cross motif.
+  - **Testing**: Added `tests/heroFixes.test.ts` (6 tests validating `fitCamera`, `rectsOverlap`, and Hero data integrity).
+
 ## In Progress
 
-- REDESIGN R2 complete on branch `feat/r2-hero`. Ready for user review.
+- Branch `feat/r2-hero` completed locally with all R2.1 fixes. Gatekeeper passing (105/105 tests).
 
 ## Next
 
+- User review and confirmation before git push.
 - **REDESIGN R3**: Micro-interactions, Motion refinement, and responsive mobile polish.
 - **REDESIGN R4**: Performance tuning & final production verification.
 

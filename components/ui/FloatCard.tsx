@@ -37,7 +37,12 @@ export function FloatCard({
       case 'emergency':
         return {
           icon: <HeartPulse className="w-4 h-4 text-orange" />,
-          dot: <span className="w-2 h-2 rounded-full bg-orange animate-ping inline-block" />,
+          dot: (
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange" />
+            </span>
+          ),
           title: '24x7 Emergency',
           subtitle: 'Immediate Trauma Care',
         };
@@ -47,8 +52,10 @@ export function FloatCard({
           dot: (
             <span
               className={cn(
-                'w-2 h-2 rounded-full inline-block',
-                openStatus.isOpen ? 'bg-emerald-500' : 'bg-amber-500',
+                'w-2.5 h-2.5 rounded-full inline-block shrink-0',
+                openStatus.isOpen
+                  ? 'bg-emerald-600 dark:bg-emerald-400 ring-2 ring-emerald-500/30'
+                  : 'bg-brown-600 dark:bg-sand ring-2 ring-brown-500/30',
               )}
             />
           ),
@@ -60,7 +67,7 @@ export function FloatCard({
       case 'doctors':
         return {
           icon: <Stethoscope className="w-4 h-4 text-orange" />,
-          dot: <span className="w-2 h-2 rounded-full bg-orange inline-block" />,
+          dot: <span className="w-2.5 h-2.5 rounded-full bg-orange inline-block shrink-0" />,
           title: `${doctorsCount} Expert Doctors`,
           subtitle: 'Surgery & Dermatology',
         };
@@ -71,13 +78,13 @@ export function FloatCard({
     <div
       style={style}
       className={cn(
-        'glass-card rounded-2xl p-3.5 sm:p-4 border border-sand/60 shadow-glass select-none pointer-events-none z-20 flex items-center gap-3 backdrop-blur-md transition-transform duration-300',
+        'glass-card rounded-2xl p-3 sm:p-3.5 border border-sand/60 shadow-glass select-none pointer-events-none z-20 flex items-center gap-3 backdrop-blur-md transition-transform duration-300',
         !isReducedMotion && 'animate-float',
         className,
       )}
       aria-hidden="true"
     >
-      <div className="w-9 h-9 rounded-xl bg-sand/30 dark:bg-olive-deep/70 border border-sand/50 flex items-center justify-center shrink-0">
+      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sand/30 dark:bg-olive-deep/70 border border-sand/50 flex items-center justify-center shrink-0">
         {cardContent.icon}
       </div>
 

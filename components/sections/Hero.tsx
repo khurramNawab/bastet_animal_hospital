@@ -9,6 +9,7 @@ import { HeroFallback } from './HeroFallback';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { FloatCard } from '@/components/ui/FloatCard';
 import { HeroServicesMarquee } from '@/components/ui/HeroServicesMarquee';
+import { PawTrail } from '@/components/ui/PawTrail';
 import { getServices } from '@/lib/data';
 import type { SiteConfig } from '@/lib/types';
 
@@ -43,7 +44,7 @@ export function Hero({ siteConfig }: HeroProps) {
     const rect = heroRef.current.getBoundingClientRect();
     const nx = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
     const ny = (e.clientY - rect.top) / rect.height - 0.5;
-    setMouseParallax({ x: nx * 20, y: ny * 20 });
+    setMouseParallax({ x: nx * 18, y: ny * 18 });
   }, [isReducedMotion]);
 
   // Boop particle burst handler
@@ -86,7 +87,7 @@ export function Hero({ siteConfig }: HeroProps) {
         // Stagger text and CTA elements
         gsap.fromTo(
           '.hero-anim',
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 28 },
           {
             opacity: 1,
             y: 0,
@@ -177,7 +178,7 @@ export function Hero({ siteConfig }: HeroProps) {
               </p>
 
               {/* Magnetic Action CTAs */}
-              <div className="hero-anim flex flex-wrap items-center gap-4 mb-8 w-full sm:w-auto">
+              <div className="hero-anim flex flex-wrap items-center gap-4 w-full sm:w-auto">
                 <MagneticButton
                   href="/book"
                   variant="primary"
@@ -196,34 +197,6 @@ export function Hero({ siteConfig }: HeroProps) {
                   <span>Emergency: {siteConfig.phone}</span>
                 </MagneticButton>
               </div>
-
-              {/* Trust Stats Row */}
-              <div className="hero-anim grid grid-cols-3 gap-4 pt-6 border-t border-sand/30 w-full">
-                <div>
-                  <span className="block text-base sm:text-lg font-bold text-orange-deep dark:text-sand font-display">
-                    24x7
-                  </span>
-                  <span className="text-[11px] sm:text-xs text-ink/75 dark:text-cream/75 leading-tight">
-                    Emergency Unit
-                  </span>
-                </div>
-                <div>
-                  <span className="block text-base sm:text-lg font-bold text-orange-deep dark:text-sand font-display">
-                    3 Specialists
-                  </span>
-                  <span className="text-[11px] sm:text-xs text-ink/75 dark:text-cream/75 leading-tight">
-                    Surgery & Derm
-                  </span>
-                </div>
-                <div>
-                  <span className="block text-base sm:text-lg font-bold text-orange-deep dark:text-sand font-display">
-                    5,000+
-                  </span>
-                  <span className="text-[11px] sm:text-xs text-ink/75 dark:text-cream/75 leading-tight">
-                    Happy Patients
-                  </span>
-                </div>
-              </div>
             </div>
 
             {/* Right Column (6 cols): 3D Canine + Tilted Orange Rounded Cross Motif */}
@@ -231,9 +204,9 @@ export function Hero({ siteConfig }: HeroProps) {
               {/* Large Tilted Orange Rounded Cross Plate Motif (Logo Anchor) */}
               <div
                 style={{
-                  transform: `translate3d(${mouseParallax.x * -0.4}px, ${mouseParallax.y * -0.4}px, 0) rotate(-6deg)`,
+                  transform: `translate3d(${mouseParallax.x * -0.3}px, ${mouseParallax.y * -0.3}px, 0) rotate(-6deg)`,
                 }}
-                className="absolute w-72 sm:w-96 lg:w-[420px] h-72 sm:h-96 lg:h-[420px] transition-transform duration-300 pointer-events-none opacity-95"
+                className="absolute w-72 sm:w-96 lg:w-[410px] h-72 sm:h-96 lg:h-[410px] transition-transform duration-300 pointer-events-none opacity-95"
                 aria-hidden="true"
               >
                 <svg
@@ -275,7 +248,7 @@ export function Hero({ siteConfig }: HeroProps) {
               </div>
 
               {/* 3D Canine Model Canvas */}
-              <div className="relative z-10 w-full h-full">
+              <div className="relative z-10 w-full h-full overflow-visible">
                 <HeroCanvas
                   reducedMotion={isReducedMotion}
                   onLoaded={() => setModelLoaded(true)}
@@ -301,13 +274,13 @@ export function Hero({ siteConfig }: HeroProps) {
                 </div>
               )}
 
-              {/* 3 Floating Info Cards with Mouse Parallax & Sine Float */}
-              {/* Card 1: 24x7 Emergency (Top-Left) */}
+              {/* 3 Floating Info Cards Positioned to Guarantee ZERO Overlap with Dog Head */}
+              {/* Card 1: 24x7 Emergency (Positioned on Left-Bottom, below head level) */}
               <div
                 style={{
-                  transform: `translate3d(${mouseParallax.x * 0.8}px, ${mouseParallax.y * 0.8}px, 0)`,
+                  transform: `translate3d(${mouseParallax.x * 0.7}px, ${mouseParallax.y * 0.7}px, 0)`,
                 }}
-                className="absolute top-4 left-0 sm:-left-2 z-20"
+                className="absolute bottom-20 -left-2 sm:-left-8 z-20"
               >
                 <FloatCard
                   variant="emergency"
@@ -316,12 +289,12 @@ export function Hero({ siteConfig }: HeroProps) {
                 />
               </div>
 
-              {/* Card 2: Live OPD Status (Top-Right) */}
+              {/* Card 2: Live OPD Status (Positioned on Mid-Right, below head level) */}
               <div
                 style={{
-                  transform: `translate3d(${mouseParallax.x * 0.6}px, ${mouseParallax.y * 0.6}px, 0)`,
+                  transform: `translate3d(${mouseParallax.x * 0.5}px, ${mouseParallax.y * 0.5}px, 0)`,
                 }}
-                className="absolute top-16 right-0 sm:-right-4 z-20"
+                className="absolute top-32 -right-2 sm:-right-8 z-20"
               >
                 <FloatCard
                   variant="status"
@@ -330,12 +303,12 @@ export function Hero({ siteConfig }: HeroProps) {
                 />
               </div>
 
-              {/* Card 3: 3 Expert Doctors (Bottom-Left) */}
+              {/* Card 3: 3 Expert Doctors (Positioned on Bottom-Right) */}
               <div
                 style={{
-                  transform: `translate3d(${mouseParallax.x * 1.0}px, ${mouseParallax.y * 1.0}px, 0)`,
+                  transform: `translate3d(${mouseParallax.x * 0.8}px, ${mouseParallax.y * 0.8}px, 0)`,
                 }}
-                className="absolute bottom-8 left-4 sm:left-2 z-20"
+                className="absolute -bottom-2 right-2 sm:right-0 z-20"
               >
                 <FloatCard
                   variant="doctors"
@@ -350,8 +323,17 @@ export function Hero({ siteConfig }: HeroProps) {
         )}
       </div>
 
+      {/* Decorative Paw Trail connecting Hero into Services Marquee */}
+      <div className="w-full relative flex justify-end max-w-7xl mx-auto px-8 -mb-6 pointer-events-none z-10">
+        <PawTrail
+          pawCount={8}
+          isReducedMotion={isReducedMotion}
+          className="opacity-75"
+        />
+      </div>
+
       {/* Bottom Section: Olive Hill Transition & Services Marquee Strip */}
-      <div className="w-full relative z-10">
+      <div className="w-full relative z-20">
         {/* Soft Olive Hill Curve Divider SVG */}
         <div className="w-full overflow-hidden leading-none text-olive-deep pointer-events-none -mb-[1px]">
           <svg

@@ -55,13 +55,13 @@ export function HeroFallback({ siteConfig, isReducedMotion = false }: HeroFallba
         </p>
 
         {/* Action CTAs */}
-        <div className="flex flex-wrap items-center gap-4 mb-8 w-full sm:w-auto">
+        <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
           <MagneticButton
             href="/book"
             variant="primary"
             className="px-8 py-4 text-xs uppercase tracking-wider gap-2 w-full sm:w-auto shadow-warm-glow"
           >
-            <Calendar className="w-4 h-4" />
+            <Calendar className="w-4 h-4 text-ink" />
             <span>Book Appointment</span>
           </MagneticButton>
 
@@ -70,37 +70,9 @@ export function HeroFallback({ siteConfig, isReducedMotion = false }: HeroFallba
             variant="outline"
             className="px-8 py-4 text-xs uppercase tracking-wider gap-2 w-full sm:w-auto dark:border-sand/40 dark:text-cream"
           >
-            <PhoneCall className="w-4 h-4" />
+            <PhoneCall className="w-4 h-4 text-orange" />
             <span>Emergency: {siteConfig.phone}</span>
           </MagneticButton>
-        </div>
-
-        {/* Trust Badges */}
-        <div className="grid grid-cols-3 gap-4 pt-6 border-t border-sand/30 w-full">
-          <div>
-            <span className="block text-base sm:text-lg font-bold text-orange-deep dark:text-sand font-display">
-              24x7
-            </span>
-            <span className="text-[11px] sm:text-xs text-ink/75 dark:text-cream/75 leading-tight">
-              Emergency Trauma
-            </span>
-          </div>
-          <div>
-            <span className="block text-base sm:text-lg font-bold text-orange-deep dark:text-sand font-display">
-              3 Specialists
-            </span>
-            <span className="text-[11px] sm:text-xs text-ink/75 dark:text-cream/75 leading-tight">
-              Surgery & Derm
-            </span>
-          </div>
-          <div>
-            <span className="block text-base sm:text-lg font-bold text-orange-deep dark:text-sand font-display">
-              5,000+
-            </span>
-            <span className="text-[11px] sm:text-xs text-ink/75 dark:text-cream/75 leading-tight">
-              Happy Patients
-            </span>
-          </div>
         </div>
       </div>
 
@@ -135,12 +107,12 @@ export function HeroFallback({ siteConfig, isReducedMotion = false }: HeroFallba
           />
         </div>
 
-        {/* Floating Info Badges (2 on mobile/fallback) */}
-        <div className="absolute -top-2 -left-2 z-20">
+        {/* Floating Info Badges (2 on mobile/fallback, away from center) */}
+        <div className="absolute bottom-4 -left-2 z-20">
           <FloatCard variant="emergency" siteConfig={siteConfig} isReducedMotion={isReducedMotion} />
         </div>
 
-        <div className="absolute -bottom-2 -right-2 z-20">
+        <div className="absolute top-8 -right-2 z-20">
           <FloatCard variant="status" siteConfig={siteConfig} isReducedMotion={isReducedMotion} />
         </div>
       </div>
