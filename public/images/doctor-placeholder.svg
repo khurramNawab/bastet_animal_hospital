@@ -1,55 +1,59 @@
 <svg width="400" height="500" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#3B2208" />
-      <stop offset="50%" stop-color="#2B3318" />
-      <stop offset="100%" stop-color="#141008" />
+    <linearGradient id="docBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF6E5" />
+      <stop offset="60%" stop-color="#F7DAA7" />
+      <stop offset="100%" stop-color="#FFE3CF" />
     </linearGradient>
-    <linearGradient id="warmGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFB27A" />
-      <stop offset="50%" stop-color="#FF751B" />
-      <stop offset="100%" stop-color="#C2410C" />
+    <linearGradient id="docOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9447" />
+      <stop offset="100%" stop-color="#FF751B" />
     </linearGradient>
-    <radialGradient id="warmGlow" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#FF751B" stop-opacity="0.3" />
+    <linearGradient id="docOlive" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5F6C37" />
+      <stop offset="100%" stop-color="#2B3318" />
+    </linearGradient>
+    <radialGradient id="softGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FF751B" stop-opacity="0.18" />
       <stop offset="100%" stop-color="#FF751B" stop-opacity="0" />
     </radialGradient>
   </defs>
 
   <!-- Background Base -->
-  <rect width="400" height="500" rx="32" fill="url(#cardBg)"/>
+  <rect width="400" height="500" rx="32" fill="url(#docBg)"/>
   
-  <!-- Subtle Glow Effect -->
-  <circle cx="200" cy="210" r="180" fill="url(#warmGlow)"/>
+  <!-- Warm Ambient Glow -->
+  <circle cx="200" cy="210" r="170" fill="url(#softGlow)"/>
 
-  <!-- Portal Archway Borders -->
-  <path d="M 60 480 V 160 C 60 82.68 122.68 20 200 20 C 277.32 20 340 82.68 340 160 V 480" stroke="url(#warmGradient)" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="4 4"/>
-  <path d="M 75 480 V 165 C 75 96 131 40 200 40 C 269 40 325 96 325 165 V 480" stroke="url(#warmGradient)" stroke-width="2" stroke-opacity="0.8"/>
+  <!-- Archway Border Frame -->
+  <path d="M 60 490 V 160 C 60 82.68 122.68 20 200 20 C 277.32 20 340 82.68 340 160 V 490" stroke="#FF751B" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="6 6"/>
+  <path d="M 72 490 V 165 C 72 94 129 38 200 38 C 271 38 328 94 328 165 V 490" stroke="#5F6C37" stroke-width="2.5" stroke-opacity="0.85"/>
 
-  <!-- Outer Laurels / Crest -->
-  <circle cx="200" cy="170" r="85" stroke="url(#warmGradient)" stroke-width="1" stroke-opacity="0.35"/>
-  <circle cx="200" cy="170" r="70" fill="#2B3318" stroke="url(#warmGradient)" stroke-width="2"/>
+  <!-- Laurels / Crest Halo -->
+  <circle cx="200" cy="170" r="76" stroke="#F7DAA7" stroke-width="2" stroke-opacity="0.7"/>
+  <circle cx="200" cy="170" r="66" fill="#2B3318" stroke="#FF751B" stroke-width="2"/>
 
   <!-- Stylized Physician Silhouette -->
   <!-- Head -->
-  <circle cx="200" cy="148" r="32" fill="#5F6C37" stroke="url(#warmGradient)" stroke-width="2"/>
-  <!-- Stethoscope / Collar on shoulders -->
-  <path d="M 125 380 C 125 280 160 225 200 225 C 240 225 275 280 275 380 Z" fill="#3B2208" stroke="url(#warmGradient)" stroke-width="2"/>
+  <circle cx="200" cy="146" r="32" fill="#FFF6E5"/>
+  <!-- Medical Cap Indicator -->
+  <path d="M 172 140 C 172 120 184 116 200 116 C 216 116 228 120 228 140 Z" fill="#5F6C37"/>
   
-  <!-- Veterinary Cross Emblem -->
-  <circle cx="200" cy="170" r="18" fill="#FF751B" fill-opacity="0.25" stroke="url(#warmGradient)" stroke-width="1.5"/>
-  <path d="M 200 159 V 181 M 189 170 H 211" stroke="#FFF6E5" stroke-width="3" stroke-linecap="round"/>
+  <!-- Coat / Shoulders -->
+  <path d="M 125 390 C 125 285 160 225 200 225 C 240 225 275 285 275 390 Z" fill="url(#docOlive)"/>
+  
+  <!-- White Clinical Lapel -->
+  <path d="M 182 226 L 194 320 L 200 340 L 206 320 L 218 226 C 210 240 190 240 182 226 Z" fill="#FFF6E5"/>
 
-  <!-- Stethoscope Loop -->
-  <path d="M 175 250 C 175 310 225 310 225 250" stroke="url(#warmGradient)" stroke-width="2" stroke-linecap="round" fill="none"/>
-  <circle cx="200" cy="318" r="7" fill="url(#warmGradient)"/>
+  <!-- Orange Medical Cross Emblem on Badge -->
+  <circle cx="200" cy="170" r="18" fill="#FF751B" />
+  <path d="M 200 160 V 180 M 190 170 H 210" stroke="#FFF6E5" stroke-width="3.5" stroke-linecap="round"/>
 
-  <!-- Rays -->
-  <line x1="200" y1="65" x2="200" y2="78" stroke="url(#warmGradient)" stroke-width="2" stroke-linecap="round"/>
-  <line x1="125" y1="95" x2="135" y2="105" stroke="url(#warmGradient)" stroke-width="2" stroke-linecap="round"/>
-  <line x1="275" y1="95" x2="265" y2="105" stroke="url(#warmGradient)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Orange Stethoscope Loop -->
+  <path d="M 165 240 C 165 315 235 315 235 240" stroke="url(#docOrange)" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="200" cy="324" r="8" fill="#FF751B" stroke="#FFF6E5" stroke-width="2"/>
 
-  <!-- Label Ribbon Text -->
-  <rect x="70" y="420" width="260" height="32" rx="16" fill="#2B3318" stroke="url(#warmGradient)" stroke-width="1.5" />
-  <text x="200" y="441" text-anchor="middle" fill="#FFF6E5" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" letter-spacing="2">BASTET MEDICAL FACULTY</text>
+  <!-- Label Ribbon -->
+  <rect x="70" y="420" width="260" height="34" rx="17" fill="#2B3318" stroke="#F7DAA7" stroke-width="1.5" />
+  <text x="200" y="442" text-anchor="middle" fill="#FFF6E5" font-family="'DM Sans', system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="2">BASTET CLINICAL FACULTY</text>
 </svg>

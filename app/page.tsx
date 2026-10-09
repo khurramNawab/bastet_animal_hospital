@@ -30,7 +30,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col items-center justify-center w-full overflow-hidden">
-      {/* 1. Cinematic 3D Hero Section */}
+      {/* 1. Cinematic 3D Hero Section with Floating Badges & Services Marquee */}
       <Hero siteConfig={siteConfig} />
 
       {/* 2. Cinematic Pinned 3D Scroll Storytelling Section */}
@@ -40,7 +40,7 @@ export default function HomePage() {
       <Services animals={animals} services={services} defaultSpecies="dog" />
 
       {/* Medical Cross Divider */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <CrossDivider variant="cross" />
       </div>
 
@@ -52,7 +52,7 @@ export default function HomePage() {
       />
 
       {/* Paw Prints Divider */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <CrossDivider variant="paws" />
       </div>
 
@@ -66,7 +66,7 @@ export default function HomePage() {
       <Testimonials testimonials={testimonials} />
 
       {/* Bottom Line Divider */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <CrossDivider variant="line" />
       </div>
     </main>

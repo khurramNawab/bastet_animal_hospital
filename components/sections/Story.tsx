@@ -28,14 +28,17 @@ export function Story({ panels }: StoryProps) {
       return;
     }
 
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+    }
 
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: 'top top',
-        end: '+=250%',
+        end: '+=160%',
         pin: pinnedSectionRef.current,
+        pinSpacing: true,
         scrub: 0.6,
         anticipatePin: 1,
         onUpdate: (self) => {
@@ -77,7 +80,7 @@ export function Story({ panels }: StoryProps) {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[220vh] bg-olive-deep text-cream"
+      className="relative w-full bg-olive-deep text-cream overflow-hidden"
       aria-label="How We Care - Clinical Journey"
     >
       {/* Dynamic Background Pattern */}
@@ -86,9 +89,9 @@ export function Story({ panels }: StoryProps) {
       {/* Pinned Viewport Container */}
       <div
         ref={pinnedSectionRef}
-        className="w-full h-screen overflow-hidden flex flex-col justify-between"
+        className="w-full h-screen min-h-[580px] max-h-[850px] overflow-hidden flex flex-col justify-between py-6"
       >
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-full flex flex-col justify-between">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-between">
           {/* Top Divider */}
           <div className="w-full">
             <CrossDivider variant="line" className="py-2" />
@@ -125,7 +128,7 @@ export function Story({ panels }: StoryProps) {
               </div>
 
               {/* Cross-Fading Text Content */}
-              <div className="flex-1 min-h-[280px] flex flex-col justify-center">
+              <div className="flex-1 min-h-[260px] flex flex-col justify-center">
                 <span className="text-xs uppercase tracking-widest text-sand font-semibold mb-2 block">
                   How We Care • Step {panels[activeStepIndex].step}
                 </span>
@@ -152,7 +155,7 @@ export function Story({ panels }: StoryProps) {
             </div>
 
             {/* Right Column: 3D Story Canvas with dynamic camera poses */}
-            <div className="lg:col-span-6 relative w-full h-[400px] lg:h-[520px] flex items-center justify-center">
+            <div className="lg:col-span-6 relative w-full h-[400px] lg:h-[500px] flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-tr from-sand/15 via-orange/10 to-transparent rounded-full blur-3xl pointer-events-none" />
               <StoryCanvas progress={scrollProgress} panels={panels} />
             </div>
