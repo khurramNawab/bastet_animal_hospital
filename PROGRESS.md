@@ -94,16 +94,33 @@
   - Added unit tests in `tests/polish.test.ts` (5 tests; total 67/67 tests passing).
   - Passed full gatekeeper `npm run check` and production build `npm run build` (20/20 static pages generated).
 
+- **Phase 9 (SEO, Clinical Blog & Legal Architecture)**:
+  - Created pure XSS-safe JSON-LD structured data generators (`lib/seo/jsonld.ts`) for `VeterinaryCare`, `Service`, `Person`, `BlogPosting`, and `BreadcrumbList`.
+  - Strictly excluded `AggregateRating` and `Review` markup to maintain full compliance with Google Search policy.
+  - Implemented dynamic Next.js `app/sitemap.ts` (covering core pages, doctors, active services, blog articles; comingSoon species excluded) and `app/robots.ts`.
+  - Implemented dynamic Edge OpenGraph image generator (`app/opengraph-image.tsx`) generating 1200x630 branded social cards.
+  - Built accessible `Breadcrumbs.tsx` component with integrated schema script.
+  - Authored 4 comprehensive clinical veterinary articles in `data/blog.json` with structured sections, reading time, and mandatory disclaimers (`"needsVetReview": true`).
+  - Built `/blog` directory (`app/blog/page.tsx`) with category filter chips and `/blog/[slug]` dynamic SSG pages (`app/blog/[slug]/page.tsx`) with sticky Table of Contents, pinned gold reading progress bar (`ArticleProgress.tsx`), related services, and consultation booking CTAs.
+  - Built `/privacy-policy` (aligned with India's DPDP Act 2023), `/terms` (appointment request model and emergency protocol), and `/medical-disclaimer` legal pages.
+  - Linked legal pages across `Footer.tsx` and consent checkboxes in `BookingForm.tsx`.
+  - Added comprehensive test suites `tests/seo.test.ts` (8 tests) and `tests/blog.test.ts` (6 tests).
+  - Passed full gatekeeper `npm run check` (13/13 files, 81/81 tests passing) and production build `npm run build` (30/30 static pages generated).
+
 ## In Progress
 
-- Awaiting user confirmation to proceed to Phase 9.
+- Phase 9 complete. Ready for final user inspection and review.
 
 ## Next
 
-- Phase 9: Knowledge Base & Care Articles (`/tips`) / Production Launch Preparation.
+- Phase 10 / Production Launch: Vet clinical review sign-off, replacement of dummy doctor profiles/photos with real staff data, and production deployment.
 
 ## Decisions
 
+- **Pure Zero-Dependency Blog & Structured Data**: Authored articles as structured JSON blocks in `data/blog.json` and rendered them via type-safe React components without bulky markdown/MDX compilation libraries.
+- **XSS-Safe JSON-LD**: Escaped `<`, `>`, and `&` inside `serializeJsonLd()` to eliminate script injection vectors.
+- **Strict Compliance with Google Rich Results Policies**: Intentionally omitted fake `AggregateRating` and `Review` schema markup to avoid manual search engine penalties on unverified reviews.
+- **Dynamic Next.js OpenGraph**: Leveraged `next/og` `ImageResponse` on the Edge runtime for fast, zero-external-dependency social preview generation.
 - **Zero-Dependency Theme Switcher**: Built custom React context + anti-FOUC script rather than external libraries to maintain zero runtime bloat and prevent SSR hydration mismatches.
 - **Additive Mouse Follower**: The custom paw cursor is strictly additive—it does not hide the native system pointer, does not intercept clicks (`pointer-events-none`), and cleanly shuts down on touch screens or low-motion preferences.
 - **Session-Guarded Splash**: `SiteLoader` only triggers once per browser session using `sessionStorage` so navigating internal routes remains instant and uncluttered.
@@ -116,8 +133,9 @@
 
 ## Known Issues
 
+- Medical triage guidelines, age charts, and blog articles in `data/tools.json`, `data/symptom-checker.json`, and `data/blog.json` are marked with `"needsVetReview": true` and should be reviewed by attending veterinarians before hospital launch.
+- Legal documents (`/privacy-policy`, `/terms`, `/medical-disclaimer`) are templates tailored to DPDP Act 2023 and should undergo clinical/legal counsel sign-off before hospital operations.
 - In-memory rate limiting on `/api/book` and `/api/waitlist` is suitable for single-instance deployments; for multi-region serverless scale, an Upstash Redis or Supabase Edge rate limiter should be connected.
-- User data retention and privacy policy must be published prior to accepting real pet parent submissions.
-- Medical triage guidelines and age charts in `data/tools.json` and `data/symptom-checker.json` are marked with `"needsVetReview": true` and must be reviewed by a licensed veterinarian prior to hospital launch.
 - Dummy doctors, reviews, and placeholder photos are currently active (marked with `"isDummy": true`) and need to be replaced with real hospital data prior to production launch.
+
 

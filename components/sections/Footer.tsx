@@ -138,11 +138,24 @@ export function Footer({ siteConfig }: FooterProps) {
         <GoldDivider className="mt-12 mb-8" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/60">
-          <p>
-            © {currentYear} {siteConfig.name}. All rights reserved.
-          </p>
-          <p className="text-center sm:text-right">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-cream/60">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+            <p>© {currentYear} {siteConfig.name}. All rights reserved.</p>
+            <div className="flex items-center gap-4 text-[11px] text-cream/70">
+              <Link href="/privacy-policy" className="hover:text-gold transition-colors">
+                Privacy Policy
+              </Link>
+              <span>•</span>
+              <Link href="/terms" className="hover:text-gold transition-colors">
+                Terms of Service
+              </Link>
+              <span>•</span>
+              <Link href="/medical-disclaimer" className="hover:text-gold transition-colors">
+                Medical Disclaimer
+              </Link>
+            </div>
+          </div>
+          <p className="text-center md:text-right text-[11px]">
             {siteConfig.credits?.model3D ? (
               <span>
                 3D model:{' '}

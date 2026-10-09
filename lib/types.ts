@@ -231,3 +231,35 @@ export interface SymptomCheckerConfig {
   urgencyLevels: Record<TriageUrgency, TriageUrgencyDetails>;
 }
 
+export type BlogSectionType = 'h2' | 'p' | 'ul' | 'callout';
+
+export interface BlogSection {
+  type: BlogSectionType;
+  content?: string;
+  title?: string;
+  items?: string[];
+}
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  updatedAt: string;
+  readingMinutes: number;
+  category: string;
+  tags: string[];
+  heroAlt: string;
+  needsVetReview: boolean;
+  isDraftContent: boolean;
+  relatedServiceSlugs?: string[];
+  sections: BlogSection[];
+}
+
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+

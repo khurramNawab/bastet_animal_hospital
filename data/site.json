@@ -71,6 +71,10 @@
       "href": "/tools"
     },
     {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
       "label": "Book",
       "href": "/book"
     },

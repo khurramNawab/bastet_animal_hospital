@@ -12,7 +12,9 @@ import {
   ArrowLeft,
   CheckCircle,
 } from 'lucide-react';
-import { getDoctors, getDoctorBySlug } from '@/lib/data';
+import { getDoctors, getDoctorBySlug, getSiteConfig } from '@/lib/data';
+import { getDoctorJsonLd, serializeJsonLd } from '@/lib/seo/jsonld';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { GoldDivider } from '@/components/ui/GoldDivider';
 
 interface DoctorPageProps {
@@ -37,9 +39,22 @@ export function generateMetadata({ params }: DoctorPageProps): Metadata {
     };
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bastetsmallanimalhospital.com';
+
   return {
     title: `${doctor.name}, ${doctor.role} in Kolkata | Bastet Hospital`,
     description: `Consult ${doctor.name} at Bastet Small Animal Hospital Kolkata. Specialized in ${doctor.specialties?.slice(0, 2).join(', ')} with ${doctor.yearsOfExperience}+ years clinical experience.`,
+    alternates: {
+      canonical: `${baseUrl}/doctors/${doctor.slug}`,
+    },
+    openGraph: {
+      title: `${doctor.name} | Veterinary Specialist at Bastet Hospital Kolkata`,
+      description: doctor.bio,
+      url: `${baseUrl}/doctors/${doctor.slug}`,
+      siteName: 'Bastet Small Animal Hospital',
+      locale: 'en_IN',
+      type: 'profile',
+    },
   };
 }
 
@@ -50,18 +65,28 @@ export default function DoctorProfilePage({ params }: DoctorPageProps) {
     notFound();
   }
 
+  const siteConfig = getSiteConfig();
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bastetsmallanimalhospital.com';
+  const jsonLd = getDoctorJsonLd(doctor, siteConfig, baseUrl);
+
   return (
-    <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Back Link */}
-      <div className="mb-8">
-        <Link
-          href="/doctors"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-teal hover:text-gold-dark transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to All Medical Faculty</span>
-        </Link>
-      </div>
+    <>
+      {/* Person Schema.org Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Breadcrumbs */}
+        <div className="mb-6">
+          <Breadcrumbs
+            items={[
+              { label: 'Doctors', href: '/doctors' },
+              { label: doctor.name },
+            ]}
+          />
+        </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
         {/* Left Column: Portrait & Quick Stats */}
@@ -154,5 +179,6 @@ export default function DoctorProfilePage({ params }: DoctorPageProps) {
 
       <GoldDivider className="mt-16" variant="ankh-pattern" />
     </main>
+    </>
   );
 }

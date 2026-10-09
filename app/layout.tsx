@@ -8,6 +8,7 @@ import { FloatingActions } from '@/components/ui/FloatingActions';
 import { PawCursor } from '@/components/ui/PawCursor';
 import { SiteLoader } from '@/components/ui/SiteLoader';
 import { getSiteConfig } from '@/lib/data';
+import { getHospitalJsonLd, serializeJsonLd } from '@/lib/seo/jsonld';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -26,17 +27,20 @@ export const metadata: Metadata = {
   title: 'Best Vet Hospital in Kolkata | Bastet Small Animal Hospital',
   description:
     'Bastet Small Animal Hospital in Kolkata offers premier 24x7 veterinary care, advanced surgery, dog dermatology, dental care, and diagnostics.',
-  metadataBase: new URL('https://bastetsmallanimalhospital.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bastetsmallanimalhospital.com'),
   keywords: [
     'Veterinary Hospital Kolkata',
     'Best Dog Hospital Kolkata',
     'Pet Surgery Rash Behari Avenue',
     '24x7 Animal Emergency Kolkata',
     'Dog Clinic Kolkata',
+    'Pet Clinic Near Park Street',
+    'Dog Vaccination Kolkata',
   ],
   authors: [{ name: 'Bastet Small Animal Hospital' }],
   icons: {
     icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/images/Bastetanimalhospital.avif', type: 'image/avif' },
     ],
     shortcut: '/images/Bastetanimalhospital.avif',
@@ -63,6 +67,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const siteConfig = getSiteConfig();
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bastetsmallanimalhospital.com';
+  const hospitalJsonLd = getHospitalJsonLd(siteConfig, baseUrl);
 
   return (
     <html
@@ -76,6 +82,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('bastet_theme');var d=t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){}})();`,
           }}
+        />
+        {/* VeterinaryCare Schema.org Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(hospitalJsonLd) }}
         />
       </head>
       <body className="min-h-screen flex flex-col bg-cream text-ink dark:bg-ink dark:text-cream antialiased selection:bg-gold selection:text-ink transition-colors duration-300">

@@ -6,6 +6,7 @@ import testimonialsData from '@/data/testimonials.json';
 import storyData from '@/data/story.json';
 import toolsData from '@/data/tools.json';
 import symptomCheckerData from '@/data/symptom-checker.json';
+import blogData from '@/data/blog.json';
 
 import type {
   SiteConfig,
@@ -16,6 +17,7 @@ import type {
   StoryPanel,
   AgeCalculatorConfig,
   SymptomCheckerConfig,
+  BlogPost,
 } from './types';
 
 export function getSiteConfig(): SiteConfig {
@@ -81,4 +83,19 @@ export function getAgeCalculatorConfig(): AgeCalculatorConfig {
 export function getSymptomCheckerConfig(): SymptomCheckerConfig {
   return symptomCheckerData.symptomChecker as SymptomCheckerConfig;
 }
+
+export function getBlogPosts(): BlogPost[] {
+  return blogData as BlogPost[];
+}
+
+export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  return (blogData as BlogPost[]).find((post) => post.slug === slug);
+}
+
+export function getRelatedPosts(currentSlug: string, limit = 2): BlogPost[] {
+  return (blogData as BlogPost[])
+    .filter((post) => post.slug !== currentSlug)
+    .slice(0, limit);
+}
+
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useId } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -646,9 +647,17 @@ export function BookingForm({ siteConfig, services, doctors, animals }: BookingF
                   onChange={(e) => handleInputChange('consent', e.target.checked)}
                   className="mt-0.5 h-4 w-4 rounded border-gold/40 text-teal focus:ring-gold accent-teal shrink-0"
                 />
-                <span className="text-xs text-ink/80 leading-relaxed font-light">
+                <span className="text-xs text-ink/80 dark:text-cream/80 leading-relaxed font-light">
                   I agree to be contacted via telephone or WhatsApp regarding this appointment
-                  request. I understand this is an appointment request subject to clinic availability.
+                  request. I have reviewed the{' '}
+                  <Link href="/terms" target="_blank" className="text-gold font-semibold underline underline-offset-2 hover:text-gold-light">
+                    Terms of Service
+                  </Link>{' '}
+                  and{' '}
+                  <Link href="/privacy-policy" target="_blank" className="text-gold font-semibold underline underline-offset-2 hover:text-gold-light">
+                    Privacy Policy
+                  </Link>
+                  .
                 </span>
               </label>
               {fieldErrors.consent && (

@@ -15,7 +15,8 @@ import {
   Calendar,
   ArrowLeft,
 } from 'lucide-react';
-import { getAnimals, getAnimalBySlug, getServicesByAnimal } from '@/lib/data';
+import { getAnimals, getAnimalBySlug, getServicesByAnimal, getSiteConfig } from '@/lib/data';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { WaitlistForm } from '@/components/sections/WaitlistForm';
 import { GoldDivider } from '@/components/ui/GoldDivider';
 
@@ -41,16 +42,37 @@ export function generateMetadata({ params }: ServicePageProps): Metadata {
     };
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bastetsmallanimalhospital.com';
+  const url = `${baseUrl}/services/${animal.slug}`;
+
   if (animal.comingSoon) {
     return {
       title: `${animal.name} Care Coming Soon | Bastet Small Animal Hospital`,
       description: `Join the VIP waitlist for ${animal.name.toLowerCase()} veterinary services, specialized clinical facilities, and emergency care in Kolkata.`,
+      robots: {
+        index: false,
+        follow: false,
+      },
+      alternates: {
+        canonical: url,
+      },
     };
   }
 
   return {
     title: `${animal.name} Veterinary Services in Kolkata | Bastet Hospital`,
-    description: `Complete medical specialities, surgery, dermatology, 24x7 trauma, and wellness care for ${animal.name.toLowerCase()} in Park Street, Kolkata.`,
+    description: `Complete medical specialities, surgery, dermatology, 24x7 trauma, and wellness care for ${animal.name.toLowerCase()} in Rash Behari Avenue, Kolkata.`,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${animal.name} Veterinary Services | Bastet Hospital Kolkata`,
+      description: `Complete medical specialities and wellness care for ${animal.name.toLowerCase()} in Kolkata.`,
+      url,
+      siteName: 'Bastet Small Animal Hospital',
+      locale: 'en_IN',
+      type: 'website',
+    },
   };
 }
 
@@ -85,27 +107,26 @@ export default function AnimalServicesPage({ params }: ServicePageProps) {
   };
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Breadcrumb / Back Link */}
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      {/* Breadcrumbs */}
       <div className="mb-6">
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-teal hover:text-gold-dark transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to All Species & Services</span>
-        </Link>
+        <Breadcrumbs
+          items={[
+            { label: 'Services', href: '/services' },
+            { label: `${animal.name} Care` },
+          ]}
+        />
       </div>
 
       {/* Hero Header */}
       <div className="text-center max-w-3xl mx-auto mb-14">
-        <span className="text-xs uppercase tracking-widest text-gold-dark font-semibold">
+        <span className="text-xs uppercase tracking-widest text-gold-dark dark:text-gold font-semibold">
           {animal.comingSoon ? 'Expansion Wing' : 'Clinical Specialities'}
         </span>
-        <h1 className="font-display text-4xl sm:text-5xl font-bold text-teal mt-2">
+        <h1 className="font-display text-4xl sm:text-5xl font-bold text-teal dark:text-cream mt-2">
           {animal.name} Care & Specialities
         </h1>
-        <p className="mt-3 text-sm sm:text-base text-ink/80 leading-relaxed font-light">
+        <p className="mt-3 text-sm sm:text-base text-ink/80 dark:text-cream/80 leading-relaxed font-light">
           {animal.heroLine || animal.tagline}
         </p>
       </div>
