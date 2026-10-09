@@ -155,7 +155,7 @@ export function Story({ panels }: StoryProps) {
             </div>
 
             {/* Right Column: 3D Story Canvas with dynamic camera poses */}
-            <div className="lg:col-span-6 relative w-full h-[400px] lg:h-[500px] flex items-center justify-center">
+            <div className="lg:col-span-6 relative w-full h-[500px] sm:h-[540px] lg:h-[620px] flex items-center justify-center overflow-visible">
               <div className="absolute inset-0 bg-gradient-to-tr from-sand/15 via-orange/10 to-transparent rounded-full blur-3xl pointer-events-none" />
               <StoryCanvas progress={scrollProgress} panels={panels} />
             </div>

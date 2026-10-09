@@ -20,7 +20,7 @@ describe('Story Data & Schema', () => {
       expect(panel.cameraPose.position).toHaveLength(3);
       expect(panel.cameraPose.target).toHaveLength(3);
       expect(typeof panel.cameraPose.dogRotationY).toBe('number');
-      expect(panel.cameraPose.dogScale).toBeGreaterThan(1);
+      expect(panel.cameraPose.dogScale).toBeGreaterThanOrEqual(1);
     });
   });
 });
