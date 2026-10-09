@@ -60,8 +60,8 @@ export function HeroCanvas({ reducedMotion = false, onLoaded, onBoop }: HeroCanv
           alpha: true,
         }}
         camera={{
-          position: [0, 0.42, 3.2],
-          fov: 34,
+          position: [0, 0.46, 3.25],
+          fov: 35,
           near: 0.1,
           far: 50,
         }}

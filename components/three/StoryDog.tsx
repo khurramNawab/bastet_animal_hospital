@@ -38,8 +38,8 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
     const center = new THREE.Vector3();
     box.getCenter(center);
 
-    // Adjusted scale factor to guarantee safe head clearance across all camera angles
-    const scaleFactor = 1.38 / (size.y || 0.31);
+    // Adjusted scale factor to guarantee safe head & paws clearance across all camera angles
+    const scaleFactor = 1.28 / (size.y || 0.31);
     clone.scale.setScalar(scaleFactor);
 
     box.setFromObject(clone);
@@ -87,10 +87,10 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
       return;
     }
 
-    // Smoothly lerp camera position with lower height offset
+    // Smoothly lerp camera position
     camera.position.x = THREE.MathUtils.damp(camera.position.x, currentPose.position[0], 5, delta);
-    camera.position.y = THREE.MathUtils.damp(camera.position.y, currentPose.position[1] * 0.9, 5, delta);
-    camera.position.z = THREE.MathUtils.damp(camera.position.z, currentPose.position[2] * 1.05, 5, delta);
+    camera.position.y = THREE.MathUtils.damp(camera.position.y, currentPose.position[1], 5, delta);
+    camera.position.z = THREE.MathUtils.damp(camera.position.z, currentPose.position[2], 5, delta);
 
     // Smoothly lerp lookAt target
     targetLookAt.current.x = THREE.MathUtils.damp(
@@ -101,7 +101,7 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
     );
     targetLookAt.current.y = THREE.MathUtils.damp(
       targetLookAt.current.y,
-      currentPose.target[1] * 0.85,
+      currentPose.target[1],
       5,
       delta,
     );
@@ -127,7 +127,7 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
   });
 
   return (
-    <group ref={groupRef} position={[0, -0.28, 0]} dispose={null}>
+    <group ref={groupRef} position={[0, 0.08, 0]} dispose={null}>
       <primitive object={clonedScene} />
     </group>
   );

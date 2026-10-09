@@ -66,7 +66,7 @@ export function Navbar({ siteConfig }: NavbarProps) {
         ref={navRef}
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out px-4 sm:px-6 lg:px-8',
-          isScrolled ? 'py-3' : 'py-5',
+          isScrolled ? 'py-2 sm:py-2.5' : 'py-2.5 sm:py-3.5',
         )}
       >
         <div

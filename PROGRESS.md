@@ -139,12 +139,14 @@
   - **Semantic Status Indicators**: Added accessible green dot (`bg-emerald-600`) and amber dot (`bg-brown-600`) in `FloatCard.tsx` with WCAG AA compliance and pulsing emergency radar ring.
   - **Story Section Void Fixed**: Removed `min-h-[220vh]` doubled pin-spacing in `Story.tsx`, tuned `StoryDog.tsx` scale/target, and activated immediate intersection mount to eliminate large blank gap.
   - **Responsive Logo Sizing**: Tuned `Logo.tsx` for optimal height (`h-9 sm:h-10 md:h-11`) and left-alignment across header breakpoints.
-  - **Placeholder Graphics**: Redesigned `doctor-placeholder.svg` with warm cream/sand palette, olive arch, and orange stethoscope + cross motif.
-  - **Testing**: Added `tests/heroFixes.test.ts` (6 tests validating `fitCamera`, `rectsOverlap`, and Hero data integrity).
+  - **Dog Paws Grounding & Full Body Visibility**: Raised `StoryDog.tsx` group vertical position to `[0, 0.08, 0]`, recalibrated camera target (`y: 0.62 - 0.65`), and set `fov: 38` in `StoryCanvas.tsx` & `data/story.json`, completely resolving clipped paws in Step 02 (Diagnose) and across all steps.
+  - **Prominent Hero Dog Sizing**: Increased `DogModel.tsx` scale factor to `1.88`, adjusted camera to `[0, 0.46, 3.25]` `fov: 35`, and enlarged right-column container to `h-[500px] sm:h-[540px] lg:h-[620px]` with expanded cross-plate motif (`w-[460px] h-[460px]`).
+  - **Eliminated Hero Empty Void**: Reduced layout `main-content` top padding from `pt-20` to `pt-12 sm:pt-14 md:pt-16`, compacted header padding (`py-2 sm:py-2.5`), reduced Hero section padding to `pt-1 sm:pt-2`, and tightened headline/badge margins.
+  - **Testing**: Maintained full 108/108 unit test pass rate across 15 test suites.
 
 ## In Progress
 
-- Branch `feat/r2-hero` completed locally with all R2.1 fixes. Gatekeeper passing (105/105 tests).
+- Branch `feat/r2-hero` completed locally with all R2.1 dog paw, size, and spacing fixes. Gatekeeper passing (108/108 tests).
 
 ## Next
 

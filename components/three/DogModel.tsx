@@ -38,8 +38,8 @@ export function DogModel({ reducedMotion = false, onBoop }: DogModelProps) {
     const center = new THREE.Vector3();
     box.getCenter(center);
 
-    // Scale puppy with safe bounds (~1.62 units height to leave comfortable head clearance)
-    const scaleFactor = 1.62 / (size.y || 0.31);
+    // Scale puppy prominently (~1.88 units height) for grand hero presence
+    const scaleFactor = 1.88 / (size.y || 0.31);
     clone.scale.setScalar(scaleFactor);
 
     // Recompute box after scaling to center on X/Z and ground on Y=0
@@ -147,10 +147,10 @@ export function DogModel({ reducedMotion = false, onBoop }: DogModelProps) {
         groupRef.current.scale.y = 1 - spring * 0.12;
         groupRef.current.scale.x = 1 + spring * 0.08;
         groupRef.current.scale.z = 1 + spring * 0.08;
-        groupRef.current.position.y = -0.42 + Math.max(0, spring * 0.06);
+        groupRef.current.position.y = -0.34 + Math.max(0, spring * 0.06);
       } else {
         groupRef.current.scale.set(1, 1, 1);
-        groupRef.current.position.y = -0.42;
+        groupRef.current.position.y = -0.34;
         setBoopTime(null);
       }
     }
@@ -159,7 +159,7 @@ export function DogModel({ reducedMotion = false, onBoop }: DogModelProps) {
   return (
     <group
       ref={groupRef}
-      position={[0, -0.42, 0]}
+      position={[0, -0.34, 0]}
       rotation={[0, -Math.PI / 7, 0]}
       onClick={handleClick}
       dispose={null}

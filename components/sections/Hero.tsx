@@ -122,21 +122,21 @@ export function Hero({ siteConfig }: HeroProps) {
     <section
       ref={heroRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full min-h-[calc(100svh-4.5rem)] flex flex-col justify-between overflow-hidden bg-cream dark:bg-olive-deep pt-4 sm:pt-6"
+      className="relative w-full min-h-[calc(100svh-4rem)] flex flex-col justify-between overflow-hidden bg-cream dark:bg-olive-deep pt-1 sm:pt-2"
       aria-label="Bastet Small Animal Hospital Hero"
     >
       {/* Background Ambient Radial Glows */}
-      <div className="absolute top-1/6 right-1/4 w-[420px] h-[420px] bg-orange/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/6 right-1/4 w-[460px] h-[460px] bg-orange/15 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-sand/25 dark:bg-olive/20 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* Main Hero Grid Container */}
       <div className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
         {isMounted && canRender3D ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-6 sm:py-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-2 pb-6 sm:pt-4 sm:pb-8 lg:pt-2 lg:pb-10">
             {/* Left Column (6 cols): Copy, Typography & Action CTAs */}
             <div ref={contentRef} className="lg:col-span-6 flex flex-col items-start z-10">
               {/* Eyebrow Chip */}
-              <div className="hero-anim inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/30 dark:bg-olive-deep/80 border border-sand/60 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-4">
+              <div className="hero-anim inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sand/30 dark:bg-olive-deep/80 border border-sand/60 text-orange-deep dark:text-sand text-xs font-semibold uppercase tracking-widest mb-3">
                 <Sparkles className="w-3.5 h-3.5 text-orange" />
                 <span>Kolkata&apos;s Premier Companion Hospital</span>
               </div>
@@ -146,7 +146,7 @@ export function Hero({ siteConfig }: HeroProps) {
 
               {/* Visually Prominent Display Heading */}
               <div
-                className="hero-anim font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-olive-deep dark:text-cream tracking-tight leading-[1.12] mb-5"
+                className="hero-anim font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-olive-deep dark:text-cream tracking-tight leading-[1.12] mb-4"
                 aria-label={siteConfig.tagline}
               >
                 <span>Where Every Paw Gets </span>
@@ -172,7 +172,7 @@ export function Hero({ siteConfig }: HeroProps) {
               </div>
 
               {/* Subtext */}
-              <p className="hero-anim text-base sm:text-lg text-ink/80 dark:text-cream/80 leading-relaxed font-normal mb-8 max-w-lg">
+              <p className="hero-anim text-base sm:text-lg text-ink/80 dark:text-cream/80 leading-relaxed font-normal mb-6 max-w-lg">
                 Advanced sterile surgeries, digital radiography, dermatology, and 24x7
                 emergency trauma care in Rash Behari Avenue, {siteConfig.city}.
               </p>
@@ -200,13 +200,13 @@ export function Hero({ siteConfig }: HeroProps) {
             </div>
 
             {/* Right Column (6 cols): 3D Canine + Tilted Orange Rounded Cross Motif */}
-            <div className="lg:col-span-6 relative w-full h-[460px] lg:h-[580px] flex items-center justify-center">
+            <div className="lg:col-span-6 relative w-full h-[500px] sm:h-[540px] lg:h-[620px] flex items-center justify-center">
               {/* Large Tilted Orange Rounded Cross Plate Motif (Logo Anchor) */}
               <div
                 style={{
                   transform: `translate3d(${mouseParallax.x * -0.3}px, ${mouseParallax.y * -0.3}px, 0) rotate(-6deg)`,
                 }}
-                className="absolute w-72 sm:w-96 lg:w-[410px] h-72 sm:h-96 lg:h-[410px] transition-transform duration-300 pointer-events-none opacity-95"
+                className="absolute w-80 sm:w-[420px] lg:w-[460px] h-80 sm:h-[420px] lg:h-[460px] transition-transform duration-300 pointer-events-none opacity-95"
                 aria-hidden="true"
               >
                 <svg

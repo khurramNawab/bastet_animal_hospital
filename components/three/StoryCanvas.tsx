@@ -57,8 +57,8 @@ export function StoryCanvas({ progress, panels, reducedMotion = false }: StoryCa
           alpha: true,
         }}
         camera={{
-          position: [-0.6, 0.9, 2.9],
-          fov: 35,
+          position: [-0.6, 0.95, 3.1],
+          fov: 38,
           near: 0.1,
           far: 50,
         }}

@@ -97,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SiteLoader />
             <PawCursor />
             <Navbar siteConfig={siteConfig} />
-            <div id="main-content" className="flex-1 pt-20">
+            <div id="main-content" className="flex-1 pt-12 sm:pt-14 md:pt-16">
               {children}
             </div>
             <Footer siteConfig={siteConfig} />
