@@ -122,7 +122,7 @@ export function Hero({ siteConfig }: HeroProps) {
     <section
       ref={heroRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full min-h-[calc(100svh-4rem)] flex flex-col justify-between overflow-hidden bg-cream dark:bg-olive-deep pt-1 sm:pt-2"
+      className="relative w-full min-h-[calc(100svh-3.5rem)] flex flex-col justify-between overflow-hidden bg-cream dark:bg-olive-deep pt-0"
       aria-label="Bastet Small Animal Hospital Hero"
     >
       {/* Background Ambient Radial Glows */}
@@ -132,7 +132,7 @@ export function Hero({ siteConfig }: HeroProps) {
       {/* Main Hero Grid Container */}
       <div className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
         {isMounted && canRender3D ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-2 pb-6 sm:pt-4 sm:pb-8 lg:pt-2 lg:pb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-0 pb-4 sm:pt-1 sm:pb-6 lg:pt-0 lg:pb-8">
             {/* Left Column (6 cols): Copy, Typography & Action CTAs */}
             <div ref={contentRef} className="lg:col-span-6 flex flex-col items-start z-10">
               {/* Eyebrow Chip */}

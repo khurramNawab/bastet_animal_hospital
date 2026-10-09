@@ -28,7 +28,7 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
     clone.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         child.castShadow = true;
-        child.receiveShadow = true;
+        child.receiveShadow = false;
       }
     });
 
@@ -38,8 +38,8 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
     const center = new THREE.Vector3();
     box.getCenter(center);
 
-    // Adjusted scale factor to guarantee safe head & paws clearance across all camera angles
-    const scaleFactor = 1.28 / (size.y || 0.31);
+    // Scaled puppy for large, prominent storytelling presence
+    const scaleFactor = 1.65 / (size.y || 0.31);
     clone.scale.setScalar(scaleFactor);
 
     box.setFromObject(clone);
@@ -127,7 +127,7 @@ export function StoryDog({ progress, panels, reducedMotion = false }: StoryDogPr
   });
 
   return (
-    <group ref={groupRef} position={[0, 0.08, 0]} dispose={null}>
+    <group ref={groupRef} position={[0, -0.04, 0]} dispose={null}>
       <primitive object={clonedScene} />
     </group>
   );

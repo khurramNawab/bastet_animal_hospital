@@ -23,11 +23,11 @@ export function DogModel({ reducedMotion = false, onBoop }: DogModelProps) {
   const clonedScene = useMemo(() => {
     const clone = SkeletonUtils.clone(scene) as THREE.Group;
 
-    // Enable shadows and proper material shading
+    // Enable shadows and warm material shading without harsh self-shadows on paws
     clone.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         child.castShadow = true;
-        child.receiveShadow = true;
+        child.receiveShadow = false;
       }
     });
 
