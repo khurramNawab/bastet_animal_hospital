@@ -33,13 +33,13 @@
   "emergencyNote": "For critical emergencies (difficulty breathing, sudden collapse, heavy bleeding, poisoning), do not wait for an online booking request. Proceed immediately to our 24/7 Emergency Unit or call our emergency hotline.",
   "stats": [
     {
-      "value": 5000,
+      "value": 500,
       "suffix": "+",
       "label": "Happy Pets"
     },
     {
-      "value": 15,
-      "suffix": "+",
+      "value": 2,
+      "suffix": "+ Years",
       "label": "Years of Care"
     },
     {
