@@ -26,7 +26,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Best Vet Hospital in Kolkata | Bastet Small Animal Hospital',
+  title: 'Bastet Small Animal Hospital',
   description:
     'Bastet Small Animal Hospital in Kolkata offers premier 24x7 veterinary care, advanced surgery, dog dermatology, dental care, and diagnostics.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bastetsmallanimalhospital.com'),
@@ -43,13 +43,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/brand/logo.avif', type: 'image/avif' },
     ],
     shortcut: '/icon.svg',
-    apple: '/brand/logo.avif',
+    apple: '/icon.svg',
   },
   openGraph: {
-    title: 'Bastet Small Animal Hospital | Premier Veterinary Care in Kolkata',
+    title: 'Bastet Small Animal Hospital',
     description:
       'Where every paw gets royal care. 24x7 emergency, dedicated surgeons, and modern diagnostics in Kolkata.',
     siteName: 'Bastet Small Animal Hospital',

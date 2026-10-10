@@ -1,0 +1,31 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded Base Background -->
+  <rect width="64" height="64" rx="16" fill="#FFF6E5"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" stroke="#F7DAA7" stroke-width="2"/>
+
+  <!-- Orange Medical Cross -->
+  <path d="M26 9C26 7.89543 26.8954 7 28 7H36C37.1046 7 38 7.89543 38 9V24C38 25.1046 38.8954 26 40 26H55C56.1046 26 57 26.8954 57 28V36C57 37.1046 56.1046 38 55 38H40C38.8954 38 38 38.8954 38 40V55C38 56.1046 37.1046 57 36 57H28C26.8954 57 26 56.1046 26 55V40C26 38.8954 25.1046 38 24 38H9C7.89543 38 7 37.1046 7 36V28C7 26.8954 7.89543 26 9 26H24C25.1046 26 26 25.1046 26 24V9Z" fill="#FF751B"/>
+
+  <!-- Puppy Left Ear -->
+  <path d="M22 28C17 28 16 38 20.5 41.5C22.5 42.5 24.5 36.5 23.5 30Z" fill="#D97706" stroke="#7B4A12" stroke-width="1.2"/>
+  <!-- Puppy Right Ear -->
+  <path d="M42 28C47 28 48 38 43.5 41.5C41.5 42.5 39.5 36.5 40.5 30Z" fill="#D97706" stroke="#7B4A12" stroke-width="1.2"/>
+
+  <!-- Puppy Body / Chest -->
+  <ellipse cx="32" cy="47" rx="13" ry="10" fill="#FBBF24" stroke="#7B4A12" stroke-width="1.2"/>
+  <!-- Puppy Head -->
+  <circle cx="32" cy="33" r="10.5" fill="#FBBF24" stroke="#7B4A12" stroke-width="1.2"/>
+
+  <!-- Snout Area -->
+  <ellipse cx="32" cy="36.5" rx="6" ry="4.5" fill="#FFFBEB" stroke="#7B4A12" stroke-width="1"/>
+  <!-- Nose -->
+  <ellipse cx="32" cy="34.5" rx="2.2" ry="1.6" fill="#3B2208"/>
+  <!-- Mouth / Smile -->
+  <path d="M30.2 37.5Q32 39.2 33.8 37.5" stroke="#3B2208" stroke-width="1" fill="none" stroke-linecap="round"/>
+
+  <!-- Eyes -->
+  <circle cx="28.2" cy="31" r="1.6" fill="#3B2208"/>
+  <circle cx="28.6" cy="30.4" r="0.6" fill="#FFFFFF"/>
+  <circle cx="35.8" cy="31" r="1.6" fill="#3B2208"/>
+  <circle cx="36.2" cy="30.4" r="0.6" fill="#FFFFFF"/>
+</svg>
