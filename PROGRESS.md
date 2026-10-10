@@ -98,6 +98,9 @@
   - **Reskinned 404 & Error**: Upgraded `app/not-found.tsx` and `app/error.tsx` with brand illustration scenes, cross+paw badges, and direct recovery actions.
   - **Full Vitest QA**: Added `tests/r5.test.ts` (9 tests). Full test suite: **18 test files, 135/135 tests passing**.
   - **Production Build**: `npm run build` compiled cleanly (30/30 static pages generated).
+  - **Stats & Emergency UX Polish**:
+    - Updated stats to `500+ Happy Pets` and `2+ Years of Care` in `data/site.json`.
+    - Enhanced floating `24/7 Emergency` button with an Emergency Hotline Quick-Contact modal (featuring large phone display, instant copy-to-clipboard, direct call, WhatsApp chat, and clinic location), eliminating the desktop browser "Open Pick an app" protocol dialog.
 
 ## In Progress
 
