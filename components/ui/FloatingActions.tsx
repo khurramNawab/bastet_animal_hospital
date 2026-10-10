@@ -155,8 +155,8 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
 
               {/* Header Badge */}
               <div className="flex items-center gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-danger-tint text-danger-deep dark:bg-danger-deep/50 dark:text-danger-soft text-[11px] font-bold uppercase tracking-wider">
-                  <AlertTriangle className="w-3.5 h-3.5 animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-danger-deep text-white border border-danger-soft/40 text-xs font-extrabold uppercase tracking-wider shadow-sm">
+                  <AlertTriangle className="w-4 h-4 text-white animate-pulse" />
                   24/7 Critical Emergency
                 </span>
               </div>
@@ -164,20 +164,20 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
               {/* Title & Description */}
               <h2
                 id="emergency-modal-title"
-                className="font-display text-2xl sm:text-3xl font-extrabold text-ink dark:text-cream mb-2"
+                className="font-display text-2xl sm:text-3xl font-extrabold text-ink dark:text-cream mb-2 tracking-tight"
               >
                 Emergency Trauma Line
               </h2>
-              <p className="text-xs sm:text-sm text-ink/75 dark:text-cream/75 mb-6 leading-relaxed">
+              <p className="text-xs sm:text-sm text-ink/85 dark:text-cream/90 mb-6 leading-relaxed font-medium">
                 For sudden collapse, difficulty breathing, profuse bleeding, or toxic ingestion, reach our clinical trauma team immediately.
               </p>
 
-              {/* Phone Number Display Box */}
-              <div className="rounded-2xl bg-white/80 dark:bg-olive-950/80 border border-sand/40 p-4 sm:p-5 mb-6 shadow-inner text-center">
-                <span className="text-[11px] uppercase tracking-widest font-semibold text-ink/60 dark:text-cream/60 block mb-1">
+              {/* Phone Number Display Box (High Contrast Dark Box in both Light & Dark Mode) */}
+              <div className="rounded-2xl bg-olive-950 text-white border-2 border-orange/50 p-5 sm:p-6 mb-6 shadow-xl text-center">
+                <span className="text-xs uppercase tracking-widest font-bold text-sand block mb-2">
                   Primary Emergency Hotline
                 </span>
-                <div className="font-display text-2xl sm:text-3xl font-extrabold text-danger dark:text-danger-soft tracking-wider select-all">
+                <div className="font-display text-3xl sm:text-4xl font-extrabold text-orange tracking-wider select-all">
                   {siteConfig.phone}
                 </div>
               </div>
@@ -187,7 +187,7 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
                 {/* 1. Direct Call Link */}
                 <a
                   href={`tel:${cleanPhone}`}
-                  className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-danger hover:bg-danger-deep text-white font-bold text-sm uppercase tracking-wider shadow-lg transition-all duration-200 active:scale-95 text-center focus-visible:ring-2 focus-visible:ring-danger-soft"
+                  className="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-danger hover:bg-danger-deep text-white font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all duration-200 active:scale-95 text-center focus-visible:ring-2 focus-visible:ring-danger-soft"
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>Call Now</span>
@@ -197,16 +197,16 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
                 <button
                   type="button"
                   onClick={handleCopyPhone}
-                  className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-sand/30 dark:bg-olive-800/60 hover:bg-sand/50 text-ink dark:text-cream border border-sand/60 font-semibold text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 text-center focus-visible:ring-2 focus-visible:ring-orange-deep"
+                  className="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-sand/25 dark:bg-sand/20 hover:bg-sand/40 text-ink dark:text-cream border-2 border-sand/70 font-bold text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 text-center focus-visible:ring-2 focus-visible:ring-orange-deep cursor-pointer"
                 >
                   {isCopied ? (
                     <>
-                      <Check className="w-4 h-4 text-olive" />
-                      <span className="text-olive">Copied!</span>
+                      <Check className="w-4 h-4 text-olive-deep dark:text-sand" />
+                      <span className="text-olive-deep dark:text-sand">Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-4 h-4" />
+                      <Copy className="w-4 h-4 text-orange-deep dark:text-sand" />
                       <span>Copy Number</span>
                     </>
                   )}
@@ -217,7 +217,7 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
                   href={`https://wa.me/${cleanWhatsapp}?text=${encodeURIComponent('EMERGENCY: I need immediate veterinary assistance for my pet.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-olive-900 hover:bg-olive-800 text-cream border border-sand/40 font-semibold text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 text-center focus-visible:ring-2 focus-visible:ring-orange-deep"
+                  className="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-olive-900 hover:bg-olive-800 text-cream border-2 border-sand/50 font-bold text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 text-center focus-visible:ring-2 focus-visible:ring-orange-deep hover:text-sand"
                 >
                   <MessageSquare className="w-4 h-4 text-sand" />
                   <span>WhatsApp Desk</span>
@@ -228,7 +228,7 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
                   href={siteConfig.mapLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white/60 dark:bg-olive-900/60 hover:bg-white text-ink/80 dark:text-cream/80 border border-sand/40 font-semibold text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 text-center focus-visible:ring-2 focus-visible:ring-orange-deep"
+                  className="flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-sand/15 dark:bg-sand/15 hover:bg-sand/30 text-ink dark:text-cream border-2 border-sand/50 font-bold text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 text-center focus-visible:ring-2 focus-visible:ring-orange-deep hover:text-orange"
                 >
                   <MapPin className="w-4 h-4 text-orange" />
                   <span>Hospital Map</span>
@@ -236,8 +236,8 @@ export function FloatingActions({ siteConfig }: FloatingActionsProps) {
               </div>
 
               {/* Location Footer Note */}
-              <div className="flex items-center justify-center gap-2 text-xs text-ink/60 dark:text-cream/60 text-center pt-2 border-t border-sand/20">
-                <MapPin className="w-3.5 h-3.5 text-orange shrink-0" />
+              <div className="flex items-center justify-center gap-2 text-xs font-semibold text-ink/80 dark:text-cream/80 text-center pt-3 border-t border-sand/30">
+                <MapPin className="w-4 h-4 text-orange shrink-0" />
                 <span>{siteConfig.address} • Open 24 Hours</span>
               </div>
             </motion.div>
