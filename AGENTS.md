@@ -43,19 +43,20 @@
 
 - **Content**: Never hardcode text content. All content must load from `data/*.json`. Adding animals must only require a JSON entry (`comingSoon` flag supported).
 - **Brand Tokens**: Use Tailwind tokens exclusively:
-  - Teal: `#0B3C3F`
-  - Gold: `#C9A24B`
-  - Cream: `#FAF5E9`
-  - Ink: `#0A1A1C`
-  - Fonts: _Playfair Display_ (headings) & _Inter_ (body)
+  - Orange: `#FF751B` (deep: `#C2410C`, soft: `#FFB27A`, tint: `#FFE3CF`)
+  - Olive: `#5F6C37` (deep: `#2B3318`, soft: `#A3AD7C`, tint: `#EDEFE0`)
+  - Brown: `#7B4A12` (deep: `#3B2208`)
+  - Cream: `#FFF6E5` (sand: `#F7DAA7`, ink: `#241E10`)
+  - Fonts: _Bricolage Grotesque_ (headings) & _DM Sans_ (body)
+  - Motifs: Medical Cross, Paw prints, Warm arches
 - **3D Components**: Strictly inside `components/three/`, loaded via dynamic import (`ssr: false`). Limit 3D to hero and at most one scroll section. Mobile (<768px) must show image fallback; max DPR capped at 1.5.
 - **Motion & Animations**: Respect `prefers-reduced-motion` in all animations. Use 0.6–1.0s `power3.out` curves. Fewer, high-impact animations over excessive motion.
 - **Symptom Checker**: Mandatory disclaimer on all outputs: _"This is not a diagnosis"_.
-- **Images & A11y**: Use `next/image` with WebP format. Ensure keyboard navigability, WCAG AA contrast, and descriptive alt attributes.
+- **Images & A11y**: Use `next/image` with WebP/AVIF format. Ensure keyboard navigability, WCAG AA contrast, and descriptive alt attributes.
 
 ## Quality Bar
 
-- Premium spacing, bold typography hierarchy, refined glassmorphism cards, subtle gold glow highlights.
+- Warm, clinical elegance: bold typography hierarchy, warm glassmorphism cards, subtle warm glow highlights.
 - Verify layouts across responsive breakpoints: 375px (mobile), 768px (tablet), 1440px (desktop).
 
 ## Security & Privacy

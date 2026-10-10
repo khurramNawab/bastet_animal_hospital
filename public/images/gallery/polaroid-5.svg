@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p5-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEFAF3"/>
+      <stop offset="100%" stop-color="#F7DAA7"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="320" fill="url(#p5-bg)" rx="16"/>
+  <!-- Dental Sparkle Emblem -->
+  <g transform="translate(150, 80)">
+    <path d="M50,20 C80,20 90,50 80,90 C70,130 65,160 50,160 C35,160 30,130 20,90 C10,50 20,20 50,20 Z" fill="#7B4A12" opacity="0.85"/>
+    <polygon points="50,45 55,60 70,65 55,70 50,85 45,70 30,65 45,60" fill="#FF751B"/>
+    <polygon points="75,30 78,40 88,43 78,46 75,56 72,46 62,43 72,40" fill="#C2410C"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p3-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF9F5"/>
+      <stop offset="100%" stop-color="#F5E8D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="320" fill="url(#p3-bg)" rx="16"/>
+  <!-- Sparkles & Bubbles -->
+  <circle cx="120" cy="100" r="18" fill="#FFB27A" opacity="0.3"/>
+  <circle cx="280" cy="90" r="24" fill="#FF751B" opacity="0.2"/>
+  <circle cx="260" cy="220" r="15" fill="#A3AD7C" opacity="0.4"/>
+  <!-- Paw Bath Silhouette -->
+  <g transform="translate(160, 100)" fill="#7B4A12">
+    <ellipse cx="40" cy="60" rx="35" ry="25" fill="#A66A2C"/>
+    <!-- Paw prints -->
+    <ellipse cx="25" cy="45" rx="5" ry="8" fill="#7B4A12"/>
+    <ellipse cx="40" cy="40" rx="5.5" ry="9" fill="#7B4A12"/>
+    <ellipse cx="55" cy="45" rx="5" ry="8" fill="#7B4A12"/>
+  </g>
+</svg>

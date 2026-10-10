@@ -1,0 +1,178 @@
+{
+  "symptomChecker": {
+    "title": "Pet Health Symptom Triage",
+    "tagline": "Answer a few guided clinical questions to assess your dog's urgency level.",
+    "disclaimer": "This tool provides triage guidance and care prioritization only. It is NOT a medical diagnosis and cannot replace an in-person clinical examination by a licensed veterinarian.",
+    "needsVetReview": true,
+    "redFlags": [
+      {
+        "id": "breathing",
+        "label": "Severe difficulty breathing, rapid shallow gasping, or persistent choking"
+      },
+      {
+        "id": "collapse",
+        "label": "Sudden collapse, loss of consciousness, or inability to stand"
+      },
+      {
+        "id": "seizures",
+        "label": "Active seizures, continuous tremors, or sudden neurological disorientation"
+      },
+      {
+        "id": "poisoning",
+        "label": "Known or suspected ingestion of poisons (chocolate, rat poison, lilies, human medication, insecticides)"
+      },
+      {
+        "id": "trauma",
+        "label": "Hit by vehicle, major fall, dog attack, or acute physical trauma"
+      },
+      {
+        "id": "bleeding",
+        "label": "Severe or continuous arterial bleeding that does not stop with light pressure"
+      },
+      {
+        "id": "bloat",
+        "label": "Hard, distended swollen belly with unproductive retching / dry heaving (suspected GDV)"
+      },
+      {
+        "id": "gums",
+        "label": "Pale white, blue, purple, or brick-red gum discoloration"
+      },
+      {
+        "id": "urinary",
+        "label": "Straining repeatedly without passing any urine (urinary blockage)"
+      },
+      {
+        "id": "snakebite",
+        "label": "Suspected venomous snake bite or rapid facial swelling from insect anaphylaxis"
+      },
+      {
+        "id": "heatstroke",
+        "label": "Severe heatstroke symptoms (excessive panting, thick drool, glazed eyes, elevated body temp)"
+      }
+    ],
+    "questions": [
+      {
+        "id": "duration",
+        "title": "Symptom Duration",
+        "prompt": "How long have you noticed these abnormal symptoms?",
+        "options": [
+          { "id": "d_hours", "label": "Less than 12 hours (Sudden onset)", "score": 2 },
+          { "id": "d_1_2_days", "label": "1 to 2 days", "score": 3 },
+          { "id": "d_3_7_days", "label": "3 to 7 days", "score": 2 },
+          { "id": "d_week_plus", "label": "More than 1 week (Chronic / gradual)", "score": 1 }
+        ]
+      },
+      {
+        "id": "appetite",
+        "title": "Appetite & Hydration",
+        "prompt": "Is your dog eating and drinking water normally?",
+        "options": [
+          { "id": "ap_normal", "label": "Normal appetite and drinking well", "score": 0 },
+          { "id": "ap_reduced", "label": "Eating less than usual, but still drinking water", "score": 2 },
+          { "id": "ap_none", "label": "Refusing all food and water for 24+ hours", "score": 6 }
+        ]
+      },
+      {
+        "id": "digestive",
+        "title": "Vomiting & Bowel Movements",
+        "prompt": "Are there any signs of vomiting, diarrhea, or digestive distress?",
+        "options": [
+          { "id": "dg_none", "label": "No vomiting or diarrhea", "score": 0 },
+          { "id": "dg_mild", "label": "1 or 2 mild episodes, but alert otherwise", "score": 3 },
+          { "id": "dg_frequent", "label": "Repeated vomiting or watery diarrhea (>3 times today)", "score": 7 },
+          { "id": "dg_blood", "label": "Vomit contains blood / coffee-ground specks or black tarry stools", "score": 10 }
+        ]
+      },
+      {
+        "id": "energy",
+        "title": "Energy & Alertness Level",
+        "prompt": "How would you describe your dog's activity and alertness?",
+        "options": [
+          { "id": "en_bright", "label": "Bright, alert, wagging tail, and responsive", "score": 0 },
+          { "id": "en_quiet", "label": "Quieter than usual / sleeping more", "score": 2 },
+          { "id": "en_lethargic", "label": "Significantly lethargic, weak, and reluctant to move", "score": 6 }
+        ]
+      },
+      {
+        "id": "pain",
+        "title": "Pain, Limping & Discomfort",
+        "prompt": "Does your dog show signs of pain, limping, or vocalizing when touched?",
+        "options": [
+          { "id": "pn_none", "label": "No obvious pain, normal posture", "score": 0 },
+          { "id": "pn_mild", "label": "Mild limp or stiffness, still bearing weight", "score": 2 },
+          { "id": "pn_severe", "label": "Cannot bear weight on a leg, whimpering, or shivering from pain", "score": 6 }
+        ]
+      },
+      {
+        "id": "age_group",
+        "title": "Companion Age Group",
+        "prompt": "What is your dog's current life stage?",
+        "options": [
+          { "id": "ag_puppy", "label": "Puppy (Under 6 months old - higher vulnerability)", "score": 2 },
+          { "id": "ag_adult", "label": "Adult (1 to 7 years old)", "score": 0 },
+          { "id": "ag_senior", "label": "Senior (8+ years old - delicate constitution)", "score": 2 }
+        ]
+      }
+    ],
+    "urgencyLevels": {
+      "emergency": {
+        "id": "emergency",
+        "title": "Immediate Emergency Clinic Visit Needed",
+        "subtitle": "Your pet exhibits symptoms that can be life-threatening if delayed. Please proceed to Bastet Emergency Hospital immediately.",
+        "badge": "Immediate Emergency",
+        "level": 4,
+        "actionPrimary": "Call 24/7 Emergency Line",
+        "actionSecondary": "Open Directions (Google Maps)",
+        "guidance": [
+          "Keep your pet calm and warm during transport. Limit movement as much as possible.",
+          "If poisoning is suspected, bring the packaging, chemical container, or plant sample with you.",
+          "Do NOT force feed, induce vomiting, or apply tourniquets without direct veterinary instruction.",
+          "Do NOT administer human painkillers (paracetamol, ibuprofen, and aspirin are highly toxic to dogs)."
+        ]
+      },
+      "today": {
+        "id": "today",
+        "title": "Same-Day Veterinary Examination Recommended",
+        "subtitle": "Your pet should be evaluated by a veterinarian within the next 12 to 24 hours to prevent complications.",
+        "badge": "Urgent Care (12-24h)",
+        "level": 3,
+        "actionPrimary": "Book Same-Day Visit",
+        "actionSecondary": "Consult on WhatsApp",
+        "guidance": [
+          "Offer small, controlled sips of fresh water at room temperature. Avoid large gulps.",
+          "Rest in a quiet, comfortable indoor space away from stairs, draft, or direct heat.",
+          "Record short videos of abnormal behavior or posture to show the clinical doctor.",
+          "If your pet collapses or breathing becomes labored, proceed immediately to the emergency line."
+        ]
+      },
+      "soon": {
+        "id": "soon",
+        "title": "Outpatient Veterinary Consultation Recommended",
+        "subtitle": "Schedule an examination within 1 to 3 days for diagnostic workup and targeted treatment.",
+        "badge": "Consultation (1-3 Days)",
+        "level": 2,
+        "actionPrimary": "Schedule Appointment",
+        "actionSecondary": "View Doctor Availability",
+        "guidance": [
+          "Maintain their standard balanced diet; avoid introducing sudden new foods or table scraps.",
+          "Limit strenuous exercise, high jumps, or prolonged outdoor walks until examined.",
+          "Check temperature, appetite, and stool consistency twice daily and note any changes."
+        ]
+      },
+      "monitor": {
+        "id": "monitor",
+        "title": "At-Home Observation & Care",
+        "subtitle": "Symptoms appear mild at this stage. Keep a close watch over your companion at home over the next 24 to 48 hours.",
+        "badge": "Home Monitoring",
+        "level": 1,
+        "actionPrimary": "Book Routine Wellness Check",
+        "actionSecondary": "Browse Preventive Care Tips",
+        "guidance": [
+          "Ensure constant access to fresh, clean drinking water and a quiet resting spot.",
+          "Maintain their regular feeding routine without heavy treats or rich foods.",
+          "If symptoms worsen, new signs emerge, or distress continues past 48 hours, consult a veterinarian promptly."
+        ]
+      }
+    }
+  }
+}

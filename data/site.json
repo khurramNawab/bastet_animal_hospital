@@ -2,24 +2,44 @@
   "name": "Bastet Small Animal Hospital",
   "tagline": "Where Every Paw Gets Royal Care",
   "city": "Kolkata",
-  "address": "24/B, Park Street Area, Kolkata 700016",
-  "phone": "+91 90000 00000",
-  "whatsapp": "919000000000",
-  "email": "hello@bastetsmallanimalhospital.com",
+  "address": "Rash Behari Avenue, Kolkata",
+  "phone": "+91 91473 27256",
+  "whatsapp": "919147327250",
+  "email": "bastetsmallanimalhospital@gmail.com",
+  "isDummy": false,
   "timings": {
     "weekdays": "Mon - Sat: 9:00 AM - 9:00 PM",
     "sunday": "Sun: 10:00 AM - 2:00 PM",
-    "emergency": "24x7 Emergency Care Available"
+    "emergency": "24x7 Emergency Care Active"
   },
+  "openingHours": {
+    "monday": { "open": "09:00", "close": "21:00", "label": "9:00 AM – 9:00 PM" },
+    "tuesday": { "open": "09:00", "close": "21:00", "label": "9:00 AM – 9:00 PM" },
+    "wednesday": { "open": "09:00", "close": "21:00", "label": "9:00 AM – 9:00 PM" },
+    "thursday": { "open": "09:00", "close": "21:00", "label": "9:00 AM – 9:00 PM" },
+    "friday": { "open": "09:00", "close": "21:00", "label": "9:00 AM – 9:00 PM" },
+    "saturday": { "open": "09:00", "close": "21:00", "label": "9:00 AM – 9:00 PM" },
+    "sunday": { "open": "10:00", "close": "14:00", "label": "10:00 AM – 2:00 PM" }
+  },
+  "slotsConfig": {
+    "durationMinutes": 30,
+    "bookingWindowDays": 30,
+    "minNoticeHours": 2,
+    "maxPerSlot": 2
+  },
+  "closedDates": [],
+  "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.597816823903!2d88.3512345!3d22.5187123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02772e2d83b9e7%3A0x6b4ef82319ecfa38!2sRash%20Behari%20Ave%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
+  "mapLink": "https://maps.google.com/?q=Rash+Behari+Avenue+Kolkata+West+Bengal",
+  "emergencyNote": "For critical emergencies (difficulty breathing, sudden collapse, heavy bleeding, poisoning), do not wait for an online booking request. Proceed immediately to our 24/7 Emergency Unit or call our emergency hotline.",
   "stats": [
     {
-      "value": 5000,
+      "value": 500,
       "suffix": "+",
       "label": "Happy Pets"
     },
     {
-      "value": 15,
-      "suffix": "+",
+      "value": 2,
+      "suffix": "+ Years",
       "label": "Years of Care"
     },
     {
@@ -47,12 +67,16 @@
       "href": "/doctors"
     },
     {
-      "label": "Book",
-      "href": "/book"
+      "label": "Tools",
+      "href": "/tools"
     },
     {
-      "label": "Tips",
-      "href": "/tips"
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "Book",
+      "href": "/book"
     },
     {
       "label": "Contact",

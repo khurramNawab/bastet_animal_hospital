@@ -1,0 +1,248 @@
+'use client';
+
+import React, { useState, useEffect, useId } from 'react';
+import Link from 'next/link';
+import { Sparkles, Heart, ArrowRight, Info } from 'lucide-react';
+import { calcHumanAge } from '@/lib/tools/age';
+import { cn } from '@/lib/cn';
+import type { AgeCalculatorConfig, DogSizeId } from '@/lib/types';
+
+interface AgeCalculatorProps {
+  config: AgeCalculatorConfig;
+}
+
+export function AgeCalculator({ config }: AgeCalculatorProps) {
+  const [dogName, setDogName] = useState('');
+  const [years, setYears] = useState<number | string>(3);
+  const [months, setMonths] = useState<number | string>(0);
+  const [size, setSize] = useState<DogSizeId>('medium');
+  const [displayNumber, setDisplayNumber] = useState(29);
+  const [isReducedMotion, setIsReducedMotion] = useState(false);
+
+  const nameInputId = useId();
+  const yearsInputId = useId();
+  const monthsInputId = useId();
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setIsReducedMotion(motionQuery.matches);
+  }, []);
+
+  const numYears = Number(years) || 0;
+  const numMonths = Number(months) || 0;
+
+  const result = calcHumanAge(
+    {
+      years: numYears,
+      months: numMonths,
+      size,
+    },
+    config,
+  );
+
+  const previousNumberRef = React.useRef(29);
+
+  // Animated Count-Up for calculated human age (disabled if prefers-reduced-motion)
+  useEffect(() => {
+    if (!result.isValid) return;
+
+    if (isReducedMotion) {
+      setDisplayNumber(result.roundedHumanAge);
+      previousNumberRef.current = result.roundedHumanAge;
+      return;
+    }
+
+    const startVal = previousNumberRef.current;
+    const endVal = result.roundedHumanAge;
+    const duration = 500;
+    const startTime = performance.now();
+
+    let frameId: number;
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const val = Math.round(startVal + (endVal - startVal) * ease);
+      setDisplayNumber(val);
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(step);
+      } else {
+        setDisplayNumber(endVal);
+        previousNumberRef.current = endVal;
+      }
+    };
+
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [result.roundedHumanAge, result.isValid, isReducedMotion]);
+
+  const displayName = dogName.trim() || 'Your companion';
+
+  return (
+    <div className="w-full flex flex-col gap-6 text-ink dark:text-cream">
+      {/* Intro Subtitle */}
+      <div>
+        <p className="text-sm text-ink/75 dark:text-cream/75 leading-relaxed font-body">
+          {config.tagline}
+        </p>
+      </div>
+
+      {/* Form Controls */}
+      <div className="flex flex-col gap-5">
+        {/* Optional Dog Name */}
+        <div>
+          <label
+            htmlFor={nameInputId}
+            className="block text-xs font-semibold uppercase tracking-wider text-olive-deep dark:text-sand mb-1.5 font-heading"
+          >
+            Dog&apos;s Name <span className="text-ink/40 dark:text-cream/40 font-normal lowercase font-body">(optional)</span>
+          </label>
+          <input
+            id={nameInputId}
+            type="text"
+            value={dogName}
+            onChange={(e) => setDogName(e.target.value)}
+            placeholder="e.g. Bruno or Bella"
+            maxLength={30}
+            className="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-olive-950 border border-sand/60 text-ink dark:text-cream placeholder:text-ink/30 focus:border-orange-deep focus:ring-2 focus:ring-orange/30 outline-none transition-all text-sm font-body"
+          />
+        </div>
+
+        {/* Size Selection Chips */}
+        <div>
+          <span className="block text-xs font-semibold uppercase tracking-wider text-olive-deep dark:text-sand mb-2 font-heading">
+            Size Category
+          </span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            {config.sizes.map((s) => {
+              const isSelected = size === s.id;
+              return (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => setSize(s.id)}
+                  className={cn(
+                    'p-3 rounded-2xl border text-left transition-all duration-150 flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-orange-deep',
+                    isSelected
+                      ? 'border-orange-deep bg-orange/15 shadow-sm ring-2 ring-orange-deep/40'
+                      : 'border-sand/50 bg-white/70 dark:bg-olive-950/60 hover:border-orange hover:bg-white dark:hover:bg-olive-950',
+                  )}
+                >
+                  <span className="font-heading font-bold text-sm text-olive-deep dark:text-cream">
+                    {s.label}
+                  </span>
+                  <span className="text-[11px] text-orange-deep dark:text-sand font-medium mt-0.5 font-body">
+                    {s.weightRange}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Age Inputs: Years & Months */}
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label
+              htmlFor={yearsInputId}
+              className="block text-xs font-semibold uppercase tracking-wider text-olive-deep dark:text-sand mb-1.5 font-heading"
+            >
+              Age (Years)
+            </label>
+            <input
+              id={yearsInputId}
+              type="number"
+              min={0}
+              max={30}
+              value={years}
+              onChange={(e) => setYears(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-olive-950 border border-sand/60 text-ink dark:text-cream focus:border-orange-deep focus:ring-2 focus:ring-orange/30 outline-none transition-all text-base font-bold font-heading"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor={monthsInputId}
+              className="block text-xs font-semibold uppercase tracking-wider text-olive-deep dark:text-sand mb-1.5 font-heading"
+            >
+              Months (0 – 11)
+            </label>
+            <input
+              id={monthsInputId}
+              type="number"
+              min={0}
+              max={11}
+              value={months}
+              onChange={(e) => setMonths(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-olive-950 border border-sand/60 text-ink dark:text-cream focus:border-orange-deep focus:ring-2 focus:ring-orange/30 outline-none transition-all text-base font-bold font-heading"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Result Card */}
+      {result.isValid ? (
+        <div className="mt-2 p-6 rounded-2xl bg-olive-deep text-cream border border-sand/40 shadow-xl relative overflow-hidden flex flex-col gap-4">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <span className="text-xs uppercase tracking-widest text-sand font-bold font-heading block mb-1">
+                Estimated Equivalent
+              </span>
+              <div className="font-heading text-4xl sm:text-5xl font-extrabold text-orange-soft tabular-nums flex items-baseline gap-2">
+                <span>≈ {displayNumber}</span>
+                <span className="text-lg sm:text-xl text-cream font-medium font-body">
+                  human years
+                </span>
+              </div>
+            </div>
+
+            {result.lifeStage && (
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sand/20 border border-sand/40 text-sand text-xs font-semibold font-heading">
+                <Sparkles className="w-3.5 h-3.5 text-orange" />
+                <span>{result.lifeStage.label}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Care Hint for Life Stage */}
+          {result.careHint && (
+            <div className="p-3.5 rounded-xl bg-olive-950/70 border border-sand/30 flex items-start gap-3">
+              <Heart className="w-4 h-4 text-orange shrink-0 mt-0.5" />
+              <p className="text-xs text-cream/90 leading-relaxed font-body">
+                <strong className="font-semibold text-orange-soft">{displayName}:</strong>{' '}
+                {result.careHint}
+              </p>
+            </div>
+          )}
+
+          {/* Soft CTA */}
+          <div className="pt-2 border-t border-sand/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-[11px] text-cream/60 font-body">
+              Personalized longevity starts with proactive wellness care.
+            </p>
+
+            <Link
+              href="/book"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange hover:bg-orange-soft text-ink font-bold text-xs uppercase tracking-wider transition-all shadow-warm-glow shrink-0 font-heading"
+            >
+              <span>Book Wellness Check</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div className="p-4 rounded-xl bg-danger/10 border border-danger/30 text-danger text-xs flex items-center gap-2 font-medium">
+          <Info className="w-4 h-4 shrink-0" />
+          <span>{result.errorMessage}</span>
+        </div>
+      )}
+
+      {/* Approximate Disclaimer Note */}
+      <div className="flex items-start gap-2 text-[11px] text-ink/60 dark:text-cream/60 leading-relaxed font-body">
+        <Info className="w-3.5 h-3.5 text-orange-deep shrink-0 mt-0.5" />
+        <p>{config.disclaimer}</p>
+      </div>
+    </div>
+  );
+}

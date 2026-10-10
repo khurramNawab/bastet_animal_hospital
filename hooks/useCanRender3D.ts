@@ -28,8 +28,7 @@ export function useCanRender3D(): Render3DCapabilities {
     try {
       const canvas = document.createElement('canvas');
       hasWebGL = Boolean(
-        window.WebGLRenderingContext &&
-          (canvas.getContext('webgl2') || canvas.getContext('webgl')),
+        window.WebGLRenderingContext && (canvas.getContext('webgl2') || canvas.getContext('webgl')),
       );
     } catch {
       hasWebGL = false;

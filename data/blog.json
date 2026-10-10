@@ -1,0 +1,351 @@
+[
+  {
+    "id": "dog-vaccination-schedule-india",
+    "slug": "dog-vaccination-schedule-india",
+    "title": "Dog Vaccination Schedule in India: A Simple Guide",
+    "description": "A clear, comprehensive guide to essential puppy and adult dog vaccines in India, including DHPPiL, Rabies, Kennel Cough, and booster timelines.",
+    "publishedAt": "2026-03-15",
+    "updatedAt": "2026-03-15",
+    "readingMinutes": 4,
+    "category": "Preventive Care",
+    "tags": ["Vaccination", "Puppy Care", "Rabies", "Immunization"],
+    "heroAlt": "Veterinarian examining a healthy dog before vaccination in clinic",
+    "needsVetReview": true,
+    "isDraftContent": true,
+    "relatedServiceSlugs": ["routine-preventive-care", "diagnostics-lab"],
+    "sections": [
+      {
+        "type": "p",
+        "content": "Vaccinating your dog is the single most effective way to prevent fatal infectious diseases in India. From bustling city parks in Kolkata to quiet residential neighbourhoods, domestic dogs encounter viral and bacterial pathogens daily. Establishing a complete immunization schedule during puppyhood and maintaining annual boosters ensures your pet develops durable antibodies throughout life."
+      },
+      {
+        "type": "h2",
+        "content": "Core Vaccines Every Indian Dog Needs"
+      },
+      {
+        "type": "p",
+        "content": "Veterinary clinical guidelines in India classify canine immunizations into core (mandatory for all dogs) and non-core (lifestyle and risk-based) vaccines. Core vaccines protect against highly contagious illnesses with high fatality rates."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "DHPPiL (6-in-1 or 7-in-1): Protects against Canine Distemper, Hepatitis (Adenovirus), Parvovirus, Parainfluenza, and Leptospirosis.",
+          "Anti-Rabies Vaccine (ARV): Legally required in India, rabies is a 100% fatal zoonotic disease that can transmit to humans.",
+          "Canine Coronavirus Vaccine: Often administered alongside initial puppy combination shots to safeguard digestive health.",
+          "Bordetella (Kennel Cough): Strongly advised for dogs visiting boarding kennels, grooming salons, or high-density dog parks."
+        ]
+      },
+      {
+        "type": "h2",
+        "content": "Typical Puppy Vaccination Timeline"
+      },
+      {
+        "type": "p",
+        "content": "Maternal antibodies received from mother's milk gradually decrease between 6 to 8 weeks of age. A structured puppy series is required to stimulate their active immune response:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Age 6 to 8 Weeks: First combination vaccine dose (DHPPi/Puppy DP) along with comprehensive deworming.",
+          "Age 10 to 12 Weeks: Second combination booster (7-in-1) and first Kennel Cough / Coronavirus dose if indicated.",
+          "Age 14 to 16 Weeks: Third 7-in-1 combination booster and First Anti-Rabies vaccination.",
+          "Age 18 to 20 Weeks: Anti-Rabies booster (many veterinarians administer an initial booster 3 to 4 weeks after the first ARV)."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "Clinical Hygiene Rule",
+        "content": "Do not take your puppy to public parks or allow contact with unvaccinated dogs until at least two weeks after their final 16-week booster shot."
+      },
+      {
+        "type": "h2",
+        "content": "Adult Dog Annual Boosters"
+      },
+      {
+        "type": "p",
+        "content": "Immunity does not last forever. Adult dogs in India require annual booster shots for both the multi-disease combination vaccine and Rabies. Annual health reviews provide the ideal opportunity for your veterinarian to conduct physical wellness checks, evaluate dental health, and update weight management plans."
+      },
+      {
+        "type": "h2",
+        "content": "Post-Vaccination Care & Normal Reactions"
+      },
+      {
+        "type": "p",
+        "content": "Following a vaccine dose, it is normal for dogs to feel mildly sleepy or exhibit slight tenderness around the injection site for 24 to 48 hours. Provide a warm, quiet resting area and ensure fresh water is readily accessible."
+      },
+      {
+        "type": "p",
+        "content": "However, if you observe facial swelling, hives, persistent vomiting, or extreme lethargy, contact your veterinary hospital immediately, as these indicate rare allergic hypersensitivity that requires prompt medical management."
+      },
+      {
+        "type": "callout",
+        "title": "Medical Disclaimer",
+        "content": "This schedule represents general veterinary guidance. The exact vaccine protocol, brand, and timing may vary based on your dog's individual health history, maternal immunity, and regional risk factors. Always consult your attending veterinarian for a tailored immunization chart."
+      }
+    ]
+  },
+  {
+    "id": "monsoon-pet-care-kolkata",
+    "slug": "monsoon-pet-care-kolkata",
+    "title": "Monsoon Care for Dogs in Kolkata: A Clinical Guide",
+    "description": "Expert veterinary advice on managing skin infections, wet paws, ear dampness, tick surges, and waterborne illnesses during Kolkata's rainy season.",
+    "publishedAt": "2026-04-02",
+    "updatedAt": "2026-04-02",
+    "readingMinutes": 5,
+    "category": "Seasonal Health",
+    "tags": ["Monsoon", "Kolkata", "Skin Care", "Tick Prevention", "Leptospirosis"],
+    "heroAlt": "Golden retriever walking safely during rainy season with clean dry paws",
+    "needsVetReview": true,
+    "isDraftContent": true,
+    "relatedServiceSlugs": ["canine-dermatology-allergy", "routine-preventive-care"],
+    "sections": [
+      {
+        "type": "p",
+        "content": "Kolkata's monsoon season brings welcoming relief from summer heat, but the intense humidity, waterlogged roads, and damp ambient conditions create substantial health hazards for domestic pets. From fungal dermatitis to dangerous waterborne bacterial infections, canine clinical visits spike significantly between June and September."
+      },
+      {
+        "type": "h2",
+        "content": "1. Pododermatitis and Wet Paw Hygiene"
+      },
+      {
+        "type": "p",
+        "content": "Walking through puddles on Kolkata streets exposes canine paws to bacteria, dirty sewage runoff, and fungal spores. Moisture trapped between the paw pads and toes frequently causes pododermatitis—an uncomfortable inflammation characterized by constant licking, redness, and foul odor."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Wash paws with plain clean water immediately after every outdoor walk.",
+          "Dry thoroughly with a clean microfiber towel, paying special attention between every toe.",
+          "Trim excess interdigital hair to prevent damp mats from retaining water.",
+          "Never allow your dog to chew raw, inflamed paw pads; consult your vet for protective topical washes."
+        ]
+      },
+      {
+        "type": "h2",
+        "content": "2. Ear Moisture and Otitis Externa"
+      },
+      {
+        "type": "p",
+        "content": "Breeds with pendulous, floppy ears (such as Golden Retrievers, Labradors, Cocker Spaniels, and Beagles) have limited ear canal air circulation. High monsoon humidity creates a perfect breeding ground for Malassezia yeast and bacterial ear infections."
+      },
+      {
+        "type": "p",
+        "content": "Check your dog's ears daily for dark brown discharge, sour odor, or frequent head-shaking. Use only veterinary-approved ear cleansers and never insert cotton buds into the ear canal."
+      },
+      {
+        "type": "h2",
+        "content": "3. Leptospirosis and Water Safety"
+      },
+      {
+        "type": "p",
+        "content": "Leptospirosis is a serious bacterial disease shed in rodent urine that contaminates standing monsoon floodwater. Dogs that wade through or drink from stagnant street water can contract the bacteria through mucous membranes or small skin abrasions, potentially causing acute kidney or liver failure."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Keep Leptospirosis vaccinations (included in standard 7-in-1 combo shots) up to date.",
+          "Never let your pet drink from street puddles or open drains during walks.",
+          "Provide fresh, boiled or filtered drinking water at home in sanitized stainless steel bowls."
+        ]
+      },
+      {
+        "type": "h2",
+        "content": "4. Dietary Adjustments & Indoor Exercise"
+      },
+      {
+        "type": "p",
+        "content": "Because rainy days restrict outdoor running, sedentary pets burn fewer calories and are prone to digestive sluggishness. Adjust food portions slightly and introduce indoor scent games, puzzle feeders, and gentle obedience training to keep them mentally stimulated."
+      },
+      {
+        "type": "h2",
+        "content": "5. Monsoon Tick and Flea Surge"
+      },
+      {
+        "type": "p",
+        "content": "Monsoon warmth and high humidity trigger rapid hatching of tick and flea eggs hidden in domestic carpets, outdoor vegetation, and wall crevices. Regular use of veterinary-prescribed spot-on treatments or oral chewables is vital to protect against severe blood loss and vector-borne tick fever throughout the wet season."
+      },
+      {
+        "type": "callout",
+        "title": "Medical Disclaimer",
+        "content": "This guide provides preventive wellness information. If your pet exhibits persistent scratching, foul ear odor, lethargy, fever, or vomiting, visit a licensed veterinary hospital for diagnostic evaluation and targeted treatment."
+      }
+    ]
+  },
+  {
+    "id": "signs-dog-needs-emergency-vet",
+    "slug": "signs-dog-needs-emergency-vet",
+    "title": "Signs Your Dog Needs an Emergency Vet Immediately",
+    "description": "Critical red flag symptoms that require instant veterinary trauma intervention: respiratory distress, bloat, collapse, toxic ingestion, and acute trauma.",
+    "publishedAt": "2026-04-18",
+    "updatedAt": "2026-04-18",
+    "readingMinutes": 5,
+    "category": "Emergency & Trauma",
+    "tags": ["Emergency", "Triage", "First Aid", "Trauma", "Critical Care"],
+    "heroAlt": "Veterinary critical care team monitoring a patient in emergency hospital suite",
+    "needsVetReview": true,
+    "isDraftContent": true,
+    "relatedServiceSlugs": ["emergency-critical-care", "digital-xray-ultrasound", "advanced-soft-tissue-surgery"],
+    "sections": [
+      {
+        "type": "p",
+        "content": "In veterinary emergency medicine, minutes can mean the difference between full recovery and irreversible organ damage. While some pet health changes can wait for a scheduled OPD consultation, critical physiological disruptions demand instant medical triage and emergency hospital admission."
+      },
+      {
+        "type": "h2",
+        "content": "1. Severe Respiratory Distress"
+      },
+      {
+        "type": "p",
+        "content": "Difficulty breathing is one of the highest-priority veterinary emergencies. If your dog exhibits open-mouthed gasping, extended neck posture, exaggerated abdominal effort to draw breath, or pale/blue-tinted gums and tongue, seek emergency oxygenation therapy immediately."
+      },
+      {
+        "type": "h2",
+        "content": "2. Distended, Hard Abdomen & Unproductive Retching (Bloat / GDV)"
+      },
+      {
+        "type": "p",
+        "content": "Gastric Dilatation-Volvulus (GDV), commonly known as bloat, is a life-threatening emergency primarily affecting deep-chested large breeds. The stomach fills with gas and twists on its axis, cutting off blood flow to vital abdominal organs."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Unproductive retching or attempting to vomit with nothing coming up.",
+          "Visible swelling, firmness, and drum-like tautness in the abdomen.",
+          "Restless pacing, heavy panting, drooling, and inability to lie down comfortably.",
+          "Sudden weakness and rapid heart rate as shock develops."
+        ]
+      },
+      {
+        "type": "h2",
+        "content": "3. Sudden Collapse, Inability to Stand, or Seizures"
+      },
+      {
+        "type": "p",
+        "content": "A dog that collapses suddenly, loses consciousness, cannot support weight on hind limbs, or experiences tremors lasting more than two minutes requires urgent neurological and cardiovascular stabilization. Multiple seizures occurring within a single 24-hour window (cluster seizures) represent a medical crisis."
+      },
+      {
+        "type": "h2",
+        "content": "4. Suspected Toxin Ingestion"
+      },
+      {
+        "type": "p",
+        "content": "Common household substances can be lethal to dogs within hours. Never induce vomiting at home with salt or household chemicals, as this can cause caustic burns and severe pulmonary aspiration."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Human medications (Paracetamol, Ibuprofen, anti-depressants, blood pressure pills).",
+          "Food toxins (Dark chocolate, grapes, raisins, onions, garlic, xylitol artificial sweetener).",
+          "Chemical poisons (Rat poison, insecticides, snail bait, ethylene glycol antifreeze)."
+        ]
+      },
+      {
+        "type": "h2",
+        "content": "5. Heatstroke and Thermal Overload"
+      },
+      {
+        "type": "p",
+        "content": "During peak summer months in Kolkata, high heat combined with humidity can quickly trigger heatstroke. Brachycephalic (flat-faced) breeds like Pugs, Boxers, and Bulldogs are at extreme risk. Symptoms include frantic, excessive panting, thick sticky saliva, bright red or purple gums, unsteadiness, and sudden vomiting or diarrhea."
+      },
+      {
+        "type": "p",
+        "content": "Begin emergency cooling by applying room-temperature water to the paws, groin, and neck while en route to the ICU. Never use ice water or ice baths, as rapid vasoconstriction traps heat inside vital internal organs."
+      },
+      {
+        "type": "callout",
+        "title": "Emergency Transport Rule",
+        "content": "Call the emergency hospital desk while en route. Notifying the medical team allows technicians to prepare an oxygen cage, intravenous catheters, and diagnostic equipment before your vehicle arrives."
+      },
+      {
+        "type": "callout",
+        "title": "Medical Disclaimer",
+        "content": "This article is for emergency awareness and cannot replace clinical examination. If you observe any of the symptoms above, do not wait for online replies—transport your pet to the nearest emergency veterinary facility immediately."
+      }
+    ]
+  },
+  {
+    "id": "tick-fever-prevention-dogs",
+    "slug": "tick-fever-prevention-dogs",
+    "title": "Tick and Fever Prevention for Dogs in Humid Climates",
+    "description": "Understanding canine vector-borne diseases (Ehrlichiosis, Babesiosis), safe veterinary spot-ons, daily tick checks, and life-saving early detection.",
+    "publishedAt": "2026-05-10",
+    "updatedAt": "2026-05-10",
+    "readingMinutes": 5,
+    "category": "Preventive Care",
+    "tags": ["Ticks", "Ehrlichia", "Babesia", "Parasite Control", "Fever"],
+    "heroAlt": "Close up of veterinarian checking a dog's coat and ears for ticks",
+    "needsVetReview": true,
+    "isDraftContent": true,
+    "relatedServiceSlugs": ["diagnostics-lab", "routine-preventive-care"],
+    "sections": [
+      {
+        "type": "p",
+        "content": "Warm, humid climatic conditions across Eastern India foster high populations of the brown dog tick (Rhipicephalus sanguineus). Beyond causing localized skin irritation and anemia, ticks serve as biological vectors for dangerous microscopic blood parasites that cause Canine Tick Fever."
+      },
+      {
+        "type": "h2",
+        "content": "Common Vector-Borne Tick Diseases in India"
+      },
+      {
+        "type": "p",
+        "content": "When an infected tick attaches and feeds on your dog, it transmits protozoal and rickettsial organisms directly into the bloodstream:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Canine Ehrlichiosis: Caused by Ehrlichia canis, which attacks white blood cells and bone marrow, leading to severe platelet depletion.",
+          "Canine Babesiosis: Caused by Babesia gibsoni or Babesia canis, which invade and destroy red blood cells, causing acute hemolytic anemia and jaundice.",
+          "Anaplasmosis: Bacterial infection affecting platelets and joints, resulting in lethargy and shifting limb lameness."
+        ]
+      },
+      {
+        "type": "h2",
+        "content": "Recognizing Early Warning Signs"
+      },
+      {
+        "type": "p",
+        "content": "Tick fever often begins insidiously. Pet parents frequently mistake initial signs for mild exhaustion or seasonal loss of appetite. Watch closely for:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Recurrent high fever (body temperature exceeding 103.5°F / 39.7°C).",
+          "Pale or yellowish gums, inner eyelids, and tongue.",
+          "Unexplained lethargy, weakness, and reluctance to walk or play.",
+          "Nosebleeds (epistaxis), blood spots on skin or gums (petechiae), or dark reddish urine.",
+          "Swollen lymph nodes and stiff, painful gait."
+        ]
+      },
+      {
+        "type": "h2",
+        "content": "Safe & Effective Prevention Strategies"
+      },
+      {
+        "type": "p",
+        "content": "Preventing tick attachment is far easier, safer, and less expensive than treating advanced hematological infections:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Modern Oral Chewables & Spot-Ons: Modern isoxazoline class tablets and veterinary topical spot-ons provide sustained 30-day to 90-day systemic protection.",
+          "Daily Hands-On Checks: Run your fingers through your dog's coat daily. Check high-risk zones: inside ear flaps, between toes, under armpits, around collar area, and beneath tail.",
+          "Environmental Sanitation: Ticks live in wall crevices and garden grass. Wash pet bedding regularly in hot water and consult pest control for pet-safe yard treatments.",
+          "Routine Blood Screening: Request a complete blood count (CBC) and blood smear or 4Dx snap test during routine veterinary wellness visits."
+        ]
+      },
+      {
+        "type": "h2",
+        "content": "Early Clinical Diagnosis & Treatment"
+      },
+      {
+        "type": "p",
+        "content": "When detected early via specialized in-house PCR testing or vector antibody panels, tick fever responds effectively to targeted antibiotic and antiprotozoal regimens prescribed by your veterinary physician. Delaying treatment risks progressive thrombocytopenia (low platelet count) and severe internal hemorrhage."
+      },
+      {
+        "type": "callout",
+        "title": "Medical Disclaimer",
+        "content": "Never administer human fever medications (such as paracetamol or aspirin) to dogs, as they are acutely toxic to canine organs. If your dog has a fever or known tick exposure, obtain a diagnostic blood test from a licensed veterinary hospital immediately."
+      }
+    ]
+  }
+]

@@ -1,29 +1,62 @@
 [
   {
     "id": "dr-ananya-sen",
+    "slug": "dr-ananya-sen",
     "name": "Dr. Ananya Sen",
-    "role": "Head Veterinarian & Surgeon",
+    "role": "Head Veterinarian & Chief Surgeon",
     "yearsOfExperience": 12,
+    "qualifications": "BVSc & AH, MVSc (Veterinary Surgery & Radiology)",
+    "languages": ["English", "Bengali", "Hindi"],
+    "specialties": [
+      "Soft Tissue Surgery",
+      "Critical Trauma Resuscitation",
+      "Orthopedic Diagnostics",
+      "Oncological Surgery"
+    ],
     "bio": "Specialized in complex soft tissue surgery and critical care with over a decade of clinical excellence in Kolkata.\nDedicated to gentle handling and personalized surgical recovery programs.",
+    "longBio": "Dr. Ananya Sen graduated with honors from West Bengal University of Animal and Fishery Sciences and completed advanced surgical training in Bangalore. Over the past 12 years in Kolkata, she has performed over 3,500 successful surgical procedures. She believes in fear-free clinical handling and is dedicated to elevating companion animal critical trauma care.",
     "image": "/images/doctor-placeholder.svg",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "isDummy": true
   },
   {
     "id": "dr-rohit-banerjee",
+    "slug": "dr-rohit-banerjee",
     "name": "Dr. Rohit Banerjee",
-    "role": "Dog Dermatology & Nutrition Specialist",
+    "role": "Dog Dermatology & Clinical Nutritionist",
     "yearsOfExperience": 8,
+    "qualifications": "BVSc & AH, PG Dip (Veterinary Dermatology)",
+    "languages": ["English", "Bengali", "Hindi"],
+    "specialties": [
+      "Canine Atopic Dermatitis",
+      "Chronic Ear Canal Therapy",
+      "Therapeutic Allergy Diets",
+      "Autoimmune Skin Disorders"
+    ],
     "bio": "Expert in canine allergies, chronic skin conditions, and clinical dietary formulations for all canine life stages.\nFocused on preventive wellness and holistic skin restoration therapies.",
+    "longBio": "Dr. Rohit Banerjee is an esteemed clinical veterinary dermatologist known for resolving chronic canine allergic dermatitis. With specialized training in cytopathology and microbiome-focused nutrition, Dr. Banerjee formulates customized recovery diets that address the root causes of canine autoimmune and environmental allergies.",
     "image": "/images/doctor-placeholder.svg",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "isDummy": true
   },
   {
     "id": "dr-meera-das",
+    "slug": "dr-meera-das",
     "name": "Dr. Meera Das",
     "role": "Dental & Diagnostic Imaging Consultant",
     "yearsOfExperience": 6,
+    "qualifications": "BVSc & AH, Certified Veterinary Sonologist",
+    "languages": ["English", "Bengali", "Hindi"],
+    "specialties": [
+      "Ultrasonic Dental Prophylaxis",
+      "Color Doppler Sonography",
+      "Non-Invasive Oral Surgery",
+      "Digital Radiography Interpretation"
+    ],
     "bio": "Pioneering non-invasive dental procedures, digital ultrasonography, and precision radiology for companion animals.\nPassionate about pain-free oral care and early disease detection.",
+    "longBio": "Dr. Meera Das leads the diagnostics and dental wing at Bastet Hospital. Passionate about preventative oral hygiene and non-invasive imaging, Dr. Das utilizes modern high-frequency sonography and dental radiograms to detect early organ changes and dental resorption before they cause pain or systemic illness.",
     "image": "/images/doctor-placeholder.svg",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "isDummy": true
   }
 ]

@@ -1,45 +1,95 @@
 import React from 'react';
 import { Hero } from '@/components/sections/Hero';
-import { getSiteConfig, getServices } from '@/lib/data';
-import { Stethoscope } from 'lucide-react';
+import { SceneWipe } from '@/components/ui/SceneWipe';
+import { Story } from '@/components/sections/Story';
+import { HillDivider } from '@/components/ui/HillDivider';
+import { EmergencyBand } from '@/components/sections/EmergencyBand';
+import { Services } from '@/components/sections/Services';
+import { Tools } from '@/components/sections/Tools';
+import { Doctors } from '@/components/sections/Doctors';
+import { PetWall } from '@/components/sections/PetWall';
+import { Stats } from '@/components/sections/Stats';
+import { Testimonials } from '@/components/sections/Testimonials';
+import { CrossDivider } from '@/components/ui/CrossDivider';
+import {
+  getSiteConfig,
+  getServices,
+  getStoryPanels,
+  getAnimals,
+  getDoctors,
+  getGalleryItems,
+  getTestimonials,
+  getAgeCalculatorConfig,
+  getSymptomCheckerConfig,
+} from '@/lib/data';
 
 export default function HomePage() {
   const siteConfig = getSiteConfig();
   const services = getServices();
+  const storyPanels = getStoryPanels();
+  const animals = getAnimals();
+  const doctors = getDoctors();
+  const galleryItems = getGalleryItems();
+  const testimonials = getTestimonials();
+  const ageConfig = getAgeCalculatorConfig();
+  const symptomConfig = getSymptomCheckerConfig();
 
   return (
     <main className="flex flex-col items-center justify-center w-full overflow-hidden">
-      {/* Cinematic 3D Hero Section */}
+      {/* 1. Cinematic 3D Hero Section with Floating Badges & Services Marquee */}
       <Hero siteConfig={siteConfig} />
 
-      {/* Services Preview Bar */}
-      <section
-        id="explore-services"
-        className="w-full py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gold/20"
-      >
-        <div className="text-center mb-10">
-          <span className="text-xs uppercase tracking-widest text-gold-dark font-semibold">
-            Comprehensive Canine Care
-          </span>
-          <h2 className="font-display text-3xl text-teal font-bold mt-1">Our Core Services</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.slice(0, 3).map((service) => (
-            <div
-              key={service.id}
-              className="glass-card p-6 flex flex-col justify-between hover:shadow-gold-glow transition-shadow duration-300"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-3 rounded-xl bg-teal text-gold">
-                  <Stethoscope className="w-5 h-5" />
-                </div>
-                <h3 className="font-display font-semibold text-lg text-teal">{service.title}</h3>
-              </div>
-              <p className="text-sm text-ink/80 leading-relaxed">{service.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 2. Hero -> Story Hill Wipe Transition */}
+      <SceneWipe />
+
+      {/* 3. Cinematic Pinned 3D Multi-Scene Scroll Storytelling Section */}
+      <Story panels={storyPanels} />
+
+      {/* 4. Story -> Emergency Curved Transition */}
+      <HillDivider fromColor="olive-deep" toColor="orange-deep" variant="hill" />
+
+      {/* 5. 24x7 Emergency Band with Scroll-Animated ECG Waveform */}
+      <EmergencyBand siteConfig={siteConfig} />
+
+      {/* 6. Emergency -> Services Curved Transition */}
+      <HillDivider fromColor="orange-deep" toColor="cream" variant="concave" />
+
+      {/* 7. Multi-Species Services Section with 4-Column Bento Grid */}
+      <Services animals={animals} services={services} defaultSpecies="dog" />
+
+      {/* Medical Cross Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <CrossDivider variant="cross" />
+      </div>
+
+      {/* 8. Interactive Pet Health & Triage Tools */}
+      <Tools
+        ageConfig={ageConfig}
+        symptomConfig={symptomConfig}
+        siteConfig={siteConfig}
+      />
+
+      {/* Paw Prints Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <CrossDivider variant="paws" />
+      </div>
+
+      {/* 9. Doctors & Medical Faculty Showcase */}
+      <Doctors doctors={doctors} />
+
+      {/* 10. Happy Tails Polaroid Wall (New in R4) */}
+      <PetWall items={galleryItems} />
+
+      {/* 11. Viewport Stats Counters Band with Hill Boundaries */}
+      <Stats stats={siteConfig.stats} />
+
+      {/* 12. Drag Slider Testimonials */}
+      <Testimonials testimonials={testimonials} />
+
+      {/* Bottom Line Divider */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <CrossDivider variant="line" />
+      </div>
     </main>
   );
 }

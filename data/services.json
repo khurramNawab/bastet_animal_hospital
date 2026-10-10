@@ -1,51 +1,121 @@
 [
   {
-    "id": "vaccination",
-    "title": "Preventive Care & Vaccination",
-    "description": "Comprehensive immunization schedules, core vaccines, and seasonal health screenings to protect your pets.",
-    "icon": "ShieldCheck",
-    "animals": ["dog"]
-  },
-  {
-    "id": "surgery",
-    "title": "Advanced Veterinary Surgery",
-    "description": "State-of-the-art sterile surgical suites with dedicated anesthesia monitoring and gentle recovery protocols.",
-    "icon": "Activity",
-    "animals": ["dog"]
-  },
-  {
-    "id": "dental-care",
-    "title": "Dental Prophylaxis & Care",
-    "description": "Ultrasonic scaling, tooth polishing, and specialized oral treatments for fresh breath and healthy gums.",
-    "icon": "Sparkles",
-    "animals": ["dog"]
-  },
-  {
-    "id": "grooming",
-    "title": "Therapeutic & Spa Grooming",
-    "description": "Medicated baths, breed-specific styling, de-shedding, and hygienic clipping by certified pet stylists.",
-    "icon": "Scissors",
-    "animals": ["dog"]
-  },
-  {
     "id": "emergency",
+    "slug": "critical-emergency-care",
     "title": "24x7 Critical & Emergency Care",
     "description": "Round-the-clock emergency triage, trauma care, oxygen support, and intensive monitoring.",
+    "longDescription": "When every second counts, our 24x7 trauma team is on duty with dedicated emergency triage, heated oxygen ICU cages, emergency blood transfusions, and instant point-of-care ultrasound scanning.",
+    "features": [
+      "Instant emergency triage & trauma stabilization",
+      "Continuous oxygen therapy & ICU life support",
+      "Emergency surgery & toxicology management",
+      "24/7 in-house critical care veterinary doctors"
+    ],
+    "duration": "Immediate 24x7",
     "icon": "HeartPulse",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "layout": "feature"
+  },
+  {
+    "id": "vaccination",
+    "slug": "preventive-care-vaccination",
+    "title": "Preventive Care & Vaccination",
+    "description": "Comprehensive immunization schedules, core vaccines, and seasonal health screenings to protect your pets.",
+    "longDescription": "Our preventative medicine protocol combines international vaccination standards with thorough physical examinations. We safeguard your pet against rabies, DHPPi, leptospirosis, and kennel cough with gentle administration and minimal stress.",
+    "features": [
+      "Core & non-core personalized vaccination charts",
+      "Full 12-point physical wellness screening",
+      "Internal & external parasite prevention plans",
+      "Digital vaccination certificates & reminder tracking"
+    ],
+    "duration": "30 - 45 mins",
+    "icon": "ShieldCheck",
+    "animals": ["dog"],
+    "layout": "wide"
   },
   {
     "id": "diagnostics",
+    "slug": "digital-diagnostics-lab",
     "title": "Digital Diagnostics & Lab",
     "description": "High-definition digital X-rays, ultrasonography, and instant in-house blood biochemistry testing.",
+    "longDescription": "Our modern laboratory provides clinical answers in minutes. Equipped with high-frequency digital radiography, color Doppler ultrasonography, automated biochemistry, and hematology analyzers.",
+    "features": [
+      "High-definition low-radiation digital radiography",
+      "Real-time abdominal & cardiac ultrasonography",
+      "Instant CBC & 24-parameter biochemistry panels",
+      "Cytology, urinalysis & infectious disease kits"
+    ],
+    "duration": "15 - 30 mins",
     "icon": "Microscope",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "layout": "wide"
+  },
+  {
+    "id": "surgery",
+    "slug": "advanced-veterinary-surgery",
+    "title": "Advanced Veterinary Surgery",
+    "description": "State-of-the-art sterile surgical suites with dedicated anesthesia monitoring and gentle recovery protocols.",
+    "longDescription": "From routine spay and neuter procedures to complex soft tissue and orthopedic surgeries, our surgical suites feature laminar airflow sterility, precision multiparameter vitals tracking, and dedicated post-operative warming incubators.",
+    "features": [
+      "Sterile positive-pressure operating theatre",
+      "Continuous isoflurane gas anesthesia & vitals tracking",
+      "Orthopedic repair & soft tissue surgical mastery",
+      "Multimodal pain management & supervised recovery"
+    ],
+    "duration": "1 - 3 hours",
+    "icon": "Activity",
+    "animals": ["dog"],
+    "layout": "normal"
+  },
+  {
+    "id": "dental-care",
+    "slug": "dental-prophylaxis-care",
+    "title": "Dental Prophylaxis & Care",
+    "description": "Ultrasonic scaling, tooth polishing, and specialized oral treatments for fresh breath and healthy gums.",
+    "longDescription": "Periodontal disease is the most common condition in adult dogs. Our veterinary dental suite delivers painless ultrasonic subgingival cleaning, enamel polishing, and restorative dental extractions under safe sedation.",
+    "features": [
+      "Ultrasonic supra & sub-gingival scaling",
+      "Fluoride polishing & antibacterial barrier coating",
+      "Digital dental radiography & tooth health scoring",
+      "Painless surgical extractions & gingival therapy"
+    ],
+    "duration": "45 - 60 mins",
+    "icon": "Sparkles",
+    "animals": ["dog"],
+    "layout": "normal"
+  },
+  {
+    "id": "grooming",
+    "slug": "therapeutic-spa-grooming",
+    "title": "Therapeutic & Spa Grooming",
+    "description": "Medicated baths, breed-specific styling, de-shedding, and hygienic clipping by certified pet stylists.",
+    "longDescription": "More than just aesthetics, our medical grooming unit specializes in dermatological soothing baths, hygienic ear flushes, breed-tailored clipping, and full fur de-shedding to prevent fungal dermatitis.",
+    "features": [
+      "Hypoallergenic & medicated therapeutic baths",
+      "Breed-standard scissoring & hygienic clipping",
+      "Gentle ear flushing & paw pad conditioning",
+      "High-velocity de-shedding & blow drying"
+    ],
+    "duration": "60 - 90 mins",
+    "icon": "Scissors",
+    "animals": ["dog"],
+    "layout": "normal"
   },
   {
     "id": "pet-boarding",
+    "slug": "luxury-pet-boarding-daycare",
     "title": "Luxury Pet Boarding & Daycare",
     "description": "Climate-controlled luxury suites, regular exercise sessions, and 24/7 veterinary supervision.",
+    "longDescription": "Provide your pet with a relaxing vacation while you travel. Our luxury suites feature individual climate control, orthopedic bedding, personalized nutritional schedules, and daily veterinary checkups.",
+    "features": [
+      "Private climate-controlled suites & sanitized play zones",
+      "Custom feeding schedules & daily veterinary checkups",
+      "Structured socialization & interactive playtime",
+      "Daily video & photo status updates for pet parents"
+    ],
+    "duration": "Daycare / Overnight",
     "icon": "Home",
-    "animals": ["dog"]
+    "animals": ["dog"],
+    "layout": "normal"
   }
 ]

@@ -60,14 +60,14 @@ export function MagneticButton({
   };
 
   const baseStyles =
-    'relative inline-flex items-center justify-center font-sans font-semibold rounded-2xl transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 outline-none';
+    'relative inline-flex items-center justify-center font-sans font-semibold rounded-full transition-all duration-200 focus-visible:ring-2 focus-visible:ring-orange-deep focus-visible:ring-offset-2 outline-none';
 
   const variantStyles = {
     primary:
-      'bg-gold text-ink shadow-gold-glow hover:bg-gold-light hover:shadow-gold-glow-lg border border-gold/40',
+      'bg-orange text-ink font-bold shadow-warm-glow hover:bg-orange-soft hover:shadow-warm-glow-lg border border-orange/40 active:scale-[0.98]',
     outline:
-      'bg-teal/20 text-teal border border-teal/40 hover:bg-teal hover:text-cream backdrop-blur-sm',
-    ghost: 'bg-transparent text-ink hover:text-teal hover:bg-gold/10',
+      'bg-olive/10 text-olive dark:text-sand border border-olive/40 hover:bg-olive hover:text-cream dark:hover:bg-sand dark:hover:text-ink backdrop-blur-sm active:scale-[0.98]',
+    ghost: 'bg-transparent text-ink dark:text-cream hover:text-orange-deep dark:hover:text-orange hover:bg-orange/10 active:scale-[0.98]',
   };
 
   const content = (

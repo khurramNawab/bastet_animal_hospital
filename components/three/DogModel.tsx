@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useRef, useEffect, useMemo, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import * as THREE from 'three';
@@ -8,11 +8,13 @@ import { SkeletonUtils } from 'three-stdlib';
 
 interface DogModelProps {
   reducedMotion?: boolean;
+  onBoop?: (event: THREE.Intersection) => void;
 }
 
-export function DogModel({ reducedMotion = false }: DogModelProps) {
+export function DogModel({ reducedMotion = false, onBoop }: DogModelProps) {
   const groupRef = useRef<THREE.Group>(null);
   const headBoneRef = useRef<THREE.Bone | null>(null);
+  const [boopTime, setBoopTime] = useState<number | null>(null);
 
   // Load GLTF Model & Animations
   const { scene, animations } = useGLTF('/models/dog.glb');
@@ -21,11 +23,11 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
   const clonedScene = useMemo(() => {
     const clone = SkeletonUtils.clone(scene) as THREE.Group;
 
-    // Enable shadows and proper material shading
+    // Enable shadows and warm material shading without harsh self-shadows on paws
     clone.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         child.castShadow = true;
-        child.receiveShadow = true;
+        child.receiveShadow = false;
       }
     });
 
@@ -36,8 +38,8 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     const center = new THREE.Vector3();
     box.getCenter(center);
 
-    // Scale puppy to a clear, majestic size (~1.6 units height)
-    const scaleFactor = 1.6 / (size.y || 0.31);
+    // Scale puppy prominently (~1.88 units height) for grand hero presence
+    const scaleFactor = 1.88 / (size.y || 0.31);
     clone.scale.setScalar(scaleFactor);
 
     // Recompute box after scaling to center on X/Z and ground on Y=0
@@ -91,16 +93,25 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     };
   }, [actions, names, reducedMotion]);
 
-  // Frame loop for mouse-follow and breathing
+  const handleClick = (e: { stopPropagation: () => void; point: THREE.Vector3 }) => {
+    if (reducedMotion) return;
+    e.stopPropagation();
+    setBoopTime(performance.now());
+    if (onBoop) {
+      onBoop(e as unknown as THREE.Intersection);
+    }
+  };
+
+  // Frame loop for mouse-follow, breathing, and boop spring physics
   useFrame((state, delta) => {
     if (reducedMotion || !groupRef.current) return;
 
     const pointerX = state.pointer.x; // -1 to 1
     const pointerY = state.pointer.y; // -1 to 1
 
-    // Clamp yaw (±25°) and pitch (±12°) in radians
-    const maxYaw = THREE.MathUtils.degToRad(25);
-    const maxPitch = THREE.MathUtils.degToRad(12);
+    // Clamp yaw (±22°) and pitch (±10°) in radians for controlled motion
+    const maxYaw = THREE.MathUtils.degToRad(22);
+    const maxPitch = THREE.MathUtils.degToRad(10);
 
     const targetYaw = THREE.MathUtils.clamp(-pointerX * maxYaw, -maxYaw, maxYaw);
     const targetPitch = THREE.MathUtils.clamp(pointerY * maxPitch, -maxPitch, maxPitch);
@@ -121,21 +132,38 @@ export function DogModel({ reducedMotion = false }: DogModelProps) {
     } else {
       groupRef.current.rotation.y = THREE.MathUtils.damp(
         groupRef.current.rotation.y,
-        -Math.PI / 6 + targetYaw * 0.5,
+        -Math.PI / 7 + targetYaw * 0.5,
         3,
         delta,
       );
     }
 
-    // Breathing sine fallback
-    if (names.length === 0) {
-      const breath = Math.sin(state.clock.elapsedTime * 2) * 0.005;
-      groupRef.current.position.y = breath;
+    // Boop spring squash & bounce
+    if (boopTime) {
+      const elapsed = (performance.now() - boopTime) / 1000;
+      if (elapsed < 0.6) {
+        // Damped spring formula
+        const spring = Math.exp(-elapsed * 6) * Math.sin(elapsed * 25);
+        groupRef.current.scale.y = 1 - spring * 0.12;
+        groupRef.current.scale.x = 1 + spring * 0.08;
+        groupRef.current.scale.z = 1 + spring * 0.08;
+        groupRef.current.position.y = -0.34 + Math.max(0, spring * 0.06);
+      } else {
+        groupRef.current.scale.set(1, 1, 1);
+        groupRef.current.position.y = -0.34;
+        setBoopTime(null);
+      }
     }
   });
 
   return (
-    <group ref={groupRef} position={[0, 0, 0]} rotation={[0, -Math.PI / 6, 0]} dispose={null}>
+    <group
+      ref={groupRef}
+      position={[0, -0.34, 0]}
+      rotation={[0, -Math.PI / 7, 0]}
+      onClick={handleClick}
+      dispose={null}
+    >
       <primitive object={clonedScene} />
     </group>
   );

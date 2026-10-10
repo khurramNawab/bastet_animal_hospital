@@ -28,7 +28,7 @@ export function GoldDust({ reducedMotion = false }: GoldDustProps) {
         scale={[4.5, 3.5, 3.5]}
         size={2.8}
         speed={reducedMotion ? 0 : 0.45}
-        color="#C9A24B"
+        color="#F7DAA7"
         opacity={0.75}
         noise={0.3}
       />

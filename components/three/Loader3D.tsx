@@ -27,18 +27,18 @@ export function Loader3D({ onLoaded }: Loader3DProps) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: 'easeInOut' }}
-          className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-cream/80 backdrop-blur-sm pointer-events-none"
+          className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-cream/80 dark:bg-olive-deep/80 backdrop-blur-sm pointer-events-none"
         >
-          {/* Gold Glowing Ring & Paw Mark */}
+          {/* Orange Glowing Ring & Paw Mark */}
           <div className="relative w-14 h-14 flex items-center justify-center">
-            <div className="absolute inset-0 rounded-full border-2 border-gold/20 border-t-gold animate-spin" />
+            <div className="absolute inset-0 rounded-full border-2 border-orange/20 border-t-orange animate-spin" />
             <svg
               width="24"
               height="24"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="text-gold"
+              className="text-orange"
             >
               <ellipse cx="12" cy="15" rx="4" ry="3.5" fill="currentColor" />
               <circle cx="7" cy="9" r="1.8" fill="currentColor" />
@@ -47,8 +47,8 @@ export function Loader3D({ onLoaded }: Loader3DProps) {
               <circle cx="17" cy="9" r="1.8" fill="currentColor" />
             </svg>
           </div>
-          <span className="mt-3 text-xs font-semibold uppercase tracking-widest text-teal font-sans">
-            Preparing 3D Sanctuary {Math.round(progress)}%
+          <span className="mt-3 text-xs font-semibold uppercase tracking-widest text-olive dark:text-cream font-sans">
+            Preparing 3D Experience {Math.round(progress)}%
           </span>
         </motion.div>
       )}
