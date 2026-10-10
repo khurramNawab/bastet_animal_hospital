@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useLayoutEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect, useCallback } from 'react';
 import { Calendar, PhoneCall, Sparkles } from 'lucide-react';
 import { gsap } from 'gsap';
 import { useCanRender3D } from '@/hooks/useCanRender3D';
@@ -69,6 +69,14 @@ export function Hero({ siteConfig }: HeroProps) {
       setBoopParticles([]);
     }, 850);
   }, [isReducedMotion]);
+
+  // Failsafe entrance timer to guarantee text is never stuck in hidden state
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setModelLoaded(true);
+    }, 350);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Staggered entrance animation & SVG underline drawing
   useLayoutEffect(() => {
